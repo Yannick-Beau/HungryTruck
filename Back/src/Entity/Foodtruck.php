@@ -47,6 +47,11 @@ class Foodtruck
      */
     private $facebook;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Foodtruck
     public function setFacebook(?string $facebook): self
     {
         $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
