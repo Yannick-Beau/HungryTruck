@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -64,6 +66,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer", nullable=true)
      */
     private $siret;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user")
+     */
+    private $truck_id;
+
+    public function __construct()
+    {
+        $this->truck_id = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -222,6 +234,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSiret(?int $siret): self
     {
         $this->siret = $siret;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Foodtruck[]
+     */
+    public function getTruckId(): Collection
+    {
+        return $this->truck_id;
+    }
+
+    public function addTruckId(Foodtruck $truckId): self
+    {
+        if (!$this->truck_id->contains($truckId)) {
+            $this->truck_id[] = $truckId;
+            $truckId->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTruckId(Foodtruck $truckId): self
+    {
+        if ($this->truck_id->removeElement($truckId)) {
+            // set the owning side to null (unless already changed)
+            if ($truckId->getUser() === $this) {
+                $truckId->setUser(null);
+            }
+        }
 
         return $this;
     }
