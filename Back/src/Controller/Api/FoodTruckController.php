@@ -17,7 +17,7 @@ class FoodTruckController extends AbstractController
     {
         $foodtruck = $foodtruckRepository->findAll();
 
-        return $this->json($foodtruck, 200, [], ['groups' => 'foodtruck_get']);
+        return $this->json($foodtruck, Response::HTTP_OK, [], ['groups' => 'foodtruck_get']);
     }
 
     /**
@@ -29,7 +29,7 @@ class FoodTruckController extends AbstractController
     {
         // /!\ JSON Hijacking
         // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
-        return $this->json($Foodtruck, Response::HTTP_OK, []);
+        return $this->json($Foodtruck, Response::HTTP_OK, [], ['groups' => 'foodtruck_get']);
     }
 
 
