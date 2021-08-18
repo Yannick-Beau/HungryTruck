@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\FoodtruckRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FoodtruckRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=FoodtruckRepository::class)
@@ -14,43 +16,56 @@ class Foodtruck
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("foodtruck_get")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("foodtruck_get")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups("foodtruck_get")
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Groups("foodtruck_get")
      */
     private $overview;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("foodtruck_get")
      */
     private $instagram;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("foodtruck_get")
      */
     private $twitter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("foodtruck_get")
      */
     private $facebook;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id")
+     * @Groups("foodtruck_get")
      */
     private $user;
+
+    public function __construct() 
+    { 
+        $this->usser = new ArrayCollection(); 
+    }
 
     public function getId(): ?int
     {

@@ -97,6 +97,7 @@ class AppFixtures extends Fixture
             $FoodTruck->setInstagram("Lien instagram" . $i);
             $FoodTruck->setTwitter("Lien Twitter" . $i);
             $FoodTruck->setFacebook("Lien Facebook" . $i);
+            $FoodTruck->setUser($userPro->getId());
 
             $FoodTruckList[] = $FoodTruck;
 

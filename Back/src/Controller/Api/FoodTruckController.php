@@ -17,7 +17,7 @@ class FoodTruckController extends AbstractController
     {
         $foodtruck = $foodtruckRepository->findAll();
 
-        return $this->json($foodtruck, 200, []);
+        return $this->json($foodtruck, 200, [], ['groups' => 'foodtruck_get']);
     }
 
     /**
