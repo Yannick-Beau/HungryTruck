@@ -1,0 +1,29 @@
+@use 'src/styles/vars';
+
+.header {
+  background-color: orange;
+  .header-nav{
+    display: flex;
+    justify-content: space-between;
+    .header-nav--items{
+      height: 3em;
+      background-color: vars.$LMidDark;
+      margin: 1em;
+      padding: 1em;
+      border-radius: 20px;
+      color: vars.$LLight;
+    }
+
+    .header-nav--logo {
+      background-color: rgba(0,0,0,0);
+      padding: 0;
+      .logo {
+        width: 5em;
+        height: 4em;
+      }
+    }
+    .header-nav-item_active {
+      
+    }
+  }
+}
