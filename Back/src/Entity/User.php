@@ -68,6 +68,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("foodtruck_get")
      */
     private $siret;
 
