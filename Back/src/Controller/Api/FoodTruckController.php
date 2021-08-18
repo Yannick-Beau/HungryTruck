@@ -11,7 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class FoodTruckController extends AbstractController
 {
     /**
-     * @Route("/api/foodtruck", name="api_food_truck", methods="GET")
+     * Get all foodtruck
+     * 
+     * @Route("/api/foodtruck", name="api_foodtruck_truck", methods="GET")
      */
     public function index(FoodtruckRepository $foodtruckRepository): Response
     {
@@ -21,9 +23,9 @@ class FoodTruckController extends AbstractController
     }
 
     /**
-     * Get a movie by id
+     * Get a foodtruck by id
      * 
-     * @Route("/api/foodtruck/{id<\d+>}", name="api_movies_get_item", methods="GET")
+     * @Route("/api/foodtruck/{id<\d+>}", name="api_foodtruck_get_item", methods="GET")
      */
     public function show(Foodtruck $Foodtruck): Response
     {
