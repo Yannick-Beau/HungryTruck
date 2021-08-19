@@ -1,29 +1,30 @@
 @use 'src/styles/vars';
 
 .header {
-  background-color: orange;
   .header-nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .header-nav--items{
-      height: 3em;
-      background-color: vars.$LMidDark;
-      margin: 1em;
-      padding: 1em;
+      display: flex;
+      justify-content: space-around;
+      background-color: rgba(0,0,0,0.8);
       border-radius: 20px;
-      color: vars.$LLight;
+      .header-nav--item {
+        color: vars.$LLight;
+        padding: 1.3em;
+        &:nth-child(2) {
+          border-left: 1px solid vars.$LLight;
+          border-right: 1px solid vars.$LLight;
+        }
+      }
     }
-
     .header-nav--logo {
-      background-color: rgba(0,0,0,0);
-      padding: 0;
       .logo {
         width: 5em;
         height: 4em;
+        margin: 1em;
       }
-    }
-    .header-nav-item_active {
-      
     }
   }
 }

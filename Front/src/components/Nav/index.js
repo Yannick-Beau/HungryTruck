@@ -3,7 +3,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 // == Import components
-import Toggle from './Toggle';
 import IconUser from './IconUser';
 
 // == Import
@@ -48,7 +47,6 @@ const Nav = () => (
           Contact
         </NavLink>
       </div>
-      <Toggle />
       <IconUser />
     </nav>
   </div>
