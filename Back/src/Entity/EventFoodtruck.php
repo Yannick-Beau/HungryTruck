@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 use App\Repository\EventFoodtruckRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=EventFoodtruckRepository::class)
@@ -21,16 +22,19 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("foodtruck_get")
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("foodtruck_get")
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("foodtruck_get")
      */
     private $place;
 

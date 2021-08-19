@@ -65,11 +65,13 @@ class Foodtruck
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks")
+     * @Groups("foodtruck_get")
      */
     private $sell_type_food;
 
     /**
      * @ORM\ManyToMany(targetEntity=EventFoodtruck::class, inversedBy="foodtrucks")
+     * @Groups("foodtruck_get")
      */
     private $event_truck;
 
