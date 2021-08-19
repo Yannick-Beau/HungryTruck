@@ -6,9 +6,13 @@ import './introduction.scss';
 
 // == Composant
 const Introduction = () => (
-  <div className="introduction">
-    Introduction
-  </div>
+  <aside className="introduction">
+    <h2> Bienvenu sur HungryTruck</h2>
+    <p>
+      Ce site vous permettra de visualiser les différents food trucks qui sont autour de chez vous, ainsi que les menus.
+    </p>
+    <p>De quoi vous régaler et dire adieu à votre balance !</p>
+  </aside>
 );
 
 // == Export

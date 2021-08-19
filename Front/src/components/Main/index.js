@@ -10,10 +10,10 @@ import Container from './Container';
 
 // == Composant
 const Main = () => (
-  <div className="main">
+  <main className="main">
     <Introduction />
     <Container />
-  </div>
+  </main>
 );
 
 // == Export

@@ -1,0 +1,6 @@
+@use 'src/styles/vars';
+
+.main {
+  border: double thick white;
+  margin: vars.$gutter /2;
+}
