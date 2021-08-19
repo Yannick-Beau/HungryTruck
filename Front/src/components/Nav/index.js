@@ -13,7 +13,6 @@ import hungryTruckLogo from '../../assets/img/logo.png';
 const Nav = () => (
   <div className="header">
     <nav className="header-nav">
-    <NavLink
       <label className="burger" for="toggle-burger">☰</label>
       <input type="checkbox" id="toggle-burger" />
     <NavLink
