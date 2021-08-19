@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FoodtruckRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FoodtruckRepository::class)
@@ -23,12 +24,15 @@ class Foodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank
      * @Groups("foodtruck_get")
      */
     private $num_tel;
@@ -41,18 +45,21 @@ class Foodtruck
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $instagram;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $twitter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $facebook;

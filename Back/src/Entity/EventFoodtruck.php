@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use App\Repository\EventFoodtruckRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EventFoodtruckRepository::class)
@@ -22,18 +23,24 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      * @Groups("foodtruck_get")
      */
     private $place;

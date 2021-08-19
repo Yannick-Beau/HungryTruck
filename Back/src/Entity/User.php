@@ -9,6 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -26,48 +27,63 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Groups("foodtruck_get")
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Assert\Count(min=1, max=1)
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\NotCompromisedPassword
+     * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(max=100)
      * @Groups("foodtruck_get")
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Type("int") 
+     * @Assert\NotBlank
      */
     private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Type("int")
      * @Groups("foodtruck_get")
      */
     private $siret;
