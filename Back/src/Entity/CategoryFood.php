@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategoryFoodRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,6 +24,16 @@ class CategoryFood
      */
     private $name;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="food_like")
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +47,33 @@ class CategoryFood
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addFoodLike($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeFoodLike($this);
+        }
 
         return $this;
     }
