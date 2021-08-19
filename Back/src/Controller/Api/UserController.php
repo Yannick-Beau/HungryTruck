@@ -18,6 +18,8 @@ class UserController extends AbstractController
      */
     public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator): Response
     {
+
+        
         // On récupère le contenu de la requête (du JSON)
         $jsonContent = $request->getContent();
 
