@@ -29,9 +29,15 @@ class CategoryFood
      */
     private $users;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Foodtruck::class, mappedBy="sell_type_food")
+     */
+    private $foodtrucks;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->foodtrucks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -73,6 +79,33 @@ class CategoryFood
     {
         if ($this->users->removeElement($user)) {
             $user->removeFoodLike($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Foodtruck[]
+     */
+    public function getFoodtrucks(): Collection
+    {
+        return $this->foodtrucks;
+    }
+
+    public function addFoodtruck(Foodtruck $foodtruck): self
+    {
+        if (!$this->foodtrucks->contains($foodtruck)) {
+            $this->foodtrucks[] = $foodtruck;
+            $foodtruck->addSellTypeFood($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFoodtruck(Foodtruck $foodtruck): self
+    {
+        if ($this->foodtrucks->removeElement($foodtruck)) {
+            $foodtruck->removeSellTypeFood($this);
         }
 
         return $this;
