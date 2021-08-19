@@ -68,10 +68,16 @@ class Foodtruck
      */
     private $sell_type_food;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=EventFoodtruck::class, inversedBy="foodtrucks")
+     */
+    private $event_truck;
+
     public function __construct() 
     { 
         $this->usser = new ArrayCollection();
-        $this->sell_type_food = new ArrayCollection(); 
+        $this->sell_type_food = new ArrayCollection();
+        $this->event_truck = new ArrayCollection(); 
     }
 
     public function getId(): ?int
@@ -183,6 +189,30 @@ class Foodtruck
     public function removeSellTypeFood(CategoryFood $sellTypeFood): self
     {
         $this->sell_type_food->removeElement($sellTypeFood);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|EventFoodtruck[]
+     */
+    public function getEventTruck(): Collection
+    {
+        return $this->event_truck;
+    }
+
+    public function addEventTruck(EventFoodtruck $eventTruck): self
+    {
+        if (!$this->event_truck->contains($eventTruck)) {
+            $this->event_truck[] = $eventTruck;
+        }
+
+        return $this;
+    }
+
+    public function removeEventTruck(EventFoodtruck $eventTruck): self
+    {
+        $this->event_truck->removeElement($eventTruck);
 
         return $this;
     }

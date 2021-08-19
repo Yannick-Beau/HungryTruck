@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EventFoodtruckRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class EventFoodtruck
      * @ORM\Column(type="string", length=255)
      */
     private $place;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Foodtruck::class, mappedBy="event_truck")
+     */
+    private $foodtrucks;
+
+    public function __construct()
+    {
+        $this->foodtrucks = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,33 @@ class EventFoodtruck
     public function setPlace(string $place): self
     {
         $this->place = $place;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Foodtruck[]
+     */
+    public function getFoodtrucks(): Collection
+    {
+        return $this->foodtrucks;
+    }
+
+    public function addFoodtruck(Foodtruck $foodtruck): self
+    {
+        if (!$this->foodtrucks->contains($foodtruck)) {
+            $this->foodtrucks[] = $foodtruck;
+            $foodtruck->addEventTruck($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFoodtruck(Foodtruck $foodtruck): self
+    {
+        if ($this->foodtrucks->removeElement($foodtruck)) {
+            $foodtruck->removeEventTruck($this);
+        }
 
         return $this;
     }
