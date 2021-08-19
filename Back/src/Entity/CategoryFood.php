@@ -7,6 +7,7 @@ use App\Repository\CategoryFoodRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryFoodRepository::class)
@@ -22,6 +23,8 @@ class CategoryFood
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank
      * @Groups("foodtruck_get")
      */
     private $name;
