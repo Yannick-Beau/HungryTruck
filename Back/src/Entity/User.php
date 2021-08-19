@@ -77,9 +77,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $truck_id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
+     */
+    private $food_like;
+
     public function __construct()
     {
         $this->truck_id = new ArrayCollection();
+        $this->food_like = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -269,6 +275,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $truckId->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CategoryFood[]
+     */
+    public function getFoodLike(): Collection
+    {
+        return $this->food_like;
+    }
+
+    public function addFoodLike(CategoryFood $foodLike): self
+    {
+        if (!$this->food_like->contains($foodLike)) {
+            $this->food_like[] = $foodLike;
+        }
+
+        return $this;
+    }
+
+    public function removeFoodLike(CategoryFood $foodLike): self
+    {
+        $this->food_like->removeElement($foodLike);
 
         return $this;
     }
