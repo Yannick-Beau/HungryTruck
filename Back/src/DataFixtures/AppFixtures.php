@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
         // On passe en mode SQL ! On cause avec MySQL
         // Désactivation des contraintes FK
         $this->connection->executeQuery('SET foreign_key_checks = 0');
-        // On tronque
+        // On tronque pour reset les auto-increment (id)
         $this->connection->executeQuery('TRUNCATE TABLE foodtruck');
         $this->connection->executeQuery('TRUNCATE TABLE category_food');
         $this->connection->executeQuery('TRUNCATE TABLE faq');
@@ -97,6 +97,7 @@ class AppFixtures extends Fixture
             $FoodTruck->setInstagram("Lien instagram" . $i);
             $FoodTruck->setTwitter("Lien Twitter" . $i);
             $FoodTruck->setFacebook("Lien Facebook" . $i);
+            $FoodTruck->setUser($userPro->getId());
 
             $FoodTruckList[] = $FoodTruck;
 
