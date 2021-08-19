@@ -15,7 +15,7 @@ class FoodTruckController extends AbstractController
      * 
      * @Route("/api/foodtruck", name="api_foodtruck_truck", methods="GET")
      */
-    public function index(FoodtruckRepository $foodtruckRepository): Response
+    public function list(FoodtruckRepository $foodtruckRepository): Response
     {
         $foodtruck = $foodtruckRepository->findAll();
 
