@@ -1,10 +1,10 @@
 @use 'src/styles/vars';
 
 .user {
-  margin: 1em;
+  margin: vars.$gutter;
   .image-user {
-    width: 100px;
-    height: 100px;
+    width: 6.25rem;
+    height: 6.25rem;
     box-shadow: 0px -1px 55px 60px rgba(0,0,0,0.69);
 -webkit-box-shadow: 0px -1px 55px 60px rgba(0,0,0,0.69);
 -moz-box-shadow: 0px -1px 55px 60px rgba(0,0,0,0.69);
@@ -13,38 +13,35 @@
   }
   .ul-user{
     position: fixed;
-    top: 9em;
-    right: 1em;
+    top: vars.$gutter * 9;
+    right: vars.$gutter;
     .li-user {
-      background-color: rgba(0,0,0,0.7);
+      background-color: vars.$DarkOpacity;
       color: vars.$LLight;
-      padding: 1.3em;
+      padding: vars.$gutter;
       text-align: center;
       &:first-child {
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
+        border-top-left-radius: vars.$BorderRadius;
+        border-top-right-radius: vars.$BorderRadius;
       }
       &:not(:last-child) {
         border-bottom: 1px solid vars.$LLight;
       }
       &:last-child {
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: vars.$BorderRadius;
+        border-bottom-right-radius: vars.$BorderRadius;
       }
       &:hover {
         color: vars.$LDark;
         background-color: rgba(vars.$LLight,0.7);
       }
     }
-
   }
-  
 }
 
-@media (max-width: 830px) {
+@media (max-width: 770px) {
   .image-user {
-    background-color: blue;
-    width: 60px;
-    height: 60px;
+    width: 3.75rem !important;
+    height: 3.75rem !important;
   }
 }

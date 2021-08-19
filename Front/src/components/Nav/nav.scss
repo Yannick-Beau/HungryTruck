@@ -17,20 +17,20 @@
     .header-nav--items{
       display: flex;
       justify-content: space-around;
-      border-radius: 20px;
-      background-color: rgba(0,0,0,0.7);
+      border-radius: vars.$BorderRadius;
+      background-color: vars.$DarkOpacity;
       .header-nav--item {
         //background-color: rgba(0,0,0,0.7);
         color: vars.$LLight;
-        padding: 1.3em 3em;
+        padding: vars.$gutter vars.$gutter * 4;
         &:first-child:hover {
-          border-radius: 20px 0 0 20px;
+          border-radius: vars.$BorderRadius 0 0 vars.$BorderRadius;
         }
         &:not(:last-child) {
           border-right: 1px solid vars.$LLight;
         }
         &:last-child:hover {
-          border-radius: 0 20px 20px 0;
+          border-radius: 0 vars.$BorderRadius vars.$BorderRadius 0;
         }
         &:hover {
           color: vars.$LDark;
@@ -40,10 +40,10 @@
       .header-nav--item_active {
         background-color: rgba(0,0,0,1);
         &:first-child {
-          border-radius: 20px 0 0 20px;
+          border-radius: vars.$BorderRadius 0 0 vars.$BorderRadius;
         }
         &:last-child {
-          border-radius: 0 20px 20px 0;
+          border-radius: 0 vars.$BorderRadius vars.$BorderRadius 0;
         }
       }
     }
@@ -51,22 +51,26 @@
     .header-nav--logo {
       .logo {
         width: 10rem;
-        margin: 1em;
+        margin: vars.$gutter;
       }
     }
   }
 }
-
+@media (max-width: 770px) {
+  .logo {
+    width: 7rem !important;
+  }
+}
  
-@media all and (max-width: 819px)
+@media (max-width: 819px)
 {
     .header {
       .burger 
       {
           display: flex;
-          margin: 1em;
-          width: 100px;
-          font-size: 40px;
+          margin: vars.$gutter;
+          width: 6.25rem;
+          font-size: 2.5rem;
           color: vars.$LLight;
           cursor: pointer;
       }
@@ -76,30 +80,30 @@
       flex-direction: column;
       text-align: center;
       position: fixed;
-      top: 9em;
-      left: 1em;
-      border-radius: 20px;
+      top: vars.$gutter * 9;
+      left: vars.$gutter;
+      border-radius: vars.$BorderRadius;
       .header-nav--item {
         display: flex;
-        padding: 1.3em;
+        padding: vars.$gutter / 2;
         &:first-child:hover {
-          border-radius: 20px 20px 0 0!important;
+          border-radius: vars.$BorderRadius vars.$BorderRadius 0 0 !important;
         }
         &:not(:last-child) {
           border-bottom: 1px solid vars.$LLight;
-          border-right: 1px solid rgba(0,0,0,0)!important;
+          border-right: none !important;
         }
         &:last-child:hover {
-          border-radius: 0 0 20px 20px!important;
+          border-radius: 0 0 vars.$BorderRadius vars.$BorderRadius !important;
         }
       }
       .header-nav--item_active {
         background-color: rgba(0,0,0,1);
         &:first-child {
-          border-radius: 20px 20px 0 0!important;
+          border-radius: vars.$BorderRadius vars.$BorderRadius 0 0 !important;
         }
         &:last-child {
-          border-radius: 0 0 20px 20px!important;
+          border-radius: 0 0 vars.$BorderRadius vars.$BorderRadius !important;
         }
       }
     }
