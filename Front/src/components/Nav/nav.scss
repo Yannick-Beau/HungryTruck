@@ -8,21 +8,36 @@
     .header-nav--items{
       display: flex;
       justify-content: space-around;
-      background-color: rgba(0,0,0,0.8);
-      border-radius: 20px;
       .header-nav--item {
+        background-color: rgba(0,0,0,0.7);
         color: vars.$LLight;
-        padding: 1.3em;
+        padding: 1.3em 3em;
+        &:first-child {
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
+        }
         &:nth-child(2) {
           border-left: 1px solid vars.$LLight;
           border-right: 1px solid vars.$LLight;
         }
+        &:last-child {
+          border-top-right-radius: 20px;
+          border-bottom-right-radius: 20px;
+        }
+        &:hover {
+          color: vars.$LDark;
+          background-color: rgba(vars.$LLight,0.7);
+        }
+      }
+      .header-nav--item_active {
+        background-color: rgba(0,0,0,1);
       }
     }
+    
     .header-nav--logo {
       .logo {
-        width: 5em;
-        height: 4em;
+        width: 10em;
+        height: 8em;
         margin: 1em;
       }
     }
