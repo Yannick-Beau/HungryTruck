@@ -7,11 +7,15 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use DateTime;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="It looks like your already have an account!")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -26,48 +30,64 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Groups("foodtruck_get")
+     * @Assert\NotBlank
+     * @Assert\Email
+     * 
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
+     * @Assert\Count(min=1, max=1)
      */
     private $roles = [];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\NotCompromisedPassword
+     * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(max=100)
      * @Groups("foodtruck_get")
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Type("int") 
+     * @Assert\NotBlank
      */
     private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Type("int")
      * @Groups("foodtruck_get")
      */
     private $siret;
@@ -77,9 +97,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $truck_id;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
+     */
+    private $food_like;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function __construct()
     {
+        $this->createdAt = new DateTime();
+        $this->releaseDate = new DateTime();
         $this->truck_id = new ArrayCollection();
+        $this->food_like = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -269,6 +307,54 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $truckId->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CategoryFood[]
+     */
+    public function getFoodLike(): Collection
+    {
+        return $this->food_like;
+    }
+
+    public function addFoodLike(CategoryFood $foodLike): self
+    {
+        if (!$this->food_like->contains($foodLike)) {
+            $this->food_like[] = $foodLike;
+        }
+
+        return $this;
+    }
+
+    public function removeFoodLike(CategoryFood $foodLike): self
+    {
+        $this->food_like->removeElement($foodLike);
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
