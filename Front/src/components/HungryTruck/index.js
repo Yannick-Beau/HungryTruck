@@ -12,7 +12,7 @@ import './styles.scss';
 // == Composant
 const HungryTruck = () => (
   <div className="hungrytruck">
-    <Nav/>
+    <Nav />
     <Footer />
   </div>
 );
