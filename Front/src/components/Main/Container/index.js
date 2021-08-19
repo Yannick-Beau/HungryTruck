@@ -10,11 +10,10 @@ import MapDetails from './MapDetails';
 
 // == Composant
 const Container = () => (
-  <div className="container">
-    Dans le container
+  <section className="container">
     <Map />
     <MapDetails />
-  </div>
+  </section>
 );
 
 // == Export

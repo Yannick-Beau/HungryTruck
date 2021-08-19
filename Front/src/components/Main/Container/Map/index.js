@@ -6,9 +6,9 @@ import './map.scss';
 
 // == Composant
 const Map = () => (
-  <div className="map">
+  <article className="map">
     Map
-  </div>
+  </article>
 );
 
 // == Export
