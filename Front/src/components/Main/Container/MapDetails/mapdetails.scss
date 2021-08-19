@@ -1,10 +1,27 @@
 @use 'src/styles/vars';
 
 .mapdetails {
-  border: 1px dashed rgb(255, 187, 0) ;
-  background-color: rgb(255, 187, 0);
+
+  background-color: rgba(0, 0, 0, 0.7);
+  // color: vars.$LDark;
   width: 50%;
   height: 20rem;
   margin-top: auto;
   margin-bottom: auto;
+
+  .mapdetails-text {
+    margin: vars.$gutter 0 vars.$gutter 10rem;
+
+    .mapdetails-text--title {
+      font-weight: bold;
+      font-size: 2rem;
+      margin: -2.3rem 0 2rem 0;
+      text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    }
+
+    .mapdetails-text--ul {
+      margin-left: 3rem;
+      font-size: 1.5rem;
+    }
+  }
 }
