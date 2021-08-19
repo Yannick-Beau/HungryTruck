@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FoodtruckRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -62,9 +63,15 @@ class Foodtruck
      */
     private $user;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks")
+     */
+    private $sell_type_food;
+
     public function __construct() 
     { 
-        $this->usser = new ArrayCollection(); 
+        $this->usser = new ArrayCollection();
+        $this->sell_type_food = new ArrayCollection(); 
     }
 
     public function getId(): ?int
@@ -152,6 +159,30 @@ class Foodtruck
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|CategoryFood[]
+     */
+    public function getSellTypeFood(): Collection
+    {
+        return $this->sell_type_food;
+    }
+
+    public function addSellTypeFood(CategoryFood $sellTypeFood): self
+    {
+        if (!$this->sell_type_food->contains($sellTypeFood)) {
+            $this->sell_type_food[] = $sellTypeFood;
+        }
+
+        return $this;
+    }
+
+    public function removeSellTypeFood(CategoryFood $sellTypeFood): self
+    {
+        $this->sell_type_food->removeElement($sellTypeFood);
 
         return $this;
     }
