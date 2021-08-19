@@ -28,7 +28,7 @@ class UserController extends AbstractController
         $errors = $validator->validate($user);
 
         // Si la validation rencontre des erreurs
-        // ($errors se comporte comme un tableau et contient un élément par erreur)
+        // ($errors se comporte comme un tableau et contient un élément par erreur )
         if (count($errors) > 0) {
             return $this->json(['errors' => $errors], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
