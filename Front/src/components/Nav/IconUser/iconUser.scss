@@ -1,8 +1,43 @@
-.iconUser {
-  background-color: black;
-  border-radius: 60px;
-  width: 60px;
-  height: 60px;
+@use 'src/styles/vars';
+
+.user {
   margin: 1em;
-  padding: 1em;
+  margin-right: 3em;
+  .image-user {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px -1px 55px 60px rgba(0,0,0,0.69);
+-webkit-box-shadow: 0px -1px 55px 60px rgba(0,0,0,0.69);
+-moz-box-shadow: 0px -1px 55px 60px rgba(0,0,0,0.69);
+    clip-path: circle(50.0% at 50% 50%);
+    
+  }
+  .ul-user{
+    position: fixed;
+    top: 9em;
+    right: 1em;
+    .li-user {
+      background-color: rgba(0,0,0,0.7);
+      color: vars.$LLight;
+      padding: 1.3em;
+      text-align: center;
+      &:first-child {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid vars.$LLight;
+      }
+      &:last-child {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      &:hover {
+        color: vars.$LDark;
+        background-color: rgba(vars.$LLight,0.7);
+      }
+    }
+
+  }
+  
 }

@@ -16,8 +16,7 @@
           border-top-left-radius: 20px;
           border-bottom-left-radius: 20px;
         }
-        &:nth-child(2) {
-          border-left: 1px solid vars.$LLight;
+        &:not(:last-child) {
           border-right: 1px solid vars.$LLight;
         }
         &:last-child {
