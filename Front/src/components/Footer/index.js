@@ -38,7 +38,7 @@ const Footer = () => (
         className="footer-right--CGU"
         to="#"
       >
-        Conditions Générales d'Utilisation
+        CGU
       </Link>
       <Link
         className="footer-right--createAccount"
