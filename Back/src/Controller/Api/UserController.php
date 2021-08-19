@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,11 +30,20 @@ class UserController extends AbstractController
         // On valide l'entité avec le service Validator
         $errors = $validator->validate($user);
 
-        // Si la validation rencontre des erreurs
-        // ($errors se comporte comme un tableau et contient un élément par erreur )
+        // Affichage des erreurs
         if (count($errors) > 0) {
-            return $this->json(['errors' => $errors], Response::HTTP_UNPROCESSABLE_ENTITY);
+
+            $newErrors = [];
+
+            foreach ($errors as $error) {
+ 
+                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
+            }
+
+            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
+
+    
 
         // On persist, on flush
         $entityManager->persist($user);
