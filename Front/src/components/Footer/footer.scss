@@ -3,6 +3,7 @@
 .footer {
   width: 100%;
   bottom: 0;
+  position: fixed;
   display: flex;
   justify-content: space-around;
   padding: vars.$gutter;

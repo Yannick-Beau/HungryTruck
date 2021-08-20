@@ -6,7 +6,7 @@ import Nav from '../Nav';
 import Footer from '../Footer';
 
 // == Import others components
-import LegalMentions from '../Footer/LegalMentions';
+import Main from '../Main';
 
 // == Import
 import './styles.scss';
@@ -15,7 +15,7 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
-    <LegalMentions />
+    <Main />
     <Footer />
   </div>
 );
