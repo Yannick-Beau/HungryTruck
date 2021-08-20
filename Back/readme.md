@@ -18,6 +18,6 @@
 
 |PRO|Endpoint|Méthode HTTP|Description|Retour|
 |-|-|-|-|-|
-|USER|`/api/pro/{id}`|`GET`|Récuperation d'info d'un USER|200 ou 404|
-|USER|`/api/pro/edit/{id}`|`PUT` ou `PATCH`|Editer un User|200 ou 422|
-|USER|`/api/pro/delete/{id}`|`DELETE`|Suppression de Compte|200 ou 404|
+|PRO|`/api/pro/{id}`|`GET`|Récuperation d'info d'un USER|200 ou 404|
+|PRO|`/api/pro/edit/{id}`|`PUT` ou `PATCH`|Editer un User|200 ou 422|
+|PRO|`/api/pro/delete/{id}`|`DELETE`|Suppression de Compte|200 ou 404|
