@@ -24,7 +24,7 @@ class FoodTruckController extends AbstractController
     }
 
     /**
-     * Get all foodtruck for search
+     * Get all foodtruck for search (TODO: Requêtes custom pour recherche)
      * 
      * @Route("/api/foodtruck/search", name="api_foodtruck_truck", methods="GET")
      */
