@@ -1,27 +1,31 @@
 @use 'src/styles/vars';
 
+.search-title {
+  font-weight: bold;
+  font-size: 4rem;
+  text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+  margin: 0 auto -1.5rem 10rem;
+}
+
 .search {
   background-color: vars.$DarkOpacity;
-  position: absolute;
+  // position: absolute;
   width: 90%;
-  margin: 0 5%;
-  
-  .search-title {
-    font-weight: bold;
-    font-size: 4rem;
-    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
-    margin: -2.5rem 1rem auto 6rem;
-  }
+  height: 58vh;
+  margin: auto 5%;
+  padding: 2rem auto;
 
   .search-form {
-    margin: 1rem 1rem 2rem 1rem;
+    margin: 0 1rem 2rem 1rem;
     padding: 0.5rem;
+    padding-top: 3rem;
 
     .search-form--label {
 
       .search-form-inputSubmit {
         display: flex;
         justify-content: center;
+        align-items: center;
 
         .search-form--input {
           padding-left: 1.5rem;
@@ -38,12 +42,14 @@
             font-style: italic;
           }
         }
+
         .search-form--submit {
-          border-radius: 25px 25px 25px 25px;
+          border-radius: 100px 50px 100px 50px;
           border: none;
           background-color: #e69512;
           margin-left: -2rem;
           width: 10rem;
+          height: 4rem;
         }
       }
 
@@ -59,6 +65,7 @@
     box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
     -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
     -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+
     .search-results--title {
       font-weight: bold;
       font-size: 2rem;
@@ -79,24 +86,33 @@
       .result-logo {
         width: 10%;
       }
+
       .result-details {
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin-left: 2rem;
+        
         .result-title {
           font-weight: bold;
           font-size: 1.5rem;
         }
+
         .result-type {
           font-style: italic;
         }
+
         .result-time {
           display: flex;
           flex-direction: column;
         }
       }
-
     }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 750px) {
+  .search-results--title {
+    font-size: 1rem;
   }
 }
