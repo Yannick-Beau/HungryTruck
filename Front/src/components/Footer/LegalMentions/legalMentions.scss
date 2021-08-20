@@ -1,0 +1,46 @@
+@use 'src/styles/vars';
+
+.lm {
+    background-color: vars.$DarkOpacity;
+    width: 90vw;
+    margin: auto;
+    padding: 1rem;
+    text-align: justify;
+  .lm-title {
+    font-size: vars.$mainTitle;
+    font-weight: bold;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    text-align: center;
+    margin: auto auto 2rem auto;
+    .lm-title--title {
+    }
+    .lm-title--link {
+      font-size: 3rem;
+    }
+  }
+  .lm-text {
+    .lm-text--title {
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 0.8rem;
+      font-variant-caps: small-caps;
+    }
+    .lm-text--subtitle {
+      font-weight: bold;
+      margin: 0.5rem;
+      margin-left: 1.5rem;
+      font-size: 1.5rem;
+      font-variant-caps: small-caps;
+    }
+    .lm-text--parahraph {
+      ul {
+        li{
+          list-style: inside;
+          margin: 0.5rem 2rem;
+
+        }
+      }
+
+    }
+  }
+}

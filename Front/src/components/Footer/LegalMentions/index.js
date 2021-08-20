@@ -8,12 +8,15 @@ import './legalMentions.scss';
 // == Composant
 const LegalMentions = () => (
   <section className="lm">
-    <h3 className="lm-title">
-      Mentions Légales
-    </h3>
-    <a href="http://www.hungrytruck.fr" alt="HungryTruck">
-      www.hungrytruck.fr
-    </a>
+    <div className="lm-title">
+      <h3 className="lm-title--title">
+        Mentions Légales
+      </h3>
+      <a href="http://www.hungrytruck.fr" alt="HungryTruck" className="lm-title--link">
+        www.hungrytruck.fr
+      </a>
+    </div>
+
     <article className="lm-text">
       <p className="lm-text--parahraph">
         HungryTruck est soucieux des droits des individus, notamment au regard des traitements automatisés et dans une volonté de transparence avec ses utilisateurs, a mis en place une politique reprenant l'ensemble de ces traitements, des finalités poursuivies par ces derniers ainsi que des moyens d’actions à la disposition des individus afin qu’ils puissent au mieux exercer leurs droits.
@@ -29,10 +32,10 @@ const LegalMentions = () => (
         La version actuellement en ligne de ces conditions d'utilisation est la seule opposable pendant toute la durée d'utilisation du site et jusqu’à ce qu'une nouvelle version la remplace.
       </p>
       <p className="lm-text--title">
-        Article 1 : Mentions légales
+        Mentions légales
       </p>
       <p className="lm-text--subtitle">
-        Site (ci-après «le site») :
+        Site (ci-après « le site ») :
       </p>
       <p className="lm-text--parahraph">
         HungryTruck
