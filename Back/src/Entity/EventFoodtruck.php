@@ -25,7 +25,7 @@ class EventFoodtruck
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $day;
 
@@ -33,7 +33,7 @@ class EventFoodtruck
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $hours;
 
@@ -41,7 +41,7 @@ class EventFoodtruck
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $place;
 

@@ -18,7 +18,7 @@ class Foodtruck
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $id;
 
@@ -26,60 +26,60 @@ class Foodtruck
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $instagram;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $twitter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $facebook;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get"})
      */
     private $user;
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      * 
      */
     private $sell_type_food;
 
     /**
      * @ORM\ManyToMany(targetEntity=EventFoodtruck::class, inversedBy="foodtrucks")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $event_truck;
 
