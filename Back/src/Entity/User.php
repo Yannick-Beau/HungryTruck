@@ -31,6 +31,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Groups({"foodtruck_get","user_get_by_id"})
      * @Assert\NotBlank
      * @Assert\Email
+     * 
      */
     private $email;
 

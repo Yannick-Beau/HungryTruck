@@ -51,6 +51,7 @@ class UserController extends AbstractController
         // On valide l'entité avec le service Validator
         $errors = $validator->validate($user);
 
+
         if (count($errors) > 0) {
             $newErrors = [];
 
@@ -60,9 +61,20 @@ class UserController extends AbstractController
 
             return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
-       
-        
-        
+      
+        // Affichage des erreurs
+        if (count($errors) > 0) {
+
+            $newErrors = [];
+
+            foreach ($errors as $error) {
+ 
+                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
+            }
+
+            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
         // On persist, on flush
         $entityManager->persist($user);
         $entityManager->flush();
