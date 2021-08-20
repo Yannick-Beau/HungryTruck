@@ -24,7 +24,7 @@ const Contact = () => (
             minLength="20"
           />
         </label>
-        <button type="submit">Envoyer mon message</button>
+        <button className="form-button" type="submit">Envoyer mon message</button>
       </form>
     </article>
   </section>
