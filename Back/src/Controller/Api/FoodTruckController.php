@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -73,6 +74,7 @@ class FoodTruckController extends AbstractController
 
         // On désérialise le JSON vers une entité foodtruck
         $foodtruck = $serializer->deserialize($jsonContent, Foodtruck::class, 'json');
+        // on vient ajouter automatiquement user_id donc -> l'user qui add un foodtruck
         $foodtruck->setUser($this->getUser());
         // On valide l'entité avec le service Validator
         $errors = $validator->validate($foodtruck);
@@ -99,5 +101,63 @@ class FoodTruckController extends AbstractController
         return $this->json($foodtruck, Response::HTTP_CREATED,[], ['groups' => 'foodtruck_post']);
     }
 
+     /**
+     * @Route("/api/foodtruck/edit/{id<\d+>}", name="api_foodtruck_edit", methods={"PUT"})
+     * @IsGranted("ROLE_PRO")
+     */
+    public function itemEdit(Foodtruck $foodtruck = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
+    {
+
+        // foodtruck non trouvé
+        if ($foodtruck === null) {
+            return new JsonResponse(
+                ["message" => "Foodtruck non trouvé"],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        $data = $request->getContent();
+
+        $foodtruck = $serializer->deserialize($data, Foodtruck::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $foodtruck]);
+        
+        // On valide l'entité
+        $errors = $validator->validate($foodtruck);
+
+        // Affichage des erreurs
+        if (count($errors) > 0) {
+            $newErrors = [];
+
+            foreach ($errors as $error) {
+                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
+            }
+
+            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        // Enregistrement en BDD
+        $entityManager->flush();
+
+        return new JsonResponse(["message" => "foodtruck modifié"], Response::HTTP_OK);
+    }
+    /**
+     * Delete a Foodtruck
+     * 
+     * @Route("/api/foodtruck/delete/{id<\d+>}", name="api_foodtruck_delete", methods="DELETE")
+     * @IsGranted("ROLE_PRO")
+     */
+    public function delete(Foodtruck $foodtruck = null, EntityManagerInterface $em)
+    {
+        if (null === $foodtruck) {
+
+            $error = 'Cette Foodtruck n\'existe pas';
+
+            return $this->json(['error' => $error], Response::HTTP_NOT_FOUND);
+        }
+        //dd($foodtruck);
+        $em->remove($foodtruck);
+        $em->flush();
+
+        return $this->json(['message' => 'Le Foodtruck a bien été supprimé.'], Response::HTTP_OK);
+    }
 
 }

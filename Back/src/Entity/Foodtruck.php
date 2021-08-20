@@ -67,13 +67,13 @@ class Foodtruck
     private $facebook;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id", cascade={"persist"})
      * @Groups({"foodtruck_get","foodtruck_post"})
      */
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks")
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist", "remove" })
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
      * 
      */

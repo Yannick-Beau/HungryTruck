@@ -46,8 +46,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Assert\NotCompromisedPassword
-     * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/")
+     * 
+     * 
      */
     private $password;
 
@@ -99,7 +99,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $siret;
 
     /**
-     * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user", cascade={"persist", "remove" })
      * @Groups({"pro_get_by_id"})
      */
     private $truck_id;
