@@ -22,13 +22,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      * @Assert\NotBlank
      * @Assert\Email
      * 
@@ -38,6 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\Count(min=1, max=1)
+     * @Groups("user_get_by_id")
      */
     private $roles = [];
 
@@ -53,13 +54,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\Length(max=100)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
+     * @Groups("user_get_by_id")
      */
     private $avatar;
 
@@ -67,6 +69,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer")
      * @Assert\Type("int") 
      * @Assert\NotBlank
+     * @Groups("user_get_by_id")
      */
     private $cp;
 
@@ -74,6 +77,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
+     * @Groups("user_get_by_id")
      */
     private $city;
 
@@ -81,23 +85,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
+     * @Groups("user_get_by_id")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\Type("int")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id"})
      */
     private $siret;
 
     /**
      * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user")
+     * @Groups("user_get_by_id")
      */
     private $truck_id;
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
+     * @Groups("user_get_by_id")
      */
     private $food_like;
 
