@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 // == Import components which always display
 import Nav from '../Nav';
@@ -7,6 +8,8 @@ import Footer from '../Footer';
 
 // == Import others components
 import Main from '../Main';
+import LegalMentions from '../Footer/LegalMentions';
+import Search from '../Search';
 
 // == Import
 import './styles.scss';
@@ -15,7 +18,17 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
-    <Main />
+    <Switch>
+      <Route path="/" exact>
+        <Main />
+      </Route>
+      <Route path="/legal" exact>
+        <LegalMentions />
+      </Route>
+      <Route path="/search" exact>
+        <Search />
+      </Route>
+    </Switch>
     <Footer />
   </div>
 );

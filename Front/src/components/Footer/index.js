@@ -11,7 +11,7 @@ const Footer = () => (
     <div className="footer-left">
       <Link
         className="footer-left--legalMentions"
-        to="#"
+        to="/legal"
       >
         Mentions légales
       </Link>

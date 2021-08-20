@@ -7,7 +7,7 @@ import './map.scss';
 // == Composant
 const Map = () => (
   <article className="map">
-    <img src="../../../assets/img/map.png" />
+    {/* Map */}
   </article>
 );
 
