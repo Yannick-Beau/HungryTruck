@@ -25,7 +25,7 @@ class CategoryFood
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","user_get_by_id"})
+     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post"})
      */
     private $name;
 

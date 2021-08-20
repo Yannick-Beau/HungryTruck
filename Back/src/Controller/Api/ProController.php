@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -18,6 +19,7 @@ class ProController extends AbstractController
 {
     /**
      * @Route("/api/pro/{id<\d+>}", name="api_pro_show")
+     * @IsGranted("ROLE_PRO")
      */
     public function show(User $user = null): Response
     {
@@ -41,6 +43,7 @@ class ProController extends AbstractController
 
     /**
      * @Route("/api/pro/edit/{id<\d+>}", name="api_pro_edit", methods={"PUT", "PATCH"})
+     * @IsGranted("ROLE_PRO")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
@@ -81,6 +84,7 @@ class ProController extends AbstractController
      * Delete a Pro
      * 
      * @Route("/api/pro/delete/{id<\d+>}", name="api_pro_delete", methods="DELETE")
+     * @IsGranted("ROLE_PRO")
      */
     public function delete(User $user = null, EntityManagerInterface $em)
     {
