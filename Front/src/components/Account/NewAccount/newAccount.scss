@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.newaccount {
+  .newaccount-title {
+    font-size: 2rem;
+    font-family: vars.$Krub;
+  }
+  .newaccount-form {
+    display: flex;
+    flex-direction: row;
+    .form-left {
+      .avatar {
+        height: 10rem;
+        width: 8rem;
+      }
+    }
+    .form-right {
+
+    }
+  }
+}
