@@ -7,7 +7,6 @@ import Footer from '../Footer';
 
 // == Import others components
 import Main from '../Main';
-import Search from '../Search';
 
 // == Import
 import './styles.scss';
@@ -16,7 +15,7 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
-    <Search />
+    <Main />
     <Footer />
   </div>
 );
