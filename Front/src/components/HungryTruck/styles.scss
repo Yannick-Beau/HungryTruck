@@ -2,11 +2,12 @@
 
 .hungrytruck {
   width: 100vw;
-  height: 100vh;
+  // height: 100vh;
   background-color: vars.$DarkOpacity;
   background-image: url(../../assets/img/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   color: vars.$LLight;
   font-family: Quicksand;
 }
