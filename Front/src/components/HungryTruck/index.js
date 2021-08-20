@@ -7,6 +7,7 @@ import Footer from '../Footer';
 
 // == Import others components
 import Main from '../Main';
+import NewAccount from '../Account/NewAccount';
 
 // == Import
 import './styles.scss';
@@ -15,7 +16,7 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
-    <Main />
+    <NewAccount />
     <Footer />
   </div>
 );
