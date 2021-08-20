@@ -7,7 +7,7 @@ import './map.scss';
 // == Composant
 const Map = () => (
   <article className="map">
-    Map
+    {/* Map */}
   </article>
 );
 
