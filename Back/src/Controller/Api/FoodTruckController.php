@@ -2,12 +2,19 @@
 
 namespace App\Controller\Api;
 
+use App\Entity\User;
 use App\Entity\Foodtruck;
 use App\Repository\FoodtruckRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class FoodTruckController extends AbstractController
 {
@@ -24,7 +31,7 @@ class FoodTruckController extends AbstractController
     }
 
     /**
-     * Get all foodtruck for search (TODO: Requêtes custom pour recherche)
+     * Get all foodtruck for search 
      * 
      * @Route("/api/foodtruck/search", name="api_foodtruck_truck", methods="GET")
      */
@@ -51,6 +58,45 @@ class FoodTruckController extends AbstractController
         // /!\ JSON Hijacking
         // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
         return $this->json($Foodtruck, Response::HTTP_OK, [], ['groups' => 'foodtruck_get']);
+    }
+
+    /**
+     * @Route("/api/foodtruck/create", name="api_foodtruck_create", methods="POST")
+     * @IsGranted("ROLE_PRO")
+     */
+    public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator): Response
+    {
+
+        
+        // On récupère le contenu de la requête (du JSON)
+        $jsonContent = $request->getContent();
+
+        // On désérialise le JSON vers une entité foodtruck
+        $foodtruck = $serializer->deserialize($jsonContent, Foodtruck::class, 'json');
+        $foodtruck->setUser($this->getUser());
+        // On valide l'entité avec le service Validator
+        $errors = $validator->validate($foodtruck);
+
+
+      
+        // Affichage des erreurs
+        if (count($errors) > 0) {
+
+            $newErrors = [];
+
+            foreach ($errors as $error) {
+ 
+                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
+            }
+
+            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        // On persist, on flush
+        $entityManager->persist($foodtruck);
+        $entityManager->flush();
+
+        return $this->json($foodtruck, Response::HTTP_CREATED,[], ['groups' => 'foodtruck_post']);
     }
 
 

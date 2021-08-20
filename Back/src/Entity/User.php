@@ -22,13 +22,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
      * @Assert\NotBlank
      * @Assert\Email
      * 
@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\Count(min=1, max=1)
-     * @Groups({"user_get_by_id","pro_get_by_id"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post"})
      */
     private $roles = [];
 
@@ -53,14 +53,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100)
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id"})
+     * @Assert\Length(max=100, min=4)
+     * @Assert\NotBlank
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
+     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
      * @Groups({"user_get_by_id","pro_get_by_id"})
      */
     private $avatar;

@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -20,6 +21,7 @@ class UserController extends AbstractController
      * Get a user by id
      *
      * @Route("/api/user/{id<\d+>}", name="api_user_get_item", methods="GET")
+     * @IsGranted("ROLE_USER")
      */
     public function show(User $user = null): Response
     {
@@ -36,6 +38,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/api/user/create", name="api_user_create", methods="POST")
+     * @IsGranted("ROLE_USER")
      */
     public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator, UserPasswordHasherInterface $hasher): Response
     {
@@ -84,6 +87,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/api/user/edit/{id<\d+>}", name="api_user_edit", methods={"PUT", "PATCH"})
+     * @IsGranted("ROLE_USER")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
@@ -100,7 +104,7 @@ class UserController extends AbstractController
         $data = $request->getContent();
 
         $user = $serializer->deserialize($data, User::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $user]);
-
+        
         // On valide l'entité
         $errors = $validator->validate($user);
 
@@ -124,6 +128,7 @@ class UserController extends AbstractController
      * Delete a User
      * 
      * @Route("/api/user/delete/{id<\d+>}", name="api_user_delete", methods="DELETE")
+     * @IsGranted("ROLE_USER")
      */
     public function delete(User $user = null, EntityManagerInterface $em)
     {
