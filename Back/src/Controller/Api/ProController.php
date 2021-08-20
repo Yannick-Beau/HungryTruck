@@ -38,7 +38,7 @@ class ProController extends AbstractController
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
 
-        // Film non trouvé
+        // Pro non trouvé
         if ($user === null) {
             return new JsonResponse(
                 ["message" => "User non trouvé"],
@@ -71,7 +71,7 @@ class ProController extends AbstractController
         return new JsonResponse(["message" => "User modifié"], Response::HTTP_OK);
     }
     /**
-     * Delete a movie
+     * Delete a Pro
      * 
      * @Route("/api/pro/delete/{id<\d+>}", name="api_pro_delete", methods="DELETE")
      */

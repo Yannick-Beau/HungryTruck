@@ -76,7 +76,7 @@ class UserController extends AbstractController
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
 
-        // Film non trouvé
+        // User non trouvé
         if ($user === null) {
             return new JsonResponse(
                 ["message" => "User non trouvé"],
@@ -109,7 +109,7 @@ class UserController extends AbstractController
         return new JsonResponse(["message" => "User modifié"], Response::HTTP_OK);
     }
     /**
-     * Delete a movie
+     * Delete a User
      * 
      * @Route("/api/user/delete/{id<\d+>}", name="api_user_delete", methods="DELETE")
      */
