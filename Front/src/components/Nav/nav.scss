@@ -85,7 +85,7 @@
       border-radius: vars.$BorderRadius;
       .header-nav--item {
         display: flex;
-        padding: vars.$gutter / 2;
+        padding: 0.5rem;
         &:first-child:hover {
           border-radius: vars.$BorderRadius vars.$BorderRadius 0 0 !important;
         }
