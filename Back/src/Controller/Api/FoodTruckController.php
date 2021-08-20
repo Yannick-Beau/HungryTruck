@@ -12,11 +12,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class FoodTruckController extends AbstractController
 {
     /**
-     * Get all foodtruck
+     * Get all foodtruck for listing
      * 
      * @Route("/api/foodtruck", name="api_foodtruck_truck", methods="GET")
      */
     public function list(FoodtruckRepository $foodtruckRepository): Response
+    {
+        $foodtruck = $foodtruckRepository->findAll();
+
+        return $this->json($foodtruck, Response::HTTP_OK, [], ['groups' => 'foodtruck_get']);
+    }
+
+    /**
+     * Get all foodtruck for search
+     * 
+     * @Route("/api/foodtruck/search", name="api_foodtruck_truck", methods="GET")
+     */
+    public function search(FoodtruckRepository $foodtruckRepository): Response
     {
         $foodtruck = $foodtruckRepository->findAll();
 
