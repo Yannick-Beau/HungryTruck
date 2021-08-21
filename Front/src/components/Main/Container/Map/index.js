@@ -13,7 +13,27 @@ import './map.scss';
 // == Composant
 const Map = () => {
   // position coordinates
-  const position = [43.505, -0.09];
+  const position = [49.1749376, -0.33423359999999996];
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  const success = (pos) => {
+    const crd = pos.coords;
+    console.log('Votre position actuelle est :');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude : ${crd.longitude}`);
+    console.log(`La précision est de ${crd.accuracy} mètres.`);
+  };
+
+  function error(err) {
+    console.warn(`ERREUR (${err.code}): ${err.message}`);
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
 
   return (
     <div id="map">
@@ -30,7 +50,7 @@ const Map = () => {
         <Marker position={position}>
           {/* Popup user marker */}
           <Popup>
-            Ici, c'est chez Aodren <br /> Tout le monde est invité !
+            Bienvenu chez Turpinou <br /> Petit apéro ce soir ?
           </Popup>
         </Marker>
       </MapContainer>
