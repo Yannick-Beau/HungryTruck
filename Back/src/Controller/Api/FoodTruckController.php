@@ -153,7 +153,6 @@ class FoodTruckController extends AbstractController
 
             return $this->json(['error' => $error], Response::HTTP_NOT_FOUND);
         }
-        //dd($foodtruck);
         $em->remove($foodtruck);
         $em->flush();
 
