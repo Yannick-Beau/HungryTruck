@@ -4,6 +4,9 @@ import React from 'react';
 // == Import
 import './myaccount.scss';
 
+// == import logo
+import { Facebook, Instagram } from 'react-feather';
+
 // == Composant
 const MyAccount = () => (
   <section className="sectionAccount">
@@ -24,8 +27,16 @@ const MyAccount = () => (
         </div>
         <div className="informations-right">
           <p>Mon adresse mail: turpinou@idefix.fr</p>
-          <p>facebook</p>
-          <p>insta</p>
+          <div className="social">
+            <div className="facebook">
+              <Facebook size="50" color="#e69512" />
+              <p>adresse FB</p>
+            </div>
+            <div className="instagram">
+              <Instagram size="50" color="#e69512" />
+              <p>adresse insta</p>
+            </div>
+          </div>
           <p>Mes plats favoris :</p>
           <ul>
             <li>pizza</li>
