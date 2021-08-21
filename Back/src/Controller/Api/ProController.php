@@ -29,16 +29,15 @@ class ProController extends AbstractController
                 Response::HTTP_NOT_FOUND
             );
         }
-        
-        if($user->getRoles() == ["ROLE_PRO","ROLE_USER"])
-        {
-        // /!\ JSON Hijacking
-        // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
-        return $this->json($user, Response::HTTP_OK, [], ['groups' => 'pro_get_by_id']);
+
+        if ($user->getRoles() == ["ROLE_PRO", "ROLE_USER"]) {
+            // /!\ JSON Hijacking
+            // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
+            return $this->json($user, Response::HTTP_OK, [], ['groups' => 'pro_get_by_id']);
         }
-        
-       
-        return new JsonResponse(["message" => "Pro non trouvée !"], Response::HTTP_NOT_FOUND );
+
+
+        return new JsonResponse(["message" => "Pro non trouvée !"], Response::HTTP_NOT_FOUND);
     }
 
     /**

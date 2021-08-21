@@ -68,7 +68,7 @@ class FoodTruckController extends AbstractController
     public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator): Response
     {
 
-        
+
         // On récupère le contenu de la requête (du JSON)
         $jsonContent = $request->getContent();
 
@@ -80,14 +80,14 @@ class FoodTruckController extends AbstractController
         $errors = $validator->validate($foodtruck);
 
 
-      
+
         // Affichage des erreurs
         if (count($errors) > 0) {
 
             $newErrors = [];
 
             foreach ($errors as $error) {
- 
+
                 $newErrors[$error->getPropertyPath()][] = $error->getMessage();
             }
 
@@ -98,10 +98,10 @@ class FoodTruckController extends AbstractController
         $entityManager->persist($foodtruck);
         $entityManager->flush();
 
-        return $this->json($foodtruck, Response::HTTP_CREATED,[], ['groups' => 'foodtruck_post']);
+        return $this->json($foodtruck, Response::HTTP_CREATED, [], ['groups' => 'foodtruck_post']);
     }
 
-     /**
+    /**
      * @Route("/api/foodtruck/edit/{id<\d+>}", name="api_foodtruck_edit", methods={"PUT"})
      * @IsGranted("ROLE_PRO")
      */
@@ -119,7 +119,7 @@ class FoodTruckController extends AbstractController
         $data = $request->getContent();
 
         $foodtruck = $serializer->deserialize($data, Foodtruck::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $foodtruck]);
-        
+
         // On valide l'entité
         $errors = $validator->validate($foodtruck);
 
@@ -158,5 +158,4 @@ class FoodTruckController extends AbstractController
 
         return $this->json(['message' => 'Le Foodtruck a bien été supprimé.'], Response::HTTP_OK);
     }
-
 }
