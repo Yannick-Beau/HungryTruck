@@ -21,7 +21,7 @@ class FaqController extends AbstractController
 
         return $this->json($faq, Response::HTTP_OK, []);
     }
-    
+
     /**
      * Get a faq question by id
      * 
@@ -36,7 +36,7 @@ class FaqController extends AbstractController
                 Response::HTTP_NOT_FOUND
             );
         }
-        
+
         // /!\ JSON Hijacking
         // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
         return $this->json($Faq, Response::HTTP_OK, []);

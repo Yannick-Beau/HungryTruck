@@ -43,13 +43,13 @@ class UserController extends AbstractController
     public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator, UserPasswordHasherInterface $hasher): Response
     {
 
-        
+
         // On récupère le contenu de la requête (du JSON)
         $jsonContent = $request->getContent();
 
         // On désérialise le JSON vers une entité User
         $user = $serializer->deserialize($jsonContent, User::class, 'json');
-        $user->setPassword($hasher->hashPassword($user,$user->getPassword()));
+        $user->setPassword($hasher->hashPassword($user, $user->getPassword()));
 
         // On valide l'entité avec le service Validator
         $errors = $validator->validate($user);
@@ -64,14 +64,14 @@ class UserController extends AbstractController
 
             return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
-      
+
         // Affichage des erreurs
         if (count($errors) > 0) {
 
             $newErrors = [];
 
             foreach ($errors as $error) {
- 
+
                 $newErrors[$error->getPropertyPath()][] = $error->getMessage();
             }
 
@@ -104,7 +104,7 @@ class UserController extends AbstractController
         $data = $request->getContent();
 
         $user = $serializer->deserialize($data, User::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $user]);
-        
+
         // On valide l'entité
         $errors = $validator->validate($user);
 

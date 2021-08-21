@@ -85,11 +85,11 @@ class Foodtruck
      */
     private $event_truck;
 
-    public function __construct() 
-    { 
+    public function __construct()
+    {
         $this->user = new ArrayCollection();
         $this->sell_type_food = new ArrayCollection();
-        $this->event_truck = new ArrayCollection(); 
+        $this->event_truck = new ArrayCollection();
     }
 
     public function getId(): ?int
