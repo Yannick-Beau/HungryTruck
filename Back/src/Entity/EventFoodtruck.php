@@ -23,24 +23,21 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255,min=4)
+     * @Assert\Length(max=255)
      * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255,min=4)
+     * @Assert\Length(max=255)
      * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255,min=4)
+     * @Assert\Length(max=255)
      * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $place;
