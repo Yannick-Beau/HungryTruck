@@ -24,8 +24,10 @@ const NewAccount = () => (
       <div className="form-right">
         <label className="switch-form" htmlFor="pro">
           <h2>Vous êtes professionnel</h2>
-          <input type="checkbox" name="pro" className="switch" />
-          <span className="slider round" />
+          <label className="switch">
+            <input type="checkbox" name="pro" />
+            <span className="slider rounded" />
+          </label>
         </label>
         <h2>Vos informations personnelles</h2>
         <p className="fields-legend"><span>* Champ obligatoire</span></p>
@@ -90,7 +92,7 @@ const NewAccount = () => (
                   </div>
                 </label>
               </div>
-              { true
+              { false
               && (
               <div className="field">
                 <label className="field-label" htmlFor="siret">Saisissez votre n° de SIRET
@@ -106,12 +108,16 @@ const NewAccount = () => (
               <h2>Choissier vos nourritures favorites</h2>
               <div className="field-check">
                 <label className="field-label" htmlFor="pizza">Pizza
-                  <input type="checkbox" name="pizza" className="switch" />
-                  <span className="slider round" />
+                <label className="switch">
+                    <input type="checkbox" name="pizza" />
+                    <span className="slider rounded" />
+                  </label>
                 </label>
                 <label className="field-label" htmlFor="burger">Burger
-                  <input type="checkbox" name="burger" className="switch" />
-                  <span className="slider round" />
+                  <label className="switch">
+                    <input type="checkbox" name="burger" />
+                    <span className="slider rounded" />
+                  </label>
                 </label>
               </div>
             </div>
