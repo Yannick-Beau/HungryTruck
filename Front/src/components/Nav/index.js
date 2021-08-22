@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Search from '../Search';
 
 // == Import components
 import IconUser from './IconUser';
@@ -13,13 +14,16 @@ import hungryTruckLogo from '../../assets/img/logo.png';
 const Nav = () => (
   <div className="header">
     <nav className="header-nav">
-    <NavLink
+      <label className="burger" htmlFor="toggle-burger">☰
+        <input type="checkbox" id="toggle-burger" />
+      </label>
+      <NavLink
         to="/"
         className="header-nav--logo"
         activeClassName="header-nav--item_active"
         exact
       >
-        <img className="logo" src={hungryTruckLogo} alt="logo hungry truck"/>
+        <img className="logo" src={hungryTruckLogo} alt="logo hungry truck" />
       </NavLink>
       <div className="header-nav--items">
         <NavLink
@@ -31,7 +35,7 @@ const Nav = () => (
           Accueil
         </NavLink>
         <NavLink
-          to="/recherche"
+          to="/search"
           className="header-nav--item"
           activeClassName="header-nav--item_active"
           exact
