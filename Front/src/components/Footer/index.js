@@ -48,7 +48,7 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-right--FAQ"
-        to="#"
+        to="/Faq"
       >
         FAQ
       </Link>
