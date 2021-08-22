@@ -33,6 +33,7 @@ const HungryTruck = () => (
       </Route>
       <Route path="/my-account" exact>
         <MyAccount />
+      </Route>
       <Route path="/faq" exact>
         <Faq />
       </Route>
