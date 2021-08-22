@@ -28,7 +28,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      * @Assert\NotBlank
      * @Assert\Email
      * 
@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\Count(min=1, max=1)
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $roles = [];
 
@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\NotBlank
      * @Assert\NotCompromisedPassword
      * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/")
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $pseudo;
 
@@ -65,7 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"user_get_by_id","pro_get_by_id"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $avatar;
 
@@ -73,7 +73,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer")
      * @Assert\Type("int") 
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $cp;
 
@@ -81,7 +81,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $city;
 
@@ -89,14 +89,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\Type("int")
-     * @Groups({"foodtruck_get","pro_get_by_id"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $siret;
 
@@ -108,7 +108,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
-     * @Groups("user_get_by_id")
+     * @Groups("user_get_by_id","foodtruckevent_post")
      */
     private $food_like;
 

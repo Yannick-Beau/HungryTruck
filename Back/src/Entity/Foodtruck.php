@@ -26,27 +26,27 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      * @Assert\Length(max=255,min=2)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $instagram;
 
@@ -54,7 +54,7 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $twitter;
 
@@ -62,19 +62,19 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $facebook;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id", cascade={"persist"})
-     * @Groups({"foodtruck_get","foodtruck_post"})
+     * @Groups({"foodtruck_get","foodtruck_post","foodtruckevent_post"})
      */
     private $user;
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist", "remove" })
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      * 
      */
     private $sell_type_food;
@@ -84,6 +84,7 @@ class Foodtruck
      * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $event_truck;
+
 
     public function __construct()
     {

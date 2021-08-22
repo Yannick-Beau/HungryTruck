@@ -23,32 +23,32 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255,min=4)
-     * @Groups({"foodtruck_get","pro_get_by_id"})
+     * @Assert\Length(max=255)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255,min=4)
-     * @Groups({"foodtruck_get","pro_get_by_id"})
+     * @Assert\Length(max=255)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255,min=4)
-     * @Groups({"foodtruck_get","pro_get_by_id"})
+     * @Assert\Length(max=255)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $place;
 
     /**
      * @ORM\ManyToMany(targetEntity=Foodtruck::class, mappedBy="event_truck")
+     * @Groups({"foodtruckevent_post"})
      */
     private $foodtrucks;
+
+
 
     public function __construct()
     {
