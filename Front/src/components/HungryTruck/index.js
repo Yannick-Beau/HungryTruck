@@ -11,6 +11,7 @@ import Main from '../Main';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
 import NotFound from '../NotFound';
+import MyAccount from '../MyAccount';
 import Faq from '../Footer/FAQ';
 
 // == Import
@@ -30,6 +31,8 @@ const HungryTruck = () => (
       <Route path="/search" exact>
         <Search />
       </Route>
+      <Route path="/my-account" exact>
+        <MyAccount />
       <Route path="/faq" exact>
         <Faq />
       </Route>

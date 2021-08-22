@@ -1,0 +1,124 @@
+@use 'src/styles/vars';
+
+.sectionAccount {
+  margin: 2rem;
+  .myAccount {
+    font-weight: bold;
+    font-size: 4rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: -1rem auto -1.5rem 30rem;
+  }
+    .myaccount-picture {
+      margin-left: 9rem;
+      margin-top: -4rem;
+    }
+    .account {
+      background-color: vars.$DarkOpacity;
+      padding: 2rem;
+      width: 70vw;
+      height: 60vh;
+      margin: -18rem auto auto;
+
+      .account-informations {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80%;
+        margin: auto auto 2rem 10rem;
+        font-size: 1.8rem;
+
+        .informations-left {
+          border-right: vars.$Yellow solid 1px;
+          padding-right: 5rem;
+
+          p {
+            margin: 0.7rem auto;
+          }
+        }
+        .informations-right {
+          p {
+            margin: 0.9rem auto;
+          }
+          .social {
+            display: flex;
+            justify-content: space-around;
+
+            .facebook {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              p {
+                font-size: 1.2rem;
+              }
+            }
+            .instagram {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+
+              p {
+                font-size: 1.2rem;
+              }
+            }
+          }
+          ul {
+            display: flex;
+            justify-content: space-around;
+          }
+        }
+      }
+
+      .account-button {
+        display: flex;
+        justify-content: space-around;
+
+        .button-edit {
+          width: 30%;
+          height: 3rem;
+          border: #e69512 solid 4px;
+          border-radius: 25px;
+          background-color: transparent;
+          color: vars.$LLight;
+          font-size: 1rem;
+  
+          &:hover {
+            background-color: #e69512;
+            color: vars.$DarkOpacity;
+          }
+        }
+
+        .button-back {
+
+          width: 30%;
+          height: 3rem;
+          border: #e69512 solid 4px;
+          border-radius: 25px;
+          background-color: vars.$Yellow;
+          color: vars.$DarkOpacity;
+          font-size: 1rem;
+  
+          &:hover {
+            background-color: transparent;
+            color: vars.$LLight;
+          }
+        }
+      }
+    }
+}
+
+      // button {
+      //   margin: 0 35%;
+      //   width: 30%;
+      //   height: 3rem;
+      //   border: #e69512 solid 4px;
+      //   border-radius: 25px;
+      //   background-color: transparent;
+      //   color: vars.$LLight;
+      //   font-size: 1rem;
+
+      //   &:hover {
+      //     background-color: #e69512;
+      //     color: vars.$DarkOpacity;
+      //   }
+      // }
