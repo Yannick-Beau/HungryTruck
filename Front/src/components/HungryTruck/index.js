@@ -13,6 +13,7 @@ import Search from '../Search';
 import NotFound from '../NotFound';
 import MyAccount from '../MyAccount';
 import Faq from '../Footer/FAQ';
+import Contact from '../Contact';
 
 // == Import
 import './styles.scss';
@@ -36,6 +37,9 @@ const HungryTruck = () => (
       </Route>
       <Route path="/faq" exact>
         <Faq />
+      </Route>
+      <Route path="/contact" exact>
+        <Contact />
       </Route>
       <Route>
         <NotFound />

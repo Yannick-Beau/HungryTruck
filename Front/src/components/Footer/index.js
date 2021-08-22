@@ -23,7 +23,7 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-left--contact"
-        to="#"
+        to="/contact"
       >
         Contact
       </Link>
