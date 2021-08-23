@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\FaqRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FaqRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -32,6 +33,22 @@ class Faq
      */
     private $reponse;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,6 +74,30 @@ class Faq
     public function setReponse(string $reponse): self
     {
         $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
