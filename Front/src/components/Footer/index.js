@@ -42,7 +42,7 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-right--createAccount"
-        to="#"
+        to="/new-account"
       >
         Créer votre compte
       </Link>
