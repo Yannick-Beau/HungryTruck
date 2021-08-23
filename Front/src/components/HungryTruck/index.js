@@ -12,7 +12,7 @@ import Main from '../Main';
 import NewAccount from '../Account/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
-import AddSlot from '../AddSlot';
+import DeleteAccount from '../Account/DeleteAccount';
 import NotFound from '../NotFound';
 import MyAccount from '../MyAccount';
 import Faq from '../Footer/FAQ';
@@ -25,6 +25,7 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
+    <DeleteAccount />
     <Switch>
       <Route path="/" exact>
         <Main />
