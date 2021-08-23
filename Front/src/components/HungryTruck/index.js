@@ -8,12 +8,15 @@ import Footer from '../Footer';
 
 // == Import others components
 import Main from '../Main';
+
+import NewAccount from '../Account/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
 import NotFound from '../NotFound';
 import MyAccount from '../MyAccount';
 import Faq from '../Footer/FAQ';
 import Contact from '../Contact';
+
 
 // == Import
 import './styles.scss';
