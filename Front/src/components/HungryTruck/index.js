@@ -12,8 +12,8 @@ import Main from '../Main';
 import NewAccount from '../Account/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
-import DeleteAccount from '../Account/DeleteAccount';
 import NotFound from '../NotFound';
+import LogIn from '../Account/LogIn';
 import MyAccount from '../MyAccount';
 import Faq from '../Footer/FAQ';
 import Contact from '../Contact';
@@ -25,10 +25,12 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
-    <DeleteAccount />
     <Switch>
       <Route path="/" exact>
         <Main />
+      </Route>
+      <Route path="/login" exact>
+        <LogIn />
       </Route>
       <Route path="/new-account" exact>
         <NewAccount />

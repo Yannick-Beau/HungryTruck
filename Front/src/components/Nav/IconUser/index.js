@@ -13,27 +13,15 @@ const IconUser = () => (
     { true
     && (
     <ul className="ul-user">
-      <li className="li-user">
-        <Link
-          to="/my-account"
-        >
-          Mon compte
-        </Link>
-      </li>
-      <li className="li-user">
-        <Link
-          to="/new-account"
-        >
-          Créer un compte
-        </Link>
-      </li>
-      <li className="li-user">
-        <Link
-          to="#"
-        >
-          connexion
-        </Link>
-      </li>
+      <Link className="li-user" to="/my-account">
+        Mon compte
+      </Link>
+      <Link className="li-user" to="/new-account">
+        Créer un compte
+      </Link>
+      <Link className="li-user" to="/login">
+        connexion
+      </Link>
     </ul>
     )}
   </div>
