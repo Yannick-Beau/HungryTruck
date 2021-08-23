@@ -73,50 +73,23 @@
         display: flex;
         justify-content: space-around;
 
-        .button-edit {
-          width: 30%;
-          height: 3rem;
-          border: #e69512 solid 4px;
-          border-radius: 25px;
-          background-color: transparent;
-          color: vars.$LLight;
-          font-size: 1rem;
-  
-          &:hover {
-            background-color: #e69512;
-            color: vars.$DarkOpacity;
-          }
-        }
+        .button-Link {
 
-        .button-back {
-          width: 30%;
-          height: 3rem;
-          border: #e69512 solid 4px;
-          border-radius: 25px;
-          background-color: vars.$Yellow;
-          color: vars.$DarkOpacity;
-          font-size: 1rem;
-          &:hover {
-            background-color: transparent;
-            color: vars.$LLight;
-          }
+            .button-linkto {
+              width: 15rem;
+              height: 3rem;
+              border: #e69512 solid 4px;
+              border-radius: 25px;
+              font-size: 1rem;
+              background-color: transparent;
+              color: vars.$LLight;
+
+              &:hover {
+                background-color: vars.$Yellow;
+                color: vars.$DarkOpacity;
+              }
+            }
         }
       }
     }
 }
-
-      // button {
-      //   margin: 0 35%;
-      //   width: 30%;
-      //   height: 3rem;
-      //   border: #e69512 solid 4px;
-      //   border-radius: 25px;
-      //   background-color: transparent;
-      //   color: vars.$LLight;
-      //   font-size: 1rem;
-
-      //   &:hover {
-      //     background-color: #e69512;
-      //     color: vars.$DarkOpacity;
-      //   }
-      // }

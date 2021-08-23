@@ -46,12 +46,21 @@ const MyAccount = () => (
         </div>
       </div>
       <div className="account-button">
-        <button type="button" className="button-edit">
-          Editer mes informations
-        </button>
-        <button type="button" className="button-back">
-          Retour au menu principal
-        </button>
+        <Link to="/" className="button-Link">
+          <button type="button" className="button-linkto">
+            Editer mes informations
+          </button>
+        </Link>
+        <Link to="/" className="button-Link">
+          <button type="button" className="button-linkto">
+            Voir mes Foodtrucks
+          </button>
+        </Link>
+        <Link to="/" className="button-Link">
+          <button type="button" className="button-linkto">
+            Retour au menu principal
+          </button>
+        </Link>
       </div>
     </article>
 
