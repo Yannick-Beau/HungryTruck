@@ -15,6 +15,7 @@ import Search from '../Search';
 import AddSlot from '../AddSlot';
 import NotFound from '../NotFound';
 import MyAccount from '../MyAccount';
+import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import Faq from '../Footer/FAQ';
 import Contact from '../Contact';
 
@@ -40,6 +41,9 @@ const HungryTruck = () => (
       </Route>
       <Route path="/my-account" exact>
         <MyAccount />
+      </Route>
+      <Route path="/my-account/my-foodtruck" exact>
+        <MyFoodTruck />
       </Route>
       <Route path="/faq" exact>
         <Faq />
