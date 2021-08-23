@@ -75,20 +75,34 @@
 
         .button-Link {
 
-            .button-linkto {
-              width: 15rem;
-              height: 3rem;
-              border: #e69512 solid 4px;
-              border-radius: 25px;
-              font-size: 1rem;
-              background-color: transparent;
-              color: vars.$LLight;
+          .button-linkto {
+            width: 15rem;
+            height: 3rem;
+            border: #e69512 solid 4px;
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: transparent;
+            color: vars.$LLight;
 
-              &:hover {
-                background-color: vars.$Yellow;
-                color: vars.$DarkOpacity;
-              }
+            &:hover {
+              background-color: vars.$Yellow;
+              color: vars.$DarkOpacity;
             }
+          }
+          .button-del {
+            width: 15rem;
+            height: 3rem;
+            border: #e61212 solid 4px;
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: transparent;
+            color: vars.$LLight;
+
+            &:hover {
+              background-color: #e61212;
+              // color: vars.$DarkOpacity;
+            }
+          }
         }
       }
     }

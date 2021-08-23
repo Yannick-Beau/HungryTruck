@@ -47,11 +47,16 @@ const MyAccount = () => (
       </div>
       <div className="account-button">
         <Link to="/" className="button-Link">
+          <button type="button" className="button-del">
+            Supprimer mon compte
+          </button>
+        </Link>
+        <Link to="/" className="button-Link">
           <button type="button" className="button-linkto">
             Editer mes informations
           </button>
         </Link>
-        <Link to="/" className="button-Link">
+        <Link to="/my-account/my-foodtruck" className="button-Link" exact>
           <button type="button" className="button-linkto">
             Voir mes Foodtrucks
           </button>
