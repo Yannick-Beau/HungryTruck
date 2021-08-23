@@ -9,6 +9,7 @@ use App\Entity\CategoryFood;
 use Doctrine\DBAL\Connection;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use App\DataFixtures\Provider\FoodTruckDbProvider;
 
 class AppFixtures extends Fixture
 {
@@ -37,8 +38,9 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        print('Truncate Tables ...' . PHP_EOL);
 
+        print('Truncate Tables ...' . PHP_EOL);
+        $data = new FoodTruckDbProvider();
         $this->truncate();
         print('END | Truncate Tables| ' . PHP_EOL);
 
@@ -69,6 +71,19 @@ class AppFixtures extends Fixture
 
         $manager->persist($userPro);
 
+        print('ROLE_PRO' . PHP_EOL);
+        $userPro2 = new User();
+        $userPro2->setEmail('pro2@pro.com');
+        $userPro2->setPassword('$2y$13$Ww7ZU3RC1xfiSJeljDoxM.uUWaPCeSc7ljXdthMDwbCGXwoNM/od6');
+        $userPro2->setPseudo("ProDiduche2");
+        $userPro2->setCp(38290);
+        $userPro2->setCity("Artas");
+        $userPro2->setAdresse("8 rue ouaiouai");
+        $userPro2->setSiret(4534534435534);
+        $userPro2->setRoles(['ROLE_PRO']);
+
+        $manager->persist($userPro2);
+
         print('ROLE_ADMIN' . PHP_EOL);
         $admin = new User();
         $admin->setEmail('admin@admin.com');
@@ -88,18 +103,38 @@ class AppFixtures extends Fixture
 
         $FoodTruckList = [];
 
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
 
             $FoodTruck = new Foodtruck();
-            $FoodTruck->setName('FoodTruck' . $i);
-            $FoodTruck->setNumTel("0608255066");
-            $FoodTruck->setOverview("Petite Présentation blabla" . $i);
+            $FoodTruck->setName($data->foodtruckName());
+            $FoodTruck->setNumTel($data->numtel());
+            $FoodTruck->setOverview($data->overview());
             $FoodTruck->setInstagram("Lien instagram" . $i);
             $FoodTruck->setTwitter("Lien Twitter" . $i);
             $FoodTruck->setFacebook("Lien Facebook" . $i);
-            $FoodTruck->setUser($userPro->getId());
+            $FoodTruck->setUser($userPro);
+
 
             $FoodTruckList[] = $FoodTruck;
+
+            $manager->persist($FoodTruck);
+        }
+
+        $FoodTruckList1 = [];
+
+        for ($i = 1; $i <= 10; $i++) {
+
+            $FoodTruck = new Foodtruck();
+            $FoodTruck->setName($data->foodtruckName());
+            $FoodTruck->setNumTel($data->numtel());
+            $FoodTruck->setOverview($data->overview());
+            $FoodTruck->setInstagram("Lien instagram" . $i);
+            $FoodTruck->setTwitter("Lien Twitter" . $i);
+            $FoodTruck->setFacebook("Lien Facebook" . $i);
+            $FoodTruck->setUser($userPro2);
+
+
+            $FoodTruckList1[] = $FoodTruck;
 
             $manager->persist($FoodTruck);
         }
@@ -109,7 +144,7 @@ class AppFixtures extends Fixture
         for ($i = 1; $i <= 20; $i++) {
 
             $CategoriesFood = new CategoryFood();
-            $CategoriesFood->setName('Food' . $i);
+            $CategoriesFood->setName($data->food());
 
             $CategoriesFoodList[] = $CategoriesFood;
 
