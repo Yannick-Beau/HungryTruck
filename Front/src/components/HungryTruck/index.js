@@ -29,6 +29,9 @@ const HungryTruck = () => (
       <Route path="/" exact>
         <Main />
       </Route>
+      <Route path="/new-account" exact>
+        <NewAccount />
+      </Route>
       <Route path="/legal" exact>
         <LegalMentions />
       </Route>
