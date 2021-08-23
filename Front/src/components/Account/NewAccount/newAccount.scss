@@ -1,14 +1,14 @@
 @use 'src/styles/vars';
 
 .newaccount {
-  width: 80%;
+  width: 70vw;
   margin: vars.$gutter auto;
   margin-bottom: 7rem;
   bottom: 0;
 
   .newaccount-title {
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 3rem;
     text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
     margin: 0 auto -1.5rem 20rem;
     font-family: vars.$Krub;
@@ -64,6 +64,20 @@
         margin: vars.$gutter;
         font-weight: bold;
         font-family: vars.$Krub;
+      }
+
+      .field-label {
+        display: flex;
+        flex-direction: column;
+        margin: vars.$gutter;
+        font-style: italic;
+      
+        span {
+          color: #e69512;
+          margin: -0.2rem auto auto 0.4rem;
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
       }
 
       .fields-legend {
@@ -193,3 +207,16 @@
   }
   
 }
+
+// @media (max-width: 1500px)
+// {
+//   .fields {
+//     flex-direction: column;
+//   }
+//   .fields-left {
+//     border: none !important;
+//   }
+//   .form-right {
+//     width: 100%;
+//   }
+// }

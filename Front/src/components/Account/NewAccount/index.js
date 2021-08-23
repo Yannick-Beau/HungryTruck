@@ -8,7 +8,7 @@ import './newAccount.scss';
 // == Composant
 const NewAccount = () => (
   <main className="newaccount">
-    <h1 className="newaccount-title">Créer votre compte [utilisateur] [pro] </h1>
+    <h1 className="newaccount-title">Créer votre compte utilisateur</h1>
     <form className="newaccount-form">
       <div className="form-left">
         <img className="avatar" src={avatar} alt="Avatar" />
@@ -22,8 +22,8 @@ const NewAccount = () => (
         </label>
       </div>
       <div className="form-right">
-        <label className="switch-form" htmlFor="pro">
-          <h2>Vous êtes professionnel</h2>
+        <h2>Vous êtes professionnel</h2>
+        <label className="field-label" htmlFor="pro">
           <label className="switch">
             <input type="checkbox" name="pro" />
             <span className="slider rounded" />
@@ -92,7 +92,7 @@ const NewAccount = () => (
                   </div>
                 </label>
               </div>
-              { false
+              { true
               && (
               <div className="field">
                 <label className="field-label" htmlFor="siret">Saisissez votre n° de SIRET
@@ -108,7 +108,7 @@ const NewAccount = () => (
               <h2>Choissier vos nourritures favorites</h2>
               <div className="field-check">
                 <label className="field-label" htmlFor="pizza">Pizza
-                <label className="switch">
+                  <label className="switch">
                     <input type="checkbox" name="pizza" />
                     <span className="slider rounded" />
                   </label>
