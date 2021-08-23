@@ -82,17 +82,17 @@
               color: vars.$DarkOpacity;
             }
           }
-          .button-del {
+          .button-add {
             width: 15rem;
             height: 3rem;
-            border: #e61212 solid 4px;
+            border: #095228 solid 4px;
             border-radius: 25px;
             font-size: 1rem;
             background-color: transparent;
             color: vars.$LLight;
 
             &:hover {
-              background-color: #e61212;
+              background-color: #095228;
               // color: vars.$DarkOpacity;
             }
           }

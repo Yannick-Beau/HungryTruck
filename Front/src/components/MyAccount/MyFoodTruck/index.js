@@ -48,7 +48,7 @@ const MyFoodTruck = () => (
       </div>
       <div className="myFoodTruck-buttons">
         <Link to="/my-account/my-foodtruck/new" className="button-Link">
-          <button type="button" className="button-del">
+          <button type="button" className="button-add">
             Ajouter un foodtruck
           </button>
         </Link>
