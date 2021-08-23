@@ -15,7 +15,12 @@ const deleteAccount = () => (
       </label>
       <button type="submit" className="deleteaccount-form--submit">Supprimer mon compte HungryTruck</button>
     </form>
-    <button type="button" className="deleteaccount-cancel">Retourner à mon compte</button>
+    <Link 
+      className="li-user"
+      to="/"
+    >
+      <button type="button" className="deleteaccount-cancel">Retourner à mon compte</button>
+    </Link>
   </section>
 );
 
