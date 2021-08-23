@@ -17,7 +17,7 @@ const MyFoodTruck = () => (
     />
     <div className="myFoodTruck">
       <div className="myFoodTruck-array">
-        <table className="array">
+        <table>
           <thead>
             <tr>
               <th>Nom du food truck</th>
