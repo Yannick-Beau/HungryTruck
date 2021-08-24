@@ -75,7 +75,7 @@
     }
 
     .search-results--result {
-      border: #e69512 solid 1px;
+      border: #e69512 solid 2px;
       border-radius: 100px;
       color: vars.$DarkOpacity;
       margin: 1rem;
@@ -109,6 +109,11 @@
           display: flex;
           flex-direction: column;
         }
+      }
+
+      &:hover {
+        background-color: #e69512;
+
       }
     }
   }
