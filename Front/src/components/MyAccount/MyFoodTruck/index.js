@@ -35,15 +35,6 @@ const MyFoodTruck = () => (
               <td><Trash2 color="#e61212" /></td>
             </tr>
           </tbody>
-          <tbody>
-            <tr>
-              <td>PizzaTruck</td>
-              <td>Pizza</td>
-              <td>voir détails</td>
-              <td><Edit2 color="#9fe855" /></td>
-              <td><Trash2 color="#e61212" /></td>
-            </tr>
-          </tbody>
         </table>
       </div>
       <div className="myFoodTruck-buttons">
