@@ -17,6 +17,7 @@ import NotFound from '../NotFound';
 import ZoomFT from '../ZoomFT';
 import LogIn from '../Account/LogIn';
 import MyAccount from '../MyAccount';
+import ViewSlots from '../ViewSlots';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
@@ -29,6 +30,7 @@ import './styles.scss';
 const HungryTruck = () => (
   <div className="hungrytruck">
     <Nav />
+    <ViewSlots />
     <Switch>
       <Route path="/" exact>
         <Main />
