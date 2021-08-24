@@ -14,23 +14,23 @@ import PropTypes from 'prop-types';
 // == Import
 import './newfoodtruck.scss';
 
+const customStyles = {
+  content: {
+    top: '15%',
+    left: '0',
+    bottom: '25%',
+    width: '100vw',
+    height: '100vh',
+    background: 'transparent',
+    border: 'none',
+  },
+};
 // == Composant
 const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
-  const customStyles = {
-    content: {
-      top: '25%',
-      right: '25%',
-      bottom: '25%',
-      width: '100vw',
-      height: '100vh',
-      background: 'transparent',
-      border: 'none',
-    },
-  };
   let subtitle;
 
   function openModal() {
-    setAddFoodTruck(true);
+    setAddFoodTruck(false);
   }
 
   function afterOpenModal() {
@@ -111,12 +111,12 @@ const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
         </div>
 
         <div className="account-button">
-          <Link to="/my-account/my-foodtruck" className="button-Link">
+          <Link to="/my-account/my-foodtruck/new" className="button-Link">
             <button type="button" className="button-del">
               Annuler
             </button>
           </Link>
-          <Link to="/" className="button-Link">
+          <Link to="/my-account/my-foodtruck/new" className="button-Link">
             <button
               type="button"
               className="button-linkto"
@@ -135,56 +135,69 @@ const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
                 <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
                 <p className="addslot-fields--legend">* Champ obligatoire</p>
                 <form className="addslot-form">
-                  <label className="addslot-label" htmlFor="day">Sélectionner le jour
-                    <div>
-                      <select className="addslot-input" name="day">
-                        <option value="">Jour</option>
-                        <option value="lundi">lundi</option>
-                      </select>
-                      <span>*</span>
-                    </div>
-                  </label>
-                  <label className="addslot-label" htmlFor="arriving-time">Sélectionner une heure d'arrivée
-                    <div>
-                      <select className="addslot-input" name="arriving-time">
-                        <option value="">Heure d'arrivée</option>
-                        <option value="12">12h00</option>
-                      </select>
-                      <span>*</span>
-                    </div>
-                  </label>
-                  <label className="addslot-label" htmlFor="end-time">Sélectionner une heure de fin
-                    <div>
-                      <select className="addslot-input" name="end-time">
-                        <option value="">Heure de fin</option>
-                        <option value="14">14h00</option>
-                      </select>
-                      <span>*</span>
-                    </div>
-                  </label>
-                  <label className="addslot-label" htmlFor="adress">Adresse du lieu
-                    <div>
-                      <input className="addslot-input" type="text" name="adress" placeholder="3 rue de Paris" />
-                      <span>*</span>
-                    </div>
-                  </label>
-                  <label className="addslot-label" htmlFor="postal-code">Code postal
-                    <div>
-                      <input className="addslot-input" type="text" name="postal-code" placeholder="69000" />
-                      <span>*</span>
-                    </div>
-                  </label>
-                  <label className="addslot-label" htmlFor="city">Ville
-                    <div>
-                      <input className="addslot-input" type="text" name="city" placeholder="Lyon" />
-                      <span>*</span>
-                    </div>
-                  </label>
+                  <div className="addslot-from--first">
+                    <label className="addslot-label" htmlFor="day">Sélectionner le jour
+                      <div>
+                        <select className="addslot-input" name="day">
+                          <option value="">Jour</option>
+                          <option value="lundi">lundi</option>
+                          <option value="mardi">mardi</option>
+                          <option value="mercredi">mercredi</option>
+                          <option value="jeudi">jeudi</option>
+                          <option value="vendredi">vendredi</option>
+                          <option value="samedi">samedi</option>
+                          <option value="dimanche">dimanche</option>
+                        </select>
+                        <span>*</span>
+                      </div>
+                    </label>
+                    <label className="addslot-label" htmlFor="arriving-time">Sélectionner une heure d'arrivée
+                      <div>
+                        <select className="addslot-input" name="arriving-time">
+                          <option value="">Heure d'arrivée</option>
+                          <option value="12">12h00</option>
+                        </select>
+                        <span>*</span>
+                      </div>
+                    </label>
+                    <label className="addslot-label" htmlFor="end-time">Sélectionner une heure de fin
+                      <div>
+                        <select className="addslot-input" name="end-time">
+                          <option value="">Heure de fin</option>
+                          <option value="14">14h00</option>
+                        </select>
+                        <span>*</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div className="addslot-from--first">
+                    <label className="addslot-label" htmlFor="adress">Adresse du lieu
+                      <div>
+                        <input className="addslot-input" type="text" name="adress" placeholder="3 rue de Paris" />
+                        <span>*</span>
+                      </div>
+                    </label>
+                    <label className="addslot-label" htmlFor="postal-code">Code postal
+                      <div>
+                        <input className="addslot-input" type="text" name="postal-code" placeholder="69000" />
+                        <span>*</span>
+                      </div>
+                    </label>
+                    <label className="addslot-label" htmlFor="city">Ville
+                      <div>
+                        <input className="addslot-input" type="text" name="city" placeholder="Lyon" />
+                        <span>*</span>
+                      </div>
+                    </label>
+                  </div>
                   <div className="addslot-form--footer">
-                    <Link to="/my-account/my-foodtruck">
+                    <Link
+                      to="/my-account/my-foodtruck/new"
+                    >
                       <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
                     </Link>
-                    <Link to="/my-account/my-foodtruck">
+                    <Link to="/my-account/my-foodtruck/new">
                       <button type="button" className="addslot-button--quit">Fermer</button>
                     </Link>
                   </div>
@@ -192,7 +205,7 @@ const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
               </section>
             </Modal>
           </Link>
-          <Link to="/my-account/my-foodtruck" className="button-Link" exact>
+          <Link to="/my-account/my-foodtruck/new" className="button-Link" exact>
             <button type="button" className="button-linktosave">
               Enregistrer
             </button>
