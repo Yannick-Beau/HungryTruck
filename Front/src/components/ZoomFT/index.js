@@ -75,7 +75,7 @@ const ZoomFT = () => (
       <Link
         to="/"
       >
-        <button type="button" className="back-home">Retourner à mon compte</button>
+        <button type="button" className="back-home">Retour</button>
       </Link>
     </div>
   </section>
