@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CategoryFood index{% endblock %}
+
+{% block body %}
+    <h1>CategoryFood index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category_food in category_foods %}
+            <tr>
+                <td>{{ category_food.id }}</td>
+                <td>{{ category_food.name }}</td>
+                <td>{{ category_food.createdAt ? category_food.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ category_food.updatedAt ? category_food.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('back_office_category_food_show', {'id': category_food.id}) }}">show</a>
+                    <a href="{{ path('back_office_category_food_edit', {'id': category_food.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('back_office_category_food_new') }}">Create new</a>
+{% endblock %}

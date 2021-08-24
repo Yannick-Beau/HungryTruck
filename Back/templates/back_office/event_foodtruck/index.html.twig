@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventFoodtruck index{% endblock %}
+
+{% block body %}
+    <h1>EventFoodtruck index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Day</th>
+                <th>Hours</th>
+                <th>Place</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event_foodtruck in event_foodtrucks %}
+            <tr>
+                <td>{{ event_foodtruck.id }}</td>
+                <td>{{ event_foodtruck.day }}</td>
+                <td>{{ event_foodtruck.hours }}</td>
+                <td>{{ event_foodtruck.place }}</td>
+                <td>{{ event_foodtruck.createdAt ? event_foodtruck.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event_foodtruck.updatedAt ? event_foodtruck.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('back_office_event_foodtruck_show', {'id': event_foodtruck.id}) }}">show</a>
+                    <a href="{{ path('back_office_event_foodtruck_edit', {'id': event_foodtruck.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('back_office_event_foodtruck_new') }}">Create new</a>
+{% endblock %}

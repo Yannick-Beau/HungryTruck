@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Foodtruck index{% endblock %}
+
+{% block body %}
+    <h1>Foodtruck index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Num_tel</th>
+                <th>Overview</th>
+                <th>Instagram</th>
+                <th>Twitter</th>
+                <th>Facebook</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for foodtruck in foodtrucks %}
+            <tr>
+                <td>{{ foodtruck.id }}</td>
+                <td>{{ foodtruck.name }}</td>
+                <td>{{ foodtruck.numTel }}</td>
+                <td>{{ foodtruck.overview }}</td>
+                <td>{{ foodtruck.instagram }}</td>
+                <td>{{ foodtruck.twitter }}</td>
+                <td>{{ foodtruck.facebook }}</td>
+                <td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('back_office_foodtruck_show', {'id': foodtruck.id}) }}">show</a>
+                    <a href="{{ path('back_office_foodtruck_edit', {'id': foodtruck.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('back_office_foodtruck_new') }}">Create new</a>
+{% endblock %}

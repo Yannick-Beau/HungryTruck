@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Foodtruck{% endblock %}
+
+{% block body %}
+    <h1>Foodtruck</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ foodtruck.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ foodtruck.name }}</td>
+            </tr>
+            <tr>
+                <th>Num_tel</th>
+                <td>{{ foodtruck.numTel }}</td>
+            </tr>
+            <tr>
+                <th>Overview</th>
+                <td>{{ foodtruck.overview }}</td>
+            </tr>
+            <tr>
+                <th>Instagram</th>
+                <td>{{ foodtruck.instagram }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ foodtruck.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ foodtruck.facebook }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('back_office_foodtruck_index') }}">back to list</a>
+
+    <a href="{{ path('back_office_foodtruck_edit', {'id': foodtruck.id}) }}">edit</a>
+
+    {{ include('back_office/foodtruck/_delete_form.html.twig') }}
+{% endblock %}
