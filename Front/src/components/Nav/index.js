@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import components
 import IconUser from './IconUser';
@@ -54,6 +55,11 @@ const Nav = ({ user, setUser }) => (
     </nav>
   </div>
 );
+
+Nav.propTypes = {
+  user: PropTypes.bool.isRequired,
+  setUser: PropTypes.func.isRequired,
+};
 
 // == Export
 export default Nav;
