@@ -26,11 +26,11 @@ const customStyles = {
   },
 };
 // == Composant
-const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
+const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
   let subtitle;
 
   function openModal() {
-    setAddFoodTruck(false);
+    setAddFoodTruck(true);
   }
 
   function afterOpenModal() {
@@ -111,7 +111,7 @@ const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
         </div>
 
         <div className="account-button">
-          <Link to="/my-account/my-foodtruck/new" className="button-Link">
+          <Link to="/my-account/my-foodtruck" className="button-Link">
             <button type="button" className="button-del">
               Annuler
             </button>
@@ -195,17 +195,17 @@ const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
                     <Link
                       to="/my-account/my-foodtruck/new"
                     >
-                      <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
+                      <button type="submit" className="addslot-button--submit" onClick={closeModal}>Valider le créneau/lieux</button>
                     </Link>
                     <Link to="/my-account/my-foodtruck/new">
-                      <button type="button" className="addslot-button--quit">Fermer</button>
+                      <button type="button" className="addslot-button--quit" onClick={closeModal}>Fermer</button>
                     </Link>
                   </div>
                 </form>
               </section>
             </Modal>
           </Link>
-          <Link to="/my-account/my-foodtruck/new" className="button-Link" exact>
+          <Link to="/my-account/my-foodtruck" className="button-Link" exact>
             <button type="button" className="button-linktosave">
               Enregistrer
             </button>
@@ -216,5 +216,9 @@ const NewFoodTruck = (addFoodTruck, setAddFoodTruck) => {
   );
 };
 
+NewFoodTruck.propTypes = {
+  addFoodTruck: PropTypes.bool.isRequired,
+  setAddFoodTruck: PropTypes.func.isRequired,
+};
 // == Export
 export default NewFoodTruck;
