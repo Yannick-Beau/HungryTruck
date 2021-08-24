@@ -50,7 +50,7 @@ const HungryTruck = () => (
       </Route>
       <Route path="/who-are-we" exact>
         <WhoAreWe />
-
+      </Route>
       <Route path="/my-account" exact>
         <MyAccount />
       </Route>
