@@ -106,9 +106,9 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
                   <button type="submit" className="deleteaccount-form--submit">Supprimer mon compte HungryTruck</button>
                 </form>
                 <Link
-                  to="/"
+                  to="/my-account"
                 >
-                  <button type="button" className="deleteaccount-cancel">Retourner à mon compte</button>
+                  <button type="button" className="deleteaccount-cancel" onClick={closeModal}>Retourner à mon compte</button>
                 </Link>
               </section>
             </Modal>
@@ -134,7 +134,6 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
     </section>
   );
 };
-
 
 MyAccount.propTypes = {
   delAccount: PropTypes.bool.isRequired,
