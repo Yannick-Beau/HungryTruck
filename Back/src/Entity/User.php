@@ -56,8 +56,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=100)
      * @Assert\Length(max=100, min=4)
      * @Assert\NotBlank
-     * @Assert\NotCompromisedPassword
-     * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/")
      * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $pseudo;
