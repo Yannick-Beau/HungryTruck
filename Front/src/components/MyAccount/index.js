@@ -51,7 +51,7 @@ const MyAccount = () => (
             Supprimer mon compte
           </button>
         </Link>
-        <Link to="/" className="button-Link">
+        <Link to="/new-account" className="button-Link">
           <button type="button" className="button-linkto">
             Editer mes informations
           </button>
