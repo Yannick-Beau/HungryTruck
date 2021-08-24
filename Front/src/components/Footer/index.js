@@ -17,7 +17,7 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-left--whoAreUs"
-        to="#"
+        to="/who-are-we"
       >
         Qui sommes-nous
       </Link>

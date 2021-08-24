@@ -12,6 +12,7 @@ import Main from '../Main';
 import NewAccount from '../Account/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
+import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import LogIn from '../Account/LogIn';
 import MyAccount from '../MyAccount';
@@ -43,6 +44,8 @@ const HungryTruck = () => (
       <Route path="/search" exact>
         <Search />
       </Route>
+      <Route path="/who-are-we" exact>
+        <WhoAreWe />
       <Route path="/my-account" exact>
         <MyAccount />
       </Route>
