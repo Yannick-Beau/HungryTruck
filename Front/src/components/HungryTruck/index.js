@@ -29,6 +29,7 @@ import './styles.scss';
 const HungryTruck = () => {
   const [user, setUser] = useState(false);
   const [delAccount, setDelAccount] = useState(false);
+  const [addFoodTruck, setAddFoodTruck] = useState(false);
 
   return (
     <div className="hungrytruck">
@@ -56,13 +57,19 @@ const HungryTruck = () => {
           <WhoAreWe />
         </Route>
         <Route path="/my-account" exact>
-          <MyAccount delAccount={delAccount} setDelAccount={setDelAccount} />
+          <MyAccount
+            delAccount={delAccount}
+            setDelAccount={setDelAccount}
+          />
         </Route>
         <Route path="/my-account/my-foodtruck" exact>
           <MyFoodTruck />
         </Route>
         <Route path="/my-account/my-foodtruck/new" exact>
-          <NewFoodTruck />
+          <NewFoodTruck
+            addFoodTruck={addFoodTruck}
+            setAddFoodTruck={setAddFoodTruck}
+          />
         </Route>
         <Route path="/faq" exact>
           <Faq />

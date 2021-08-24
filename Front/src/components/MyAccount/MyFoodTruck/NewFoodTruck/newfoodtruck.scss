@@ -130,3 +130,103 @@
     }
   }
 }
+
+.addslot-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: auto;
+  background-color: vars.$DarkOpacity;
+  padding: vars.$gutter;
+  margin: auto;
+  color: vars.$LLight;
+
+  .addslot-title {
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    font-family: vars.$Krub;
+    margin: 1rem auto 1rem;
+  }
+
+  .addslot-fields--legend {
+    font-style: italic;
+    color: #e69512;
+    font-size: 0.7rem;
+  }
+
+  .addslot-form {
+    display: flex;
+    flex-direction: column;
+
+    .addslot-from--first {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .addslot-label {
+        margin: vars.$gutter / 2;
+        font-style: italic;
+
+        .addslot-input {
+          margin: vars.$gutter / 3;
+          padding: vars.$gutter;
+          background-color: rgba(255, 255, 255, 0.8);
+          border-radius: 25px;
+          border: 4px solid #e69512;
+
+          option {
+            padding: vars.$gutter / 2;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            border: 4px solid #e69512;
+          }
+        }
+
+        span {
+          color: #e69512;
+          margin: -0.2rem auto auto 0.4rem;
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+      }
+
+    }
+
+    .addslot-form--footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 1rem;
+
+      .addslot-button--quit {
+        padding: vars.$gutter / 2;
+        border: #e69512 solid 4px;
+        border-radius: 25px;
+        background-color: transparent;
+        color: vars.$LLight;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: #e69512;
+          color: vars.$DarkOpacity;
+        }
+      }
+
+      .addslot-button--submit {
+        padding: vars.$gutter / 2;
+        border: #e69512 solid 4px;
+        border-radius: 25px;
+        background-color: #e69512;
+        color: vars.$DarkOpacity;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: transparent;
+          color: vars.$LLight;
+        }
+      }
+    }
+  }
+}
