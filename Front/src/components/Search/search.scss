@@ -11,7 +11,7 @@
   background-color: vars.$DarkOpacity;
   // position: absolute;
   width: 90%;
-  height: 65vh;
+  height: auto;
   margin: auto 5%;
   padding: 2rem auto;
 
@@ -58,7 +58,7 @@
   .search-results {
     background-color: vars.$LLight;
     padding-top: 2rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
     width: 95%;
     margin: auto;
     margin-bottom: 2rem;
