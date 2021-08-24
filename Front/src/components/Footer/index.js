@@ -23,7 +23,7 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-left--contact"
-        to="#"
+        to="/contact"
       >
         Contact
       </Link>
@@ -42,13 +42,13 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-right--createAccount"
-        to="#"
+        to="/new-account"
       >
         Créer votre compte
       </Link>
       <Link
         className="footer-right--FAQ"
-        to="#"
+        to="/Faq"
       >
         FAQ
       </Link>

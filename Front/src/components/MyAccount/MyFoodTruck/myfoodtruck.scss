@@ -1,0 +1,68 @@
+@use 'src/styles/vars';
+
+.section-myFoodTruck {
+  margin: 2rem;
+
+  .myFoodTruck-title {
+    font-weight: bold;
+    font-size: 4rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: -1rem auto -1.5rem 30rem;
+  }
+
+  .myFoodTruck-picture {
+    margin-left: 9rem;
+    margin-top: -4rem;
+  }
+
+  .myFoodTruck {
+    background-color: vars.$DarkOpacity;
+    padding: 2rem;
+    width: 70vw;
+    height: auto;
+    margin: -18rem auto auto 20rem;
+    // display: flex;
+    // justify-content: center;
+
+
+    .myFoodTruck-buttons {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      margin: 4rem auto 2rem;
+
+      .button-Link {
+
+        .button-linkto {
+          width: 15rem;
+          height: 3rem;
+          border: #e69512 solid 4px;
+          border-radius: 25px;
+          font-size: 1rem;
+          background-color: transparent;
+          color: vars.$LLight;
+
+          &:hover {
+            background-color: vars.$Yellow;
+            color: vars.$DarkOpacity;
+          }
+        }
+
+        .button-add {
+          width: 15rem;
+          height: 3rem;
+          border: #095228 solid 4px;
+          border-radius: 25px;
+          font-size: 1rem;
+          background-color: transparent;
+          color: vars.$LLight;
+
+          &:hover {
+            background-color: #095228;
+            // color: vars.$DarkOpacity;
+          }
+        }
+      }
+    }
+  }
+}

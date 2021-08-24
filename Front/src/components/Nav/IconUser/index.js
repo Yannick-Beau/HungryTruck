@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // == Import
 import './iconUser.scss';
@@ -8,18 +9,27 @@ import imgUser from '../../../assets/img/icon-user.png';
 // == Composant
 const IconUser = () => (
   <div className="user">
-    <img className="image-user" src={imgUser} alt="image utilisateur" />
-    { false && 
-      <ul className="ul-user">
-        <li className="li-user">Mon compte</li>
-        <li className="li-user">Créer un compte</li>
-        <li className="li-user">connexion</li>
-      </ul>
-    }
+    <img className="image-user" src={imgUser} alt="utilisateur" />
+    { true
+    && (
+    <ul className="ul-user">
+      <Link className="li-user" to="/my-account">
+        Mon compte
+      </Link>
+      <Link className="li-user" to="/new-account">
+        Créer un compte
+      </Link>
+      <Link className="li-user" to="/login">
+        connexion
+      </Link>
+    </ul>
+    )}
   </div>
 );
 
 // == Export
 export default IconUser;
 
-
+/* <li className="li-user">Mon compte</li>
+<li className="li-user">Créer un compte</li>
+<li className="li-user">connexion</li> */
