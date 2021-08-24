@@ -1,0 +1,43 @@
+@use 'src/styles/vars';
+
+.viewslots-section {
+  background-color: vars.$DarkOpacity;
+  padding: vars.$gutter;
+  width: 60vw;
+  height: 100vh;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  .viewslots-title {
+    display: inline;
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: -2rem auto 2rem auto;
+    font-family: vars.$Krub;
+  }
+  
+  .buttons {
+    display: flex;
+
+    button {
+      margin: vars.$gutter;
+      padding: vars.$gutter / 2;
+      border: #e69512 solid 4px;
+      border-radius: 25px;
+      width: 20rem;
+      background-color: transparent;
+      color: vars.$LLight;
+      font-size: 1rem;
+  
+      &:hover {
+        background-color: #e69512;
+        color:  vars.$DarkOpacity;
+      }
+    }
+  }
+  
+}
