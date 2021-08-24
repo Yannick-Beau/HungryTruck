@@ -30,6 +30,7 @@ const HungryTruck = () => {
   const [user, setUser] = useState(false);
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
+  const [foodtruckDetails, setFoodtruckDetails] = useState(false);
 
   return (
     <div className="hungrytruck">
@@ -63,7 +64,10 @@ const HungryTruck = () => {
           />
         </Route>
         <Route path="/my-account/my-foodtruck" exact>
-          <MyFoodTruck />
+          <MyFoodTruck
+            foodTruckDetails={foodtruckDetails}
+            setAddFoodTruckDetails={setFoodtruckDetails}
+          />
         </Route>
         <Route path="/my-account/my-foodtruck/new" exact>
           <NewFoodTruck
