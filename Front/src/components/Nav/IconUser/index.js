@@ -21,13 +21,31 @@ const IconUser = ({ user, setUser }) => (
     { user
     && (
     <ul className="ul-user">
-      <Link className="li-user" to="/my-account">
+      <Link
+        className="li-user"
+        to="/my-account"
+        onClick={() => {
+          setUser(!user);
+        }}
+      >
         Mon compte
       </Link>
-      <Link className="li-user" to="/new-account">
+      <Link
+        className="li-user"
+        to="/new-account"
+        onClick={() => {
+          setUser(!user);
+        }}
+      >
         Créer un compte
       </Link>
-      <Link className="li-user" to="/login">
+      <Link
+        className="li-user"
+        to="/login"
+        onClick={() => {
+          setUser(!user);
+        }}
+      >
         connexion
       </Link>
     </ul>
