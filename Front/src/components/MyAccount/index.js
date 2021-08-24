@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'reactjs-popup/dist/index.css';
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 
 // == Import
 import './myaccount.scss';
@@ -134,5 +135,10 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
   );
 };
 
+
+MyAccount.propTypes = {
+  delAccount: PropTypes.bool.isRequired,
+  setDelAccount: PropTypes.func.isRequired,
+};
 // == Export
 export default MyAccount;
