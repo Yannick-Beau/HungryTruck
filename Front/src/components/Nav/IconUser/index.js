@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import
 import './iconUser.scss';
@@ -33,6 +34,11 @@ const IconUser = ({ user, setUser }) => (
     )}
   </div>
 );
+
+IconUser.propTypes = {
+  user: PropTypes.bool.isRequired,
+  setUser: PropTypes.func.isRequired,
+};
 
 // == Export
 export default IconUser;

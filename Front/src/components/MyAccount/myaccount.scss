@@ -107,3 +107,75 @@
       }
     }
 }
+.deleteaccount-section {
+  background-color: vars.$DarkOpacity;
+  padding: vars.$gutter;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  p {
+    font-size: 1.3rem;
+    margin: vars.$gutter;
+    color: vars.$LLight;
+  }
+  .deleteaccount-title {
+    display: inline;
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: 2rem auto 2rem auto;
+    font-family: vars.$Krub;
+    color: vars.$LLight;
+  }
+  .deleteaccount-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .deleteaccount-label {
+      .deleteaccount-input {
+        width: 20rem;
+        margin: vars.$gutter / 3;
+        padding: vars.$gutter / 2;
+        padding-left: 2rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 25px;
+        border: 4px solid #e69512;
+      }
+    }
+    .deleteaccount-form--submit {
+      width: 20rem;
+      margin: vars.$gutter;
+      padding: vars.$gutter / 2;
+      border: #e61212 solid 4px;
+      border-radius: 25px;
+      background-color: transparent;
+      color: vars.$LLight;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #e61212;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+  .deleteaccount-cancel {
+    width: 20rem;
+    margin: vars.$gutter;
+    padding: vars.$gutter / 2;
+    border: #e69512 solid 4px;
+    border-radius: 25px;
+    background-color: transparent;
+    color: vars.$LLight;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: #e69512;
+      color:  vars.$DarkOpacity;
+    }
+  }
+}
