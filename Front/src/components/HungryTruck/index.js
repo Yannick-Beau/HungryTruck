@@ -9,13 +9,13 @@ import Footer from '../Footer';
 // == Import others components
 import Main from '../Main';
 
-import NewAccount from '../Account/NewAccount';
+import NewAccount from '../MyAccount/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../ZoomFT';
-import LogIn from '../Account/LogIn';
+import LogIn from '../MyAccount/LogIn';
 import MyAccount from '../MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
@@ -28,6 +28,7 @@ import './styles.scss';
 // == Composant
 const HungryTruck = () => {
   const [user, setUser] = useState(false);
+  const [delAccount, setDelAccount] = useState(false);
 
   return (
     <div className="hungrytruck">
@@ -55,7 +56,7 @@ const HungryTruck = () => {
           <WhoAreWe />
         </Route>
         <Route path="/my-account" exact>
-          <MyAccount />
+          <MyAccount delAccount={delAccount} setDelAccount={setDelAccount} />
         </Route>
         <Route path="/my-account/my-foodtruck" exact>
           <MyFoodTruck />
