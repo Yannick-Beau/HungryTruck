@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // == Import
 import './deleteAccount.scss';
@@ -15,8 +16,7 @@ const deleteAccount = () => (
       </label>
       <button type="submit" className="deleteaccount-form--submit">Supprimer mon compte HungryTruck</button>
     </form>
-    <Link 
-      className="li-user"
+    <Link
       to="/"
     >
       <button type="button" className="deleteaccount-cancel">Retourner à mon compte</button>

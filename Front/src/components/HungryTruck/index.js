@@ -13,6 +13,7 @@ import NewAccount from '../Account/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
 import NotFound from '../NotFound';
+import ZoomFT from '../ZoomFT';
 import LogIn from '../Account/LogIn';
 import MyAccount from '../MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
@@ -41,6 +42,9 @@ const HungryTruck = () => (
       </Route>
       <Route path="/search" exact>
         <Search />
+      </Route>
+      <Route path="/food-truck" exact>
+        <ZoomFT />
       </Route>
       <Route path="/my-account" exact>
         <MyAccount />
