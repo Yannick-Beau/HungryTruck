@@ -12,11 +12,13 @@ import Main from '../Main';
 import NewAccount from '../Account/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../Search';
+import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../ZoomFT';
 import LogIn from '../Account/LogIn';
 import MyAccount from '../MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
+import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
 import Contact from '../Contact';
 
@@ -46,11 +48,17 @@ const HungryTruck = () => (
       <Route path="/food-truck" exact>
         <ZoomFT />
       </Route>
+      <Route path="/who-are-we" exact>
+        <WhoAreWe />
+
       <Route path="/my-account" exact>
         <MyAccount />
       </Route>
       <Route path="/my-account/my-foodtruck" exact>
         <MyFoodTruck />
+      </Route>
+      <Route path="/my-account/my-foodtruck/new" exact>
+        <NewFoodTruck />
       </Route>
       <Route path="/faq" exact>
         <Faq />

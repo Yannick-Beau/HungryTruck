@@ -3,12 +3,13 @@ import React from 'react';
 
 // == Import
 import './notfound.scss';
+import errorURL from '../../assets/img/foodtruck_close.png';
 
 // == Composant
 const NotFound = () => (
-  <aside className="introduction">
-    Erreur d'adresse = 404
-  </aside>
+  <section className="error">
+    <img src={errorURL} alt="hungrytruck error page" />
+  </section>
 );
 
 // == Export
