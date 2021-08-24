@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components which always display
@@ -26,53 +26,57 @@ import Contact from '../Contact';
 import './styles.scss';
 
 // == Composant
-const HungryTruck = () => (
-  <div className="hungrytruck">
-    <Nav />
-    <Switch>
-      <Route path="/" exact>
-        <Main />
-      </Route>
-      <Route path="/login" exact>
-        <LogIn />
-      </Route>
-      <Route path="/new-account" exact>
-        <NewAccount />
-      </Route>
-      <Route path="/legal" exact>
-        <LegalMentions />
-      </Route>
-      <Route path="/search" exact>
-        <Search />
-      </Route>
-      <Route path="/food-truck" exact>
-        <ZoomFT />
-      </Route>
-      <Route path="/who-are-we" exact>
-        <WhoAreWe />
-      </Route>
-      <Route path="/my-account" exact>
-        <MyAccount />
-      </Route>
-      <Route path="/my-account/my-foodtruck" exact>
-        <MyFoodTruck />
-      </Route>
-      <Route path="/my-account/my-foodtruck/new" exact>
-        <NewFoodTruck />
-      </Route>
-      <Route path="/faq" exact>
-        <Faq />
-      </Route>
-      <Route path="/contact" exact>
-        <Contact />
-      </Route>
-      <Route>
-        <NotFound />
-      </Route>
-    </Switch>
-    <Footer />
-  </div>
-);
+const HungryTruck = () => {
+  const [user, setUser] = useState(false);
+
+  return (
+    <div className="hungrytruck">
+      <Nav user={user} setUser={setUser} />
+      <Switch>
+        <Route path="/" exact>
+          <Main />
+        </Route>
+        <Route path="/login" exact>
+          <LogIn />
+        </Route>
+        <Route path="/new-account" exact>
+          <NewAccount />
+        </Route>
+        <Route path="/legal" exact>
+          <LegalMentions />
+        </Route>
+        <Route path="/search" exact>
+          <Search />
+        </Route>
+        <Route path="/food-truck" exact>
+          <ZoomFT />
+        </Route>
+        <Route path="/who-are-we" exact>
+          <WhoAreWe />
+        </Route>
+        <Route path="/my-account" exact>
+          <MyAccount />
+        </Route>
+        <Route path="/my-account/my-foodtruck" exact>
+          <MyFoodTruck />
+        </Route>
+        <Route path="/my-account/my-foodtruck/new" exact>
+          <NewFoodTruck />
+        </Route>
+        <Route path="/faq" exact>
+          <Faq />
+        </Route>
+        <Route path="/contact" exact>
+          <Contact />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+      <Footer />
+    </div>
+  );
+};
 
 // == Export
 export default HungryTruck;

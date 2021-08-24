@@ -1,7 +1,6 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Search from '../Search';
 
 // == Import components
 import IconUser from './IconUser';
@@ -11,7 +10,7 @@ import './nav.scss';
 import hungryTruckLogo from '../../assets/img/logo.png';
 
 // == Composant
-const Nav = () => (
+const Nav = ({ user, setUser }) => (
   <div className="header">
     <nav className="header-nav">
       <label className="burger" htmlFor="toggle-burger">☰
@@ -51,7 +50,7 @@ const Nav = () => (
           Contact
         </NavLink>
       </div>
-      <IconUser />
+      <IconUser user={user} setUser={setUser} />
     </nav>
   </div>
 );

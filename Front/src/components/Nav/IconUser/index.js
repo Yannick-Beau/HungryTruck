@@ -7,10 +7,17 @@ import './iconUser.scss';
 import imgUser from '../../../assets/img/icon-user.png';
 
 // == Composant
-const IconUser = () => (
+const IconUser = ({ user, setUser }) => (
   <div className="user">
-    <img className="image-user" src={imgUser} alt="utilisateur" />
-    { true
+    <img
+      className="image-user"
+      src={imgUser}
+      alt="utilisateur"
+      onClick={() => {
+        setUser(!user);
+      }}
+    />
+    { user
     && (
     <ul className="ul-user">
       <Link className="li-user" to="/my-account">
