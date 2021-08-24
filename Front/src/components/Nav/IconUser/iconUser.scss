@@ -12,6 +12,7 @@
     cursor: pointer;
   }
   .ul-user{
+    z-index: 5;
     position: fixed;
     display: flex;
     flex-direction: column;

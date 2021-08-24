@@ -22,8 +22,7 @@ const NewAccount = () => (
         </label>
       </div>
       <div className="form-right">
-        <h2>Vous êtes professionnel</h2>
-        <label className="field-label" htmlFor="pro">
+        <label className="field-label" htmlFor="pro">Vous êtes professionnel
           <label className="switch">
             <input type="checkbox" name="pro" />
             <span className="slider rounded" />
