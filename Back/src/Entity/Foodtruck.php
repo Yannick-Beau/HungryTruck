@@ -32,7 +32,7 @@ class Foodtruck
     private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string",length=11)
      * @Assert\NotBlank
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */

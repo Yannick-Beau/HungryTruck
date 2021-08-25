@@ -13,25 +13,29 @@ class FoodTruckDbProvider
         'Les Gones',
         'Servilla Turck',
         'Sous-Marin Jaune',
-        'Chibu\'s Truck',
-        'O\'Paddock',
+        'Chibus Truck',
+        'O Paddock',
         'Ô Castor',
         'Le Duke',
         'La Bonne Dôze',
         'Lisbon Food',
         'Au Gré des Saisons',
         'Tarte Truck',
-        'Miam\'s Truck',
+        'Miams Truck',
         'Pipa Truck',
+
+    ];
+
+    private $foodtruckname2 = [
         'La Note Gourmande',
-        'Bis\'Truck',
+        'BisTruck',
         'Big Papa',
-        'L\'an-ka',
+        'Lan-ka',
         'Sakados Truck',
         'Bruschetta Truck',
-        'L\'Endémique',
+        'LEndémique',
         'La Barak',
-        'L\'ardoise Gourmande',
+        'Lardoise Gourmande',
         'Big Royal',
         'Smash Truck',
         'Chick sud',
@@ -42,25 +46,26 @@ class FoodTruckDbProvider
         'Chez Yohann',
         'Chez John',
         'Chez Yannick',
+
     ];
 
     private $num = [
-        '3622319335',
-        '3622411259',
-        '3623376899',
-        '3623451633',
-        '3623452187',
-        '3624496690',
-        '3624643428',
-        '3625496469',
-        '3626262105',
-        '3626309290',
-        '3626310777',
-        '3627658908',
-        '3628466055',
-        '3628793252',
-        '3629370075',
-        '3629440499',
+        '33622319335',
+        '33622411259',
+        '33623376899',
+        '33623451633',
+        '33623452187',
+        '33624496690',
+        '33624643428',
+        '33625496469',
+        '33626262105',
+        '33626309290',
+        '33626310777',
+        '33627658908',
+        '33628466055',
+        '33628793252',
+        '33629370075',
+        '33629440499',
         '33600000019',
         '33600003399',
         '33600005285',
@@ -144,7 +149,14 @@ class FoodTruckDbProvider
     {
         return $this->foodtruckname[array_rand($this->foodtruckname)];
     }
-
+    
+    /**
+     * Retourne un film au hasard
+     */
+    public function foodtruckName2()
+    {
+        return $this->foodtruckname2[array_rand($this->foodtruckname2)];
+    }
     /**
      * Retourne un métier au hasard
      */
