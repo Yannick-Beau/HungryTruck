@@ -1,4 +1,4 @@
-import { UPDATE_FIELD } from '../actions/createUser';
+import { UPDATE_FIELD, CREATE_PRO } from '../actions/createUser';
 
 const initialState = {
   nickname: '',
@@ -9,6 +9,8 @@ const initialState = {
   cp: '',
   city: '',
   siret: '',
+  pictureUser: '',
+  createPro: false,
   logged: false,
   token: null,
 };
@@ -21,6 +23,11 @@ function createUserReducer(state = initialState, action = {}) {
           return {
             ...state,
             email: action.newValue,
+          };
+        case 'pictureUser':
+          return {
+            ...state,
+            pictureUser: action.newValue,
           };
         case 'nickname':
           return {
@@ -57,20 +64,14 @@ function createUserReducer(state = initialState, action = {}) {
             ...state,
             siret: action.newValue,
           };
-        // case 'logged':
-        //   return {
-        //     ...state,
-        //     logged: action.newValue,
-        //   };
-        // case 'token':
-        //   return {
-        //     ...state,
-        //     token: action.newValue,
-        //   };
         default:
           return state;
       }
-
+    case CREATE_PRO:
+      return {
+        ...state,
+        createPro: action.newValue,
+      };
     default:
       return state;
   }
