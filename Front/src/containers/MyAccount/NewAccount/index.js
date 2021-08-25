@@ -2,12 +2,14 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import NewAccount from 'src/components/MyAccount/NewAccount';
-import { updateField, updateFieldPro } from '../../../actions/createUser';
+import { updateField, updateToggle } from '../../../actions/createUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
 const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
+
+  // Formualire de création d'un user
   email: state.createUser.email,
   password: state.createUser.password,
   passwordConfirm: state.createUser.passwordConfirm,
@@ -28,8 +30,8 @@ const mapDispatchToProps = (dispatch) => ({
     const action = updateField(newValue, identifier);
     dispatch(action);
   },
-  changeToggle: (newValue) => {
-    const action = updateFieldPro(newValue);
+  changeToggle: (newValue, identifier) => {
+    const action = updateToggle(newValue, identifier);
     dispatch(action);
   },
 });

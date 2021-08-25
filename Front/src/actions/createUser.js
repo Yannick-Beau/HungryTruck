@@ -1,6 +1,6 @@
 // === action types
 export const UPDATE_FIELD = 'UPDATE_FIELD';
-export const CREATE_PRO = 'CREATE_PRO';
+export const UPDATE_TOGGLE = 'UPDATE_TOGGLE';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({
@@ -9,7 +9,8 @@ export const updateField = (newValue, identifier) => ({
   identifier: identifier,
 });
 
-export const updateFieldPro = (newValue) => ({
-  type: CREATE_PRO,
+export const updateToggle = (newValue, identifier) => ({
+  type: UPDATE_TOGGLE,
   newValue: newValue,
+  identifier: identifier,
 });

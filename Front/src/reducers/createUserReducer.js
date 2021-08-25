@@ -1,4 +1,4 @@
-import { UPDATE_FIELD, CREATE_PRO } from '../actions/createUser';
+import { UPDATE_FIELD, UPDATE_TOGGLE } from '../actions/createUser';
 
 const initialState = {
   nickname: '',
@@ -17,7 +17,10 @@ const initialState = {
 
 function createUserReducer(state = initialState, action = {}) {
   switch (action.type) {
+
+    // Gestion des formulaires dans le state
     case UPDATE_FIELD:
+      // Formulaire de création d'un user
       switch (action.identifier) {
         case 'email':
           return {
@@ -67,11 +70,19 @@ function createUserReducer(state = initialState, action = {}) {
         default:
           return state;
       }
-    case CREATE_PRO:
-      return {
-        ...state,
-        createPro: action.newValue,
-      };
+
+    // Gestion des toggles dans le state
+    case UPDATE_TOGGLE:
+      switch (action.identifier) {
+        // Toggle createPRo
+        case 'togglePro':
+          return {
+            ...state,
+            createPro: action.newValue,
+          };
+        default:
+          return state;
+      }
     default:
       return state;
   }
