@@ -1,5 +1,7 @@
 // == Import npm
+
 import React, { useState } from 'react';
+
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components which always display
@@ -8,6 +10,7 @@ import Footer from '../Footer';
 
 // == Import others components
 import Main from '../Main';
+
 
 import NewAccount from '../MyAccount/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
@@ -20,6 +23,7 @@ import MyAccount from '../MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
+
 import Contact from '../Contact';
 
 // == Import

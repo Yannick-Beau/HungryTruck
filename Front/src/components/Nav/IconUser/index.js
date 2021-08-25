@@ -1,13 +1,16 @@
 // == Import npm
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 
 // == Import
 import './iconUser.scss';
 import imgUser from '../../../assets/img/icon-user.png';
 
 // == Composant
+
 const IconUser = ({ user, setUser }) => (
   <div className="user">
     <img
@@ -64,3 +67,4 @@ export default IconUser;
 /* <li className="li-user">Mon compte</li>
 <li className="li-user">Créer un compte</li>
 <li className="li-user">connexion</li> */
+

@@ -1,7 +1,11 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
+
+import Search from '../Search';
+
 
 // == Import components
 import IconUser from './IconUser';
@@ -12,6 +16,7 @@ import hungryTruckLogo from '../../assets/img/logo.png';
 
 // == Composant
 const Nav = ({ user, setUser }) => (
+
   <div className="header">
     <nav className="header-nav">
       <label className="burger" htmlFor="toggle-burger">☰
@@ -55,6 +60,7 @@ const Nav = ({ user, setUser }) => (
     </nav>
   </div>
 );
+
 
 Nav.propTypes = {
   user: PropTypes.bool.isRequired,
