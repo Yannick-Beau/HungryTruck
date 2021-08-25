@@ -5,10 +5,11 @@ namespace App\Controller\BackOffice;
 use App\Entity\CategoryFood;
 use App\Form\CategoryFoodType;
 use App\Repository\CategoryFoodRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/backoffice/category/food")
@@ -17,6 +18,7 @@ class CategoryFoodController extends AbstractController
 {
     /**
      * @Route("/", name="back_office_category_food_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(CategoryFoodRepository $categoryFoodRepository): Response
     {
@@ -27,6 +29,7 @@ class CategoryFoodController extends AbstractController
 
     /**
      * @Route("/new", name="back_office_category_food_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +53,7 @@ class CategoryFoodController extends AbstractController
 
     /**
      * @Route("/{id}", name="back_office_category_food_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(CategoryFood $categoryFood): Response
     {
@@ -60,6 +64,7 @@ class CategoryFoodController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="back_office_category_food_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, CategoryFood $categoryFood): Response
     {
@@ -80,6 +85,7 @@ class CategoryFoodController extends AbstractController
 
     /**
      * @Route("/{id}", name="back_office_category_food_delete", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, CategoryFood $categoryFood): Response
     {
