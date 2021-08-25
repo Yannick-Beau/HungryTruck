@@ -11,19 +11,19 @@ const Footer = () => (
     <div className="footer-left">
       <Link
         className="footer-left--legalMentions"
-        to="#"
+        to="/legal"
       >
         Mentions légales
       </Link>
       <Link
         className="footer-left--whoAreUs"
-        to="#"
+        to="/who-are-we"
       >
         Qui sommes-nous
       </Link>
       <Link
         className="footer-left--contact"
-        to="#"
+        to="/contact"
       >
         Contact
       </Link>
@@ -38,17 +38,17 @@ const Footer = () => (
         className="footer-right--CGU"
         to="#"
       >
-        Conditions Générales d'Utilisation
+        CGU
       </Link>
       <Link
         className="footer-right--createAccount"
-        to="#"
+        to="/new-account"
       >
         Créer votre compte
       </Link>
       <Link
         className="footer-right--FAQ"
-        to="#"
+        to="/Faq"
       >
         FAQ
       </Link>
