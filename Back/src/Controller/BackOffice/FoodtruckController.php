@@ -5,13 +5,15 @@ namespace App\Controller\BackOffice;
 use App\Entity\Foodtruck;
 use App\Form\FoodtruckType;
 use App\Repository\FoodtruckRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/back/office/foodtruck")
+ * @IsGranted("ROLE_ADMIN")
  */
 class FoodtruckController extends AbstractController
 {
