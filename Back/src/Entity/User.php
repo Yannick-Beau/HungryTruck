@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\Collection;
@@ -23,13 +24,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      * @Assert\NotBlank
      * @Assert\Email
      * 
@@ -39,6 +40,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\Count(min=1, max=1)
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $roles = [];
 
@@ -46,21 +48,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Assert\NotCompromisedPassword
-     * @Assert\Regex("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&-\/])[A-Za-z\d@$!%*#?&-\/]{8,}$/")
+     * 
+     * 
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100)
-     * @Groups("foodtruck_get")
+     * @Assert\Length(max=100, min=4)
+     * @Assert\NotBlank
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
+     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $avatar;
 
@@ -68,6 +73,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer")
      * @Assert\Type("int") 
      * @Assert\NotBlank
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $cp;
 
@@ -75,6 +81,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $city;
 
@@ -82,23 +89,26 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\Type("int")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $siret;
 
     /**
-     * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user", cascade={"persist", "remove" })
+     * @Groups({"pro_get_by_id"})
      */
     private $truck_id;
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
+     * @Groups("user_get_by_id","foodtruckevent_post")
      */
     private $food_like;
 
@@ -118,6 +128,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->releaseDate = new DateTime();
         $this->truck_id = new ArrayCollection();
         $this->food_like = new ArrayCollection();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int

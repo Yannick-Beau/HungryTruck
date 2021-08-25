@@ -17,7 +17,7 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-left--whoAreUs"
-        to="#"
+        to="/who-are-we"
       >
         Qui sommes-nous
       </Link>
@@ -42,13 +42,14 @@ const Footer = () => (
       </Link>
       <Link
         className="footer-right--createAccount"
-        to="#"
+
+        to="/new-account"
       >
         Créer votre compte
       </Link>
       <Link
         className="footer-right--FAQ"
-        to="#"
+        to="/Faq"
       >
         FAQ
       </Link>

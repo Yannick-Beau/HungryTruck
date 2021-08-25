@@ -11,9 +11,13 @@
   background-color: vars.$DarkOpacity;
   // position: absolute;
   width: 90%;
-  height: 65vh;
+
+  height: auto;
   margin: auto 5%;
-  padding: 2rem auto;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  padding-bottom: 1rem;
+
 
   .search-form {
     margin: 0 1rem 2rem 1rem;
@@ -58,7 +62,9 @@
   .search-results {
     background-color: vars.$LLight;
     padding-top: 2rem;
-    padding-bottom: 0.5rem;
+
+    padding-bottom: 1rem;
+
     width: 95%;
     margin: auto;
     margin-bottom: 2rem;
@@ -75,7 +81,9 @@
     }
 
     .search-results--result {
-      border: #e69512 solid 1px;
+
+      border: #e69512 solid 2px;
+
       border-radius: 100px;
       color: vars.$DarkOpacity;
       margin: 1rem;
@@ -110,6 +118,11 @@
           flex-direction: column;
         }
       }
+      &:hover {
+        background-color: #e69512;
+
+      }
+
     }
   }
 }

@@ -48,6 +48,7 @@ class Faq
     { 
         $this->createdAt = new DateTime();
         $this->releaseDate = new DateTime();
+
     }
 
     public function getId(): ?int

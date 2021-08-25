@@ -24,30 +24,28 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $place;
 
     /**
      * @ORM\ManyToMany(targetEntity=Foodtruck::class, mappedBy="event_truck")
+     * @Groups({"foodtruckevent_post"})
      */
     private $foodtrucks;
 
@@ -65,7 +63,7 @@ class EventFoodtruck
     {
         $this->foodtrucks = new ArrayCollection();
         $this->createdAt = new DateTime();
-        $this->releaseDate = new DateTime();
+        $this->updatedAt = new DateTime();
 
     }
 

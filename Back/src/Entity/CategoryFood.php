@@ -26,7 +26,7 @@ class CategoryFood
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post"})
      */
     private $name;
 
@@ -55,8 +55,8 @@ class CategoryFood
         $this->users = new ArrayCollection();
         $this->foodtrucks = new ArrayCollection();
         $this->createdAt = new DateTime();
-        $this->releaseDate = new DateTime();
-       
+        $this->updatedAt = new DateTime();
+
     }
 
     public function getId(): ?int
