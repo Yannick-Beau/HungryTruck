@@ -21,3 +21,7 @@
 |PRO|`/api/pro/{id}`|`GET`|Récuperation d'info d'un USER|200 ou 404|
 |PRO|`/api/pro/edit/{id}`|`PUT` ou `PATCH`|Editer un User|200 ou 422|
 |PRO|`/api/pro/delete/{id}`|`DELETE`|Suppression de Compte|200 ou 404|
+|PRO|`/api/foodtruck/{id}/eventfoodtruck/create`|`POST`|Création d'un evenement foodtruck|201|
+|PRO|`/api/foodtruck/create`|`POST`|Création d'un evenement foodtruck|201|
+|PRO|`/api/foodtruck/edit/{id}`|`DELETE`|Création d'un evenement foodtruck|200 ou 422|
+|PRO|`/api/foodtruck/delete/{id}`|`DELETE`|Création d'un evenement foodtruck|200 ou 404|
