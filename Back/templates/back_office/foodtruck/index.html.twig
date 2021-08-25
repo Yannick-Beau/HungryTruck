@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BackOffice - Liste FoodTruck{% endblock %}
+
+{% block body %}
+    <h1>Liste FoodTruck</h1>
+
+    <a href="{{ path('back_office_foodtruck_new') }}" class="btn btn-primary mx-3">Crée</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Num_tel</th>
+                <th>Overview</th>
+                <th>Instagram</th>
+                <th>Twitter</th>
+                <th>Facebook</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for foodtruck in foodtrucks %}
+            <tr>
+                <td>{{ foodtruck.id }}</td>
+                <td>{{ foodtruck.name }}</td>
+                <td>{{ foodtruck.numTel }}</td>
+                <td>{{ foodtruck.overview }}</td>
+                <td>{{ foodtruck.instagram }}</td>
+                <td>{{ foodtruck.twitter }}</td>
+                <td>{{ foodtruck.facebook }}</td>
+                <td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d H:i') : '' }}</td>
+                <td>
+                    <a href="{{ path('back_office_foodtruck_show', {'id': foodtruck.id}) }}"><i class="far fa-eye fa-2x"></i></a>
+                    <a href="{{ path('back_office_foodtruck_edit', {'id': foodtruck.id}) }}"><i class="far fa-edit fa-2x"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Aucun enregistrement trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

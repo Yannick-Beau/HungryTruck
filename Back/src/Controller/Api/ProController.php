@@ -15,13 +15,11 @@ use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class UserController extends AbstractController
+class ProController extends AbstractController
 {
     /**
-     * Get a user by id
-     *
-     * @Route("/api/user/{id<\d+>}", name="api_user_get_item", methods="GET")
-     * @IsGranted("ROLE_USER")
+     * @Route("/api/pro/{id<\d+>}", name="api_pro_show")
+     * @IsGranted("ROLE_PRO")
      */
     public function show(User $user = null): Response
     {
@@ -31,68 +29,25 @@ class UserController extends AbstractController
                 Response::HTTP_NOT_FOUND
             );
         }
-        // /!\ JSON Hijacking
-        // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
-        return $this->json($user, Response::HTTP_OK, [], ['groups' => 'user_get_by_id']);
+
+        if ($user->getRoles() == ["ROLE_PRO", "ROLE_USER"]) {
+            // /!\ JSON Hijacking
+            // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
+            return $this->json($user, Response::HTTP_OK, [], ['groups' => 'pro_get_by_id']);
+        }
+
+
+        return new JsonResponse(["message" => "Pro non trouvée !"], Response::HTTP_NOT_FOUND);
     }
 
     /**
-     * @Route("/api/user/create", name="api_user_create", methods="POST")
-     * @IsGranted("ROLE_USER")
-     */
-    public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator, UserPasswordHasherInterface $hasher): Response
-    {
-
-
-        // On récupère le contenu de la requête (du JSON)
-        $jsonContent = $request->getContent();
-
-        // On désérialise le JSON vers une entité User
-        $user = $serializer->deserialize($jsonContent, User::class, 'json');
-        $user->setPassword($hasher->hashPassword($user, $user->getPassword()));
-
-        // On valide l'entité avec le service Validator
-        $errors = $validator->validate($user);
-
-
-        if (count($errors) > 0) {
-            $newErrors = [];
-
-            foreach ($errors as $error) {
-                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
-            }
-
-            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
-
-        // Affichage des erreurs
-        if (count($errors) > 0) {
-
-            $newErrors = [];
-
-            foreach ($errors as $error) {
-
-                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
-            }
-
-            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
-
-        // On persist, on flush
-        $entityManager->persist($user);
-        $entityManager->flush();
-
-        return $this->json($user, Response::HTTP_CREATED);
-    }
-
-    /**
-     * @Route("/api/user/edit/{id<\d+>}", name="api_user_edit", methods={"PUT", "PATCH"})
-     * @IsGranted("ROLE_USER")
+     * @Route("/api/pro/edit/{id<\d+>}", name="api_pro_edit", methods={"PUT", "PATCH"})
+     * @IsGranted("ROLE_PRO")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
 
-        // User non trouvé
+        // Pro non trouvé
         if ($user === null) {
             return new JsonResponse(
                 ["message" => "User non trouvé"],
@@ -125,10 +80,10 @@ class UserController extends AbstractController
         return new JsonResponse(["message" => "User modifié"], Response::HTTP_OK);
     }
     /**
-     * Delete a User
+     * Delete a Pro
      * 
-     * @Route("/api/user/delete/{id<\d+>}", name="api_user_delete", methods="DELETE")
-     * @IsGranted("ROLE_USER")
+     * @Route("/api/pro/delete/{id<\d+>}", name="api_pro_delete", methods="DELETE")
+     * @IsGranted("ROLE_PRO")
      */
     public function delete(User $user = null, EntityManagerInterface $em)
     {

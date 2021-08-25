@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use App\Repository\EventFoodtruckRepository;
@@ -23,36 +24,48 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
      */
     private $place;
 
     /**
      * @ORM\ManyToMany(targetEntity=Foodtruck::class, mappedBy="event_truck")
+     * @Groups({"foodtruckevent_post"})
      */
     private $foodtrucks;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+
 
     public function __construct()
     {
         $this->foodtrucks = new ArrayCollection();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -119,6 +132,30 @@ class EventFoodtruck
         if ($this->foodtrucks->removeElement($foodtruck)) {
             $foodtruck->removeEventTruck($this);
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

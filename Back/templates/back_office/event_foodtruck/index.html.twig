@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BackOffice - Liste des Evenement Foodtruck
+{% endblock %}
+
+{% block body %}
+	<h1>Liste des Evenenement Foodtruck</h1>
+
+	<a href="{{ path('back_office_event_foodtruck_new') }}" class="btn btn-primary mx-3">Crée</a>
+
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Day</th>
+				<th>Hours</th>
+				<th>Place</th>
+				<th>CreatedAt</th>
+				<th>UpdatedAt</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for event_foodtruck in event_foodtrucks %}
+				<tr>
+					<td>{{ event_foodtruck.id }}</td>
+					<td>{{ event_foodtruck.day }}</td>
+					<td>{{ event_foodtruck.hours }}</td>
+					<td>{{ event_foodtruck.place }}</td>
+					<td>{{ event_foodtruck.createdAt ? event_foodtruck.createdAt|date('Y-m-d H:i') : '' }}</td>
+					<td>{{ event_foodtruck.updatedAt ? event_foodtruck.updatedAt|date('Y-m-d H:i') : '' }}</td>
+					<td>
+						<a href="{{ path('back_office_event_foodtruck_show', {'id': event_foodtruck.id}) }}">
+							<i class="far fa-eye fa-2x"></i>
+						</a>
+						<a href="{{ path('back_office_event_foodtruck_edit', {'id': event_foodtruck.id}) }}">
+							<i class="far fa-edit fa-2x"></i>
+						</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">Aucun enregistrement trouver</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}

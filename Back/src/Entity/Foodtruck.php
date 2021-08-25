@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\Collection;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FoodtruckRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -18,76 +19,91 @@ class Foodtruck
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
-     * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Assert\Length(max=255,min=2)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
      * @Assert\NotBlank
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $instagram;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $twitter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups("foodtruck_get")
+     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
     private $facebook;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id")
-     * @Groups("foodtruck_get")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id", cascade={"persist"})
+     * @Groups({"foodtruck_get","foodtruck_post","foodtruckevent_post"})
      */
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks")
-     * @Groups("foodtruck_get")
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist", "remove" })
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      * 
      */
     private $sell_type_food;
 
     /**
      * @ORM\ManyToMany(targetEntity=EventFoodtruck::class, inversedBy="foodtrucks")
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $event_truck;
 
-    public function __construct() 
-    { 
-        $this->usser = new ArrayCollection();
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
         $this->sell_type_food = new ArrayCollection();
-        $this->event_truck = new ArrayCollection(); 
+        $this->event_truck = new ArrayCollection();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -223,6 +239,30 @@ class Foodtruck
     public function removeEventTruck(EventFoodtruck $eventTruck): self
     {
         $this->event_truck->removeElement($eventTruck);
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

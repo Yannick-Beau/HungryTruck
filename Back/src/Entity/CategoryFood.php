@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\CategoryFoodRepository;
 use Doctrine\Common\Collections\Collection;
@@ -25,7 +26,7 @@ class CategoryFood
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups("foodtruck_get")
+     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post"})
      */
     private $name;
 
@@ -39,10 +40,22 @@ class CategoryFood
      */
     private $foodtrucks;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
         $this->foodtrucks = new ArrayCollection();
+        $this->createdAt = new DateTime();
+        $this->updatedAt = new DateTime();
     }
 
     public function getId(): ?int
@@ -112,6 +125,30 @@ class CategoryFood
         if ($this->foodtrucks->removeElement($foodtruck)) {
             $foodtruck->removeSellTypeFood($this);
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
