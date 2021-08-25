@@ -11,14 +11,11 @@ const initialState = {
   siret: '',
   pictureUser: '',
   createPro: false,
-  logged: false,
-  token: null,
 };
 
 function createUserReducer(state = initialState, action = {}) {
   switch (action.type) {
-
-    // Gestion des formulaires dans le state
+  // Gestion des formulaires dans le state
     case UPDATE_FIELD:
       // Formulaire de création d'un user
       switch (action.identifier) {
