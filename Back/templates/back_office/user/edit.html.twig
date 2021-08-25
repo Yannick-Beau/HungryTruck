@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BackOffice - Modifier un utilisateur
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Modifier un utilisateur</h1>
+
+		{{ include('back_office/user/_form.html.twig', {'button_label': 'Update'}) }}
+
+		<a href="{{ path('back_office_user_index') }}"><i class="fas fa-undo-alt"></i></a>
+
+		{{ include('back_office/user/_delete_form.html.twig') }}
+	</div>
+{% endblock %}
