@@ -6,16 +6,45 @@ import { Link } from 'react-router-dom';
 import './logIn.scss';
 
 // == Composant
-const LogIn = () => (
+const LogIn = ({
+  email,
+  password,
+  changeField,
+  handleSubmit,
+}) => (
   <section className="login-section">
     <h2 className="login-title">Connexion à HungryTruck</h2>
     <p>Bienvenu sur HungryTruck</p>
-    <form className="login-form">
+    <form 
+      className="login-form" 
+      onSubmit={(evt) => {
+        evt.preventDefault();
+        handleSubmit();
+      }}
+    >
       <label className="login-label" htmlFor="email">Votre Email
-        <input className="login-input" type="email" name="email" placeholder="Email" />
+        <input
+          className="login-input"
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={(evt) => {
+            changeField(evt.target.value, 'email');
+          }}
+        />
       </label>
       <label className="login-label" htmlFor="password">Votre mot de passe
-        <input className="login-input" type="password" name="password" placeholder="Mot de passe" />
+        <input
+          className="login-input"
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(evt) => {
+            changeField(evt.target.value, 'password');
+          }}
+        />
       </label>
       <button type="submit" className="login-form--submit">Connexion</button>
     </form>

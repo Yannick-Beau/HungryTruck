@@ -18,6 +18,14 @@ function logInReducer(state = initialState, action = {}) {
             ...state,
             email: action.newValue,
           };
+        case 'password':
+          return {
+            ...state,
+            password: action.newValue,
+          };
+        default:
+          return state;
+        }
     default:
       return state;
   }

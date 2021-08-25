@@ -1,5 +1,6 @@
 // === action types
 export const UPDATE_FIELD = 'UPDATE_FIELD';
+export const AUTHENTIFICATION = 'AUTHENTIFICATION';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({
@@ -7,3 +8,8 @@ export const updateField = (newValue, identifier) => ({
   newValue: newValue,
   identifier: identifier,
 });
+
+export const authentification = () => ({
+  type: AUTHENTIFICATION,
+});
+
