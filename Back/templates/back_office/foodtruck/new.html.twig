@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Foodtruck{% endblock %}
+{% block title %}BackOffice - Crée un nouveau Foodtruck
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Foodtruck</h1>
+	<div class="container">
+		<h1>Crée un nouveau Foodtruck</h1>
 
-    {{ include('back_office_foodtruck/_form.html.twig') }}
+		{{ include('back_office/foodtruck/_form.html.twig') }}
 
-    <a href="{{ path('back_office_foodtruck_index') }}">back to list</a>
+		<a href="{{ path('back_office_foodtruck_index') }}">
+			<i class="fas fa-undo-alt"></i>
+		</a>
+	</div>
 {% endblock %}

@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Faq index{% endblock %}
+{% block title %}BackOffice - Liste Faq{% endblock %}
 
 {% block body %}
-    <h1>Faq index</h1>
+    <h1>Liste Faq</h1>
 
+    <a href="{{ path('back_office_faq_new') }}" class="btn btn-primary mx-3">Crée</a>
+    
     <table class="table">
         <thead>
             <tr>
@@ -13,7 +15,7 @@
                 <th>Reponse</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,20 +24,20 @@
                 <td>{{ faq.id }}</td>
                 <td>{{ faq.question }}</td>
                 <td>{{ faq.reponse }}</td>
-                <td>{{ faq.createdAt ? faq.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ faq.updatedAt ? faq.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ faq.createdAt ? faq.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ faq.updatedAt ? faq.updatedAt|date('Y-m-d H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('back_office_faq_show', {'id': faq.id}) }}">show</a>
-                    <a href="{{ path('back_office_faq_edit', {'id': faq.id}) }}">edit</a>
+                    <a href="{{ path('back_office_faq_show', {'id': faq.id}) }}"><i class="far fa-eye fa-2x"></i></a>
+                    <a href="{{ path('back_office_faq_edit', {'id': faq.id}) }}"><i class="far fa-edit fa-2x"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun enregistrement trouver</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('back_office_faq_new') }}">Create new</a>
+    <a href="{{ path('back_office_faq_new') }}" class="btn btn-primary mx-3">Crée</a>
 {% endblock %}

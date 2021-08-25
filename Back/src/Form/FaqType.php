@@ -14,8 +14,6 @@ class FaqType extends AbstractType
         $builder
             ->add('question')
             ->add('reponse')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
 

@@ -12,7 +12,7 @@
                 <th>Name</th>
                 <th>CreatedAt</th>
                 <th>UpdatedAt</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,20 +20,20 @@
             <tr>
                 <td>{{ category_food.id }}</td>
                 <td>{{ category_food.name }}</td>
-                <td>{{ category_food.createdAt ? category_food.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ category_food.updatedAt ? category_food.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ category_food.createdAt ? category_food.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ category_food.updatedAt ? category_food.updatedAt|date('Y-m-d H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('back_office_category_food_show', {'id': category_food.id}) }}">show</a>
-                    <a href="{{ path('back_office_category_food_edit', {'id': category_food.id}) }}">edit</a>
+                    <a href="{{ path('back_office_category_food_show', {'id': category_food.id}) }}"><i class="far fa-eye fa-2x"></i></a>
+                    <a href="{{ path('back_office_category_food_edit', {'id': category_food.id}) }}"><i class="far fa-edit fa-2x"></i></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun enregistrement trouver</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('back_office_category_food_new') }}">Create new</a>
+    <a href="{{ path('back_office_category_food_new') }}" class="btn btn-primary mx-3">Crée</a>
 {% endblock %}

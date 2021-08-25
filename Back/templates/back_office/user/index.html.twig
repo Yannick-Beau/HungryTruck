@@ -41,8 +41,8 @@
                 <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i') : '' }}</td>
                 <td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i') : '' }}</td>
                 <td>
-                    <a href="{{ path('back_office_user_show', {'id': user.id}) }}"><i class="far fa-eye"></i></a>
-                    <a href="{{ path('back_office_user_edit', {'id': user.id}) }}"><i class="far fa-edit"></i></a>
+                    <a href="{{ path('back_office_user_show', {'id': user.id}) }}"><i class="far fa-eye fa-2x"></i></a>
+                    <a href="{{ path('back_office_user_edit', {'id': user.id}) }}"><i class="far fa-edit fa-2x"></i></a>
                 </td>
             </tr>
         {% else %}

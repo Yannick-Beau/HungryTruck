@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Foodtruck{% endblock %}
+{% block title %}BackOffice - Foodtruck{% endblock %}
 
 {% block body %}
     <h1>Foodtruck</h1>
-
     <table class="table">
         <tbody>
             <tr>
@@ -37,18 +36,18 @@
             </tr>
             <tr>
                 <th>CreatedAt</th>
-                <td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d H:i') : '' }}</td>
             </tr>
             <tr>
                 <th>UpdatedAt</th>
-                <td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d H:i') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('back_office_foodtruck_index') }}">back to list</a>
+    <a href="{{ path('back_office_foodtruck_index') }}"class="btn btn-primary"><i class="fas fa-undo-alt"></i></a>
 
-    <a href="{{ path('back_office_foodtruck_edit', {'id': foodtruck.id}) }}">edit</a>
+    <a href="{{ path('back_office_foodtruck_edit', {'id': foodtruck.id}) }}" class="btn btn-warning mx-2"><i class="far fa-edit"></i></a>
 
     {{ include('back_office/foodtruck/_delete_form.html.twig') }}
 {% endblock %}
