@@ -19,10 +19,17 @@ const NewAccount = ({
   createPro,
   changeField,
   changeToggle,
+  handleSubmit,
 }) => (
   <main className="newaccount">
     <h1 className="newaccount-title">Créer votre compte utilisateur</h1>
-    <form className="newaccount-form">
+    <form
+      className="newaccount-form"
+      onSubmit={(evt) => {
+        evt.preventDefault();
+        handleSubmit();
+      }}
+    >
       <div className="form-left">
         <img className="avatar" src={avatar} alt="Avatar" />
         <label className="form-label--avatar" htmlFor="avatar">Lien de votre image de profil*

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import NewAccount from 'src/components/MyAccount/NewAccount';
-import { updateField, updateToggle } from '../../../actions/createUser';
+import { updateField, updateToggle, createUser } from '../../../actions/createUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -32,6 +32,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeToggle: (newValue, identifier) => {
     const action = updateToggle(newValue, identifier);
+    dispatch(action);
+  },
+  handleSubmit: () => {
+    const action = createUser();
     dispatch(action);
   },
 });
