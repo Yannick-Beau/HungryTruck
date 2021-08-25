@@ -66,7 +66,7 @@ class AppFixtures extends Fixture
         $userPro->setCp(38290);
         $userPro->setCity("Artas");
         $userPro->setAdresse("8 rue ouaiouai");
-        $userPro->setSiret(4534534435534);
+        $userPro->setSiret(45345344);
         $userPro->setRoles(['ROLE_PRO']);
 
         $manager->persist($userPro);
@@ -79,7 +79,7 @@ class AppFixtures extends Fixture
         $userPro2->setCp(38290);
         $userPro2->setCity("Artas");
         $userPro2->setAdresse("8 rue ouaiouai");
-        $userPro2->setSiret(4534534435534);
+        $userPro2->setSiret(511111);
         $userPro2->setRoles(['ROLE_PRO']);
 
         $manager->persist($userPro2);
@@ -125,7 +125,7 @@ class AppFixtures extends Fixture
         for ($i = 1; $i <= 5; $i++) {
 
             $FoodTruck = new Foodtruck();
-            $FoodTruck->setName($data->foodtruckName());
+            $FoodTruck->setName($data->foodtruckName2());
             $FoodTruck->setNumTel($data->numtel());
             $FoodTruck->setOverview($data->overview());
             $FoodTruck->setInstagram("Lien instagram" . $i);
