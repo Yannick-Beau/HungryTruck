@@ -10,7 +10,7 @@ import imgUser from '../../../assets/img/icon-user.png';
 // == Composant
 const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
   let avatarUser;
-  if (avatar !== '' && avatar !== nul) {
+  if (avatar !== '' && avatar !== null) {
     avatarUser = avatar;
   } 
   else {

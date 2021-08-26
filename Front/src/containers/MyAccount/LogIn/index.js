@@ -12,7 +12,7 @@ const mapStateToProps = (state) => ({
   // Formualire de création d'un user
   email: state.logIn.email,
   password: state.logIn.password,
-  tokenIsOk: state.logIn.tokenIsOk,
+  tokenIsOk: state.logIn.logged,
 });
 
 // === mapDispatchToProps

@@ -1,6 +1,6 @@
 // == Import npm
-import { React, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, Redirect, Route } from 'react-router-dom';
 
 // == Import
 import './logIn.scss';
@@ -14,12 +14,10 @@ const LogIn = ({
   tokenIsOk,
 }) => {
   
-  useEffect(() => {
-    if(tokenIsOk) {
-      console.log('je vais chaanger lurl');
-      return <Redirect to="/" push={true} />
-    }
-  });
+  if(tokenIsOk) {
+    console.log('je vais changer lurl');
+    return <Redirect to="/" />; 
+  }
   return(
   <section className="login-section">
     <h2 className="login-title">Connexion à HungryTruck</h2>

@@ -29,6 +29,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
           .then((response) => {
             console.log(response);
             store.dispatch(connectUser(response.data.adresse, response.data.avatar, response.data.city, response.data.cp, response.data.food_like, response.data.id, response.data.pseudo, response.data.roles));
+            
           })
 
         })
