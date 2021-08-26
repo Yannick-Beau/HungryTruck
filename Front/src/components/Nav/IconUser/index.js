@@ -8,7 +8,14 @@ import './iconUser.scss';
 import imgUser from '../../../assets/img/icon-user.png';
 
 // == Composant
-const IconUser = ({ user, setUser }) => (
+const IconUser = ({ user, setUser }) => {
+  // const token = localStorage.getItem('token');
+  // let tokenIsOk = false;
+  // if (token !== null && token !== '') {
+  //   tokenIsOk = true;
+  // }
+  //console.log(tokenIsOk);
+  return(
   <div className="user">
     <img
       className="image-user"
@@ -51,7 +58,7 @@ const IconUser = ({ user, setUser }) => (
     </ul>
     )}
   </div>
-);
+)};
 
 IconUser.propTypes = {
   user: PropTypes.bool.isRequired,

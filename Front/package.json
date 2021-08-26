@@ -70,7 +70,7 @@
     "reactjs-popup": "^2.0.5",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
-    "slugify": "^1.6.0"
+    "slugify": "^1.6.0",
     "surge": "^0.23.0"
   }
 }

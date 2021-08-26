@@ -14,6 +14,14 @@ export const authentification = () => ({
   type: AUTHENTIFICATION,
 });
 
-export const connectUser = () => ({
+export const connectUser = (address, avatar, city, cp, food_like, id, pseudo, roles) => ({
   type: CONNECT_USER,
+  adresse: address,
+  avatar: avatar,
+  city: city,
+  cp: cp,
+  food_like: food_like,
+  id: id,
+  pseudo: pseudo,
+  roles: roles,
 });

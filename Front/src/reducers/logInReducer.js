@@ -1,10 +1,17 @@
-import { UPDATE_FIELD } from '../actions/logIn';
+import { CONNECT_USER, UPDATE_FIELD } from '../actions/logIn';
 
 const initialState = {
   email: '',
   password: '',
+  adresse: '',
+  avatar: '',
+  city: '',
+  cp: null,
+  food_like: [],
+  id: null,
+  pseudo: '',
+  roles: [],
   logged: false,
-  token: null,
 };
 
 function logInReducer(state = initialState, action = {}) {
@@ -26,8 +33,23 @@ function logInReducer(state = initialState, action = {}) {
         default:
           return state;
         }
+
+    case CONNECT_USER:
+      return {
+        ...state,
+        logged: true,
+        adresse: action.adresse,
+        avatar: action.avatar,
+        city: action.city,
+        cp: action.cp,
+        food_like: action.food_like,
+        id: action.id,
+        pseudo: action.pseudo,
+        roles: action.roles,
+      };
     default:
       return state;
+
   }
 }
 
