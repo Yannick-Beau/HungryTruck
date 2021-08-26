@@ -23,19 +23,19 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post"})
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post"})
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post"})
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $place;
 
