@@ -1,32 +1,41 @@
 import axios from 'axios';
-import { FETCH_SEARCH } from '../actions/search';
+import { FETCH_SEARCH, loadSearch } from '../actions/search';
+import URL from '../data/ip';
 
 const searchMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SEARCH: {
       const { search } = store.getState().search;
       console.log(`On va faire une recherche ${search}`);
-      // axios.post(
-      //   // URL
-      //   'http://3.218.156.136/api/login_check',
-      //   // paramètres
-      //   {
-      //     username: email,
-      //     password: password,
-      //   },
-      // )
-      //   .then((response) => {
-      //     console.log(response);
-      //     //console.log(response.data.token);
-      //     localStorage.setItem('token', response.data.token);
-      //     console.log(localStorage.getItem('token'));
-      //     window.location = '/';
-      //   })
-      //   .catch((error) => {
-      //     // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-      //     // dans le state, et dispatcher ici une nouvelle action
-      //     console.log(error);
-      //   });
+      axios.get(
+        // URL
+        `http://${URL}/api/foodtruck/search`,
+        // paramètres
+        {
+          name: search,
+          num_tel: search,
+          overview: search,
+          intagram: search,
+          twitter: search,
+          facebook: search,
+          sell_type_food: search,
+          event: search,
+        },
+      )
+        .then((response) => {
+          console.log(response);
+
+          store.dispatch(loadSearch(response.data));
+          // console.log(response.data.token);
+          // localStorage.setItem('token', response.data.token);
+          // console.log(localStorage.getItem('token'));
+          // window.location = '/';
+        })
+        .catch((error) => {
+          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
+          // dans le state, et dispatcher ici une nouvelle action
+          console.log(error);
+        });
       break;
     }
     default:

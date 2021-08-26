@@ -1,7 +1,8 @@
-import { SEARCH_FIELD } from '../actions/search';
+import { SEARCH_FIELD, LOAD_SEARCH } from '../actions/search';
 
 const initialState = {
   search: '',
+  trucks: [],
 };
 
 function searchReducer(state = initialState, action = {}) {
@@ -11,6 +12,11 @@ function searchReducer(state = initialState, action = {}) {
       return {
         ...state,
         search: action.newValue,
+      };
+    case LOAD_SEARCH:
+      return {
+        ...state,
+        trucks: action.loadResponse,
       };
     default:
       return state;

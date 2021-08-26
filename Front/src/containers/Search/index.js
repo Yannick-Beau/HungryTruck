@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
   // Formualire de création d'un user
   search: state.search.search,
+  trucks: state.search.trucks,
 });
 
 // === mapDispatchToProps

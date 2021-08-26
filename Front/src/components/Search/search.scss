@@ -105,6 +105,11 @@
         .result-type {
           font-style: italic;
           margin: 0.5rem 0;
+          display: flex;
+          
+          p {
+            margin: auto 1rem;
+          }
         }
 
         .result-time {
