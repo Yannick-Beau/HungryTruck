@@ -109,9 +109,9 @@ class AppFixtures extends Fixture
             $FoodTruck->setName($data->foodtruckName());
             $FoodTruck->setNumTel($data->numtel());
             $FoodTruck->setOverview($data->overview());
-            $FoodTruck->setInstagram("Lien instagram" . $i);
-            $FoodTruck->setTwitter("Lien Twitter" . $i);
-            $FoodTruck->setFacebook("Lien Facebook" . $i);
+            $FoodTruck->setInstagram("http://Lieninstagram/");
+            $FoodTruck->setTwitter("http://LienTwitter/");
+            $FoodTruck->setFacebook("http://LienFacebook/");
             $FoodTruck->setUser($userPro);
 
 
@@ -124,19 +124,19 @@ class AppFixtures extends Fixture
 
         for ($i = 1; $i <= 5; $i++) {
 
-            $FoodTruck = new Foodtruck();
-            $FoodTruck->setName($data->foodtruckName2());
-            $FoodTruck->setNumTel($data->numtel());
-            $FoodTruck->setOverview($data->overview());
-            $FoodTruck->setInstagram("Lien instagram" . $i);
-            $FoodTruck->setTwitter("Lien Twitter" . $i);
-            $FoodTruck->setFacebook("Lien Facebook" . $i);
-            $FoodTruck->setUser($userPro2);
+            $FoodTruck1 = new Foodtruck();
+            $FoodTruck1->setName($data->foodtruckName2());
+            $FoodTruck1->setNumTel($data->numtel());
+            $FoodTruck1->setOverview($data->overview());
+            $FoodTruck1->setInstagram("http://Lieninstagram/");
+            $FoodTruck1->setTwitter("http://LienTwitter/");
+            $FoodTruck1->setFacebook("http://LienFacebook/");
+            $FoodTruck1->setUser($userPro2);
 
 
-            $FoodTruckList1[] = $FoodTruck;
+            $FoodTruckList1[] = $FoodTruck1;
 
-            $manager->persist($FoodTruck);
+            $manager->persist($FoodTruck1);
         }
 
         $CategoriesFoodList = [];
