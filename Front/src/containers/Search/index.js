@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import Search from 'src/components/Search';
-import { searchField } from '../../actions/search';
+import { fetchSearch, searchField } from '../../actions/search';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -21,10 +21,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = searchField(newValue, identifier);
     dispatch(action);
   },
-  // handleSubmit: () => {
-  //   const action = authentification();
-  //   dispatch(action);
-  // },
+  handleSubmit: () => {
+    const action = fetchSearch();
+    dispatch(action);
+  },
 });
 
 // === création de l'assistant

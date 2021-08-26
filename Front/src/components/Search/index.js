@@ -10,6 +10,7 @@ import Logo from '../../assets/img/logo.png';
 const Search = ({
   search,
   searchField,
+  handleSubmit,
 }) => (
   <>
     <h3 className="search-title">
@@ -17,7 +18,13 @@ const Search = ({
     </h3>
     <div className="search">
 
-      <form className="search-form">
+      <form
+        className="search-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
         <label className="search-form--label" htmlFor="search">
           <div className="search-form-inputSubmit">
             <input
