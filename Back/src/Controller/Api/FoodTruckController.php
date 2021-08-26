@@ -34,7 +34,7 @@ class FoodTruckController extends AbstractController
     /**
      * Get all foodtruck for search 
      * 
-     * @Route("/api/foodtruck/search", name="api_foodtruck_truck", methods="GET")
+     * @Route("/api/foodtruck/search", name="api_foodtruck_truck_search", methods="GET")
      */
     public function search(FoodtruckRepository $foodtruckRepository): Response
     {
@@ -107,7 +107,7 @@ class FoodTruckController extends AbstractController
      */
     public function itemEdit(Foodtruck $foodtruck = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
-
+        
         // foodtruck non trouvé
         if ($foodtruck === null) {
             return new JsonResponse(
