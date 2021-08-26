@@ -52,7 +52,7 @@
         padding: 0  vars.$gutter;
         text-align: center;
         li {
-          padding: vars.$gutter / 2;
+          padding: 0.5rem;
           &:not(:last-child) {
             border-bottom: vars.$Yellow solid 1px;
           }
@@ -61,7 +61,7 @@
  
     .back-home {
       margin: vars.$gutter;
-      padding: vars.$gutter / 2;
+      padding: 0.5rem;
       border: #e69512 solid 4px;
       border-radius: 25px;
       background-color: transparent;
