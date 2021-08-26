@@ -142,8 +142,13 @@
             "ref": "c8e0c38e1a280ab9e37587a8fa32b251d5bc1c94"
         },
         "files": [
+<<<<<<< HEAD
             "config/packages/nelmio_api_doc.yaml",
             "config/routes/nelmio_api_doc.yaml"
+=======
+            "./config/packages/nelmio_api_doc.yaml",
+            "./config/routes/nelmio_api_doc.yaml"
+>>>>>>> 5fbaeacfcef9e04c07f480a50ba2b553079165de
         ]
     },
     "nelmio/cors-bundle": {
@@ -155,7 +160,11 @@
             "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
         },
         "files": [
+<<<<<<< HEAD
             "config/packages/nelmio_cors.yaml"
+=======
+            "./config/packages/nelmio_cors.yaml"
+>>>>>>> 5fbaeacfcef9e04c07f480a50ba2b553079165de
         ]
     },
     "nikic/php-parser": {
