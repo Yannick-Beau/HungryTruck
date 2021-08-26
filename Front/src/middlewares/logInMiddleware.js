@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTHENTIFICATION } from '../actions/logIn';
+import { AUTHENTIFICATION, connectUser } from '../actions/logIn';
 
 const createUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -16,11 +16,22 @@ const createUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
-          //console.log(response.data.token);
           localStorage.setItem('token', response.data.token);
-          console.log(localStorage.getItem('token'));
-          window.location = '/';
+    
+          axios.get(
+            `http://3.218.156.136/api/user`,
+            { 
+              headers: {
+                "Authorization" : `Bearer ${response.data.token}`
+              }
+            }
+          )
+          .then((response) => {
+            console.log(response);
+            store.dispatch(connectUser(response.data.adresse, response.data.avatar, response.data.city, response.data.cp, response.data.food_like, response.data.id, response.data.pseudo, response.data.roles));
+            
+          })
+
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info

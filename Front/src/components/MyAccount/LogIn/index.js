@@ -1,6 +1,6 @@
 // == Import npm
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, Redirect, Route } from 'react-router-dom';
 
 // == Import
 import './logIn.scss';
@@ -11,7 +11,14 @@ const LogIn = ({
   password,
   changeField,
   handleSubmit,
-}) => (
+  tokenIsOk,
+}) => {
+  
+  if(tokenIsOk) {
+    console.log('je vais changer lurl');
+    return <Redirect to="/" />; 
+  }
+  return(
   <section className="login-section">
     <h2 className="login-title">Connexion à HungryTruck</h2>
     <p>Bienvenu sur HungryTruck</p>
@@ -55,7 +62,7 @@ const LogIn = ({
       <button type="button" className="login-cancel">Retourner à l'acceuil</button>
     </Link>
   </section>
-);
+)};
 
 // == Export
 export default LogIn;
