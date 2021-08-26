@@ -22,6 +22,7 @@ class FoodtruckType extends AbstractType
             ->add('name')
             ->add('num_tel')
             ->add('overview')
+            ->add('picture')
             ->add('instagram')
             ->add('twitter')
             ->add('facebook')
