@@ -15,6 +15,7 @@
 				<th>Nom</th>
 				<th>Portable</th>
 				<th>Présentation</th>
+				<th>Image</th>
 				<th>Instagram</th>
 				<th>Twitter</th>
 				<th>Facebook</th>
@@ -34,8 +35,8 @@
 					<td>{{ foodtruck.instagram ? foodtruck.instagram : 'Null'}}</td>
 					<td>{{ foodtruck.twitter ? foodtruck.twitter : 'Null'}}</td>
 					<td>{{ foodtruck.facebook ? foodtruck.facebook : 'Null'}}</td>
-					<td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d H:i') : '' }}</td>
-					<td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d H:i') : '' }}</td>
+					<td>{{ foodtruck.createdAt ? foodtruck.createdAt|date('Y-m-d') : '' }}</td>
+					<td>{{ foodtruck.updatedAt ? foodtruck.updatedAt|date('Y-m-d') : '' }}</td>
 					<td>
 						<a href="{{ path('back_office_foodtruck_show', {'id': foodtruck.id}) }}" class="btn btn-primary">
 							<i class="far fa-eye"></i>

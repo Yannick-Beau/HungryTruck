@@ -49,6 +49,7 @@ class Foodtruck
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
+     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $instagram;
@@ -101,6 +102,7 @@ class Foodtruck
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("foodtruck_get")
      */
     private $picture;
 
