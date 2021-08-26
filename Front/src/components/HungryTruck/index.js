@@ -11,7 +11,7 @@ import Main from '../Main';
 
 import NewAccount from '../../containers/MyAccount/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
-import Search from '../Search';
+import Search from '../../containers/Search';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../ZoomFT';
