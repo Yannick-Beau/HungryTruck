@@ -29,27 +29,27 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      * @Assert\Length(max=255,min=2)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string",length=10)
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $overview;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $instagram;
 
@@ -57,7 +57,7 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $twitter;
 
@@ -65,28 +65,22 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $facebook;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id", cascade={"persist"})
-     * @Groups({"foodtruck_get","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","foodtruck_post","event_post"})
      */
     private $user;
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist", "remove" })
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      * 
      */
     private $sell_type_food;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=EventFoodtruck::class, inversedBy="foodtrucks")
-     * @Groups({"foodtruck_get","pro_get_by_id"})
-     */
-    private $event_truck;
 
     /**
      * @ORM\Column(type="datetime")
@@ -99,13 +93,17 @@ class Foodtruck
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="foodtruck")
+     */
+    private $events;
 
     public function __construct()
     {
         $this->sell_type_food = new ArrayCollection();
-        $this->event_truck = new ArrayCollection();
         $this->createdAt = new DateTime();
         $this->updatedAt = new DateTime();
+        $this->events = new ArrayCollection();
     }
 
     public function __toString()
@@ -226,30 +224,6 @@ class Foodtruck
         return $this;
     }
 
-    /**
-     * @return Collection|EventFoodtruck[]
-     */
-    public function getEventTruck(): Collection
-    {
-        return $this->event_truck;
-    }
-
-    public function addEventTruck(EventFoodtruck $eventTruck): self
-    {
-        if (!$this->event_truck->contains($eventTruck)) {
-            $this->event_truck[] = $eventTruck;
-        }
-
-        return $this;
-    }
-
-    public function removeEventTruck(EventFoodtruck $eventTruck): self
-    {
-        $this->event_truck->removeElement($eventTruck);
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -273,4 +247,35 @@ class Foodtruck
 
         return $this;
     }
+
+    /**
+     * @return Collection|Event[]
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setFoodtruck($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getFoodtruck() === $this) {
+                $event->setFoodtruck(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

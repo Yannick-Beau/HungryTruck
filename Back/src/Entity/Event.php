@@ -4,16 +4,15 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EventRepository;
 use Doctrine\Common\Collections\Collection;
-use App\Repository\EventFoodtruckRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=EventFoodtruckRepository::class)
+ * @ORM\Entity(repositoryClass=EventRepository::class)
  */
-class EventFoodtruck
+class Event
 {
     /**
      * @ORM\Id
@@ -24,30 +23,21 @@ class EventFoodtruck
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"event_post"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"event_post"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"event_post"})
      */
     private $place;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Foodtruck::class, mappedBy="event_truck")
-     * @Groups({"foodtruckevent_post"})
-     */
-    private $foodtrucks;
 
     /**
      * @ORM\Column(type="datetime")
@@ -59,15 +49,19 @@ class EventFoodtruck
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Foodtruck::class, inversedBy="events")
+     * @Groups({"event_post"})
+     */
+    private $foodtruck;
+
     public function __construct()
     {
-        $this->foodtrucks = new ArrayCollection();
+
         $this->createdAt = new DateTime();
         $this->updatedAt = new DateTime();
 
     }
-
-
 
     public function getId(): ?int
     {
@@ -110,33 +104,6 @@ class EventFoodtruck
         return $this;
     }
 
-    /**
-     * @return Collection|Foodtruck[]
-     */
-    public function getFoodtrucks(): Collection
-    {
-        return $this->foodtrucks;
-    }
-
-    public function addFoodtruck(Foodtruck $foodtruck): self
-    {
-        if (!$this->foodtrucks->contains($foodtruck)) {
-            $this->foodtrucks[] = $foodtruck;
-            $foodtruck->addEventTruck($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFoodtruck(Foodtruck $foodtruck): self
-    {
-        if ($this->foodtrucks->removeElement($foodtruck)) {
-            $foodtruck->removeEventTruck($this);
-        }
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -157,6 +124,18 @@ class EventFoodtruck
     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getFoodtruck(): ?Foodtruck
+    {
+        return $this->foodtruck;
+    }
+
+    public function setFoodtruck(?Foodtruck $foodtruck): self
+    {
+        $this->foodtruck = $foodtruck;
 
         return $this;
     }
