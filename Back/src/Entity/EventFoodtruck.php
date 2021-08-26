@@ -67,6 +67,8 @@ class EventFoodtruck
 
     }
 
+
+
     public function getId(): ?int
     {
         return $this->id;

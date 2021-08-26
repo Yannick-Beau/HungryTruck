@@ -13,10 +13,7 @@ class CategoryFoodType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('users')
-            ->add('foodtrucks')
+
         ;
     }
 

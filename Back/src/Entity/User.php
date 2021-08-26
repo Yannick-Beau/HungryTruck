@@ -122,13 +122,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $updatedAt;
 
+    
     public function __construct()
     {
         $this->createdAt = new DateTime();
-        $this->releaseDate = new DateTime();
         $this->truck_id = new ArrayCollection();
         $this->food_like = new ArrayCollection();
-        $this->createdAt = new DateTime();
         $this->updatedAt = new DateTime();
     }
 

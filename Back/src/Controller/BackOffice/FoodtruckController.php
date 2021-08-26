@@ -35,7 +35,7 @@ class FoodtruckController extends AbstractController
         $foodtruck = new Foodtruck();
         $form = $this->createForm(FoodtruckType::class, $foodtruck);
         $form->handleRequest($request);
-
+     
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($foodtruck);

@@ -34,10 +34,11 @@ class EventFoodtruckController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        
         $eventFoodtruck = new EventFoodtruck();
         $form = $this->createForm(EventFoodtruckType::class, $eventFoodtruck);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($eventFoodtruck);
