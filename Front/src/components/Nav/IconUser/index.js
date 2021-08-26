@@ -9,17 +9,18 @@ import imgUser from '../../../assets/img/icon-user.png';
 
 // == Composant
 const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
-  // const token = localStorage.getItem('token');
-  // let tokenIsOk = false;
-  // if (token !== null && token !== '') {
-  //   tokenIsOk = true;
-  // }
-  //console.log(tokenIsOk);
+  let avatarUser;
+  if (avatar !== '' && avatar !== nul) {
+    avatarUser = avatar;
+  } 
+  else {
+    avatarUser = imgUser;
+  }
   return(
   <div className="user">
     <img
       className="image-user"
-      src={avatar}
+      src={avatarUser}
       alt="utilisateur"
       onClick={() => {
         setUser(!user);

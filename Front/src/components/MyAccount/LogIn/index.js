@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import { React, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 // == Import
@@ -12,12 +12,14 @@ const LogIn = ({
   changeField,
   handleSubmit,
   tokenIsOk,
-  history
 }) => {
-  if(tokenIsOk) {
-    console.log('je vais chaanger lurl');
-    return <Redirect to="/" push={true} />
-  }
+  
+  useEffect(() => {
+    if(tokenIsOk) {
+      console.log('je vais chaanger lurl');
+      return <Redirect to="/" push={true} />
+    }
+  });
   return(
   <section className="login-section">
     <h2 className="login-title">Connexion à HungryTruck</h2>
