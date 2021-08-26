@@ -43,10 +43,12 @@ class Faq
      */
     private $updatedAt;
 
-    public function __construct()
-    {
+
+    public function __construct() 
+    { 
         $this->createdAt = new DateTime();
-        $this->updatedAt = new DateTime();
+        $this->releaseDate = new DateTime();
+
     }
 
     public function getId(): ?int

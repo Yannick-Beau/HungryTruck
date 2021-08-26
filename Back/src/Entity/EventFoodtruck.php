@@ -59,13 +59,12 @@ class EventFoodtruck
      */
     private $updatedAt;
 
-
-
     public function __construct()
     {
         $this->foodtrucks = new ArrayCollection();
         $this->createdAt = new DateTime();
         $this->updatedAt = new DateTime();
+
     }
 
     public function getId(): ?int

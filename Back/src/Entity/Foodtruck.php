@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use DateTime;
+
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FoodtruckRepository;
 use Doctrine\Common\Collections\Collection;
@@ -32,7 +34,7 @@ class Foodtruck
     private $name;
 
     /**
-     * @ORM\Column(type="string",length=11)
+     * @ORM\Column(type="string",length=10)
      * @Assert\NotBlank
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      */
@@ -88,6 +90,7 @@ class Foodtruck
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("foodtruck_get")
      */
     private $createdAt;
 

@@ -38,7 +38,6 @@ class UserController extends AbstractController
 
     /**
      * @Route("/api/user/create", name="api_user_create", methods="POST")
-     * @IsGranted("ROLE_USER")
      */
     public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator, UserPasswordHasherInterface $hasher): Response
     {

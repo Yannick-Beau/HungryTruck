@@ -1,0 +1,63 @@
+@use 'src/styles/vars';
+
+.hungrytruck {
+  width: 100vw;
+  height: 100vh;
+  background-color: vars.$DarkOpacity;
+  background-image: url(../../assets/img/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: vars.$LLight;
+  font-family: Quicksand;
+
+  overflow: hidden;
+
+  .input-yellow {
+    margin-top: vars.$gutter / 2;
+    padding: vars.$gutter / 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    border: 4px solid #e69512;
+  }
+
+  .myFoodTruck-array {
+    border: vars.$Yellow solid 2px;
+    border-radius: 25px;
+    width: 80%;
+    height: auto;
+    margin:  0.5rem auto;
+
+    table {
+      margin: 1rem auto 1rem;
+      padding: 1rem;
+      width: 90%;
+      height: 10rem;
+
+      thead,
+      tbody {
+        width: 100%;
+        height: 2rem;
+        border-bottom: vars.$Yellow solid 1px;
+
+
+        th {
+          text-align: center;
+          vertical-align: middle;
+          font-weight: bold;
+        }
+
+        td {
+          text-align: center;
+          vertical-align: middle;
+
+        }
+
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+
+}

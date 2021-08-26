@@ -13,6 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
+
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="It looks like your already have an account!")
@@ -123,6 +124,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
+        $this->createdAt = new DateTime();
+        $this->releaseDate = new DateTime();
         $this->truck_id = new ArrayCollection();
         $this->food_like = new ArrayCollection();
         $this->createdAt = new DateTime();
