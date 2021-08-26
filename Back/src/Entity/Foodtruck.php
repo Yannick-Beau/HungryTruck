@@ -95,6 +95,7 @@ class Foodtruck
 
     /**
      * @ORM\OneToMany(targetEntity=Event::class, mappedBy="foodtruck")
+     * @Groups("foodtruck_get")
      */
     private $events;
 
