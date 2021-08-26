@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 // on importe tous les reducers
 import createUserReducer from './createUserReducer';
+import logInReducer from './logInReducer';
 // etc
 
 // le reducer principal, qui regroupe les autres
@@ -9,6 +10,7 @@ import createUserReducer from './createUserReducer';
 // chaque reducer
 const rootReducer = combineReducers({
   createUser: createUserReducer,
+  logIn: logInReducer,
   // etc
 });
 

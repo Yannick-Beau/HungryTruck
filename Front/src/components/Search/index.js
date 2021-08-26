@@ -36,10 +36,10 @@ const Search = () => (
               <p className="result-type">
                 Type de food
               </p>
-              <p className="result-time">
+              <div className="result-time">
                 <p>Lundi: 16h / 22h - Place des grands Hommes</p>
                 <p>Lundi: 16h / 22h - Place des grands Hommes</p>
-              </p>
+              </div>
             </div>
           </article>
         </Link>
@@ -55,10 +55,10 @@ const Search = () => (
               <p className="result-type">
                 Type de food
               </p>
-              <p className="result-time">
+              <div className="result-time">
                 <p>Lundi: 16h / 22h - Place des grands Hommes</p>
                 <p>Lundi: 16h / 22h - Place des grands Hommes</p>
-              </p>
+              </div>
             </div>
           </article>
         </Link>
