@@ -2,6 +2,7 @@
 export const UPDATE_FIELD = 'UPDATE_FIELD';
 export const AUTHENTIFICATION = 'AUTHENTIFICATION';
 export const CONNECT_USER = 'CONNECT_USER';
+export const LOG_OUT = 'LOG_OUT';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({
@@ -24,4 +25,8 @@ export const connectUser = (address, avatar, city, cp, food_like, id, pseudo, ro
   id: id,
   pseudo: pseudo,
   roles: roles,
+});
+
+export const logOut = () => ({
+  type: LOG_OUT
 });

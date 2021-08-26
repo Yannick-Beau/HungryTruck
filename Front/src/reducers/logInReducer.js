@@ -1,4 +1,4 @@
-import { CONNECT_USER, UPDATE_FIELD } from '../actions/logIn';
+import { CONNECT_USER, UPDATE_FIELD, LOG_OUT } from '../actions/logIn';
 
 const initialState = {
   email: '',
@@ -46,7 +46,22 @@ function logInReducer(state = initialState, action = {}) {
         id: action.id,
         pseudo: action.pseudo,
         roles: action.roles,
+        password: '',
       };
+    case LOG_OUT:
+      return {
+        ...state,
+        email: '',
+        adresse: '',
+        avatar: '',
+        city: '',
+        cp: null,
+        food_like: [],
+        id: null,
+        pseudo: '',
+        roles: [],
+        logged: false,
+      }  
     default:
       return state;
 

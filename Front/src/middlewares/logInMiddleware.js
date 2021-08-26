@@ -19,7 +19,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
     
           axios.get(
-            `http://3.218.156.136/api/user/2`,
+            `http://3.218.156.136/api/user`,
             { 
               headers: {
                 "Authorization" : `Bearer ${response.data.token}`
