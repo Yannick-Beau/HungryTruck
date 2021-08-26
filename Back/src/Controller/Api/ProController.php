@@ -18,11 +18,14 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class ProController extends AbstractController
 {
     /**
-     * @Route("/api/pro/{id<\d+>}", name="api_pro_show")
+     * @Route("/api/pro", name="api_pro_show")
      * @IsGranted("ROLE_PRO")
      */
     public function show(User $user = null): Response
     {
+
+        $user = $this->getUser();
+
         if ($user === null) {
             return new JsonResponse(
                 ["message" => "User non trouvée !"],
@@ -41,12 +44,12 @@ class ProController extends AbstractController
     }
 
     /**
-     * @Route("/api/pro/edit/{id<\d+>}", name="api_pro_edit", methods={"PUT", "PATCH"})
+     * @Route("/api/pro/edit, name="api_pro_edit", methods={"PUT", "PATCH"})
      * @IsGranted("ROLE_PRO")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
-
+        $user = $this->getUser();
         // Pro non trouvé
         if ($user === null) {
             return new JsonResponse(
@@ -82,11 +85,13 @@ class ProController extends AbstractController
     /**
      * Delete a Pro
      * 
-     * @Route("/api/pro/delete/{id<\d+>}", name="api_pro_delete", methods="DELETE")
+     * @Route("/api/pro/delete", name="api_pro_delete", methods="DELETE")
      * @IsGranted("ROLE_PRO")
      */
     public function delete(User $user = null, EntityManagerInterface $em)
     {
+
+        $user = $this->getUser();
         if (null === $user) {
 
             $error = 'Cette Utilisateur n\'existe pas';
