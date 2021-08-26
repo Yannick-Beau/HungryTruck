@@ -99,6 +99,11 @@ class Foodtruck
      */
     private $events;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
+
     public function __construct()
     {
         $this->sell_type_food = new ArrayCollection();
@@ -275,6 +280,18 @@ class Foodtruck
                 $event->setFoodtruck(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
