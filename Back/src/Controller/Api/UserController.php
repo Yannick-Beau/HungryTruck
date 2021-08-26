@@ -65,18 +65,6 @@ class UserController extends AbstractController
             return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        // Affichage des erreurs
-        if (count($errors) > 0) {
-
-            $newErrors = [];
-
-            foreach ($errors as $error) {
-
-                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
-            }
-
-            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
 
         // On persist, on flush
         $entityManager->persist($user);
