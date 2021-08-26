@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
+
 use App\Entity\EventFoodtruck;
+use App\Entity\Foodtruck;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class EventFoodtruckType extends AbstractType
 {
@@ -15,9 +18,7 @@ class EventFoodtruckType extends AbstractType
             ->add('day')
             ->add('hours')
             ->add('place')
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('foodtrucks')
+            ->add('foodtrucks', null,['multiple' => true , 'expanded' => true])
         ;
     }
 

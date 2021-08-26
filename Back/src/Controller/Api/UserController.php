@@ -20,19 +20,23 @@ class UserController extends AbstractController
     /**
      * Get a user by id
      *
-     * @Route("/api/user/{id<\d+>}", name="api_user_get_item", methods="GET")
+     * @Route("/api/user", name="api_user_get_item", methods="GET")
      * @IsGranted("ROLE_USER")
      */
     public function show(User $user = null): Response
     {
+        
+        $user = $this->getUser();
+
         if ($user === null) {
             return new JsonResponse(
                 ["message" => "User non trouvée !"],
                 Response::HTTP_NOT_FOUND
             );
         }
-        // /!\ JSON Hijacking
-        // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
+        
+
+        // /!\ TODO: JSON Hijacking fail 
         return $this->json($user, Response::HTTP_OK, [], ['groups' => 'user_get_by_id']);
     }
 
@@ -64,18 +68,6 @@ class UserController extends AbstractController
             return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
         }
 
-        // Affichage des erreurs
-        if (count($errors) > 0) {
-
-            $newErrors = [];
-
-            foreach ($errors as $error) {
-
-                $newErrors[$error->getPropertyPath()][] = $error->getMessage();
-            }
-
-            return new JsonResponse(["errors" => $newErrors], Response::HTTP_UNPROCESSABLE_ENTITY);
-        }
 
         // On persist, on flush
         $entityManager->persist($user);
@@ -85,12 +77,13 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/user/edit/{id<\d+>}", name="api_user_edit", methods={"PUT", "PATCH"})
+     * @Route("/api/user/edit", name="api_user_edit", methods={"PUT", "PATCH"})
      * @IsGranted("ROLE_USER")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
 
+        $user = $this->getUser();
         // User non trouvé
         if ($user === null) {
             return new JsonResponse(
@@ -126,11 +119,13 @@ class UserController extends AbstractController
     /**
      * Delete a User
      * 
-     * @Route("/api/user/delete/{id<\d+>}", name="api_user_delete", methods="DELETE")
+     * @Route("/api/user/delete", name="api_user_delete", methods="DELETE")
      * @IsGranted("ROLE_USER")
      */
     public function delete(User $user = null, EntityManagerInterface $em)
     {
+        $user = $this->getUser();
+
         if (null === $user) {
 
             $error = 'Cette Utilisateur n\'existe pas';

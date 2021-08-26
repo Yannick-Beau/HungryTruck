@@ -2,25 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\CategoryFood;
+use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoryFoodType extends AbstractType
+class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-
+            ->add('day')
+            ->add('hours')
+            ->add('place')
+            ->add('foodtruck')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => CategoryFood::class,
+            'data_class' => Event::class,
         ]);
     }
 }

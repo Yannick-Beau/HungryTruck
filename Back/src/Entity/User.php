@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=100)
      * @Assert\Length(max=100, min=4)
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $pseudo;
 
@@ -65,7 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $avatar;
 
@@ -73,7 +73,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="integer")
      * @Assert\Type("int") 
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $cp;
 
@@ -81,7 +81,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $city;
 
@@ -89,14 +89,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\Type("int")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","pro_get_by_id","event_post"})
      */
     private $siret;
 
@@ -108,7 +108,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
-     * @Groups("user_get_by_id","foodtruckevent_post")
+     * @Groups("user_get_by_id","event_post")
      */
     private $food_like;
 
@@ -122,13 +122,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $updatedAt;
 
+    
     public function __construct()
     {
         $this->createdAt = new DateTime();
-        $this->releaseDate = new DateTime();
         $this->truck_id = new ArrayCollection();
         $this->food_like = new ArrayCollection();
-        $this->createdAt = new DateTime();
         $this->updatedAt = new DateTime();
     }
 
