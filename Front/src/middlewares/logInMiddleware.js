@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { AUTHENTIFICATION, connectUser } from '../actions/logIn';
+import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -8,7 +9,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
       console.log(`On va se connecter avec email: ${email} et mdp: ${password}`);
       axios.post(
         // URL
-        'http://3.218.156.136/api/login_check',
+        `http://${URL}/api/login_check`,
         // paramètres
         {
           username: email,
@@ -19,7 +20,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
     
           axios.get(
-            `http://3.218.156.136/api/user`,
+            `http://${URL}/api/user`,
             { 
               headers: {
                 "Authorization" : `Bearer ${response.data.token}`

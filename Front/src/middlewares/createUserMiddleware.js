@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { CREATE_USER } from '../actions/createUser';
+import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -33,7 +34,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
         address : ${address},
         siret : ${newSiret},`);
       console.log(`On va s'inscrire avec email: ${email} et mdp: ${password}`);
-      axios.post('http://3.218.156.136/api/user/create',
+      axios.post(`http://${URL}/api/user/create`,
         {
           email: email,
           roles: proUser,
