@@ -11,7 +11,7 @@ function logInReducer(state = initialState, action = {}) {
   switch (action.type) {
     // Gestion des input du formulaire de connexion
     case UPDATE_FIELD:
-      // Formulaire de création d'un user
+      // Formulaire de connection
       switch (action.identifier) {
         case 'email':
           return {
