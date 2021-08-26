@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BackOffice - Liste des Events{% endblock %}
+
+{% block body %}
+    <h1>Liste des Events</h1>
+    <a href="{{ path('back_office_event_new') }}" class="btn btn-primary mx-3">Crée</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Jours</th>
+                <th>Heures</th>
+                <th>Adresse</th>
+                <th>Crée le</th>
+                <th>Modifier le</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.id }}</td>
+                <td>{{ event.day }}</td>
+                <td>{{ event.hours }}</td>
+                <td>{{ event.place }}</td>
+                <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ event.updatedAt ? event.updatedAt|date('Y-m-d H:i') : '' }}</td>
+                <td>
+                    <a href="{{ path('back_office_event_show', {'id': event.id}) }}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('back_office_event_edit', {'id': event.id}) }}" class="btn btn-warning mx-2"><i class="far fa-edit"></i></a>
+                    <a href="{{ path('back_office_event_delete', {'id': event.id}) }}" class="btn btn-danger mx-2"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun enregistrement trouver</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

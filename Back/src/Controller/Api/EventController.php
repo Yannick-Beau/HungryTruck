@@ -2,8 +2,8 @@
 
 namespace App\Controller\Api;
 
+use App\Entity\Event;
 use App\Entity\Foodtruck;
-use App\Entity\EventFoodtruck;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,14 +12,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-class EventFoodTruckController extends AbstractController
+class EventController extends AbstractController
 {
-    /**
-     * @Route("/api/foodtruck/{id}/eventfoodtruck/create", name="api_eventfoodtruck_create", methods="POST")
+/**
+     * @Route("/api/foodtruck/{id}/event/create", name="api_event_create", methods="POST")
      * @IsGranted("ROLE_PRO")
      */
     public function create(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, ValidatorInterface $validator, Foodtruck $foodtruck): Response
@@ -27,13 +25,13 @@ class EventFoodTruckController extends AbstractController
         // On récupère le contenu de la requête (du JSON)
         $jsonContent = $request->getContent();
 
-        // On désérialise le JSON vers une entité EventFoodtruck
-        $eventfoodtruck = $serializer->deserialize($jsonContent, EventFoodtruck::class, 'json');
-        $eventfoodtruck->addFoodtruck($foodtruck);
+        // On désérialise le JSON vers une entité Event
+        $event = $serializer->deserialize($jsonContent, Event::class, 'json');
+        $event->setFoodtruck($foodtruck);
 
 
         // On valide l'entité avec le service Validator
-        $errors = $validator->validate($eventfoodtruck);
+        $errors = $validator->validate($event);
 
 
 
@@ -51,29 +49,29 @@ class EventFoodTruckController extends AbstractController
         }
 
         // On persist, on flush
-        $entityManager->persist($eventfoodtruck);
+        $entityManager->persist($event);
         $entityManager->flush();
 
-        return $this->json($eventfoodtruck, Response::HTTP_CREATED, [], ['groups' => 'foodtruckevent_post']);
+        return $this->json($event, Response::HTTP_CREATED, [], ['groups' => 'event_post']);
     }
 
     /**
-     * Delete a EventFoodtruck
+     * Delete a event
      * 
-     * @Route("/api/eventfoodtruck/delete/{id<\d+>}", name="api_eventfoodtruck_delete", methods="DELETE")
+     * @Route("/api/event/delete/{id<\d+>}", name="api_event_delete", methods="DELETE")
      * @IsGranted("ROLE_PRO")
      */
-    public function delete(EventFoodtruck $eventfoodtruck = null, EntityManagerInterface $em)
+    public function delete(Event $event = null, EntityManagerInterface $em)
     {
-        if (null === $eventfoodtruck) {
+        if (null === $event) {
 
-            $error = 'Cette EventFoodtruck n\'existe pas';
+            $error = 'Cette Event n\'existe pas';
 
             return $this->json(['error' => $error], Response::HTTP_NOT_FOUND);
         }
-        $em->remove($eventfoodtruck);
+        $em->remove($event);
         $em->flush();
 
-        return $this->json(['message' => 'L\'EventFoodtruck a bien été supprimé.'], Response::HTTP_OK);
+        return $this->json(['message' => 'L\'event a bien été supprimé.'], Response::HTTP_OK);
     }
 }
