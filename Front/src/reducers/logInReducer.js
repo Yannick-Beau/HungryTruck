@@ -1,4 +1,4 @@
-import { CONNECT_USER, UPDATE_FIELD, LOG_OUT } from '../actions/logIn';
+import { CONNECT_USER, UPDATE_FIELD, LOG_OUT, CONNECT_PRO } from '../actions/logIn';
 
 const initialState = {
   email: '',
@@ -11,6 +11,9 @@ const initialState = {
   id: null,
   pseudo: '',
   roles: [],
+  siret: 0,
+  trucksPro: [],
+  isPro: false,
   logged: false,
 };
 
@@ -48,6 +51,13 @@ function logInReducer(state = initialState, action = {}) {
         roles: action.roles,
         password: '',
       };
+    case CONNECT_PRO:
+      return {
+        ...state,
+        siret: action.siret,
+        trucksPro: action.trucksPro,
+        isPro: true,
+      }
     case LOG_OUT:
       return {
         ...state,
@@ -61,6 +71,9 @@ function logInReducer(state = initialState, action = {}) {
         pseudo: '',
         roles: [],
         logged: false,
+        siret: 0,
+        trucksPro: [],
+        isPro: false,
       }  
     default:
       return state;
