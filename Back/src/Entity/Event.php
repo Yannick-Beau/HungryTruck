@@ -64,11 +64,13 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $latitude;
 

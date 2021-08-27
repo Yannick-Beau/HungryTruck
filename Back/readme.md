@@ -28,3 +28,7 @@
 |PRO|`/api/foodtruck/{id}/event/create`|`POST`|Création d'un evenement foodtruck|200 ou 404|
 |PRO|`/api/event/delete/{id}`|`DELETE`|Création d'un evenement foodtruck|200 ou 404|
 |PRO|`/api/foodtruck/delete/{id}`|`DELETE`|Création d'un evenement foodtruck|200 ou 404|
+
+|Public|Endpoint|Méthode HTTP|Description|Retour|
+|-|-|-|-|-|
+|Public|`/api/categoryfood`|`GET`|Récuperation des categories de food|200 ou 404|
