@@ -26,8 +26,25 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 // Modal.setAppElement('#yourAppElement');
 
+/*email: state.logIn.email,
+  adresse: state.logIn.adresse,
+  avatar: state.logIn.avatar,
+  city: state.logIn.city,
+  cp: state.logIn.cp,
+  food_like: state.logIn.food_like,
+  pseudo: state.logIn.pseudo,
+  roles: state.logIn.roles, */
+
 // == Composant
-const MyAccount = ({ delAccount, setDelAccount }) => {
+const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp, food_like, pseudo, roles }) => {
+  console.log(pseudo);
+  let avatarUser;
+  if (avatar !== '' && avatar !== null && avatar !== undefined) {
+    avatarUser = avatar;
+  } 
+  else {
+    avatarUser = 'http://placehold.it/250x350';
+  }
   let subtitle;
 
   function openModal() {
@@ -47,30 +64,20 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
       <h2 className="myAccount">Mon compte</h2>
       <img
         className="myaccount-picture"
-        src="http://placehold.it/250x350"
+        src={avatarUser}
         alt="mon compte hungrytruck"
       />
       <article className="account">
         <div className="account-informations">
           <div className="informations-left">
-            <p>Mon pseudo : Turpinou</p>
+            <p>Mon pseudo : <span>{pseudo}</span></p>
             <p>Mon adresse :</p>
-            <p>15 place des grands hommes</p>
-            <p>12345 IDEFIX</p>
+            <p><span>{adresse}</span></p>
+            <p><span>{cp}</span><span>{` ${city}`}</span></p>
             <p>SIRET : 123456789</p>
           </div>
           <div className="informations-right">
-            <p>Mon adresse mail: turpinou@idefix.fr</p>
-            <div className="social">
-              <div className="facebook">
-                <Facebook size="50" color="#e69512" />
-                <p>adresse FB</p>
-              </div>
-              <div className="instagram">
-                <Instagram size="50" color="#e69512" />
-                <p>adresse insta</p>
-              </div>
-            </div>
+            <p>Mon adresse mail: <span>{email}</span></p>
             <p>Mes plats favoris :</p>
             <ul>
               <li>pizza</li>
