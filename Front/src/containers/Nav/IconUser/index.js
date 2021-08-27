@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import IconUser from 'src/components/Nav/IconUser';
 import { logOut } from '../../../actions/logIn';
-import { changeStatusIconUser } from '../../../actions/tools'
+import { changeStatusIconUser } from '../../../actions/tools';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
