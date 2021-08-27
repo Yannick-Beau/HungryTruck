@@ -68,7 +68,7 @@ const Search = ({
 
           {filterSearch.map((item) => (
             <Link
-              to="/food-truck"
+              to={`/food-truck/${item.id}`}
               key={item.id}
             >
               <article className="search-results--result">
