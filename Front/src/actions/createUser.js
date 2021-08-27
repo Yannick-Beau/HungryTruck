@@ -3,6 +3,7 @@ export const UPDATE_FIELD = 'UPDATE_FIELD';
 export const UPDATE_TOGGLE = 'UPDATE_TOGGLE';
 export const CREATE_USER = 'CREATE_USER';
 export const FIND_FOOD = 'FIND_FOOD';
+export const SAVE_FOOD = 'SAVE_FOOD';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({
@@ -23,4 +24,8 @@ export const createUser = () => ({
 
 export const findFood = () => ({
   type: FIND_FOOD,
+});
+
+export const saveFood = () => ({
+  type: SAVE_FOOD,
 });
