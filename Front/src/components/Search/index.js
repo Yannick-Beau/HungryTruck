@@ -1,6 +1,8 @@
 // == Import npm
 import React from 'react';
+
 import { Link } from 'react-router-dom';
+
 
 // == Import
 import './search.scss';
@@ -58,6 +60,7 @@ const Search = ({
               />
               <input type="submit" className="search-form--submit" value="Manger !" />
             </div>
+
           </label>
         </form>
         <section className="search-results">
@@ -89,6 +92,7 @@ const Search = ({
     </>
   );
 };
+
 
 // == Export
 export default Search;

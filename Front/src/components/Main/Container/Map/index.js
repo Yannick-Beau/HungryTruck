@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+
 import {
   MapContainer,
   TileLayer,
@@ -7,10 +8,12 @@ import {
   Popup,
 } from 'react-leaflet';
 
+
 // == Import
 import './map.scss';
 
 // == Composant
+
 const Map = () => {
   // position coordinates
   const position = [49.1749376, -0.33423359999999996];
@@ -57,6 +60,7 @@ const Map = () => {
     </div>
   );
 };
+
 
 // == Export
 export default Map;
