@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { CREATE_USER } from '../actions/createUser';
+import { CREATE_USER, findFood, FIND_FOOD, saveFood } from '../actions/createUser';
+import { authentification } from '../actions/logIn';
 import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
@@ -48,7 +49,8 @@ const createUserMiddleware = (store) => (next) => (action) => {
         })
         .then((response) => {
           console.log(response);
-          window.location = '/';
+          store.dispatch(authentification());
+
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
@@ -57,6 +59,26 @@ const createUserMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
+    case FIND_FOOD: {
+      axios.get(`http://${URL}/api/categoryfood`)
+      .then((response) => {
+        const data = [
+          ...response.data
+        ];
+        const newData = data.map((item) => {
+          const newKey = {...item,
+            isCheck: false};
+          return newKey
+        });
+        store.dispatch(saveFood(newData));
+      })
+      .catch((error) => {
+        // TODO pour afficher un message d'erreur, il faudrait ajouter une info
+        // dans le state, et dispatcher ici une nouvelle action
+        console.log(error);
+      });
+    }
+
     default:
   }
 
