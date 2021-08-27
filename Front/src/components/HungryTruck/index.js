@@ -12,7 +12,7 @@ import Footer from '../Footer';
 import Main from '../Main';
 
 
-import NewAccount from '../MyAccount/NewAccount';
+import NewAccount from '../../containers/MyAccount/NewAccount';
 
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';

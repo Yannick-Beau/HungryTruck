@@ -13,7 +13,6 @@ const LogIn = ({
   handleSubmit,
   tokenIsOk,
 }) => {
-  
   if(tokenIsOk) {
     console.log('je vais changer lurl');
     return <Redirect to="/" />; 
