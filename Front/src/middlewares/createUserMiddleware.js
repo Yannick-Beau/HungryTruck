@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CREATE_USER, FIND_FOOD } from '../actions/createUser';
+import { CREATE_USER, findFood, FIND_FOOD } from '../actions/createUser';
 import { authentification } from '../actions/logIn';
 import URL from '../data/ip';
 
@@ -63,6 +63,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
       axios.get(`http://${URL}/api/categoryfood`)
       .then((response) => {
         console.log(response);
+        store.dispatch(findFood(response.data));
       })
       .catch((error) => {
         // TODO pour afficher un message d'erreur, il faudrait ajouter une info
