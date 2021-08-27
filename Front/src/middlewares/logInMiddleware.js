@@ -20,36 +20,42 @@ const createUserMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           token = response.data.token;
-    
+
           axios.get(
             `${URL}/api/user`,
-            { 
+            {
               headers: {
-                "Authorization" : `Bearer ${token}`
-              }
-            }
+                Authorization: `Bearer ${token}`,
+              },
+            },
           )
-          .then((response) => {
-            console.log(response);
-            store.dispatch(connectUser(response.data.adresse, response.data.avatar, response.data.city, response.data.cp, response.data.food_like, response.data.id, response.data.pseudo, response.data.roles));
-            const isPro = response.data.roles.find((item) => item === 'ROLE_PRO');
-            console.log(isPro);
-            if (isPro !== undefined) {
-              axios.get(
-                `http://${URL}/api/pro`,
-                { 
-                  headers: {
-                    "Authorization" : `Bearer ${token}`
-                  }
-                }
-              )
-              .then((response) => {
-                console.log(response.data);
-                store.dispatch(connectPro(response.data.siret, response.data.truck_id));
-              })
-            }
-          })
-
+            .then((responseUser) => {
+              store.dispatch(connectUser(
+                responseUser.data.adresse,
+                responseUser.data.avatar,
+                responseUser.data.city,
+                responseUser.data.cp,
+                responseUser.data.food_like,
+                responseUser.data.id,
+                responseUser.data.pseudo,
+                responseUser.data.roles,
+              ));
+              const isPro = responseUser.data.roles.find((item) => item === 'ROLE_PRO');
+              console.log(isPro);
+              if (isPro !== undefined) {
+                axios.get(
+                  `${URL}/api/pro`,
+                  {
+                    headers: {
+                      Authorization: `Bearer ${token}`,
+                    },
+                  },
+                )
+                  .then((responsePro) => {
+                    store.dispatch(connectPro(responsePro.data.siret, responsePro.data.truck_id));
+                  });
+              }
+            });
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info

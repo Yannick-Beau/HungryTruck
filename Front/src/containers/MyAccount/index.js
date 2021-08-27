@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
   avatar: state.logIn.avatar,
   city: state.logIn.city,
   cp: state.logIn.cp,
-  food_like: state.logIn.food_like,
+  foodLike: state.logIn.foodLike,
   pseudo: state.logIn.pseudo,
   roles: state.logIn.roles,
   siret: state.logIn.siret,

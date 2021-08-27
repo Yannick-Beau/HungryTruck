@@ -32,7 +32,7 @@ const MyAccount = ({
   avatar,
   city,
   cp,
-  food_like,
+  foodLike,
   pseudo,
   siret,
   isPro,
@@ -81,7 +81,7 @@ const MyAccount = ({
             <p>Mon adresse mail: <span>{email}</span></p>
             <p>Mes plats favoris :</p>
             <ul>
-              {food_like.map((item) => (
+              {foodLike.map((item) => (
                 <li key={item.name}><span>{item.name}</span></li>
               ))}
             </ul>
@@ -157,7 +157,7 @@ MyAccount.propTypes = {
   pseudo: PropTypes.string.isRequired,
   siret: PropTypes.string.isRequired,
   isPro: PropTypes.bool.isRequired,
-  food_like: PropTypes.arrayOf(
+  foodLike: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
     }).isRequired,

@@ -60,7 +60,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
       break;
     }
     case FIND_FOOD: {
-      axios.get(`http://${URL}/api/categoryfood`)
+      axios.get(`${URL}/api/categoryfood`)
       .then((response) => {
         // clone d'un tableau pour pour pouvoir faire un map dessus
         const data = [
