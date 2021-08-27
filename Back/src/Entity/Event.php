@@ -55,6 +55,21 @@ class Event
      */
     private $foodtruck;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $hours_end;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $latitude;
+
     public function __construct()
     {
 
@@ -136,6 +151,42 @@ class Event
     public function setFoodtruck(?Foodtruck $foodtruck): self
     {
         $this->foodtruck = $foodtruck;
+
+        return $this;
+    }
+
+    public function getHoursEnd(): ?string
+    {
+        return $this->hours_end;
+    }
+
+    public function setHoursEnd(string $hours_end): self
+    {
+        $this->hours_end = $hours_end;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?string
+    {
+        return $this->longitude;
+    }
+
+    public function setLongitude(?string $longitude): self
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?string
+    {
+        return $this->latitude;
+    }
+
+    public function setLatitude(?string $latitude): self
+    {
+        $this->latitude = $latitude;
 
         return $this;
     }

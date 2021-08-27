@@ -23,7 +23,6 @@ class AppFixtures extends Fixture
 
     private function truncate()
     {
-        // On passe en mode SQL ! On cause avec MySQL
         // Désactivation des contraintes FK
         $this->connection->executeQuery('SET foreign_key_checks = 0');
         // On tronque pour reset les auto-increment (id)
@@ -31,7 +30,6 @@ class AppFixtures extends Fixture
         $this->connection->executeQuery('TRUNCATE TABLE category_food');
         $this->connection->executeQuery('TRUNCATE TABLE faq');
         $this->connection->executeQuery('TRUNCATE TABLE user');
- 
     }
 
 
@@ -51,6 +49,7 @@ class AppFixtures extends Fixture
         $user->setEmail('user@user.com');
         $user->setPassword('$2y$13$h.eZWrS5PJya7zNMNsKcXe8LUSVBtN2PBy8WHxmdHgAFjHG/rW.dG');
         $user->setPseudo("UserDiduche");
+        $user->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
         $user->setCp(38290);
         $user->setCity("Artas");
         $user->setAdresse("8 rue ouaiouai");
@@ -63,6 +62,7 @@ class AppFixtures extends Fixture
         $userPro->setEmail('pro@pro.com');
         $userPro->setPassword('$2y$13$Ww7ZU3RC1xfiSJeljDoxM.uUWaPCeSc7ljXdthMDwbCGXwoNM/od6');
         $userPro->setPseudo("ProDiduche");
+        $userPro->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
         $userPro->setCp(38290);
         $userPro->setCity("Artas");
         $userPro->setAdresse("8 rue ouaiouai");
@@ -76,6 +76,7 @@ class AppFixtures extends Fixture
         $userPro2->setEmail('pro2@pro.com');
         $userPro2->setPassword('$2y$13$Ww7ZU3RC1xfiSJeljDoxM.uUWaPCeSc7ljXdthMDwbCGXwoNM/od6');
         $userPro2->setPseudo("ProDiduche2");
+        $userPro2->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
         $userPro2->setCp(38290);
         $userPro2->setCity("Artas");
         $userPro2->setAdresse("8 rue ouaiouai");
@@ -89,6 +90,7 @@ class AppFixtures extends Fixture
         $admin->setEmail('admin@admin.com');
         $admin->setPassword('$2y$13$L81zK/fTjQikyz3PtBmbL.WdDILXR.Ppn.whBAvLJsbaFu4Fu0zVe');
         $admin->setPseudo("AdminDiduche");
+        $admin->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
         $admin->setCp(38290);
         $admin->setCity("Artas");
         $admin->setAdresse("8 rue ouaiouai");
@@ -109,6 +111,7 @@ class AppFixtures extends Fixture
             $FoodTruck->setName($data->foodtruckName());
             $FoodTruck->setNumTel($data->numtel());
             $FoodTruck->setOverview($data->overview());
+            $FoodTruck->setPicture("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
             $FoodTruck->setInstagram("http://Lieninstagram/");
             $FoodTruck->setTwitter("http://LienTwitter/");
             $FoodTruck->setFacebook("http://LienFacebook/");
@@ -128,6 +131,7 @@ class AppFixtures extends Fixture
             $FoodTruck1->setName($data->foodtruckName2());
             $FoodTruck1->setNumTel($data->numtel());
             $FoodTruck1->setOverview($data->overview());
+            $FoodTruck1->setPicture("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
             $FoodTruck1->setInstagram("http://Lieninstagram/");
             $FoodTruck1->setTwitter("http://LienTwitter/");
             $FoodTruck1->setFacebook("http://LienFacebook/");
