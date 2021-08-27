@@ -17,6 +17,8 @@ const mapStateToProps = (state) => ({
   food_like: state.logIn.food_like,
   pseudo: state.logIn.pseudo,
   roles: state.logIn.roles,
+  siret: state.logIn.siret,
+  isPro: state.logIn.isPro,
 });
 
 // === mapDispatchToProps
