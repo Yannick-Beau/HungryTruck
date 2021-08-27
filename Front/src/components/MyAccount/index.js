@@ -8,9 +8,6 @@ import PropTypes from 'prop-types';
 // == Import
 import './myaccount.scss';
 
-// == import logo
-import { Facebook, Instagram } from 'react-feather';
-
 const customStyles = {
   content: {
     top: '25%',
@@ -27,12 +24,24 @@ const customStyles = {
 // Modal.setAppElement('#yourAppElement');
 
 // == Composant
-const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp, food_like, pseudo, siret, isPro }) => {
+const MyAccount = ({
+  delAccount,
+  setDelAccount,
+  email,
+  adresse,
+  avatar,
+  city,
+  cp,
+  food_like,
+  pseudo,
+  siret,
+  isPro,
+}) => {
   console.log(pseudo);
   let avatarUser;
   if (avatar !== '' && avatar !== null && avatar !== undefined) {
     avatarUser = avatar;
-  } 
+  }
   else {
     avatarUser = 'http://placehold.it/250x350';
   }
@@ -65,7 +74,7 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
             <p>Mon adresse :</p>
             <p><span>{adresse}</span></p>
             <p><span>{cp}</span><span>{` ${city}`}</span></p>
-            { isPro 
+            { isPro
             && <p>SIRET : <span>{siret}</span></p>}
           </div>
           <div className="informations-right">
@@ -118,12 +127,14 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
               Editer mes informations
             </button>
           </Link>
-          { isPro 
-          && <Link to="/my-account/my-foodtruck" className="button-Link" exact>
-                <button type="button" className="button-linkto">
-                  Voir mes Foodtrucks
-                </button>
-              </Link>}
+          { isPro
+          && (
+          <Link to="/my-account/my-foodtruck" className="button-Link" exact>
+            <button type="button" className="button-linkto">
+              Voir mes Foodtrucks
+            </button>
+          </Link>
+          )}
           <Link to="/" className="button-Link">
             <button type="button" className="button-linkto">
               Retour au menu principal
@@ -138,6 +149,19 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
 MyAccount.propTypes = {
   delAccount: PropTypes.bool.isRequired,
   setDelAccount: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  adresse: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  cp: PropTypes.number.isRequired,
+  pseudo: PropTypes.string.isRequired,
+  siret: PropTypes.string.isRequired,
+  isPro: PropTypes.bool.isRequired,
+  food_like: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 // == Export
 export default MyAccount;
