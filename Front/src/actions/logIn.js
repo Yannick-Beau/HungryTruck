@@ -16,13 +16,13 @@ export const authentification = () => ({
   type: AUTHENTIFICATION,
 });
 
-export const connectUser = (address, avatar, city, cp, food_like, id, pseudo, roles) => ({
+export const connectUser = (address, avatar, city, cp, foodLike, id, pseudo, roles) => ({
   type: CONNECT_USER,
   adresse: address,
   avatar: avatar,
   city: city,
   cp: cp,
-  food_like: food_like,
+  foodLike: foodLike,
   id: id,
   pseudo: pseudo,
   roles: roles,
@@ -35,5 +35,5 @@ export const connectPro = (siret, trucksPro) => ({
 });
 
 export const logOut = () => ({
-  type: LOG_OUT
+  type: LOG_OUT,
 });

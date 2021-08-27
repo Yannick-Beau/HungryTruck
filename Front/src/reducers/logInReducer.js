@@ -1,4 +1,9 @@
-import { CONNECT_USER, UPDATE_FIELD, LOG_OUT, CONNECT_PRO } from '../actions/logIn';
+import {
+  CONNECT_USER,
+  UPDATE_FIELD,
+  LOG_OUT,
+  CONNECT_PRO,
+} from '../actions/logIn';
 
 const initialState = {
   email: '',
@@ -7,7 +12,7 @@ const initialState = {
   avatar: '',
   city: '',
   cp: null,
-  food_like: [],
+  foodLike: [],
   id: null,
   pseudo: '',
   roles: [],
@@ -35,7 +40,7 @@ function logInReducer(state = initialState, action = {}) {
           };
         default:
           return state;
-        }
+      }
 
     case CONNECT_USER:
       return {
@@ -45,7 +50,7 @@ function logInReducer(state = initialState, action = {}) {
         avatar: action.avatar,
         city: action.city,
         cp: action.cp,
-        food_like: action.food_like,
+        foodLike: action.foodLike,
         id: action.id,
         pseudo: action.pseudo,
         roles: action.roles,
@@ -57,7 +62,7 @@ function logInReducer(state = initialState, action = {}) {
         siret: action.siret,
         trucksPro: action.trucksPro,
         isPro: true,
-      }
+      };
     case LOG_OUT:
       return {
         ...state,
@@ -66,7 +71,7 @@ function logInReducer(state = initialState, action = {}) {
         avatar: '',
         city: '',
         cp: null,
-        food_like: [],
+        foodLike: [],
         id: null,
         pseudo: '',
         roles: [],
@@ -74,10 +79,9 @@ function logInReducer(state = initialState, action = {}) {
         siret: 0,
         trucksPro: [],
         isPro: false,
-      }  
+      };
     default:
       return state;
-
   }
 }
 

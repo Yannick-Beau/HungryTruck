@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import './mapdetails.scss';
 import Logo from '../../../../assets/img/logo.png';
 
-
 // == Composant
 const MapDetails = () => (
   <article className="mapdetails">

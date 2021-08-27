@@ -257,7 +257,7 @@ const LegalMentions = () => (
         Qu’est-ce qu'un « cookie » ?
       </p>
       <p className="lm-text--parahraph">
-        Un « Cookie » ou traceur est un fichier électronique déposé sur un terminal (ordinateur, tablette, smartphone...) et lu par exemple lors de la consultation d'un site internet, de la lecture d'un courrier électronique, de l’installation ou de l'utilisation d'un logiciel ou d'une application mobile et ce, quel que soit le type de terminal utilisé (source : <a href="https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi">https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi</a> ). 
+        Un « Cookie » ou traceur est un fichier électronique déposé sur un terminal (ordinateur, tablette, smartphone...) et lu par exemple lors de la consultation d'un site internet, de la lecture d'un courrier électronique, de l’installation ou de l'utilisation d'un logiciel ou d'une application mobile et ce, quel que soit le type de terminal utilisé (source : <a href="https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi">https://www.cnil.fr/fr/cookies-traceurs-que-dit-la-loi</a> ).
       </p>
       <p className="lm-text--parahraph">
         Le site peut collecter automatiquement des informations standards. Toutes les informations collectées indirectement ne seront utilisées que pour suivre le volume, le type et la configuration du trafic utilisant ce site, pour en développer la conception et l'agencement et à d'autres fins administratives et de planification et plus généralement pour améliorer le service que nous vous offrons.

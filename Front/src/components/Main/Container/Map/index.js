@@ -8,7 +8,6 @@ import {
   Popup,
 } from 'react-leaflet';
 
-
 // == Import
 import './map.scss';
 
@@ -60,7 +59,6 @@ const Map = () => {
     </div>
   );
 };
-
 
 // == Export
 export default Map;
