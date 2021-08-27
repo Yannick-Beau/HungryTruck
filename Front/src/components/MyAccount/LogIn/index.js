@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import
 import './logIn.scss';
@@ -61,6 +62,14 @@ const LogIn = ({
       </Link>
     </section>
   );
+};
+
+LogIn.propTypes = {
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  changeField: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  tokenIsOk: PropTypes.bool.isRequired,
 };
 
 // == Export
