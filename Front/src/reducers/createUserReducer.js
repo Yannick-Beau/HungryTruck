@@ -1,4 +1,4 @@
-import { UPDATE_FIELD, UPDATE_TOGGLE } from '../actions/createUser';
+import { SAVE_FOOD, UPDATE_FIELD, UPDATE_TOGGLE } from '../actions/createUser';
 
 const initialState = {
   nickname: '',
@@ -11,6 +11,7 @@ const initialState = {
   siret: '',
   pictureUser: '',
   createPro: false,
+  foods: [],
 };
 
 function createUserReducer(state = initialState, action = {}) {
@@ -80,6 +81,11 @@ function createUserReducer(state = initialState, action = {}) {
         default:
           return state;
       }
+    case SAVE_FOOD:
+      return {
+        ...state,
+        foods: action.newValue,
+      };
     default:
       return state;
   }
