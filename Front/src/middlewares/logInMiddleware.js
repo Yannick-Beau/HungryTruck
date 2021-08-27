@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { element } from 'prop-types';
-import { connect } from 'react-redux';
-import { AUTHENTIFICATION, connectUser } from '../actions/logIn';
+import { AUTHENTIFICATION, connectUser, connectPro } from '../actions/logIn';
 import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
