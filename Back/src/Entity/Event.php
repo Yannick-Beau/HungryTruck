@@ -18,6 +18,7 @@ class Event
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $id;
 
@@ -57,6 +58,7 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"event_post","foodtruck_get"})
      */
     private $hours_end;
 
