@@ -9,6 +9,9 @@ use App\Repository\CategoryFoodRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class UserType extends AbstractType
@@ -16,7 +19,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
+            ->add('email',EmailType::class)
             ->add('roles', ChoiceType::class, [
                 // Libellé => valeur
                 'choices' => [
@@ -30,11 +33,11 @@ class UserType extends AbstractType
                 'expanded' => true,
             ])
             ->add('password')
-            ->add('pseudo')
-            ->add('avatar')
+            ->add('pseudo',TextType::class)
+            ->add('avatar', UrlType::class)
             ->add('cp')
-            ->add('city')
-            ->add('adresse')
+            ->add('city',TextType::class)
+            ->add('adresse',TextType::class)
             ->add('siret')
             ->add('food_like',EntityType::class,['class' => CategoryFood::class,'multiple' => true,'choice_label' => 'name','expanded' => true,'query_builder' => function (CategoryFoodRepository $gr) {
                 return $gr->createQueryBuilder('g')
