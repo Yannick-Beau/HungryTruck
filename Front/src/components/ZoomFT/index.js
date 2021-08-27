@@ -1,11 +1,11 @@
 // == Import npm
 import React from 'react';
-import { Facebook, Instagram, Twitter } from 'react-feather';
+import PropTypes from 'prop-types';
+import { Facebook, Instagram, PhoneCall, Twitter } from 'react-feather';
 import { Link, useParams } from 'react-router-dom';
 
 // == Import
 import './zoomFT.scss';
-import foodtruck from '../../assets/img/foodtruck.jpg';
 
 // == Composant
 const ZoomFT = ({ trucks }) => {
@@ -19,15 +19,18 @@ const ZoomFT = ({ trucks }) => {
       <div className="image-reseaux">
         <img src={truck.picture} alt="nom du food truck" />
         <div className="reseaux">
-          <a href={truck.facebook}>
-            <Facebook size="50" color="rgba(255, 255, 255, 0.7)" />
-          </a>
-          <a href={truck.instagram}>
-            <Instagram size="50" color="rgba(255, 255, 255, 0.7)" />
-          </a>
-          <a href={truck.twitter}>
-            <Twitter size="50" color="rgba(255, 255, 255, 0.7)" />
-          </a>
+          <div className="reseaux-link">
+            <a href={truck.facebook}>
+              <Facebook size="50" color="rgba(255, 255, 255, 0.7)" />
+            </a>
+            <a href={truck.instagram}>
+              <Instagram size="50" color="rgba(255, 255, 255, 0.7)" />
+            </a>
+            <a href={truck.twitter}>
+              <Twitter size="50" color="rgba(255, 255, 255, 0.7)" />
+            </a>
+          </div>
+          <div><PhoneCall />  :  {truck.num_tel}</div>
         </div>
       </div>
       <div className="details">
@@ -69,6 +72,37 @@ const ZoomFT = ({ trucks }) => {
       </div>
     </section>
   );
+};
+
+ZoomFT.propTypes = {
+  trucks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      num_tel: PropTypes.number.isRequired,
+      overview: PropTypes.string.isRequired,
+      instagram: PropTypes.string.isRequired,
+      twitter: PropTypes.string.isRequired,
+      picture: PropTypes.string.isRequired,
+      facebook: PropTypes.string.isRequired,
+      sell_type_food: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
+      events: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          day: PropTypes.string.isRequired,
+          hours: PropTypes.string.isRequired,
+          place: PropTypes.string.isRequired,
+          hours_end: PropTypes.string.isRequired,
+          longitude: PropTypes.string.isRequired,
+          latitude: PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 // == Export
