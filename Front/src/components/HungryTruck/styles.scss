@@ -2,16 +2,16 @@
 
 .hungrytruck {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: vars.$DarkOpacity;
   background-image: url(../../assets/img/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: vars.$LLight;
   font-family: Quicksand;
 
-  overflow: hidden;
+  // overflow: visible;
 
   .input-yellow {
     margin-top: 0.5rem;

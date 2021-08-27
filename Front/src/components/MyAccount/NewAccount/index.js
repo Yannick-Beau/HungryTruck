@@ -231,9 +231,16 @@ const NewAccount = ({
                 <h2>Choissier vos nourritures favorites</h2>
                 <fieldset className="field-check">
                   {foods.map((item) => (
-                    <label className="field-label" htmlFor={item.name}>{item.name}
+                    <label key={item.name} className="field-label" htmlFor={item.name}>{item.name}
                       <label className="switch">
-                        <input type="checkbox" name={item.name} />
+                        <input
+                          type="checkbox"
+                          name={item.name}
+                          checked={createPro}
+                          onChange={() => {
+                            changeToggle(!createPro, `${item.name}`);
+                          }}
+                        />
                         <span className="slider rounded" />
                       </label>
                     </label>

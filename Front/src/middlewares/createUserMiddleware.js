@@ -63,7 +63,17 @@ const createUserMiddleware = (store) => (next) => (action) => {
       axios.get(`http://${URL}/api/categoryfood`)
       .then((response) => {
         console.log(response);
-        store.dispatch(saveFood(response.data));
+        const data = [
+          ...response.data
+        ];
+        const newData = data.map((item) => {
+          const newKey = {...item,
+            isChek: false};
+          console.log(newKey);
+          return newKey
+        });
+        console.log(newData);
+        store.dispatch(saveFood(newData));
       })
       .catch((error) => {
         // TODO pour afficher un message d'erreur, il faudrait ajouter une info
