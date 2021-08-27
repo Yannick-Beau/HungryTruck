@@ -2,8 +2,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Search from '../Search';
-
 // == Import components
 import IconUser from '../../containers/Nav/IconUser';
 
