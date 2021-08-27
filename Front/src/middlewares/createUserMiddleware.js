@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CREATE_USER, findFood, FIND_FOOD, saveFood } from '../actions/createUser';
+import { CREATE_USER, FIND_FOOD, saveFood } from '../actions/createUser';
 import { authentification } from '../actions/logIn';
 import URL from '../data/ip';
 
@@ -50,7 +50,6 @@ const createUserMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(authentification());
-
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
@@ -61,26 +60,30 @@ const createUserMiddleware = (store) => (next) => (action) => {
     }
     case FIND_FOOD: {
       axios.get(`${URL}/api/categoryfood`)
-      .then((response) => {
+        .then((response) => {
         // clone d'un tableau pour pour pouvoir faire un map dessus
-        const data = [
-          ...response.data
-        ];
-        // création d'un nouveau tableau
-        const newData = data.map((item) => {
-          //sur chaque item on ajoute une entrée isCheck à false qui nous aidera pour controler les champs checkbox food
-          const newKey = {...item,
-            isCheck: false};
-          return newKey
+          const data = [
+            ...response.data,
+          ];
+          // création d'un nouveau tableau
+          const newData = data.map((item) => {
+            // Sur chaque item on ajoute une entrée isCheck à false
+            // qui nous aidera pour controler les champs checkbox food
+            const newKey = {
+              ...item,
+              isCheck: false,
+            };
+            return newKey;
+          });
+          // on sauvegarde le nouveau tableau dans le state
+          store.dispatch(saveFood(newData));
+        })
+        .catch((error) => {
+          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
+          // dans le state, et dispatcher ici une nouvelle action
+          console.log(error);
         });
-        // on sauvegarde le nouveau tableau dans le state
-        store.dispatch(saveFood(newData));
-      })
-      .catch((error) => {
-        // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-        // dans le state, et dispatcher ici une nouvelle action
-        console.log(error);
-      });
+      break;
     }
 
     default:
