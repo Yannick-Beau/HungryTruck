@@ -16,6 +16,7 @@
     position: fixed;
     display: flex;
     flex-direction: column;
+
     top: vars.$gutter * 9;
     right: vars.$gutter;
     .li-user {

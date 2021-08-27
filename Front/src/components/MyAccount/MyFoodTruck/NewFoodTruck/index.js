@@ -155,7 +155,54 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
                       <div>
                         <select className="addslot-input" name="arriving-time">
                           <option value="">Heure d'arrivée</option>
-                          <option value="12">12h00</option>
+                          <option value="00h00 - ">00h00</option>
+                          <option value="00h30 - ">00h30</option>
+                          <option value="01h00 - ">01h00</option>
+                          <option value="01h30 - ">01h30</option>
+                          <option value="02h00 - ">02h00</option>
+                          <option value="02h30 - ">02h30</option>
+                          <option value="03h00 - ">03h00</option>
+                          <option value="03h30 - ">03h30</option>
+                          <option value="04h00 - ">04h00</option>
+                          <option value="04h30 - ">04h30</option>
+                          <option value="05h00 - ">05h00</option>
+                          <option value="05h30 - ">05h30</option>
+                          <option value="06h00 - ">06h00</option>
+                          <option value="06h30 - ">06h30</option>
+                          <option value="07h00 - ">07h00</option>
+                          <option value="07h30 - ">07h30</option>
+                          <option value="08h00 - ">08h00</option>
+                          <option value="08h30 - ">08h30</option>
+                          <option value="09h00 - ">09h00</option>
+                          <option value="09h30 - ">09h30</option>
+                          <option value="10h00 - ">10h00</option>
+                          <option value="10h30 - ">10h30</option>
+                          <option value="11h00 - ">11h00</option>
+                          <option value="11h30 - ">11h30</option>
+                          <option value="12h00 - ">12h00</option>
+                          <option value="12h30 - ">12h30</option>
+                          <option value="13h00 - ">13h00</option>
+                          <option value="13h30 - ">13h30</option>
+                          <option value="14h00 - ">14h00</option>
+                          <option value="14h30 - ">14h30</option>
+                          <option value="15h00 - ">15h00</option>
+                          <option value="15h30 - ">15h30</option>
+                          <option value="16h00 - ">16h00</option>
+                          <option value="16h30 - ">16h30</option>
+                          <option value="17h00 - ">17h00</option>
+                          <option value="17h30 - ">17h30</option>
+                          <option value="18h00 - ">18h00</option>
+                          <option value="18h30 - ">18h30</option>
+                          <option value="19h00 - ">19h00</option>
+                          <option value="19h30 - ">19h30</option>
+                          <option value="20h00 - ">20h00</option>
+                          <option value="20h30 - ">20h30</option>
+                          <option value="21h00 - ">21h00</option>
+                          <option value="21h30 - ">21h30</option>
+                          <option value="22h00 - ">22h00</option>
+                          <option value="22h30 - ">22h30</option>
+                          <option value="23h00 - ">23h00</option>
+                          <option value="23h30 - ">23h30</option>
                         </select>
                         <span>*</span>
                       </div>
@@ -164,7 +211,54 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
                       <div>
                         <select className="addslot-input" name="end-time">
                           <option value="">Heure de fin</option>
-                          <option value="14">14h00</option>
+                          <option value="00h00">00h00</option>
+                          <option value="00h30">00h30</option>
+                          <option value="01h00">01h00</option>
+                          <option value="01h30">01h30</option>
+                          <option value="02h00">02h00</option>
+                          <option value="02h30">02h30</option>
+                          <option value="03h00">03h00</option>
+                          <option value="03h30">03h30</option>
+                          <option value="04h00">04h00</option>
+                          <option value="04h30">04h30</option>
+                          <option value="05h00">05h00</option>
+                          <option value="05h30">05h30</option>
+                          <option value="06h00">06h00</option>
+                          <option value="06h30">06h30</option>
+                          <option value="07h00">07h00</option>
+                          <option value="07h30">07h30</option>
+                          <option value="08h00">08h00</option>
+                          <option value="08h30">08h30</option>
+                          <option value="09h00">09h00</option>
+                          <option value="09h30">09h30</option>
+                          <option value="10h00">10h00</option>
+                          <option value="10h30">10h30</option>
+                          <option value="11h00">11h00</option>
+                          <option value="11h30">11h30</option>
+                          <option value="12h00">12h00</option>
+                          <option value="12h30">12h30</option>
+                          <option value="13h00">13h00</option>
+                          <option value="13h30">13h30</option>
+                          <option value="14h00">14h00</option>
+                          <option value="14h30">14h30</option>
+                          <option value="15h00">15h00</option>
+                          <option value="15h30">15h30</option>
+                          <option value="16h00">16h00</option>
+                          <option value="16h30">16h30</option>
+                          <option value="17h00">17h00</option>
+                          <option value="17h30">17h30</option>
+                          <option value="18h00">18h00</option>
+                          <option value="18h30">18h30</option>
+                          <option value="19h00">19h00</option>
+                          <option value="19h30">19h30</option>
+                          <option value="20h00">20h00</option>
+                          <option value="20h30">20h30</option>
+                          <option value="21h00">21h00</option>
+                          <option value="21h30">21h30</option>
+                          <option value="22h00">22h00</option>
+                          <option value="22h30">22h30</option>
+                          <option value="23h00">23h00</option>
+                          <option value="23h30">23h30</option>
                         </select>
                         <span>*</span>
                       </div>

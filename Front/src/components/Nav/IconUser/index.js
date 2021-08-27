@@ -1,7 +1,9 @@
 // == Import npm
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 
 // == Import
 import './iconUser.scss';
@@ -9,7 +11,7 @@ import imgUser from '../../../assets/img/icon-user.png';
 
 // == Composant
 const IconUser = ({logged, avatar, iconUserIsOpen, handleLogOut, handleStatusIconUser}) => {
-  console.log(iconUserIsOpen);
+
   let avatarUser;
   if (avatar !== '' && avatar !== null) {
     avatarUser = avatar;
@@ -18,6 +20,7 @@ const IconUser = ({logged, avatar, iconUserIsOpen, handleLogOut, handleStatusIco
     avatarUser = imgUser;
   }
   return(
+
   <div className="user">
     <img
       className="image-user"
@@ -99,3 +102,4 @@ export default IconUser;
 /* <li className="li-user">Mon compte</li>
 <li className="li-user">Créer un compte</li>
 <li className="li-user">connexion</li> */
+
