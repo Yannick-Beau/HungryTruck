@@ -9,7 +9,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
       console.log(`On va se connecter avec email: ${email} et mdp: ${password}`);
       axios.post(
         // URL
-        `http://${URL}/api/login_check`,
+        `${URL}/api/login_check`,
         // paramètres
         {
           username: email,
@@ -20,7 +20,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
     
           axios.get(
-            `http://${URL}/api/user`,
+            `${URL}/api/user`,
             { 
               headers: {
                 "Authorization" : `Bearer ${response.data.token}`

@@ -34,7 +34,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
         address : ${address},
         siret : ${newSiret},`);
       console.log(`On va s'inscrire avec email: ${email} et mdp: ${password}`);
-      axios.post(`http://${URL}/api/user/create`,
+      axios.post(`${URL}/api/user/create`,
         {
           email: email,
           roles: proUser,

@@ -11,14 +11,13 @@ import Footer from '../Footer';
 // == Import others components
 import Main from '../Main';
 
-
 import NewAccount from '../MyAccount/NewAccount';
 
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
-import ZoomFT from '../ZoomFT';
+import ZoomFT from '../../containers/ZoomFT';
 import LogIn from '../../containers/MyAccount/LogIn';
 import MyAccount from '../MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
@@ -56,7 +55,7 @@ const HungryTruck = () => {
         <Route path="/search" exact>
           <Search />
         </Route>
-        <Route path="/food-truck" exact>
+        <Route path="/food-truck/:slug" exact>
           <ZoomFT />
         </Route>
         <Route path="/who-are-we" exact>
