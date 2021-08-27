@@ -35,5 +35,5 @@ export const connectPro = (siret, trucksPro) => ({
 });
 
 export const logOut = () => ({
-  type: LOG_OUT
+  type: LOG_OUT,
 });
