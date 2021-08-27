@@ -145,7 +145,7 @@ class AppFixtures extends Fixture
 
         $CategoriesFoodList = [];
 
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
 
             $CategoriesFood = new CategoryFood();
             $CategoriesFood->setName($data->food());
@@ -157,7 +157,7 @@ class AppFixtures extends Fixture
 
         $FaqList = [];
 
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
 
             $Faq = new Faq();
             $Faq->setQuestion('Questions blabla n°' . $i);
