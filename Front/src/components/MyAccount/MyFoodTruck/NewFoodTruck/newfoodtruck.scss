@@ -1,0 +1,233 @@
+@use 'src/styles/vars';
+
+.section-newFoodTruck {
+  margin: 2rem;
+
+  .newFoodTruck-title {
+    font-weight: bold;
+    font-size: 4rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: -1rem auto -1.5rem 30rem;
+  }
+
+  .newFoodTruck-picture {
+    margin-left: 9rem;
+    margin-top: -4rem;
+  }
+
+  .newFoodTruck {
+    background-color: vars.$DarkOpacity;
+    padding: 2rem;
+    width: 70vw;
+    height: auto;
+    margin: -18rem auto auto 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0.5rem;
+      font-size: 1.3rem;
+
+      .input-yellow {
+        width: 30rem;
+        padding-left: 2rem;
+
+        &:focus {
+          box-shadow: inset 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        &::placeholder {
+          font-style: italic;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      text-align: center;
+      margin: 0.5rem;
+    }
+
+    .foodtruck-social {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      input {
+        width: 20rem;
+        height: 1.8rem;
+        border-radius: 0 25px 25px 0;
+        border: none;
+        padding-left: 1rem;
+        margin-left: 1rem;
+
+        &:focus {
+          box-shadow: inset 0 0 25px rgba(0, 0, 0, .5);
+        }
+
+        &::placeholder {
+          font-style: italic;
+        }
+      }
+    }
+
+    .account-button {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      .button-Link {
+
+        .button-linkto {
+          width: 15rem;
+          height: 3rem;
+          border: #e69512 solid 4px;
+          border-radius: 25px;
+          font-size: 1rem;
+          background-color: transparent;
+          color: vars.$LLight;
+
+          &:hover {
+            background-color: vars.$Yellow;
+            color: vars.$DarkOpacity;
+          }
+        }
+
+        .button-del {
+          width: 15rem;
+          height: 3rem;
+          border: #e61212 solid 4px;
+          border-radius: 25px;
+          font-size: 1rem;
+          background-color: transparent;
+          color: vars.$LLight;
+
+          &:hover {
+            background-color: #e61212;
+            // color: vars.$DarkOpacity;
+          }
+        }
+
+        .button-linktosave {
+          width: 15rem;
+          height: 3rem;
+          border: #095228 solid 4px;
+          border-radius: 25px;
+          font-size: 1rem;
+          background-color: transparent;
+          color: vars.$LLight;
+
+          &:hover {
+            background-color: #095228;
+          }
+        }
+      }
+    }
+  }
+}
+
+.addslot-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50px;
+  width: 50%;
+  height: auto;
+  background-color: vars.$DarkOpacity;
+  padding: vars.$gutter;
+  margin: auto;
+  color: vars.$LLight;
+
+  .addslot-title {
+    font-weight: bold;
+    font-size: 2rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    font-family: vars.$Krub;
+    margin: 1rem auto 1rem;
+  }
+
+  .addslot-fields--legend {
+    font-style: italic;
+    color: #e69512;
+    font-size: 0.7rem;
+  }
+
+  .addslot-form {
+    display: flex;
+    flex-direction: column;
+
+    .addslot-from--first {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .addslot-label {
+        margin: vars.$gutter / 2;
+        font-style: italic;
+
+        .addslot-input {
+          margin: vars.$gutter / 3;
+          padding: vars.$gutter;
+          background-color: rgba(255, 255, 255, 0.8);
+          border-radius: 25px;
+          border: 4px solid #e69512;
+
+          option {
+            padding: vars.$gutter / 2;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 25px;
+            border: 4px solid #e69512;
+          }
+        }
+
+        span {
+          color: #e69512;
+          margin: -0.2rem auto auto 0.4rem;
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+      }
+
+    }
+
+    .addslot-form--footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 1rem;
+
+      .addslot-button--quit {
+        padding: vars.$gutter / 2;
+        border: #e69512 solid 4px;
+        border-radius: 25px;
+        background-color: transparent;
+        color: vars.$LLight;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: #e69512;
+          color: vars.$DarkOpacity;
+        }
+      }
+
+      .addslot-button--submit {
+        padding: vars.$gutter / 2;
+        border: #e69512 solid 4px;
+        border-radius: 25px;
+        background-color: #e69512;
+        color: vars.$DarkOpacity;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: transparent;
+          color: vars.$LLight;
+        }
+      }
+    }
+  }
+}
