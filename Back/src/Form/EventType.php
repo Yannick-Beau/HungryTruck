@@ -14,6 +14,7 @@ class EventType extends AbstractType
         $builder
             ->add('day')
             ->add('hours')
+            ->add('hours_end')
             ->add('place')
             ->add('foodtruck')
         ;
