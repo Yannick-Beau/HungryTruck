@@ -62,14 +62,18 @@ const createUserMiddleware = (store) => (next) => (action) => {
     case FIND_FOOD: {
       axios.get(`http://${URL}/api/categoryfood`)
       .then((response) => {
+        // clone d'un tableau pour pour pouvoir faire un map dessus
         const data = [
           ...response.data
         ];
+        // création d'un nouveau tableau
         const newData = data.map((item) => {
+          //sur chaque item on ajoute une entrée isCheck à false qui nous aidera pour controler les champs checkbox food
           const newKey = {...item,
             isCheck: false};
           return newKey
         });
+        // on sauvegarde le nouveau tableau dans le state
         store.dispatch(saveFood(newData));
       })
       .catch((error) => {

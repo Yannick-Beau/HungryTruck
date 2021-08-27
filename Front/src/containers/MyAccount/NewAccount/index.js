@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
   password: state.createUser.password,
   passwordConfirm: state.createUser.passwordConfirm,
   nickname: state.createUser.nickname,
-  adress: state.createUser.adress,
+  address: state.createUser.address,
   cp: state.createUser.cp,
   city: state.createUser.city,
   siret: state.createUser.siret,

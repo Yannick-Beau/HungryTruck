@@ -78,10 +78,13 @@ function createUserReducer(state = initialState, action = {}) {
             ...state,
             createPro: action.newValue,
           };
+        // Tous les toggles food passe dans le default  
         default:
+          // On clone le tableau foods pour tavailler dessus
           const updateFood = [
             ...state.foods
           ];
+          // Création d'un nouveau tableau avec la clé isCheck modifier celon l'identifier du toggle  
           const newFood = updateFood.map((item) => {
             let newKeyFood = {...item}
             if(item.name === action.identifier) {

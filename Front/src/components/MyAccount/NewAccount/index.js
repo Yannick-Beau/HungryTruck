@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import
 import avatar from '../../../assets/img/avatar.jpg';
@@ -25,18 +26,18 @@ const NewAccount = ({
   findFood,
   foods,
 }) => {
-  if(tokenIsOk) {
-    return <Redirect to="/" />; 
+  if (tokenIsOk) {
+    return <Redirect to="/" />;
   }
   let title = 'Créer votre compte Utilisateur';
   let buttonCreateName = 'Créer mon compte Utilisateur';
   if (createPro) {
     title = 'Créer votre compte Pro';
-    buttonCreateName = 'Créer mon compte Pro'
+    buttonCreateName = 'Créer mon compte Pro';
   }
   useEffect(() => {
     findFood();
-  },[]);
+  }, []);
   return (
     <main className="newaccount">
       <h1 className="newaccount-title">{title}</h1>
@@ -252,6 +253,30 @@ const NewAccount = ({
       </form>
     </main>
   );
+};
+
+NewAccount.propTypes = {
+  nickname: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  passwordConfirm: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  cp: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  siret: PropTypes.string.isRequired,
+  pictureUser: PropTypes.string.isRequired,
+  createPro: PropTypes.bool.isRequired,
+  changeField: PropTypes.func.isRequired,
+  changeToggle: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  tokenIsOk: PropTypes.bool.isRequired,
+  findFood: PropTypes.func.isRequired,
+  foods: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      isCheck: PropTypes.bool.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 // == Export
