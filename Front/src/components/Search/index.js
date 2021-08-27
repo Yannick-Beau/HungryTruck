@@ -117,7 +117,17 @@ Search.propTypes = {
         }).isRequired,
       ).isRequired,
       createdAt: PropTypes.string.isRequired,
-      events: PropTypes.arrayOf(), // TODO shape
+      events: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          day: PropTypes.string.isRequired,
+          hours: PropTypes.string.isRequired,
+          place: PropTypes.string.isRequired,
+          hours_end: PropTypes.string.isRequired,
+          longitude: PropTypes.string.isRequired,
+          latitude: PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
       picture: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
