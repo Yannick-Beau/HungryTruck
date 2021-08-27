@@ -31,6 +31,7 @@ const ZoomFT = ({ trucks }) => {
         </div>
       </div>
       <div className="details">
+        <p className="overview">{truck.overview}</p>
         <div className="myFoodTruck-array">
           <table>
             <thead>
@@ -40,34 +41,16 @@ const ZoomFT = ({ trucks }) => {
                 <th>Lieux</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Lundi</td>
-                <td>12h / 14h</td>
-                <td>3 rue de paris, Lyon</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td>Lundi</td>
-                <td>12h / 14h</td>
-                <td>3 rue de paris, Lyon</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td>Lundi</td>
-                <td>12h / 14h</td>
-                <td>3 rue de paris, Lyon</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td>Lundi</td>
-                <td>12h / 14h</td>
-                <td>3 rue de paris, Lyon</td>
-              </tr>
-            </tbody>
+            {truck.events.map((item) => (
+              <tbody key={item.id}>
+                <tr>
+                  <td>{item.day}</td>
+                  <td>{item.hours} - {item.hours_end}</td>
+                  <td>{item.place}</td>
+                </tr>
+              </tbody>
+            ))}
+
           </table>
         </div>
         <div className="type-food">
