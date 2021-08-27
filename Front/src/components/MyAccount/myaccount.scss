@@ -9,6 +9,8 @@
     margin: -1rem auto -1.5rem 30rem;
   }
     .myaccount-picture {
+      height: 20rem;
+      width: 20rem;
       margin-left: 9rem;
       margin-top: -4rem;
     }
@@ -65,6 +67,7 @@
           ul {
             display: flex;
             justify-content: space-around;
+            flex-direction: column;
           }
         }
       }
@@ -179,4 +182,9 @@
       color:  vars.$DarkOpacity;
     }
   }
+}
+span{
+  color: #e69512;
+  font-style: italic;
+  font-weight: bold;
 }

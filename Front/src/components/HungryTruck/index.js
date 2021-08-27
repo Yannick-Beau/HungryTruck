@@ -20,7 +20,7 @@ import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../ZoomFT';
 import LogIn from '../../containers/MyAccount/LogIn';
-import MyAccount from '../MyAccount';
+import MyAccount from '../../containers/MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
@@ -32,14 +32,13 @@ import './styles.scss';
 
 // == Composant
 const HungryTruck = () => {
-  const [user, setUser] = useState(false);
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
 
   return (
     <div className="hungrytruck">
-      <Nav user={user} setUser={setUser} />
+      <Nav />
       <Switch>
         <Route path="/" exact>
           <Main />

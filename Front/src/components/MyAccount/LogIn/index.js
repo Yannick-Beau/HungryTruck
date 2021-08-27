@@ -1,6 +1,6 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Link, Redirect, Route } from 'react-router-dom';
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 // == Import
 import './logIn.scss';

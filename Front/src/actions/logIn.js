@@ -2,6 +2,7 @@
 export const UPDATE_FIELD = 'UPDATE_FIELD';
 export const AUTHENTIFICATION = 'AUTHENTIFICATION';
 export const CONNECT_USER = 'CONNECT_USER';
+export const CONNECT_PRO = 'CONNECT_PRO';
 export const LOG_OUT = 'LOG_OUT';
 
 // === action creators
@@ -25,6 +26,12 @@ export const connectUser = (address, avatar, city, cp, food_like, id, pseudo, ro
   id: id,
   pseudo: pseudo,
   roles: roles,
+});
+
+export const connectPro = (siret, trucksPro) => ({
+  type: CONNECT_PRO,
+  siret: siret,
+  trucksPro: trucksPro,
 });
 
 export const logOut = () => ({

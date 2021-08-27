@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import createUserReducer from './createUserReducer';
 import logInReducer from './logInReducer';
 import searchReducer from './searchReducer';
+import toolsReducer from './toolsReducer';
 // etc
 
 // le reducer principal, qui regroupe les autres
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   createUser: createUserReducer,
   logIn: logInReducer,
   search: searchReducer,
+  tools: toolsReducer,
   // etc
 });
 
