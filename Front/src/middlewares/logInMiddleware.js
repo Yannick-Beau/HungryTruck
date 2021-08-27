@@ -10,7 +10,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
       let token;
       axios.post(
         // URL
-        `http://${URL}/api/login_check`,
+        `${URL}/api/login_check`,
         // paramètres
         {
           username: email,
@@ -22,7 +22,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
           token = response.data.token;
     
           axios.get(
-            `http://${URL}/api/user`,
+            `${URL}/api/user`,
             { 
               headers: {
                 "Authorization" : `Bearer ${token}`

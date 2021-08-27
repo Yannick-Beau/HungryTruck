@@ -1,12 +1,12 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
 
 // == Import
 import './search.scss';
-import Logo from '../../assets/img/logo.png';
 
 // == Composant
 const Search = ({
@@ -68,7 +68,7 @@ const Search = ({
 
           {filterSearch.map((item) => (
             <Link
-              to="/food-truck"
+              to={`/food-truck/${item.id}`}
               key={item.id}
             >
               <article className="search-results--result">
@@ -92,7 +92,6 @@ const Search = ({
     </>
   );
 };
-
 
 // == Export
 export default Search;
