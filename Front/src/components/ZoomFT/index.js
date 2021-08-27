@@ -1,7 +1,12 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Facebook, Instagram, PhoneCall, Twitter } from 'react-feather';
+import {
+  Facebook,
+  Instagram,
+  PhoneCall,
+  Twitter,
+} from 'react-feather';
 import { Link, useParams } from 'react-router-dom';
 
 // == Import
