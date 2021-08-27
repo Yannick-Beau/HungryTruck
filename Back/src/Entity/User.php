@@ -124,11 +124,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $latitude;
 
