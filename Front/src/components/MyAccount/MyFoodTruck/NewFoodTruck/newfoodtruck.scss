@@ -167,18 +167,18 @@
       justify-content: space-around;
 
       .addslot-label {
-        margin: vars.$gutter / 2;
+        margin: 0.5rem;
         font-style: italic;
 
         .addslot-input {
-          margin: vars.$gutter / 3;
+          margin: 0.33rem;
           padding: vars.$gutter;
           background-color: rgba(255, 255, 255, 0.8);
           border-radius: 25px;
           border: 4px solid #e69512;
 
           option {
-            padding: vars.$gutter / 2;
+            padding: 0.5rem;
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 25px;
             border: 4px solid #e69512;
@@ -202,7 +202,7 @@
       margin: 1rem;
 
       .addslot-button--quit {
-        padding: vars.$gutter / 2;
+        padding: 0.5rem;
         border: #e69512 solid 4px;
         border-radius: 25px;
         background-color: transparent;
@@ -216,7 +216,7 @@
       }
 
       .addslot-button--submit {
-        padding: vars.$gutter / 2;
+        padding: 0.5rem;
         border: #e69512 solid 4px;
         border-radius: 25px;
         background-color: #e69512;

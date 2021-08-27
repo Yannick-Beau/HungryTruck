@@ -13,12 +13,13 @@ import Main from '../Main';
 
 
 import NewAccount from '../MyAccount/NewAccount';
+
 import LegalMentions from '../Footer/LegalMentions';
-import Search from '../Search';
+import Search from '../../containers/Search';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../ZoomFT';
-import LogIn from '../MyAccount/LogIn';
+import LogIn from '../../containers/MyAccount/LogIn';
 import MyAccount from '../MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';

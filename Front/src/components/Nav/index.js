@@ -8,7 +8,7 @@ import Search from '../Search';
 
 
 // == Import components
-import IconUser from './IconUser';
+import IconUser from '../../containers/Nav/IconUser';
 
 // == Import
 import './nav.scss';
