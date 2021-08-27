@@ -25,10 +25,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   handleStatusIconUser: () => {
-    const action =  changeStatusIconUser();
+    const action = changeStatusIconUser();
     dispatch(action);
   },
-  
 });
 
 // === création de l'assistant
