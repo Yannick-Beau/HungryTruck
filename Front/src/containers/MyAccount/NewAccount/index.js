@@ -2,7 +2,12 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import NewAccount from 'src/components/MyAccount/NewAccount';
-import { updateField, updateToggle, createUser, findFood } from '../../../actions/createUser';
+import {
+  updateField,
+  updateToggle,
+  createUser,
+  findFood,
+} from '../../../actions/createUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -43,7 +48,7 @@ const mapDispatchToProps = (dispatch) => ({
   findFood: () => {
     const action = findFood();
     dispatch(action);
-  }
+  },
 });
 
 // === création de l'assistant
