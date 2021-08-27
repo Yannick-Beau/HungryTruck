@@ -1,4 +1,4 @@
-//import { SEARCH_FIELD, LOAD_SEARCH } from '../actions/search';
+import { CHANGE_STATUS_ICON_USER } from '../actions/tools';
 
 const initialState = {
   iconUserIsOpen: false,
@@ -6,7 +6,11 @@ const initialState = {
 
 function toolsReducer(state = initialState, action = {}) {
   switch (action.type) {
-   
+    case CHANGE_STATUS_ICON_USER:
+      return {
+        ...state,
+        iconUserIsOpen: !iconUserIsOpen,
+      };
     default:
       return state;
   }
