@@ -92,5 +92,36 @@ const Search = ({
   );
 };
 
+Search.propTypes = {
+  search: PropTypes.string.isRequired,
+  searchField: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  trucks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      num_tel: PropTypes.number.isRequired,
+      overview: PropTypes.string.isRequired,
+      instagram: PropTypes.string.isRequired,
+      twitter: PropTypes.string.isRequired,
+      facebook: PropTypes.string.isRequired,
+      user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        email: PropTypes.string.isRequired,
+        pseudo: PropTypes.string.isRequired,
+        siret: PropTypes.number.isRequired,
+      }).isRequired,
+      sell_type_food: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
+      createdAt: PropTypes.string.isRequired,
+      events: PropTypes.arrayOf(), // TODO shape
+      picture: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
+
 // == Export
 export default Search;
