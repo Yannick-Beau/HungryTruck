@@ -80,8 +80,9 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
             <p>Mon adresse mail: <span>{email}</span></p>
             <p>Mes plats favoris :</p>
             <ul>
-              <li>pizza</li>
-              <li>burger</li>
+              {food_like.map((item) => (
+                <li key={item.name}><span>{item.name}</span></li>
+              ))}
             </ul>
           </div>
         </div>
