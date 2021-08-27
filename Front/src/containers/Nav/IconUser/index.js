@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
   // Formualire de création d'un user
   logged: state.logIn.logged,
   avatar: state.logIn.avatar,
-  iconUserIsOpen: state.tools,
+  iconUserIsOpen: state.tools.iconUserIsOpen,
 });
 
 // === mapDispatchToProps
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleStatusIconUser: () => {
     const action =  changeStatusIconUser();
     dispatch(action);
-  }
+  },
   
 });
 

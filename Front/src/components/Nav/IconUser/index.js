@@ -8,7 +8,8 @@ import './iconUser.scss';
 import imgUser from '../../../assets/img/icon-user.png';
 
 // == Composant
-const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
+const IconUser = ({logged, avatar, iconUserIsOpen, handleLogOut, handleStatusIconUser}) => {
+  console.log(iconUserIsOpen);
   let avatarUser;
   if (avatar !== '' && avatar !== null) {
     avatarUser = avatar;
@@ -23,10 +24,10 @@ const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
       src={avatarUser}
       alt="utilisateur"
       onClick={() => {
-        setUser(!user);
+        handleStatusIconUser();
       }}
     />
-    { user
+    { iconUserIsOpen
     && (
     <ul className="ul-user">
       { logged 
@@ -35,7 +36,7 @@ const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
           className="li-user"
           to="/my-account"
           onClick={() => {
-            setUser(!user);
+            handleStatusIconUser();
           }}
         >
           Mon compte
@@ -50,6 +51,7 @@ const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
           onClick={() => {
             localStorage.removeItem('token');
             handleLogOut();
+            handleStatusIconUser();
           }}
         >
           Déconnexion
@@ -62,7 +64,7 @@ const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
           className="li-user"
           to="/new-account"
           onClick={() => {
-            setUser(!user);
+            handleStatusIconUser();
           }}
         >
           Créer un compte
@@ -74,7 +76,7 @@ const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
           className="li-user"
           to="/login"
           onClick={() => {
-            setUser(!user);
+            handleStatusIconUser();
           }}
         >
           connexion
@@ -88,8 +90,7 @@ const IconUser = ({user, setUser, logged, avatar, handleLogOut}) => {
 )};
 
 IconUser.propTypes = {
-  user: PropTypes.bool.isRequired,
-  setUser: PropTypes.func.isRequired,
+  
 };
 
 // == Export
