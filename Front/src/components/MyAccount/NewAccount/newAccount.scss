@@ -68,10 +68,64 @@
         font-family: vars.$Krub;
       }
 
-      .field-label {
+      .field-label-pro {
         display: flex;
         margin: vars.$gutter;
         font-style: italic;
+        
+        .switch {
+          position: relative;
+          display: inline-block;
+          margin: 1rem auto auto;
+          width: 60px;
+          height: 34px;
+          
+        
+          input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        
+            &:checked + .slider {
+              background-color: #e69512;
+            }
+        
+            &:checked + .slider::before {
+              transform: translateX(26px);
+            }
+          }
+        
+          .slider {
+            position: absolute;
+            cursor: pointer;
+        
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        
+            border: 4px solid #e69512;
+            background-color: none;
+        
+            &::before {
+              position: absolute;
+              content: "";
+              height: 29px;
+              width: 29px;
+              left: 0px;
+              bottom: 0px;
+              background-color: rgba(255, 255, 255, 0.8);
+              transition: 0.4s;
+            }
+            &.rounded {
+              border-radius: 25px;
+            }
+            &.rounded::before {
+              border-radius: 50%;
+            }
+          }
+          
+        }
       
         span {
           color: #e69512;
@@ -127,12 +181,17 @@
         }
 
         .fields-food {
+          width: 30rem;
           .field-check {
             display: flex;
-            justify-content: space-around;
-
+            flex-wrap: wrap;
+        
+            
             .field-label {
-              display: inline-block;
+              display: flex;
+              width: 8rem;
+              text-align: center;
+              
             }
           }
         }
@@ -160,6 +219,7 @@
 .switch {
   position: relative;
   display: inline-block;
+  margin: 1rem auto auto;
   width: 60px;
   height: 34px;
   
@@ -182,10 +242,10 @@
     position: absolute;
     cursor: pointer;
 
-    top: -5px;
-    left: 10px;
-    right: -20px;
-    bottom: 5px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
 
     border: 4px solid #e69512;
     background-color: none;

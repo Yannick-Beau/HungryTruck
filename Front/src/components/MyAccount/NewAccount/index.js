@@ -23,6 +23,7 @@ const NewAccount = ({
   handleSubmit,
   tokenIsOk,
   findFood,
+  foods,
 }) => {
   console.log(tokenIsOk);
   if(tokenIsOk) {
@@ -64,7 +65,7 @@ const NewAccount = ({
           </label>
         </div>
         <div className="form-right">
-          <label className="field-label" htmlFor="pro">Vous êtes professionnel
+          <label className="field-label-pro" htmlFor="pro">Vous êtes professionnel
             <label className="switch">
               <input
                 type="checkbox"
@@ -229,18 +230,14 @@ const NewAccount = ({
               <div className="fields-food">
                 <h2>Choissier vos nourritures favorites</h2>
                 <fieldset className="field-check">
-                  <label className="field-label" htmlFor="pizza">Pizza
-                    <label className="switch">
-                      <input type="checkbox" name="pizza" />
-                      <span className="slider rounded" />
+                  {foods.map((item) => (
+                    <label className="field-label" htmlFor={item.name}>{item.name}
+                      <label className="switch">
+                        <input type="checkbox" name={item.name} />
+                        <span className="slider rounded" />
+                      </label>
                     </label>
-                  </label>
-                  <label className="field-label" htmlFor="burger">Burger
-                    <label className="switch" >
-                      <input type="checkbox" name="burger" />
-                      <span className="slider rounded" />
-                    </label>
-                  </label>
+                  ))}
                 </fieldset>
               </div>
             </div>
