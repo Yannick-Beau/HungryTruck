@@ -7,7 +7,6 @@ const initialState = {
 function toolsReducer(state = initialState, action = {}) {
   switch (action.type) {
     case CHANGE_STATUS_ICON_USER:
-      console.log('je rentre dans le switch tools');
       return {
         ...state,
         iconUserIsOpen: !state.iconUserIsOpen,

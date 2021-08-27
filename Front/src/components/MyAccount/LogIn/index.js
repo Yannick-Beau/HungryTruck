@@ -14,7 +14,6 @@ const LogIn = ({
   tokenIsOk,
 }) => {
   if(tokenIsOk) {
-    console.log('je vais changer lurl');
     return <Redirect to="/" />; 
   }
   return(

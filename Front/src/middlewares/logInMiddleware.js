@@ -6,7 +6,6 @@ const createUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case AUTHENTIFICATION: {
       const { email, password } = store.getState().logIn;
-      console.log(`On va se connecter avec email: ${email} et mdp: ${password}`);
       let token;
       axios.post(
         // URL
@@ -41,7 +40,6 @@ const createUserMiddleware = (store) => (next) => (action) => {
                 responseUser.data.roles,
               ));
               const isPro = responseUser.data.roles.find((item) => item === 'ROLE_PRO');
-              console.log(isPro);
               if (isPro !== undefined) {
                 axios.get(
                   `${URL}/api/pro`,

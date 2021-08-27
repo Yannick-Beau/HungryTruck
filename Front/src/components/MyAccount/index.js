@@ -37,7 +37,6 @@ const MyAccount = ({
   siret,
   isPro,
 }) => {
-  console.log(pseudo);
   let avatarUser;
   if (avatar !== '' && avatar !== null && avatar !== undefined) {
     avatarUser = avatar;
@@ -155,7 +154,7 @@ MyAccount.propTypes = {
   city: PropTypes.string.isRequired,
   cp: PropTypes.number.isRequired,
   pseudo: PropTypes.string.isRequired,
-  siret: PropTypes.string.isRequired,
+  siret: PropTypes.number.isRequired,
   isPro: PropTypes.bool.isRequired,
   foodLike: PropTypes.arrayOf(
     PropTypes.shape({
