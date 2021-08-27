@@ -26,17 +26,8 @@ const customStyles = {
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 // Modal.setAppElement('#yourAppElement');
 
-/*email: state.logIn.email,
-  adresse: state.logIn.adresse,
-  avatar: state.logIn.avatar,
-  city: state.logIn.city,
-  cp: state.logIn.cp,
-  food_like: state.logIn.food_like,
-  pseudo: state.logIn.pseudo,
-  roles: state.logIn.roles, */
-
 // == Composant
-const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp, food_like, pseudo, roles }) => {
+const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp, food_like, pseudo, siret, isPro }) => {
   console.log(pseudo);
   let avatarUser;
   if (avatar !== '' && avatar !== null && avatar !== undefined) {
@@ -74,7 +65,8 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
             <p>Mon adresse :</p>
             <p><span>{adresse}</span></p>
             <p><span>{cp}</span><span>{` ${city}`}</span></p>
-            <p>SIRET : 123456789</p>
+            { isPro 
+            && <p>SIRET : <span>{siret}</span></p>}
           </div>
           <div className="informations-right">
             <p>Mon adresse mail: <span>{email}</span></p>
@@ -126,11 +118,12 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
               Editer mes informations
             </button>
           </Link>
-          <Link to="/my-account/my-foodtruck" className="button-Link" exact>
-            <button type="button" className="button-linkto">
-              Voir mes Foodtrucks
-            </button>
-          </Link>
+          { isPro 
+          && <Link to="/my-account/my-foodtruck" className="button-Link" exact>
+                <button type="button" className="button-linkto">
+                  Voir mes Foodtrucks
+                </button>
+              </Link>}
           <Link to="/" className="button-Link">
             <button type="button" className="button-linkto">
               Retour au menu principal
@@ -138,7 +131,6 @@ const MyAccount = ({ delAccount, setDelAccount, email, adresse, avatar, city, cp
           </Link>
         </div>
       </article>
-
     </section>
   );
 };
