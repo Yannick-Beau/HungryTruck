@@ -62,17 +62,14 @@ const createUserMiddleware = (store) => (next) => (action) => {
     case FIND_FOOD: {
       axios.get(`http://${URL}/api/categoryfood`)
       .then((response) => {
-        console.log(response);
         const data = [
           ...response.data
         ];
         const newData = data.map((item) => {
           const newKey = {...item,
-            isChek: false};
-          console.log(newKey);
+            isCheck: false};
           return newKey
         });
-        console.log(newData);
         store.dispatch(saveFood(newData));
       })
       .catch((error) => {

@@ -79,7 +79,21 @@ function createUserReducer(state = initialState, action = {}) {
             createPro: action.newValue,
           };
         default:
-          return state;
+          const updateFood = [
+            ...state.foods
+          ];
+          const newFood = updateFood.map((item) => {
+            let newKeyFood = {...item}
+            if(item.name === action.identifier) {
+              newKeyFood = {...item,
+              isCheck: !item.isCheck};
+            }
+            return newKeyFood;
+          })
+          return {
+            ...state,
+            foods: newFood,
+          }
       }
     case SAVE_FOOD:
       return {

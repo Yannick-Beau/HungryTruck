@@ -25,9 +25,7 @@ const NewAccount = ({
   findFood,
   foods,
 }) => {
-  console.log(tokenIsOk);
   if(tokenIsOk) {
-    console.log('je vais changer lurl');
     return <Redirect to="/" />; 
   }
   let title = 'Créer votre compte Utilisateur';
@@ -236,9 +234,9 @@ const NewAccount = ({
                         <input
                           type="checkbox"
                           name={item.name}
-                          checked={createPro}
+                          checked={item.isCheck}
                           onChange={() => {
-                            changeToggle(!createPro, `${item.name}`);
+                            changeToggle(!item.isCheck, `${item.name}`);
                           }}
                         />
                         <span className="slider rounded" />
