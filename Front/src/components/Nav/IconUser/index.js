@@ -94,7 +94,11 @@ const IconUser = ({
 };
 
 IconUser.propTypes = {
-
+  logged: PropTypes.bool.isRequired,
+  avatar: PropTypes.string.isRequired,
+  iconUserIsOpen: PropTypes.bool.isRequired,
+  handleLogOut: PropTypes.func.isRequired,
+  handleStatusIconUser: PropTypes.func.isRequired,
 };
 
 // == Export
