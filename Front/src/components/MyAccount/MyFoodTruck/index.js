@@ -162,5 +162,10 @@ const MyFoodTruck = ({ foodTruckDetails, setAddFoodTruckDetails }) => {
   );
 };
 
+MyFoodTruck.propTypes = {
+  foodTruckDetails: PropTypes.bool.isRequired,
+  setAddFoodTruckDetails: PropTypes.func.isRequired,
+};
+
 // == Export
 export default MyFoodTruck;
