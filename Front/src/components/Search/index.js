@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-
 // == Import
 import './search.scss';
 
@@ -17,7 +16,7 @@ const Search = ({
 }) => {
   let filterSearch;
 
-    console.log(search);
+  console.log(search);
   if (search.lenght === 0) {
     filterSearch = trucks;
   }
