@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import NewFoodTruck from '../../../components/MyAccount/MyFoodTruck/NewFoodTruck';
-import { newFoodTruck, newTime } from '../../../actions/newFoodTruck';
+import { newFoodTruck, newTime, loadNewFoodTruck } from '../../../actions/newFoodTruck';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -31,6 +31,11 @@ const mapDispatchToProps = (dispatch) => ({
 
   newTime: (newValue, identifier) => {
     const action = newTime(newValue, identifier);
+    dispatch(action);
+  },
+
+  loadNewFoodTruck: () => {
+    const action = loadNewFoodTruck();
     dispatch(action);
   },
 });
