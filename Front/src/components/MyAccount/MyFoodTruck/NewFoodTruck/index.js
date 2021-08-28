@@ -9,10 +9,44 @@ import {
 } from 'react-feather';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
+import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 // == Import
 import './newfoodtruck.scss';
+
+const daySelect = [
+  { value: 'Lundi', label: 'lundi' },
+  { value: 'Mardi', label: 'mardi' },
+  { value: 'Mercredi', label: 'mercredi' },
+  { value: 'Jeudi', label: 'jeudi' },
+  { value: 'Vendredi', label: 'vendredi' },
+  { value: 'Samedi', label: 'samedi' },
+  { value: 'Dimanche', label: 'dimanche' },
+];
+
+const hourSelect = [
+  { value: '00h00 -', label: '00h00' },
+  { value: '00h30 -', label: '00h30' },
+  { value: '01h00 -', label: '01h00' },
+  { value: '01h30 -', label: '01h30' },
+  { value: '02h00 -', label: '02h00' },
+  { value: '02h30 -', label: '02h30' },
+  { value: '03h00 -', label: '03h00' },
+  { value: '03h30 -', label: '03h30' },
+  { value: '04h00 -', label: '04h00' },
+  { value: '04h30 -', label: '04h30' },
+  { value: '05h00 -', label: '05h00' },
+  { value: '05h30 -', label: '05h30' },
+  { value: '06h00 -', label: '06h00' },
+  { value: '06h30 -', label: '06h30' },
+  { value: '07h00 -', label: '07h00' },
+  { value: '07h30 -', label: '07h30' },
+  { value: '08h00 -', label: '08h00' },
+  { value: '08h30 -', label: '08h30' },
+  { value: '09h00 -', label: '09h00' },
+  { value: '09h30 -', label: '09h30' },
+];
 
 const customStyles = {
   content: {
@@ -34,6 +68,8 @@ const NewFoodTruck = ({
   newFoodTruckFB,
   newFoodTruckInsta,
   newFoodTruckTwitter,
+  newDay,
+  newTime,
 }) => {
   let subtitle;
   function openModal() {
@@ -48,6 +84,7 @@ const NewFoodTruck = ({
   function closeModal() {
     setAddFoodTruck(false);
   }
+
   return (
     <section className="section-newFoodTruck">
       <h2 className="newFoodTruck-title">Créer mon FoodTruck</h2>
@@ -161,7 +198,14 @@ const NewFoodTruck = ({
                   <div className="addslot-from--first">
                     <label className="addslot-label" htmlFor="day">Sélectionner le jour
                       <div>
-                        <select className="addslot-input" name="day">
+                        <Select
+                          options={daySelect}
+                          value={newDay}
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newDay');
+                          }}
+                        />
+                        {/* <select className="addslot-input" name="day">
                           <option value="">Jour</option>
                           <option value="lundi">lundi</option>
                           <option value="mardi">mardi</option>
@@ -170,7 +214,7 @@ const NewFoodTruck = ({
                           <option value="vendredi">vendredi</option>
                           <option value="samedi">samedi</option>
                           <option value="dimanche">dimanche</option>
-                        </select>
+                        </select> */}
                         <span>*</span>
                       </div>
                     </label>
