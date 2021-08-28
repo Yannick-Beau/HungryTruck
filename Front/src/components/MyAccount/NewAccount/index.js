@@ -52,13 +52,13 @@ const NewAccount = ({
         }}
       >
         <div className="form-left">
-          <img className="avatar" src={avatar} alt="Avatar" />
+          <img className="avatar" src={pictureUser} alt="Avatar" />
           <label className="form-label--avatar" htmlFor="avatar">Lien de votre image de profil*
             <input
               type="text"
               className="avatar-input"
               name="avatar"
-              placeholder="https://kelapplication.com/wp-content/uploads/2017/02/app-trouver-foodtruck-trackthetruck.jpg"
+              placeholder="https://kelapplication.com/image.png"
               value={pictureUser}
               onChange={(evt) => {
                 changeField(evt.target.value, 'pictureUser');
