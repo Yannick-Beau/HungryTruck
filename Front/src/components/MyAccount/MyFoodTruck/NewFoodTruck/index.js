@@ -33,7 +33,6 @@ const NewFoodTruck = ({
   newFoodTruck,
 }) => {
   let subtitle;
-
   function openModal() {
     setAddFoodTruck(true);
   }
@@ -322,6 +321,8 @@ const NewFoodTruck = ({
 NewFoodTruck.propTypes = {
   addFoodTruck: PropTypes.bool.isRequired,
   setAddFoodTruck: PropTypes.func.isRequired,
+  newFoodTruckName: PropTypes.string.isRequired,
+  newFoodTruck: PropTypes.func.isRequired,
 };
 // == Export
 export default NewFoodTruck;
