@@ -16,6 +16,8 @@ const mapStateToProps = (state) => ({
   twitter: state.newFT.newFoodTruckTwitter,
 
   newDay: state.newFT.newDay,
+  newStartTime: state.newFT.newStartTime,
+  newEndTime: state.newFT.newEndTime,
 });
 
 // === mapDispatchToProps

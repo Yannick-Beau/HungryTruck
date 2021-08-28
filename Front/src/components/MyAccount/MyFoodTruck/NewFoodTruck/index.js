@@ -202,15 +202,6 @@ const NewFoodTruck = ({
                   <div className="addslot-from--first">
                     <label className="addslot-label" htmlFor="day">Sélectionner le jour
                       <div>
-                        {/* <Select
-                          selected="Mardi"
-                          // onChange={(e) => {
-                          //   console.log('je suis là');
-                          //   console.log(e.target.value);
-                          //   newTime(e.target.value, 'newDay');
-                          // }}
-                          options={daySelect}
-                       /> */}
                         <select
                           onChange={(e) => {
                             newTime(e.target.value, 'newDay');
@@ -232,7 +223,13 @@ const NewFoodTruck = ({
                     </label>
                     <label className="addslot-label" htmlFor="arriving-time">Sélectionner une heure d'arrivée
                       <div>
-                        <select className="addslot-input" name="arriving-time">
+                        <select
+                          className="addslot-input"
+                          name="arriving-time"
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newStartTime');
+                          }}
+                        >
                           <option value="">Heure d'arrivée</option>
                           <option value="00h00 - ">00h00</option>
                           <option value="00h30 - ">00h30</option>
@@ -288,7 +285,13 @@ const NewFoodTruck = ({
                     </label>
                     <label className="addslot-label" htmlFor="end-time">Sélectionner une heure de fin
                       <div>
-                        <select className="addslot-input" name="end-time">
+                        <select
+                          className="addslot-input"
+                          name="end-time"
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newEndTime');
+                          }}
+                        >
                           <option value="">Heure de fin</option>
                           <option value="00h00">00h00</option>
                           <option value="00h30">00h30</option>

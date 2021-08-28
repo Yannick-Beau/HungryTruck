@@ -6,6 +6,8 @@ const initialState = {
   instagram: '',
   twitter: '',
   newDay: '',
+  newStartTime: '',
+  newEndTime: '',
 };
 
 function newFoodTruckReducer(state = initialState, action = {}) {
@@ -42,6 +44,16 @@ function newFoodTruckReducer(state = initialState, action = {}) {
           return {
             ...state,
             newDay: action.newValue,
+          };
+        case 'newStartTime':
+          return {
+            ...state,
+            newStartTime: action.newValue,
+          };
+        case 'newEndTime':
+          return {
+            ...state,
+            newEndTime: action.newValue,
           };
         default:
           return state;
