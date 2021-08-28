@@ -3,6 +3,8 @@ import { ADD_FOODTRUCK } from '../actions/newFoodTruck';
 const initialState = {
   name: '',
   facebook: '',
+  instagram: '',
+  twitter: '',
 };
 
 function newFoodTruckReducer(state = initialState, action = {}) {
@@ -18,6 +20,16 @@ function newFoodTruckReducer(state = initialState, action = {}) {
           return {
             ...state,
             facebook: action.newValue,
+          };
+        case 'instagram':
+          return {
+            ...state,
+            instagram: action.newValue,
+          };
+        case 'twitter':
+          return {
+            ...state,
+            twitter: action.newValue,
           };
         default:
           return state;

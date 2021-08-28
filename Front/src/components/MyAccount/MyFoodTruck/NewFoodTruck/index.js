@@ -32,6 +32,8 @@ const NewFoodTruck = ({
   newFoodTruckName,
   newFoodTruck,
   newFoodTruckFB,
+  newFoodTruckInsta,
+  newFoodTruckTwitter,
 }) => {
   let subtitle;
   function openModal() {
@@ -110,6 +112,10 @@ const NewFoodTruck = ({
                 type="url"
                 name="Facebook-foodtruck"
                 placeholder="https://facebook.com/mapizzatruck"
+                value={newFoodTruckInsta}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'instagram');
+                }}
               />
             </label>
             <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
@@ -118,6 +124,10 @@ const NewFoodTruck = ({
                 type="url"
                 name="Facebook-foodtruck"
                 placeholder="https://facebook.com/mapizzatruck"
+                value={newFoodTruckTwitter}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'twitter');
+                }}
               />
             </label>
           </div>
@@ -328,6 +338,9 @@ NewFoodTruck.propTypes = {
   setAddFoodTruck: PropTypes.func.isRequired,
   newFoodTruckName: PropTypes.string.isRequired,
   newFoodTruck: PropTypes.func.isRequired,
+  newFoodTruckFB: PropTypes.string.isRequired,
+  newFoodTruckInsta: PropTypes.string.isRequired,
+  newFoodTruckTwitter: PropTypes.string.isRequired,
 };
 // == Export
 export default NewFoodTruck;
