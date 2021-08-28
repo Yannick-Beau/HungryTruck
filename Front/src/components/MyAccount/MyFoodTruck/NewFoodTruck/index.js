@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Edit2,
   Facebook,
@@ -84,6 +84,10 @@ const NewFoodTruck = ({
   function closeModal() {
     setAddFoodTruck(false);
   }
+
+  useEffect(() => {
+    newTime();
+  }, []);
 
   return (
     <section className="section-newFoodTruck">
@@ -380,11 +384,11 @@ const NewFoodTruck = ({
 NewFoodTruck.propTypes = {
   addFoodTruck: PropTypes.bool.isRequired,
   setAddFoodTruck: PropTypes.func.isRequired,
-  newFoodTruckName: PropTypes.string.isRequired,
+  newFoodTruckName: PropTypes.string,
   newFoodTruck: PropTypes.func.isRequired,
-  newFoodTruckFB: PropTypes.string.isRequired,
-  newFoodTruckInsta: PropTypes.string.isRequired,
-  newFoodTruckTwitter: PropTypes.string.isRequired,
+  newFoodTruckFB: PropTypes.string,
+  newFoodTruckInsta: PropTypes.string,
+  newFoodTruckTwitter: PropTypes.string,
 };
 // == Export
 export default NewFoodTruck;
