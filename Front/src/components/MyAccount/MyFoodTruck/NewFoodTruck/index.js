@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Edit2,
   Facebook,
@@ -34,6 +34,7 @@ const NewFoodTruck = ({
   newFoodTruckFB,
   newFoodTruckInsta,
   newFoodTruckTwitter,
+  newTime,
 }) => {
   let subtitle;
   function openModal() {
@@ -48,6 +49,11 @@ const NewFoodTruck = ({
   function closeModal() {
     setAddFoodTruck(false);
   }
+
+  useEffect(() => {
+    newTime();
+  }, []);
+
   return (
     <section className="section-newFoodTruck">
       <h2 className="newFoodTruck-title">Créer mon FoodTruck</h2>
@@ -161,7 +167,13 @@ const NewFoodTruck = ({
                   <div className="addslot-from--first">
                     <label className="addslot-label" htmlFor="day">Sélectionner le jour
                       <div>
-                        <select className="addslot-input" name="day">
+                        <select
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newDay');
+                          }}
+                          className="addslot-input"
+                          name="day"
+                        >
                           <option value="">Jour</option>
                           <option value="lundi">lundi</option>
                           <option value="mardi">mardi</option>
@@ -176,7 +188,13 @@ const NewFoodTruck = ({
                     </label>
                     <label className="addslot-label" htmlFor="arriving-time">Sélectionner une heure d'arrivée
                       <div>
-                        <select className="addslot-input" name="arriving-time">
+                        <select
+                          className="addslot-input"
+                          name="arriving-time"
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newStartTime');
+                          }}
+                        >
                           <option value="">Heure d'arrivée</option>
                           <option value="00h00 - ">00h00</option>
                           <option value="00h30 - ">00h30</option>
@@ -232,7 +250,13 @@ const NewFoodTruck = ({
                     </label>
                     <label className="addslot-label" htmlFor="end-time">Sélectionner une heure de fin
                       <div>
-                        <select className="addslot-input" name="end-time">
+                        <select
+                          className="addslot-input"
+                          name="end-time"
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newEndTime');
+                          }}
+                        >
                           <option value="">Heure de fin</option>
                           <option value="00h00">00h00</option>
                           <option value="00h30">00h30</option>
@@ -341,6 +365,7 @@ NewFoodTruck.propTypes = {
   newFoodTruckFB: PropTypes.string.isRequired,
   newFoodTruckInsta: PropTypes.string.isRequired,
   newFoodTruckTwitter: PropTypes.string.isRequired,
+  newTime: PropTypes.func.isRequired,
 };
 // == Export
 export default NewFoodTruck;
