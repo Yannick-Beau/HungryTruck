@@ -202,7 +202,7 @@ const NewFoodTruck = ({
                   <div className="addslot-from--first">
                     <label className="addslot-label" htmlFor="day">Sélectionner le jour
                       <div>
-                        <Select
+                        {/* <Select
                           selected="Mardi"
                           // onChange={(e) => {
                           //   console.log('je suis là');
@@ -210,8 +210,14 @@ const NewFoodTruck = ({
                           //   newTime(e.target.value, 'newDay');
                           // }}
                           options={daySelect}
-                        />
-                        {/* <select className="addslot-input" name="day">
+                       /> */}
+                        <select
+                          onChange={(e) => {
+                            newTime(e.target.value, 'newDay');
+                          }}
+                          className="addslot-input"
+                          name="day"
+                        >
                           <option value="">Jour</option>
                           <option value="lundi">lundi</option>
                           <option value="mardi">mardi</option>
@@ -220,7 +226,7 @@ const NewFoodTruck = ({
                           <option value="vendredi">vendredi</option>
                           <option value="samedi">samedi</option>
                           <option value="dimanche">dimanche</option>
-                        </select> */}
+                        </select>
                         <span>*</span>
                       </div>
                     </label>
