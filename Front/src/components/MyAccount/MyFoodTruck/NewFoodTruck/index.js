@@ -9,44 +9,10 @@ import {
 } from 'react-feather';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 // == Import
 import './newfoodtruck.scss';
-
-const daySelect = [
-  { value: 'Lundi', label: 'lundi' },
-  { value: 'Mardi', label: 'mardi' },
-  { value: 'Mercredi', label: 'mercredi' },
-  { value: 'Jeudi', label: 'jeudi' },
-  { value: 'Vendredi', label: 'vendredi' },
-  { value: 'Samedi', label: 'samedi' },
-  { value: 'Dimanche', label: 'dimanche' },
-];
-
-const hourSelect = [
-  { value: '00h00 -', label: '00h00' },
-  { value: '00h30 -', label: '00h30' },
-  { value: '01h00 -', label: '01h00' },
-  { value: '01h30 -', label: '01h30' },
-  { value: '02h00 -', label: '02h00' },
-  { value: '02h30 -', label: '02h30' },
-  { value: '03h00 -', label: '03h00' },
-  { value: '03h30 -', label: '03h30' },
-  { value: '04h00 -', label: '04h00' },
-  { value: '04h30 -', label: '04h30' },
-  { value: '05h00 -', label: '05h00' },
-  { value: '05h30 -', label: '05h30' },
-  { value: '06h00 -', label: '06h00' },
-  { value: '06h30 -', label: '06h30' },
-  { value: '07h00 -', label: '07h00' },
-  { value: '07h30 -', label: '07h30' },
-  { value: '08h00 -', label: '08h00' },
-  { value: '08h30 -', label: '08h30' },
-  { value: '09h00 -', label: '09h00' },
-  { value: '09h30 -', label: '09h30' },
-];
 
 const customStyles = {
   content: {
@@ -68,7 +34,6 @@ const NewFoodTruck = ({
   newFoodTruckFB,
   newFoodTruckInsta,
   newFoodTruckTwitter,
-  newDay,
   newTime,
 }) => {
   let subtitle;
@@ -395,11 +360,12 @@ const NewFoodTruck = ({
 NewFoodTruck.propTypes = {
   addFoodTruck: PropTypes.bool.isRequired,
   setAddFoodTruck: PropTypes.func.isRequired,
-  newFoodTruckName: PropTypes.string,
+  newFoodTruckName: PropTypes.string.isRequired,
   newFoodTruck: PropTypes.func.isRequired,
-  newFoodTruckFB: PropTypes.string,
-  newFoodTruckInsta: PropTypes.string,
-  newFoodTruckTwitter: PropTypes.string,
+  newFoodTruckFB: PropTypes.string.isRequired,
+  newFoodTruckInsta: PropTypes.string.isRequired,
+  newFoodTruckTwitter: PropTypes.string.isRequired,
+  newTime: PropTypes.func.isRequired,
 };
 // == Export
 export default NewFoodTruck;
