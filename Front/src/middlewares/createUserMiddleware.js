@@ -16,8 +16,19 @@ const createUserMiddleware = (store) => (next) => (action) => {
         city,
         address,
         siret,
+        foods,
       } = store.getState().createUser;
-
+      const foodLikeFilter = foods.filter((item) => (item.isCheck));
+      const foodLikeMap = foodLikeFilter.map((item) => {
+        const newFood = {
+          name: item.name,
+        };
+        return newFood;
+      });
+      const foodLike = [
+        ...foodLikeMap,
+      ];
+      console.log('new food like', foodLike);
       const newCP = parseInt(cp, 10);
       const newSiret = parseInt(siret, 10);
       let proUser = ['ROLE_USER'];
@@ -46,6 +57,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
           city: city,
           adresse: address,
           siret: newSiret,
+          food_like: foodLike,
         })
         .then((response) => {
           console.log(response);

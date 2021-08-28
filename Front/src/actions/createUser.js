@@ -4,6 +4,7 @@ export const UPDATE_TOGGLE = 'UPDATE_TOGGLE';
 export const CREATE_USER = 'CREATE_USER';
 export const FIND_FOOD = 'FIND_FOOD';
 export const SAVE_FOOD = 'SAVE_FOOD';
+export const ERROR_PASSWORD = 'ERROR_PASSWORD';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({

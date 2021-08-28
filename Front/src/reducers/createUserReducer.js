@@ -12,6 +12,7 @@ const initialState = {
   pictureUser: '',
   createPro: false,
   foods: [],
+  errorPassword: false,
 };
 
 function createUserReducer(state = initialState, action = {}) {

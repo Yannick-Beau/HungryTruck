@@ -25,6 +25,7 @@ const NewAccount = ({
   tokenIsOk,
   findFood,
   foods,
+  errorPassword,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -45,7 +46,9 @@ const NewAccount = ({
         className="newaccount-form"
         onSubmit={(evt) => {
           evt.preventDefault();
-          handleSubmit();
+          if (password === passwordConfirm) {
+            handleSubmit();
+          }
         }}
       >
         <div className="form-left">
@@ -271,6 +274,7 @@ NewAccount.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   tokenIsOk: PropTypes.bool.isRequired,
   findFood: PropTypes.func.isRequired,
+  errorPassword: PropTypes.bool.isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
