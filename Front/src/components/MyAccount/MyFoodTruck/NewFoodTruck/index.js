@@ -26,9 +26,16 @@ const customStyles = {
   },
 };
 // == Composant
-const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
+const NewFoodTruck = ({
+  addFoodTruck,
+  setAddFoodTruck,
+  newFoodTruckName,
+  newFoodTruck,
+  newFoodTruckFB,
+  newFoodTruckInsta,
+  newFoodTruckTwitter,
+}) => {
   let subtitle;
-
   function openModal() {
     setAddFoodTruck(true);
   }
@@ -57,6 +64,10 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
             name="foodtruck-name"
             placeholder="exemple : PizzaTruck"
             className="input-yellow"
+            value={newFoodTruckName}
+            onChange={(e) => {
+              newFoodTruck(e.target.value, 'name');
+            }}
           />
         </label>
         <div className="myFoodTruck-array">
@@ -89,6 +100,10 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
                 type="url"
                 name="Facebook-foodtruck"
                 placeholder="https://facebook.com/mapizzatruck"
+                value={newFoodTruckFB}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'facebook');
+                }}
               />
             </label>
             <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
@@ -97,6 +112,10 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
                 type="url"
                 name="Facebook-foodtruck"
                 placeholder="https://facebook.com/mapizzatruck"
+                value={newFoodTruckInsta}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'instagram');
+                }}
               />
             </label>
             <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
@@ -105,6 +124,10 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
                 type="url"
                 name="Facebook-foodtruck"
                 placeholder="https://facebook.com/mapizzatruck"
+                value={newFoodTruckTwitter}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'twitter');
+                }}
               />
             </label>
           </div>
@@ -313,6 +336,11 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
 NewFoodTruck.propTypes = {
   addFoodTruck: PropTypes.bool.isRequired,
   setAddFoodTruck: PropTypes.func.isRequired,
+  newFoodTruckName: PropTypes.string.isRequired,
+  newFoodTruck: PropTypes.func.isRequired,
+  newFoodTruckFB: PropTypes.string.isRequired,
+  newFoodTruckInsta: PropTypes.string.isRequired,
+  newFoodTruckTwitter: PropTypes.string.isRequired,
 };
 // == Export
 export default NewFoodTruck;

@@ -21,7 +21,10 @@ const customStyles = {
 };
 
 // == Composant
-const MyFoodTruck = ({ foodTruckDetails, setAddFoodTruckDetails }) => {
+const MyFoodTruck = ({
+  foodTruckDetails,
+  setAddFoodTruckDetails,
+}) => {
   let subtitle;
 
   function openModal() {
