@@ -21,8 +21,7 @@ import MyAccount from '../../containers/MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
 import NewFoodTruck from '../../containers/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
-
-import Contact from '../Contact';
+import Contact from '../../containers/Contact';
 
 // == Import
 import './styles.scss';

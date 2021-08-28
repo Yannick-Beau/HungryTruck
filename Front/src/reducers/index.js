@@ -6,6 +6,7 @@ import logInReducer from './logInReducer';
 import newFoodTruckReducer from './newFoodTruckReducer';
 import searchReducer from './searchReducer';
 import toolsReducer from './toolsReducer';
+import contactUs from './ContactReducer';
 // etc
 
 // le reducer principal, qui regroupe les autres
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   search: searchReducer,
   tools: toolsReducer,
   newFT: newFoodTruckReducer,
+  contactUs: contactUs,
   // etc
 });
 

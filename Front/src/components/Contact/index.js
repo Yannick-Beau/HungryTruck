@@ -5,7 +5,7 @@ import React from 'react';
 import './contact.scss';
 
 // == Composant
-const Contact = () => (
+const Contact = ({ mail, message, contactUs }) => (
   <section className="contact">
     <h2 className="contact-title">Contactez-nous</h2>
     <article>
@@ -13,7 +13,15 @@ const Contact = () => (
         <p>Vous souhaitez nous adresser un message ?</p>
         <label htmlFor="mail">
           Veuillez renseigner votre adresse mail :
-          <input type="text" name="mail" placeholder="exemple : john@deuf.fr" />
+          <input
+            type="text"
+            name="mail"
+            placeholder="exemple : john@deuf.fr"
+            value={mail}
+            onChange={(e) => {
+              contactUs(e.target.value, 'mail');
+            }}
+          />
         </label>
         <label htmlFor="message">
           Quel message souhaitez vous nous adresser ?
@@ -22,6 +30,10 @@ const Contact = () => (
             type="text"
             placeholder="Ecrivez votre message ici"
             minLength="20"
+            value={message}
+            onChange={(e) => {
+              contactUs(e.target.value, 'message');
+            }}
           />
         </label>
         <button className="form-button" type="submit">Envoyer mon message</button>
