@@ -203,11 +203,13 @@ const NewFoodTruck = ({
                     <label className="addslot-label" htmlFor="day">Sélectionner le jour
                       <div>
                         <Select
+                          selected="Mardi"
+                          // onChange={(e) => {
+                          //   console.log('je suis là');
+                          //   console.log(e.target.value);
+                          //   newTime(e.target.value, 'newDay');
+                          // }}
                           options={daySelect}
-                          value={newDay}
-                          onChange={(e) => {
-                            newTime(e.target.value, 'newDay');
-                          }}
                         />
                         {/* <select className="addslot-input" name="day">
                           <option value="">Jour</option>
