@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
   // Formualire de création d'un user
   name: state.newFT.newFoodTruckName,
+  facebook: state.newFT.newFoodTruckFB,
 });
 
 // === mapDispatchToProps

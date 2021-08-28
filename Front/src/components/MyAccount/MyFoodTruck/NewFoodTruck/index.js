@@ -31,6 +31,7 @@ const NewFoodTruck = ({
   setAddFoodTruck,
   newFoodTruckName,
   newFoodTruck,
+  newFoodTruckFB,
 }) => {
   let subtitle;
   function openModal() {
@@ -97,6 +98,10 @@ const NewFoodTruck = ({
                 type="url"
                 name="Facebook-foodtruck"
                 placeholder="https://facebook.com/mapizzatruck"
+                value={newFoodTruckFB}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'facebook');
+                }}
               />
             </label>
             <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
