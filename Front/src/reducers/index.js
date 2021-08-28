@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 // on importe tous les reducers
 import createUserReducer from './createUserReducer';
 import logInReducer from './logInReducer';
+import newFoodTruckReducer from './newFoodTruckReducer';
 import searchReducer from './searchReducer';
 import toolsReducer from './toolsReducer';
 // etc
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   logIn: logInReducer,
   search: searchReducer,
   tools: toolsReducer,
+  newFT: newFoodTruckReducer,
   // etc
 });
 

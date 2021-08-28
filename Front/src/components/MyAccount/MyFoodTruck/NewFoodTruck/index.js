@@ -26,7 +26,12 @@ const customStyles = {
   },
 };
 // == Composant
-const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
+const NewFoodTruck = ({
+  addFoodTruck,
+  setAddFoodTruck,
+  newFoodTruckName,
+  newFoodTruck,
+}) => {
   let subtitle;
 
   function openModal() {
@@ -57,6 +62,10 @@ const NewFoodTruck = ({ addFoodTruck, setAddFoodTruck }) => {
             name="foodtruck-name"
             placeholder="exemple : PizzaTruck"
             className="input-yellow"
+            value={newFoodTruckName}
+            onChange={(e) => {
+              newFoodTruck(e.target.value, 'name');
+            }}
           />
         </label>
         <div className="myFoodTruck-array">

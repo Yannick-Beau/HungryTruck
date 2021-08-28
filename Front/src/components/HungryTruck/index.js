@@ -19,7 +19,7 @@ import ZoomFT from '../../containers/ZoomFT';
 import LogIn from '../../containers/MyAccount/LogIn';
 import MyAccount from '../../containers/MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
-import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
+import NewFoodTruck from '../../containers/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
 
 import Contact from '../Contact';
