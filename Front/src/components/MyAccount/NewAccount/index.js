@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
-import avatar from '../../../assets/img/avatar.jpg';
 import './newAccount.scss';
 
 // == Composant
@@ -25,7 +24,7 @@ const NewAccount = ({
   tokenIsOk,
   findFood,
   foods,
-  errorPassword,
+  errorInscription,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -67,6 +66,15 @@ const NewAccount = ({
           </label>
         </div>
         <div className="form-right">
+          { errorInscription
+          && (
+          <div className="show-error">
+            <p className="show-error--text">erreur </p>
+          </div>
+          )}
+          <div className="show-error">
+            <p className="show-error--text">erreur </p>
+          </div>
           <label className="field-label-pro" htmlFor="pro">Vous êtes professionnel
             <label className="switch">
               <input
@@ -274,7 +282,7 @@ NewAccount.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   tokenIsOk: PropTypes.bool.isRequired,
   findFood: PropTypes.func.isRequired,
-  errorPassword: PropTypes.bool.isRequired,
+  errorInscription: PropTypes.bool.isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

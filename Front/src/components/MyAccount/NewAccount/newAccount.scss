@@ -72,6 +72,15 @@
         font-family: vars.$Krub;
       }
 
+      .show-error {
+        .show-error--text {
+          border-radius: 25px;
+          border: 4px solid #e61212;
+          margin: 1rem;
+          padding: 1rem;
+        }
+      }
+
       .field-label-pro {
         display: flex;
         margin: vars.$gutter;
