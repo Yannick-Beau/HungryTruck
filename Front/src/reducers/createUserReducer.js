@@ -1,4 +1,9 @@
-import { SAVE_FOOD, UPDATE_FIELD, UPDATE_TOGGLE } from '../actions/createUser';
+import {
+  SAVE_FOOD,
+  UPDATE_FIELD,
+  UPDATE_TOGGLE,
+  UPDATE_ERROR_INSCRIPTION,
+} from '../actions/createUser';
 
 const initialState = {
   nickname: '',
@@ -12,6 +17,8 @@ const initialState = {
   pictureUser: '',
   createPro: false,
   foods: [],
+  errorInscription: false,
+  errorInscriptionText: '',
 };
 
 function createUserReducer(state = initialState, action = {}) {
@@ -104,6 +111,18 @@ function createUserReducer(state = initialState, action = {}) {
           };
         }
       }
+    case UPDATE_ERROR_INSCRIPTION: {
+      switch (action.identifier) {
+        case 'password':
+          return {
+            ...state,
+            errorInscription: true,
+            errorInscriptionText: 'Les mots de passe doivent être identique.',
+          };
+        default:
+          return state;
+      }
+    }
     case SAVE_FOOD:
       return {
         ...state,

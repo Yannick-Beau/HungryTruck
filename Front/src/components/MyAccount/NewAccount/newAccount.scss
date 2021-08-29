@@ -30,14 +30,17 @@
       height: 100%;
 
       .avatar {
+        background-color: rgba(150, 150, 150, 0.7);
+        border-radius: 25px 25px 0 0;
         height: 20rem;
-        width: auto;
+        width: 15rem;
 
       }
 
       .form-label--avatar {
         display: flex;
         flex-direction: column;
+        width: 15rem;
         padding: vars.$gutter;
         color: vars.$LDark;
         background-color: vars.$Yellow;
@@ -67,6 +70,15 @@
         margin: vars.$gutter;
         font-weight: bold;
         font-family: vars.$Krub;
+      }
+
+      .show-error {
+        .show-error--text {
+          border-radius: 25px;
+          border: 4px solid #e61212;
+          margin: 1rem;
+          padding: 1rem;
+        }
       }
 
       .field-label-pro {

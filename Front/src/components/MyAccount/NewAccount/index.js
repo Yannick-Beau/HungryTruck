@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
-import avatar from '../../../assets/img/avatar.jpg';
 import './newAccount.scss';
 
 // == Composant
@@ -25,6 +24,9 @@ const NewAccount = ({
   tokenIsOk,
   findFood,
   foods,
+  errorInscription,
+  errorInscriptionText,
+  hangleError,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -45,17 +47,23 @@ const NewAccount = ({
         className="newaccount-form"
         onSubmit={(evt) => {
           evt.preventDefault();
-          handleSubmit();
+          if (password === passwordConfirm) {
+            handleSubmit();
+          }
+          else {
+            console.log('on va executer le handle password');
+            hangleError('password');
+          }
         }}
       >
         <div className="form-left">
-          <img className="avatar" src={avatar} alt="Avatar" />
+          <img className="avatar" src={pictureUser} alt="Avatar" />
           <label className="form-label--avatar" htmlFor="avatar">Lien de votre image de profil*
             <input
               type="text"
               className="avatar-input"
               name="avatar"
-              placeholder="https://kelapplication.com/wp-content/uploads/2017/02/app-trouver-foodtruck-trackthetruck.jpg"
+              placeholder="https://kelapplication.com/image.png"
               value={pictureUser}
               onChange={(evt) => {
                 changeField(evt.target.value, 'pictureUser');
@@ -64,6 +72,12 @@ const NewAccount = ({
           </label>
         </div>
         <div className="form-right">
+          { errorInscription
+          && (
+          <div className="show-error">
+            <p className="show-error--text">{errorInscriptionText}</p>
+          </div>
+          )}
           <label className="field-label-pro" htmlFor="pro">Vous êtes professionnel
             <label className="switch">
               <input
@@ -271,6 +285,9 @@ NewAccount.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   tokenIsOk: PropTypes.bool.isRequired,
   findFood: PropTypes.func.isRequired,
+  errorInscription: PropTypes.bool.isRequired,
+  errorInscriptionText: PropTypes.string.isRequired,
+  hangleError: PropTypes.func.isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

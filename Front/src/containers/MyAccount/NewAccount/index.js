@@ -7,6 +7,7 @@ import {
   updateToggle,
   createUser,
   findFood,
+  updateErrorInscription,
 } from '../../../actions/createUser';
 
 // === mapStateToProps
@@ -27,6 +28,8 @@ const mapStateToProps = (state) => ({
   createPro: state.createUser.createPro,
   tokenIsOk: state.logIn.logged,
   foods: state.createUser.foods,
+  errorInscription: state.createUser.errorInscription,
+  errorInscriptionText: state.createUser.errorInscriptionText,
 });
 
 // === mapDispatchToProps
@@ -47,6 +50,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   findFood: () => {
     const action = findFood();
+    dispatch(action);
+  },
+  hangleError: (identifier) => {
+    const action = updateErrorInscription(identifier);
     dispatch(action);
   },
 });
