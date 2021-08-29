@@ -25,6 +25,7 @@ const NewAccount = ({
   findFood,
   foods,
   errorInscription,
+  errorInscriptionText,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -69,12 +70,9 @@ const NewAccount = ({
           { errorInscription
           && (
           <div className="show-error">
-            <p className="show-error--text">erreur </p>
+            <p className="show-error--text">{errorInscriptionText}</p>
           </div>
           )}
-          <div className="show-error">
-            <p className="show-error--text">erreur </p>
-          </div>
           <label className="field-label-pro" htmlFor="pro">Vous êtes professionnel
             <label className="switch">
               <input
@@ -283,6 +281,7 @@ NewAccount.propTypes = {
   tokenIsOk: PropTypes.bool.isRequired,
   findFood: PropTypes.func.isRequired,
   errorInscription: PropTypes.bool.isRequired,
+  errorInscriptionText: PropTypes.string.isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

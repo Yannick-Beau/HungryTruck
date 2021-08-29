@@ -27,7 +27,8 @@ const mapStateToProps = (state) => ({
   createPro: state.createUser.createPro,
   tokenIsOk: state.logIn.logged,
   foods: state.createUser.foods,
-  errorPassword: state.createUser.errorPassword,
+  errorInscription: state.createUser.errorInscription,
+  errorInscriptionText: state.createUser.errorInscriptionText,
 });
 
 // === mapDispatchToProps
