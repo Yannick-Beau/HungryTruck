@@ -8,34 +8,27 @@ import './editAccount.scss';
 
 // == Composant
 const EditAccount = ({
-  nickname,
   email,
-  password,
-  passwordConfirm,
-  address,
-  cp,
+  adresse,
+  avatar,
   city,
+  cp,
+  foodLike,
+  pseudo,
   siret,
-  pictureUser,
-  createPro,
-  changeField,
-  changeToggle,
-  handleSubmit,
-  // tokenIsOk,
-  findFood,
+  isPro,
+  logged,
   foods,
+  findFood,
   errorInscription,
   errorInscriptionText,
   hangleError,
 }) => {
-  // if (tokenIsOk) {
-  //   return <Redirect to="/" />;
-  // }
   let title = 'Modifier votre compte Utilisateur';
-  let buttonCreateName = 'Créer mon compte Utilisateur';
+  let buttonCreateName = 'Modifier mon compte Utilisateur';
   if (createPro) {
-    title = 'Créer votre compte Pro';
-    buttonCreateName = 'Créer mon compte Pro';
+    title = 'Modifier votre compte Pro';
+    buttonCreateName = 'Modifier mon compte Pro';
   }
   useEffect(() => {
     findFood();
@@ -270,24 +263,25 @@ const EditAccount = ({
 };
 
 EditAccount.propTypes = {
-  nickname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  passwordConfirm: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
   cp: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   siret: PropTypes.string.isRequired,
-  pictureUser: PropTypes.string.isRequired,
-  createPro: PropTypes.bool.isRequired,
-  changeField: PropTypes.func.isRequired,
-  changeToggle: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  tokenIsOk: PropTypes.bool.isRequired,
-  findFood: PropTypes.func.isRequired,
+  adresse: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  pseudo: PropTypes.string.isRequired,
+  isPro: PropTypes.string.isRequired,
+  logged: PropTypes.bool.isRequired,
   errorInscription: PropTypes.bool.isRequired,
   errorInscriptionText: PropTypes.string.isRequired,
   hangleError: PropTypes.func.isRequired,
+  findFood: PropTypes.func.isRequired,
+  foodLike: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      isCheck: PropTypes.bool.isRequired,
+    }).isRequired,
+  ).isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
