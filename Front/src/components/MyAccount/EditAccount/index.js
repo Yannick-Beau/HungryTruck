@@ -13,20 +13,22 @@ const EditAccount = ({
   avatar,
   city,
   cp,
-  foodLike,
   pseudo,
   siret,
   isPro,
   logged,
   foods,
   findFood,
-  errorInscription,
-  errorInscriptionText,
-  handleError,
+  findUser,
   handleSubmit,
   changeField,
   changeToggle,
 }) => {
+  useEffect(() => {
+    console.log('useEffect');
+    findFood();
+    findUser();
+  }, []);
   if (!logged) {
     return <Redirect to="/" />;
   }
@@ -36,25 +38,6 @@ const EditAccount = ({
     title = 'Modifier votre compte Pro';
     buttonCreateName = 'Modifier mon compte Pro';
   }
-  foods.map((item) => {
-    console.log('je map foods');
-    const foodIsLike = foodLike.find((itemLike) => (item.name === itemLike.name));
-    if (foodIsLike !== undefined) {
-      console.log('la food aimer est egale a la food');
-      return {
-        ...item,
-        isCheck: true,
-      };
-    }
-    console.log(foodIsLike);
-    return item;
-  });
-  console.log(foods);
-  useEffect(() => {
-    console.log('je suis dans useEffect');
-    findFood();
-    console.log(foods);
-  }, []);
   return (
     <main className="newaccount">
       <h1 className="newaccount-title">{title}</h1>
@@ -81,12 +64,6 @@ const EditAccount = ({
           </label>
         </div>
         <div className="form-right">
-          { errorInscription
-          && (
-          <div className="show-error">
-            <p className="show-error--text">{errorInscriptionText}</p>
-          </div>
-          )}
           <h2>Vos informations personnelles</h2>
           <p className="fields-legend"><span>* Champ obligatoire</span></p>
           <div className="all-fields">
@@ -242,18 +219,11 @@ EditAccount.propTypes = {
   pseudo: PropTypes.string.isRequired,
   isPro: PropTypes.bool.isRequired,
   logged: PropTypes.bool.isRequired,
-  errorInscription: PropTypes.bool.isRequired,
-  errorInscriptionText: PropTypes.string.isRequired,
-  handleError: PropTypes.func.isRequired,
+  findUser: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   findFood: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
   changeToggle: PropTypes.func.isRequired,
-  foodLike: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

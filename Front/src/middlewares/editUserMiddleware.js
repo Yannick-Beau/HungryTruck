@@ -1,9 +1,53 @@
 import axios from 'axios';
-import { EDIT_USER, FIND_FOOD, saveFood } from '../actions/createUser';
+import {
+  FIND_FOOD,
+  FIND_USER,
+  editUser,
+  editPro,
+  saveFood,
+} from '../actions/editUser';
 import URL from '../data/ip';
 
 const editUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
+    case FIND_USER: {
+      const token = localStorage.getItem('token');
+      axios.get(
+        `${URL}/api/user`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
+        .then((responseUser) => {
+          store.dispatch(editUser(
+            responseUser.data.adresse,
+            responseUser.data.avatar,
+            responseUser.data.city,
+            responseUser.data.cp,
+            responseUser.data.food_like,
+            responseUser.data.id,
+            responseUser.data.pseudo,
+            responseUser.data.roles,
+          ));
+          const isPro = responseUser.data.roles.find((item) => item === 'ROLE_PRO');
+          if (isPro !== undefined) {
+            axios.get(
+              `${URL}/api/pro`,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              },
+            )
+              .then((responsePro) => {
+                store.dispatch(editPro(responsePro.data.siret, responsePro.data.truck_id));
+              });
+          }
+        });
+      break;
+    }
     case FIND_FOOD: {
       axios.get(`${URL}/api/categoryfood`)
         .then((response) => {
@@ -13,13 +57,21 @@ const editUserMiddleware = (store) => (next) => (action) => {
           ];
           // création d'un nouveau tableau
           const newData = data.map((item) => {
-            // Sur chaque item on ajoute une entrée isCheck à false
-            // qui nous aidera pour controler les champs checkbox food
-            const newKey = {
+            const foodIsLike = store.getState().logIn.foodLike.find((itemLike) => (
+              item.name === itemLike.name
+            ));
+            console.log('foodIsLike est :', foodIsLike);
+            if (foodIsLike !== undefined) {
+              console.log('la food aimer est egale a la food');
+              return {
+                ...item,
+                isCheck: true,
+              };
+            }
+            return {
               ...item,
               isCheck: false,
             };
-            return newKey;
           });
           // on sauvegarde le nouveau tableau dans le state
           store.dispatch(saveFood(newData));

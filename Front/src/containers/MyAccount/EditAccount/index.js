@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import EditAccount from 'src/components/MyAccount/EditAccount';
 import {
+  findFood,
   updateField,
   updateToggle,
-  createUser,
-  findFood,
-  updateErrorInscription,
-} from '../../../actions/createUser';
+  saveEditUser,
+  findUser,
+} from '../../../actions/editUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -16,19 +16,16 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
 
   // Formualire de création d'un user
-  email: state.logIn.email,
-  adresse: state.logIn.adresse,
-  avatar: state.logIn.avatar,
-  city: state.logIn.city,
-  cp: state.logIn.cp,
-  foodLike: state.logIn.foodLike,
-  pseudo: state.logIn.pseudo,
-  siret: state.logIn.siret,
-  isPro: state.logIn.isPro,
+  email: state.editUser.email,
+  adresse: state.editUser.adresse,
+  avatar: state.editUser.avatar,
+  city: state.editUser.city,
+  cp: state.editUser.cp,
+  pseudo: state.editUser.pseudo,
+  siret: state.editUser.siret,
+  isPro: state.editUser.isPro,
   logged: state.logIn.logged,
-  foods: state.createUser.foods,
-  errorInscription: state.createUser.errorInscription,
-  errorInscriptionText: state.createUser.errorInscriptionText,
+  foods: state.editUser.foods,
 });
 
 // === mapDispatchToProps
@@ -44,15 +41,15 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   handleSubmit: () => {
-    const action = createUser();
+    const action = saveEditUser();
     dispatch(action);
   },
   findFood: () => {
     const action = findFood();
     dispatch(action);
   },
-  handleError: (identifier) => {
-    const action = updateErrorInscription(identifier);
+  findUser: () => {
+    const action = findUser();
     dispatch(action);
   },
 });
