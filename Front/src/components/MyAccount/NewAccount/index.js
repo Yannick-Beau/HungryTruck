@@ -26,6 +26,7 @@ const NewAccount = ({
   foods,
   errorInscription,
   errorInscriptionText,
+  hangleError,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -48,6 +49,10 @@ const NewAccount = ({
           evt.preventDefault();
           if (password === passwordConfirm) {
             handleSubmit();
+          }
+          else {
+            console.log('on va executer le handle password');
+            hangleError('password');
           }
         }}
       >
@@ -282,6 +287,7 @@ NewAccount.propTypes = {
   findFood: PropTypes.func.isRequired,
   errorInscription: PropTypes.bool.isRequired,
   errorInscriptionText: PropTypes.string.isRequired,
+  hangleError: PropTypes.func.isRequired,
   foods: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

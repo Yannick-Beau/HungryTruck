@@ -7,6 +7,7 @@ import {
   updateToggle,
   createUser,
   findFood,
+  updateErrorInscription,
 } from '../../../actions/createUser';
 
 // === mapStateToProps
@@ -49,6 +50,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   findFood: () => {
     const action = findFood();
+    dispatch(action);
+  },
+  hangleError: (identifier) => {
+    const action = updateErrorInscription(identifier);
     dispatch(action);
   },
 });
