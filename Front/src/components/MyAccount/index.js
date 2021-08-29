@@ -121,7 +121,7 @@ const MyAccount = ({
               </section>
             </Modal>
           </Link>
-          <Link to="/new-account" className="button-Link">
+          <Link to="/my-account/edit" className="button-Link">
             <button type="button" className="button-linkto">
               Editer mes informations
             </button>

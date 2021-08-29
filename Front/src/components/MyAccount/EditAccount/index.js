@@ -31,7 +31,7 @@ const EditAccount = ({
   // if (tokenIsOk) {
   //   return <Redirect to="/" />;
   // }
-  let title = 'Créer votre compte Utilisateur';
+  let title = 'Modifier votre compte Utilisateur';
   let buttonCreateName = 'Créer mon compte Utilisateur';
   if (createPro) {
     title = 'Créer votre compte Pro';

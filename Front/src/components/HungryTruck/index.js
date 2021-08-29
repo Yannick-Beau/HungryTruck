@@ -11,6 +11,7 @@ import Footer from '../Footer';
 // == Import others components
 import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
+import EditAccount from '../../containers/MyAccount/EditAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
 import WhoAreWe from '../WhoAreWe';
@@ -62,6 +63,9 @@ const HungryTruck = () => {
             delAccount={delAccount}
             setDelAccount={setDelAccount}
           />
+        </Route>
+        <Route path="/my-account/edit" exact>
+          <EditAccount />
         </Route>
         <Route path="/my-account/my-foodtruck" exact>
           <MyFoodTruck
