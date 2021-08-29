@@ -52,7 +52,7 @@ const mapDispatchToProps = (dispatch) => ({
     const action = findFood();
     dispatch(action);
   },
-  hangleError: (identifier) => {
+  handleError: (identifier) => {
     const action = updateErrorInscription(identifier);
     dispatch(action);
   },

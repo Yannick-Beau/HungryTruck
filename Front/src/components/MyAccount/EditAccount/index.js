@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -22,16 +22,38 @@ const EditAccount = ({
   findFood,
   errorInscription,
   errorInscriptionText,
-  hangleError,
+  handleError,
+  handleSubmit,
+  changeField,
+  changeToggle,
 }) => {
+  if (!logged) {
+    return <Redirect to="/" />;
+  }
   let title = 'Modifier votre compte Utilisateur';
   let buttonCreateName = 'Modifier mon compte Utilisateur';
-  if (createPro) {
+  if (isPro) {
     title = 'Modifier votre compte Pro';
     buttonCreateName = 'Modifier mon compte Pro';
   }
+  foods.map((item) => {
+    console.log('je map foods');
+    const foodIsLike = foodLike.find((itemLike) => (item.name === itemLike.name));
+    if (foodIsLike !== undefined) {
+      console.log('la food aimer est egale a la food');
+      return {
+        ...item,
+        isCheck: true,
+      };
+    }
+    console.log(foodIsLike);
+    return item;
+  });
+  console.log(foods);
   useEffect(() => {
+    console.log('je suis dans useEffect');
     findFood();
+    console.log(foods);
   }, []);
   return (
     <main className="newaccount">
@@ -40,24 +62,18 @@ const EditAccount = ({
         className="newaccount-form"
         onSubmit={(evt) => {
           evt.preventDefault();
-          if (password === passwordConfirm) {
-            handleSubmit();
-          }
-          else {
-            console.log('on va executer le handle password');
-            hangleError('password');
-          }
+          handleSubmit();
         }}
       >
         <div className="form-left">
-          <img className="avatar" src={pictureUser} alt="Avatar" />
+          <img className="avatar" src={avatar} alt="Avatar" />
           <label className="form-label--avatar" htmlFor="avatar">Lien de votre image de profil*
             <input
               type="text"
               className="avatar-input"
               name="avatar"
               placeholder="https://kelapplication.com/image.png"
-              value={pictureUser}
+              value={avatar}
               onChange={(evt) => {
                 changeField(evt.target.value, 'pictureUser');
               }}
@@ -71,26 +87,13 @@ const EditAccount = ({
             <p className="show-error--text">{errorInscriptionText}</p>
           </div>
           )}
-          <label className="field-label-pro" htmlFor="pro">Vous êtes professionnel
-            <label className="switch">
-              <input
-                type="checkbox"
-                name="pro"
-                checked={createPro}
-                onChange={() => {
-                  changeToggle(!createPro, 'togglePro');
-                }}
-              />
-              <span className="slider rounded" />
-            </label>
-          </label>
           <h2>Vos informations personnelles</h2>
           <p className="fields-legend"><span>* Champ obligatoire</span></p>
           <div className="all-fields">
             <div className="fields">
               <div className="fields-left">
                 <div className="field">
-                  <label className="field-label" htmlFor="email">Saisissez votre Email
+                  <label className="field-label" htmlFor="email">Votre Email
                     <div>
                       <input
                         className="field-input"
@@ -108,7 +111,7 @@ const EditAccount = ({
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="pseudo">Saisissez votre Pseudo
+                  <label className="field-label" htmlFor="pseudo">Votre Pseudo
                     <div>
                       <input
                         className="field-input"
@@ -116,42 +119,9 @@ const EditAccount = ({
                         name="pseudo"
                         id="field-input--pseudo"
                         placeholder="Poule"
-                        value={nickname}
+                        value={pseudo}
                         onChange={(evt) => {
                           changeField(evt.target.value, 'nickname');
-                        }}
-                      />
-                      <span>*</span>
-                    </div>
-                  </label>
-                </div>
-                <div className="field">
-                  <label className="field-label" htmlFor="password">Saisissez votre mot de passe
-                    <div>
-                      <input
-                        className="field-input"
-                        type="password"
-                        name="password"
-                        id="field-input--password"
-                        value={password}
-                        onChange={(evt) => {
-                          changeField(evt.target.value, 'password');
-                        }}
-                      />
-                      <span>*</span>
-                    </div>
-                  </label>
-                </div>
-                <div className="field">
-                  <label className="field-label" htmlFor="password-confirmation">Confirmer votre mot de passe
-                    <div>
-                      <input
-                        className="field-input"
-                        type="password"
-                        name="password-confirmation"
-                        value={passwordConfirm}
-                        onChange={(evt) => {
-                          changeField(evt.target.value, 'passwordConfirm');
                         }}
                       />
                       <span>*</span>
@@ -161,7 +131,7 @@ const EditAccount = ({
               </div>
               <div className="fields-right">
                 <div className="field">
-                  <label className="field-label" htmlFor="adresse">Saisissez votre adresse
+                  <label className="field-label" htmlFor="adresse">Votre adresse
                     <div>
                       <input
                         className="field-input"
@@ -169,7 +139,7 @@ const EditAccount = ({
                         name="adresse"
                         id="field-input--adresse"
                         placeholder="3 rue de paris"
-                        value={address}
+                        value={adresse}
                         onChange={(evt) => {
                           changeField(evt.target.value, 'address');
                         }}
@@ -179,7 +149,7 @@ const EditAccount = ({
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="postal-code">Saisissez votre code postal
+                  <label className="field-label" htmlFor="postal-code">Votre code postal
                     <div>
                       <input
                         className="field-input"
@@ -196,7 +166,7 @@ const EditAccount = ({
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="city">Saisissez votre ville
+                  <label className="field-label" htmlFor="city">Votre ville
                     <div>
                       <input
                         className="field-input"
@@ -212,10 +182,10 @@ const EditAccount = ({
                     </div>
                   </label>
                 </div>
-                { createPro
+                { isPro
                 && (
                 <div className="field">
-                  <label className="field-label" htmlFor="siret">Saisissez votre n° de SIRET
+                  <label className="field-label" htmlFor="siret">Votre n° de SIRET
                     <div>
                       <input
                         className="field-input"
@@ -234,7 +204,7 @@ const EditAccount = ({
                 )}
               </div>
               <div className="fields-food">
-                <h2>Choissier vos nourritures favorites</h2>
+                <h2>Vos nourritures favorites</h2>
                 <fieldset className="field-check">
                   {foods.map((item) => (
                     <label key={item.name} className="field-label" htmlFor={item.name}>{item.name}
@@ -264,22 +234,24 @@ const EditAccount = ({
 
 EditAccount.propTypes = {
   email: PropTypes.string.isRequired,
-  cp: PropTypes.string.isRequired,
+  cp: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
-  siret: PropTypes.string.isRequired,
+  siret: PropTypes.number.isRequired,
   adresse: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
-  isPro: PropTypes.string.isRequired,
+  isPro: PropTypes.bool.isRequired,
   logged: PropTypes.bool.isRequired,
   errorInscription: PropTypes.bool.isRequired,
   errorInscriptionText: PropTypes.string.isRequired,
-  hangleError: PropTypes.func.isRequired,
+  handleError: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   findFood: PropTypes.func.isRequired,
+  changeField: PropTypes.func.isRequired,
+  changeToggle: PropTypes.func.isRequired,
   foodLike: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      isCheck: PropTypes.bool.isRequired,
     }).isRequired,
   ).isRequired,
   foods: PropTypes.arrayOf(
