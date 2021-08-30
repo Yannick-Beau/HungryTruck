@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 
 // on importe tous les reducers
 import createUserReducer from './createUserReducer';
+import editUserReducer from './editUserReducer';
 import logInReducer from './logInReducer';
 import newFoodTruckReducer from './newFoodTruckReducer';
 import searchReducer from './searchReducer';
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   newFT: newFoodTruckReducer,
   contactUs: contactUs,
   newTime: newTimeReducer,
+  editUser: editUserReducer,
   // etc
 });
 

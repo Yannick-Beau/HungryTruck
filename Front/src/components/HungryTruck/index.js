@@ -1,7 +1,5 @@
 // == Import npm
-
 import React, { useState } from 'react';
-
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components which always display
@@ -11,6 +9,7 @@ import Footer from '../Footer';
 // == Import others components
 import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
+import EditAccount from '../../containers/MyAccount/EditAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
 import AddSlot from '../../containers/MyFoodTruck/NewTime';
@@ -66,6 +65,9 @@ const HungryTruck = () => {
             delAccount={delAccount}
             setDelAccount={setDelAccount}
           />
+        </Route>
+        <Route path="/my-account/edit" exact>
+          <EditAccount />
         </Route>
         <Route path="/my-account/my-foodtruck" exact>
           <MyFoodTruck

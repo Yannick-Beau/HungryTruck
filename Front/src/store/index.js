@@ -3,6 +3,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from 'src/reducers';
 import addFoodTruckMiddleware from '../middlewares/addFoodtruckMiddleware';
 import createUserMiddleware from '../middlewares/createUserMiddleware';
+import editUserMiddleware from '../middlewares/editUserMiddleware';
 import logInMiddleware from '../middlewares/logInMiddleware';
 import searchMiddleware from '../middlewares/searchMiddleware';
 
@@ -13,6 +14,7 @@ const enhancers = composeWithDevTools(
     logInMiddleware,
     searchMiddleware,
     addFoodTruckMiddleware,
+    editUserMiddleware,
     // ... d'autres middlewares
   ),
 );

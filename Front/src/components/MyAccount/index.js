@@ -107,7 +107,12 @@ const MyAccount = ({
                 <p>Pour supprimer votre compte HungryTruck,<br />
                   veuillez renseigner votre mot de passe.
                 </p>
-                <form className="deleteaccount-form">
+                <form
+                  className="deleteaccount-form"
+                  onSubmit={(evt) => {
+                    console.log('submit');
+                  }}
+                >
                   <label className="deleteaccount-label" htmlFor="password">
                     <input className="deleteaccount-input" type="password" name="password" placeholder="Votre mot de passe" />
                   </label>
@@ -121,7 +126,7 @@ const MyAccount = ({
               </section>
             </Modal>
           </Link>
-          <Link to="/new-account" className="button-Link">
+          <Link to="/my-account/edit" className="button-Link">
             <button type="button" className="button-linkto">
               Editer mes informations
             </button>

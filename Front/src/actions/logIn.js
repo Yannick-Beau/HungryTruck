@@ -4,6 +4,7 @@ export const AUTHENTIFICATION = 'AUTHENTIFICATION';
 export const CONNECT_USER = 'CONNECT_USER';
 export const CONNECT_PRO = 'CONNECT_PRO';
 export const LOG_OUT = 'LOG_OUT';
+export const SAVE_USER = 'SAVE_USER';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({
@@ -14,6 +15,10 @@ export const updateField = (newValue, identifier) => ({
 
 export const authentification = () => ({
   type: AUTHENTIFICATION,
+});
+
+export const saveUser = () => ({
+  type: SAVE_USER,
 });
 
 export const connectUser = (address, avatar, city, cp, foodLike, id, pseudo, roles) => ({
