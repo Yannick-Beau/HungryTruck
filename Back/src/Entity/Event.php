@@ -38,7 +38,38 @@ class Event
      * @ORM\Column(type="string", length=255)
      * @Groups({"event_post","foodtruck_get"})
      */
-    private $place;
+    private $hours_end;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"event_post","foodtruck_get"})
+     */
+    private $cp;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"event_post","foodtruck_get"})
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Groups({"event_post","foodtruck_get"})
+     */
+    private $adresse;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"event_post","foodtruck_get"})
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"event_post","foodtruck_get"})
+     */
+    private $latitude;
 
     /**
      * @ORM\Column(type="datetime")
@@ -55,24 +86,6 @@ class Event
      * @Groups({"event_post"})
      */
     private $foodtruck;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
-     */
-    private $hours_end;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"event_post","foodtruck_get"})
-     */
-    private $longitude;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"event_post","foodtruck_get"})
-     */
-    private $latitude;
 
     public function __construct()
     {
@@ -107,18 +120,6 @@ class Event
     public function setHours(string $hours): self
     {
         $this->hours = $hours;
-
-        return $this;
-    }
-
-    public function getPlace(): ?string
-    {
-        return $this->place;
-    }
-
-    public function setPlace(string $place): self
-    {
-        $this->place = $place;
 
         return $this;
     }
@@ -191,6 +192,42 @@ class Event
     public function setLatitude(?string $latitude): self
     {
         $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getCp(): ?string
+    {
+        return $this->cp;
+    }
+
+    public function setCp(string $cp): self
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }
