@@ -107,8 +107,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $truck_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users",cascade={"persist","remove"})
-     * @Groups("user_get_by_id","event_post")
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users",cascade={"persist","merge","remove"})
+     * @Groups({"user_get_by_id","event_post","pro_get_by_id"})
      */
     private $food_like;
 
