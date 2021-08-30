@@ -84,6 +84,12 @@ class Foodtruck
     private $sell_type_food;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"foodtruck_get","pro_get_by_id"})
+     */
+    private $picture;
+
+    /**
      * @ORM\Column(type="datetime")
      * @Groups("foodtruck_get")
      */
@@ -100,11 +106,6 @@ class Foodtruck
      */
     private $events;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("foodtruck_get")
-     */
-    private $picture;
 
     public function __construct()
     {

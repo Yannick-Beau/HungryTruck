@@ -18,56 +18,56 @@ class Event
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $hours_end;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $adresse;
 
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $latitude;
 
