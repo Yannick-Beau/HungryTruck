@@ -1,6 +1,6 @@
 // === action types
 export const SAVE_FOOD = 'SAVE_FOOD';
-export const FIND_FOOD = 'FIND_FOOD';
+export const FIND_FOOD_EDIT = 'FIND_FOOD_EDIT';
 export const EDIT_USER = 'EDIT_USER';
 export const EDIT_PRO = 'EDIT_PRO';
 export const FIND_USER = 'FIND_USER';
@@ -15,7 +15,7 @@ export const saveFood = (newValue) => ({
 });
 
 export const findFood = () => ({
-  type: FIND_FOOD,
+  type: FIND_FOOD_EDIT,
 });
 
 export const findUser = () => ({

@@ -28,7 +28,6 @@ const EditAccount = ({
   changeToggle,
 }) => {
   useEffect(() => {
-    console.log('useEffect');
     changeLoadingEditUser();
     findFood();
   }, []);

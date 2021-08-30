@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { loadingEditUser } from '../actions/tools';
 import {
-  FIND_FOOD,
+  FIND_FOOD_EDIT,
   FIND_USER,
   SAVE_EDIT_USER,
   editUser,
@@ -10,6 +10,7 @@ import {
   findUser,
 } from '../actions/editUser';
 import URL from '../data/ip';
+import { saveUser } from '../actions/logIn';
 
 const editUserMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -48,11 +49,13 @@ const editUserMiddleware = (store) => (next) => (action) => {
                 store.dispatch(editPro(responsePro.data.siret, responsePro.data.truck_id));
               });
           }
+          console.log('valeur de loadEditUser avant dispatch', store.getState().tools.loadEditUser);
           store.dispatch(loadingEditUser());
+          console.log('valeur de loadEditUser après dispatch', store.getState().tools.loadEditUser);
         });
       break;
     }
-    case FIND_FOOD: {
+    case FIND_FOOD_EDIT: {
       axios.get(`${URL}/api/categoryfood`)
         .then((response) => {
         // clone d'un tableau pour pour pouvoir faire un map dessus
@@ -104,6 +107,7 @@ const editUserMiddleware = (store) => (next) => (action) => {
       const foodLikeFilter = foods.filter((item) => (item.isCheck));
       const foodLikeMap = foodLikeFilter.map((item) => {
         const newFood = {
+          id: item.id,
           name: item.name,
         };
         return newFood;
@@ -132,6 +136,7 @@ const editUserMiddleware = (store) => (next) => (action) => {
       axios.put(`${URL}/api/pro/edit`, data, config)
         .then((response) => {
           console.log(response);
+          store.dispatch(saveUser());
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info

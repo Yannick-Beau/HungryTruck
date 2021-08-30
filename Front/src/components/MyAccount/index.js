@@ -107,7 +107,12 @@ const MyAccount = ({
                 <p>Pour supprimer votre compte HungryTruck,<br />
                   veuillez renseigner votre mot de passe.
                 </p>
-                <form className="deleteaccount-form">
+                <form
+                  className="deleteaccount-form"
+                  onSubmit={(evt) => {
+                    console.log('submit');
+                  }}
+                >
                   <label className="deleteaccount-label" htmlFor="password">
                     <input className="deleteaccount-input" type="password" name="password" placeholder="Votre mot de passe" />
                   </label>
