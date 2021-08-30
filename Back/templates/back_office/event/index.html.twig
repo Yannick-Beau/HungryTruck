@@ -12,6 +12,8 @@
                 <th>Jours</th>
                 <th>Heures début</th>
                 <th>Heures Fin</th>
+                <th>Code Postal/th>
+                <th>Ville</th>
                 <th>Adresse</th>
                 <th>Crée le</th>
                 <th>Modifier le</th>
@@ -25,7 +27,9 @@
                 <td>{{ event.day }}</td>
                 <td>{{ event.hours }}</td>
                 <td>{{ event.hoursend }}</td>
-                <td>{{ event.place }}</td>
+                <td>{{ event.cp }}</td>
+                <td>{{ event.city }}</td>
+                <td>{{ event.adresse }}</td>
                 <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i') : '' }}</td>
                 <td>{{ event.updatedAt ? event.updatedAt|date('Y-m-d H:i') : '' }}</td>
                 <td>
