@@ -8,9 +8,6 @@ import PropTypes from 'prop-types';
 // == Import
 import './myaccount.scss';
 
-// == import logo
-import { Facebook, Instagram } from 'react-feather';
-
 const customStyles = {
   content: {
     top: '25%',
@@ -27,7 +24,26 @@ const customStyles = {
 // Modal.setAppElement('#yourAppElement');
 
 // == Composant
-const MyAccount = ({ delAccount, setDelAccount }) => {
+const MyAccount = ({
+  delAccount,
+  setDelAccount,
+  email,
+  adresse,
+  avatar,
+  city,
+  cp,
+  foodLike,
+  pseudo,
+  siret,
+  isPro,
+}) => {
+  let avatarUser;
+  if (avatar !== '' && avatar !== null && avatar !== undefined) {
+    avatarUser = avatar;
+  }
+  else {
+    avatarUser = 'http://placehold.it/250x350';
+  }
   let subtitle;
 
   function openModal() {
@@ -47,34 +63,26 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
       <h2 className="myAccount">Mon compte</h2>
       <img
         className="myaccount-picture"
-        src="http://placehold.it/250x350"
+        src={avatarUser}
         alt="mon compte hungrytruck"
       />
       <article className="account">
         <div className="account-informations">
           <div className="informations-left">
-            <p>Mon pseudo : Turpinou</p>
+            <p>Mon pseudo : <span>{pseudo}</span></p>
             <p>Mon adresse :</p>
-            <p>15 place des grands hommes</p>
-            <p>12345 IDEFIX</p>
-            <p>SIRET : 123456789</p>
+            <p><span>{adresse}</span></p>
+            <p><span>{cp}</span><span>{` ${city}`}</span></p>
+            { isPro
+            && <p>SIRET : <span>{siret}</span></p>}
           </div>
           <div className="informations-right">
-            <p>Mon adresse mail: turpinou@idefix.fr</p>
-            <div className="social">
-              <div className="facebook">
-                <Facebook size="50" color="#e69512" />
-                <p>adresse FB</p>
-              </div>
-              <div className="instagram">
-                <Instagram size="50" color="#e69512" />
-                <p>adresse insta</p>
-              </div>
-            </div>
+            <p>Mon adresse mail: <span>{email}</span></p>
             <p>Mes plats favoris :</p>
             <ul>
-              <li>pizza</li>
-              <li>burger</li>
+              {foodLike.map((item) => (
+                <li key={item.name}><span>{item.name}</span></li>
+              ))}
             </ul>
           </div>
         </div>
@@ -99,7 +107,12 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
                 <p>Pour supprimer votre compte HungryTruck,<br />
                   veuillez renseigner votre mot de passe.
                 </p>
-                <form className="deleteaccount-form">
+                <form
+                  className="deleteaccount-form"
+                  onSubmit={(evt) => {
+                    console.log('submit');
+                  }}
+                >
                   <label className="deleteaccount-label" htmlFor="password">
                     <input className="deleteaccount-input" type="password" name="password" placeholder="Votre mot de passe" />
                   </label>
@@ -113,16 +126,19 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
               </section>
             </Modal>
           </Link>
-          <Link to="/new-account" className="button-Link">
+          <Link to="/my-account/edit" className="button-Link">
             <button type="button" className="button-linkto">
               Editer mes informations
             </button>
           </Link>
+          { isPro
+          && (
           <Link to="/my-account/my-foodtruck" className="button-Link" exact>
             <button type="button" className="button-linkto">
               Voir mes Foodtrucks
             </button>
           </Link>
+          )}
           <Link to="/" className="button-Link">
             <button type="button" className="button-linkto">
               Retour au menu principal
@@ -130,7 +146,6 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
           </Link>
         </div>
       </article>
-
     </section>
   );
 };
@@ -138,6 +153,19 @@ const MyAccount = ({ delAccount, setDelAccount }) => {
 MyAccount.propTypes = {
   delAccount: PropTypes.bool.isRequired,
   setDelAccount: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  adresse: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  cp: PropTypes.number.isRequired,
+  pseudo: PropTypes.string.isRequired,
+  siret: PropTypes.number.isRequired,
+  isPro: PropTypes.bool.isRequired,
+  foodLike: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 // == Export
 export default MyAccount;

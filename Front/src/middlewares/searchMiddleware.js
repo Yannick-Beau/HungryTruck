@@ -9,9 +9,10 @@ const searchMiddleware = (store) => (next) => (action) => {
       console.log(`On va faire une recherche ${search}`);
       axios.get(
         // URL
-        `http://${URL}/api/foodtruck/search`,
+        `${URL}/api/foodtruck/search`,
         // paramètres
         {
+          id: search,
           name: search,
           num_tel: search,
           overview: search,

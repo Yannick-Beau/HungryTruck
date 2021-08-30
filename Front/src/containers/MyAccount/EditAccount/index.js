@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 
 // on importe le composant de présentation
-import NewAccount from 'src/components/MyAccount/NewAccount';
+import EditAccount from 'src/components/MyAccount/EditAccount';
+import { loadingEditUser } from '../../../actions/tools';
 import {
+  findFood,
   updateField,
   updateToggle,
-  createUser,
-  findFood,
-  updateErrorInscription,
-} from '../../../actions/createUser';
+  saveEditUser,
+  findUser,
+} from '../../../actions/editUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -16,20 +17,17 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
 
   // Formualire de création d'un user
-  email: state.createUser.email,
-  password: state.createUser.password,
-  passwordConfirm: state.createUser.passwordConfirm,
-  nickname: state.createUser.nickname,
-  address: state.createUser.address,
-  cp: state.createUser.cp,
-  city: state.createUser.city,
-  siret: state.createUser.siret,
-  pictureUser: state.createUser.pictureUser,
-  createPro: state.createUser.createPro,
-  tokenIsOk: state.logIn.logged,
-  foods: state.createUser.foods,
-  errorInscription: state.createUser.errorInscription,
-  errorInscriptionText: state.createUser.errorInscriptionText,
+  email: state.editUser.email,
+  adresse: state.editUser.adresse,
+  avatar: state.editUser.avatar,
+  city: state.editUser.city,
+  cp: state.editUser.cp,
+  pseudo: state.editUser.pseudo,
+  siret: state.editUser.siret,
+  isPro: state.editUser.isPro,
+  logged: state.logIn.logged,
+  foods: state.editUser.foods,
+  loadEditUser: state.tools.loadEditUser,
 });
 
 // === mapDispatchToProps
@@ -45,18 +43,22 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   handleSubmit: () => {
-    const action = createUser();
+    const action = saveEditUser();
     dispatch(action);
   },
   findFood: () => {
     const action = findFood();
     dispatch(action);
   },
-  handleError: (identifier) => {
-    const action = updateErrorInscription(identifier);
+  findUser: () => {
+    const action = findUser();
+    dispatch(action);
+  },
+  changeLoadingEditUser: () => {
+    const action = loadingEditUser();
     dispatch(action);
   },
 });
 
 // === création de l'assistant
-export default connect(mapStateToProps, mapDispatchToProps)(NewAccount);
+export default connect(mapStateToProps, mapDispatchToProps)(EditAccount);

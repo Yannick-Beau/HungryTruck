@@ -1,12 +1,11 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-
 // == Import
 import './search.scss';
-import Logo from '../../assets/img/logo.png';
 
 // == Composant
 const Search = ({
@@ -17,7 +16,7 @@ const Search = ({
 }) => {
   let filterSearch;
 
-    console.log(search);
+  console.log(search);
   if (search.lenght === 0) {
     filterSearch = trucks;
   }
@@ -68,7 +67,7 @@ const Search = ({
 
           {filterSearch.map((item) => (
             <Link
-              to="/food-truck"
+              to={`/food-truck/${item.id}`}
               key={item.id}
             >
               <article className="search-results--result">
@@ -93,6 +92,46 @@ const Search = ({
   );
 };
 
+Search.propTypes = {
+  search: PropTypes.string.isRequired,
+  searchField: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  trucks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      num_tel: PropTypes.number.isRequired,
+      overview: PropTypes.string.isRequired,
+      instagram: PropTypes.string.isRequired,
+      twitter: PropTypes.string.isRequired,
+      facebook: PropTypes.string.isRequired,
+      user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        email: PropTypes.string.isRequired,
+        pseudo: PropTypes.string.isRequired,
+        siret: PropTypes.number.isRequired,
+      }).isRequired,
+      sell_type_food: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
+      createdAt: PropTypes.string.isRequired,
+      events: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          day: PropTypes.string.isRequired,
+          hours: PropTypes.string.isRequired,
+          place: PropTypes.string.isRequired,
+          hours_end: PropTypes.string.isRequired,
+          longitude: PropTypes.string.isRequired,
+          latitude: PropTypes.string.isRequired,
+        }).isRequired,
+      ).isRequired,
+      picture: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 // == Export
 export default Search;
