@@ -1,5 +1,5 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   AlignLeft,
   Facebook,
@@ -11,7 +11,6 @@ import {
   Twitter,
 } from 'react-feather';
 import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -33,29 +32,22 @@ const NewFoodTruck = ({
   addFoodTruck,
   setAddFoodTruck,
   newFoodTruckName,
-  newFoodTruck,
   newFoodTruckFB,
   newFoodTruckInsta,
   newFoodTruckTwitter,
+  changeField,
   newTime,
   phone,
   loadNewFoodTruck,
   picture,
   overview,
+  foods,
+  findFood,
 }) => {
   let subtitle;
-  function openModal() {
-    setAddFoodTruck(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
-
-  function closeModal() {
-    setAddFoodTruck(false);
-  }
+  useEffect(() => {
+    findFood();
+  }, []);
 
   return (
     <section className="section-newFoodTruck">
@@ -69,6 +61,7 @@ const NewFoodTruck = ({
         className="newFoodTruck"
         onSubmit={(evt) => {
           evt.preventDefault();
+          console.log('submition du form');
           loadNewFoodTruck();
         }}
       >
@@ -81,7 +74,7 @@ const NewFoodTruck = ({
             className="input-yellow"
             value={newFoodTruckName}
             onChange={(e) => {
-              newFoodTruck(e.target.value, 'name');
+              changeField(e.target.value, 'name');
             }}
           />
         </label>
@@ -112,24 +105,24 @@ const NewFoodTruck = ({
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <PhoneCall color="#e69512" size="30" />
                 <input
-                  type="url"
+                  type="tel"
                   name="Facebook-foodtruck"
                   placeholder="0606060606"
                   value={phone}
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'phone');
+                    changeField(e.target.value, 'phone');
                   }}
                 />
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <AlignLeft color="#e69512" size="30" />
                 <input
-                  type="url"
+                  type="text"
                   name="Facebook-foodtruck"
                   placeholder="Phrase d'accroche de votre FoodTruck"
                   value={overview}
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'overview');
+                    changeField(e.target.value, 'overview');
                   }}
                 />
               </label>
@@ -141,7 +134,7 @@ const NewFoodTruck = ({
                   placeholder="https://monimage.com"
                   value={picture}
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'picture');
+                    changeField(e.target.value, 'picture');
                   }}
                 />
               </label>
@@ -156,7 +149,7 @@ const NewFoodTruck = ({
                   placeholder="https://facebook.com/mapizzatruck"
                   value={newFoodTruckFB}
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'facebook');
+                    changeField(e.target.value, 'facebook');
                   }}
                 />
               </label>
@@ -168,7 +161,7 @@ const NewFoodTruck = ({
                   placeholder="https://facebook.com/mapizzatruck"
                   value={newFoodTruckInsta}
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'instagram');
+                    changeField(e.target.value, 'instagram');
                   }}
                 />
               </label>
@@ -180,7 +173,7 @@ const NewFoodTruck = ({
                   placeholder="https://facebook.com/mapizzatruck"
                   value={newFoodTruckTwitter}
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'twitter');
+                    changeField(e.target.value, 'twitter');
                   }}
                 />
               </label>
@@ -191,67 +184,69 @@ const NewFoodTruck = ({
                 <PlusCircle color="#e69512" size="30" />
                 <select
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'type1');
+                    changeField(e.target.value, 'type1');
                   }}
                   className="addslot-input"
                   name="day"
                 >
                   <option value="">Type</option>
-                  <option value="Pizza">Pizza</option>
-                  <option value="Burger">Burger</option>
+                  { foods.map((item) => (
+                    <option key={item.id} value={item.id}>{item.name}</option>
+                  ))}
                 </select>
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <PlusCircle color="#e69512" size="30" />
                 <select
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'type2');
+                    changeField(e.target.value, 'type2');
                   }}
                   className="addslot-input"
                   name="day"
                 >
                   <option value="">Type</option>
-                  <option value="Pizza">Pizza</option>
-                  <option value="Burger">Burger</option>
+                  { foods.map((item) => (
+                    <option key={item.id} value={item.id}>{item.name}</option>
+                  ))}
                 </select>
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <PlusCircle color="#e69512" size="30" />
                 <select
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'type3');
+                    changeField(e.target.value, 'type3');
                   }}
                   className="addslot-input"
                   name="day"
                 >
                   <option value="">Type</option>
-                  <option value="Pizza">Pizza</option>
-                  <option value="Burger">Burger</option>
+                  { foods.map((item) => (
+                    <option key={item.id} value={item.id}>{item.name}</option>
+                  ))}
                 </select>
               </label>
             </div>
           </div>
         </div>
-
         <div className="account-button">
           <Link to="/my-account/my-foodtruck" className="button-Link">
             <button type="button" className="button-del">
               Annuler
             </button>
           </Link>
-          <Link to="/my-account/my-foodtruck/new/add" className="button-Link">
+          {/* <Link to="/my-account/my-foodtruck/new/add" className="button-Link">
             <button
               type="button"
               className="button-linkto"
             >
               Ajouter un créneau
             </button>
-          </Link>
-          <Link to="/my-account/my-foodtruck" className="button-Link" exact>
-            <button type="button" className="button-linktosave">
+          </Link> */}
+          <div  className="button-Link" >
+            <button type="submit" className="button-linktosave">
               Enregistrer
             </button>
-          </Link>
+          </div>
         </div>
       </form>
     </section>

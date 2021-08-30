@@ -13,7 +13,7 @@ import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
-import AddSlot from '../MyAccount/MyFoodTruck/NewFoodTruck/AddSlot';
+import AddSlot from '../../containers/MyFoodTruck/NewTime';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../../containers/ZoomFT';

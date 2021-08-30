@@ -152,6 +152,14 @@ const MyFoodTruck = ({
               Retourner sur mon compte
             </button>
           </Link>
+          <Link to="/my-account/my-foodtruck/new/add" className="button-Link">
+            <button
+              type="button"
+              className="button-linkto"
+            >
+              Ajouter un créneau
+            </button>
+          </Link>
           <Link to="/" className="button-Link">
             <button type="button" className="button-linkto">
               Retour au menu principal

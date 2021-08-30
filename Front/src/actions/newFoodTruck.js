@@ -1,21 +1,15 @@
 // === action types
 export const ADD_FOODTRUCK = 'ADD_FOODTRUCK';
-export const NEW_TIME = 'NEW_TIME';
 export const NEW_FOODTRUCK = 'NEW_FOODTRUCK';
+export const CHANGE_FIELD = 'CHANGE_FIELD';
 
 // === action creators
-export const newFoodTruck = (newValue, identifier) => ({
-  type: ADD_FOODTRUCK,
-  newValue: newValue,
-  identifier: identifier,
-});
-
-export const newTime = (newValue, identifier) => ({
-  type: NEW_TIME,
+export const changeField = (newValue, identifier) => ({
+  type: CHANGE_FIELD,
   newValue: newValue,
   identifier: identifier,
 });
 
 export const loadNewFoodTruck = () => ({
-  type: NEW_FOODTRUCK,
+  type: ADD_FOODTRUCK,
 });
