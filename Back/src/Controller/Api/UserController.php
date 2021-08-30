@@ -57,7 +57,7 @@ class UserController extends AbstractController
         // On valide l'entité avec le service Validator
         $errors = $validator->validate($user);
 
-
+        
         if (count($errors) > 0) {
             $newErrors = [];
 
