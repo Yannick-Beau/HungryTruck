@@ -35,7 +35,6 @@ class ProController extends AbstractController
 
         if ($user->getRoles() == ["ROLE_PRO", "ROLE_USER"]) {
             // /!\ JSON Hijacking
-            // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
             return $this->json($user, Response::HTTP_OK, [], ['groups' => 'pro_get_by_id']);
         }
 
