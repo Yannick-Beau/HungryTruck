@@ -108,6 +108,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users",cascade={"persist","merge","remove"})
+     * @Assert\Unique
      * @Groups({"user_get_by_id","event_post","pro_get_by_id"})
      */
     private $food_like;
