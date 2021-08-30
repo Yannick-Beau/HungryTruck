@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
  * @Route("/backoffice/home/user")
@@ -63,12 +64,20 @@ class UserController extends AbstractController
     /**
      * @Route("/{id}/edit", name="back_office_user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if (!empty($form->get('password')->getData())) {
+                
+                $hashedPassword = $userPasswordHasher->hashPassword($user, $form->get('password')->getData());
+                
+                $user->setPassword($hashedPassword);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('back_office_user_index', [], Response::HTTP_SEE_OTHER);

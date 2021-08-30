@@ -1,29 +1,56 @@
 import {
   SAVE_FOOD,
+  EDIT_USER,
+  EDIT_PRO,
   UPDATE_FIELD,
   UPDATE_TOGGLE,
-  UPDATE_ERROR_INSCRIPTION,
-} from '../actions/createUser';
+} from '../actions/editUser';
 
 const initialState = {
-  nickname: '',
   email: '',
   password: '',
-  passwordConfirm: '',
-  address: '',
-  cp: '',
+  adresse: '',
+  avatar: '',
   city: '',
-  siret: '',
-  pictureUser: '',
-  createPro: false,
-  foods: [],
-  errorInscription: false,
-  errorInscriptionText: '',
+  cp: null,
+  food: [],
+  id: null,
+  pseudo: '',
+  roles: [],
+  siret: 0,
+  trucksPro: [],
+  isPro: false,
 };
 
-function createUserReducer(state = initialState, action = {}) {
+function editUserReducer(state = initialState, action = {}) {
   switch (action.type) {
-  // Gestion des formulaires dans le state
+    case SAVE_FOOD:
+      return {
+        ...state,
+        foods: action.newValue,
+      };
+
+    case EDIT_USER:
+      return {
+        ...state,
+        logged: true,
+        adresse: action.adresse,
+        avatar: action.avatar,
+        city: action.city,
+        cp: action.cp,
+        foodLike: action.foodLike,
+        id: action.id,
+        pseudo: action.pseudo,
+        roles: action.roles,
+        password: '',
+      };
+    case EDIT_PRO:
+      return {
+        ...state,
+        siret: action.siret,
+        trucksPro: action.trucksPro,
+        isPro: true,
+      };
     case UPDATE_FIELD:
       // Formulaire de création d'un user
       switch (action.identifier) {
@@ -35,27 +62,17 @@ function createUserReducer(state = initialState, action = {}) {
         case 'pictureUser':
           return {
             ...state,
-            pictureUser: action.newValue,
+            avatar: action.newValue,
           };
         case 'nickname':
           return {
             ...state,
-            nickname: action.newValue,
-          };
-        case 'password':
-          return {
-            ...state,
-            password: action.newValue,
-          };
-        case 'passwordConfirm':
-          return {
-            ...state,
-            passwordConfirm: action.newValue,
+            pseudo: action.newValue,
           };
         case 'address':
           return {
             ...state,
-            address: action.newValue,
+            adresse: action.newValue,
           };
         case 'cp':
           return {
@@ -111,26 +128,9 @@ function createUserReducer(state = initialState, action = {}) {
           };
         }
       }
-    case UPDATE_ERROR_INSCRIPTION: {
-      switch (action.identifier) {
-        case 'password':
-          return {
-            ...state,
-            errorInscription: true,
-            errorInscriptionText: 'Les mots de passe doivent être identique.',
-          };
-        default:
-          return state;
-      }
-    }
-    case SAVE_FOOD:
-      return {
-        ...state,
-        foods: action.newValue,
-      };
     default:
       return state;
   }
 }
 
-export default createUserReducer;
+export default editUserReducer;

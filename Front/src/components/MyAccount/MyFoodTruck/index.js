@@ -21,7 +21,10 @@ const customStyles = {
 };
 
 // == Composant
-const MyFoodTruck = ({ foodTruckDetails, setAddFoodTruckDetails }) => {
+const MyFoodTruck = ({
+  foodTruckDetails,
+  setAddFoodTruckDetails,
+}) => {
   let subtitle;
 
   function openModal() {
@@ -160,6 +163,11 @@ const MyFoodTruck = ({ foodTruckDetails, setAddFoodTruckDetails }) => {
 
     </section>
   );
+};
+
+MyFoodTruck.propTypes = {
+  foodTruckDetails: PropTypes.bool.isRequired,
+  setAddFoodTruckDetails: PropTypes.func.isRequired,
 };
 
 // == Export

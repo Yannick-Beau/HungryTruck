@@ -1,7 +1,5 @@
 // == Import npm
-
 import React, { useState } from 'react';
-
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components which always display
@@ -10,36 +8,32 @@ import Footer from '../Footer';
 
 // == Import others components
 import Main from '../Main';
-
-
-import NewAccount from '../MyAccount/NewAccount';
-
+import NewAccount from '../../containers/MyAccount/NewAccount';
+import EditAccount from '../../containers/MyAccount/EditAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
-import ZoomFT from '../ZoomFT';
+import ZoomFT from '../../containers/ZoomFT';
 import LogIn from '../../containers/MyAccount/LogIn';
-import MyAccount from '../MyAccount';
+import MyAccount from '../../containers/MyAccount';
 import MyFoodTruck from '../MyAccount/MyFoodTruck';
-import NewFoodTruck from '../MyAccount/MyFoodTruck/NewFoodTruck';
+import NewFoodTruck from '../../containers/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
-
-import Contact from '../Contact';
+import Contact from '../../containers/Contact';
 
 // == Import
 import './styles.scss';
 
 // == Composant
 const HungryTruck = () => {
-  const [user, setUser] = useState(false);
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
 
   return (
     <div className="hungrytruck">
-      <Nav user={user} setUser={setUser} />
+      <Nav />
       <Switch>
         <Route path="/" exact>
           <Main />
@@ -56,7 +50,7 @@ const HungryTruck = () => {
         <Route path="/search" exact>
           <Search />
         </Route>
-        <Route path="/food-truck" exact>
+        <Route path="/food-truck/:slug" exact>
           <ZoomFT />
         </Route>
         <Route path="/who-are-we" exact>
@@ -67,6 +61,9 @@ const HungryTruck = () => {
             delAccount={delAccount}
             setDelAccount={setDelAccount}
           />
+        </Route>
+        <Route path="/my-account/edit" exact>
+          <EditAccount />
         </Route>
         <Route path="/my-account/my-foodtruck" exact>
           <MyFoodTruck
