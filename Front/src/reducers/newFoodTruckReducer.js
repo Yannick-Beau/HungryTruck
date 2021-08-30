@@ -1,18 +1,22 @@
-import { ADD_FOODTRUCK, NEW_TIME } from '../actions/newFoodTruck';
+import { CHANGE_FIELD, NEW_TIME } from '../actions/newFoodTruck';
 
 const initialState = {
   name: '',
   facebook: '',
   instagram: '',
   twitter: '',
-  newDay: '',
-  newStartTime: '',
-  newEndTime: '',
+  phone: '',
+  overview: '',
+  picture: '',
+  type1: '',
+  type2: '',
+  type3: '',
+  foods: [],
 };
 
 function newFoodTruckReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case ADD_FOODTRUCK:
+    case CHANGE_FIELD:
       switch (action.identifier) {
         case 'name':
           return {
@@ -34,26 +38,35 @@ function newFoodTruckReducer(state = initialState, action = {}) {
             ...state,
             twitter: action.newValue,
           };
-        default:
-          return state;
-      }
-
-    case NEW_TIME:
-      switch (action.identifier) {
-        case 'newDay':
+        case 'phone':
           return {
             ...state,
-            newDay: action.newValue,
+            phone: action.newValue,
           };
-        case 'newStartTime':
+        case 'overview':
           return {
             ...state,
-            newStartTime: action.newValue,
+            overview: action.newValue,
           };
-        case 'newEndTime':
+        case 'picture':
           return {
             ...state,
-            newEndTime: action.newValue,
+            picture: action.newValue,
+          };
+        case 'type1':
+          return {
+            ...state,
+            type1: action.newValue,
+          };
+        case 'type2':
+          return {
+            ...state,
+            type2: action.newValue,
+          };
+        case 'type3':
+          return {
+            ...state,
+            type3: action.newValue,
           };
         default:
           return state;

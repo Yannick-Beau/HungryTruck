@@ -56,7 +56,7 @@ const MyFoodTruck = ({
                 <th>Nom du food truck</th>
                 <th>Type de plat</th>
                 <th>Horaires</th>
-                <th colSpan="2">Actions</th>
+                <th colSpan="1">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -136,7 +136,6 @@ const MyFoodTruck = ({
                     </Modal>
                   </Link>
                 </td>
-                <td><Edit2 color="#9fe855" /></td>
                 <td><Trash2 color="#e61212" /></td>
               </tr>
             </tbody>
@@ -151,6 +150,14 @@ const MyFoodTruck = ({
           <Link to="/my-account" className="button-Link">
             <button type="button" className="button-linkto">
               Retourner sur mon compte
+            </button>
+          </Link>
+          <Link to="/my-account/my-foodtruck/new/add" className="button-Link">
+            <button
+              type="button"
+              className="button-linkto"
+            >
+              Ajouter un créneau
             </button>
           </Link>
           <Link to="/" className="button-Link">
