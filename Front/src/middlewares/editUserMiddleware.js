@@ -105,17 +105,11 @@ const editUserMiddleware = (store) => (next) => (action) => {
         foods,
       } = store.getState().editUser;
       const foodLikeFilter = foods.filter((item) => (item.isCheck));
-      const foodLikeMap = foodLikeFilter.map((item) => {
-        const newFood = {
-          id: item.id,
-          name: item.name,
-        };
-        return newFood;
-      });
-      const foodLike = [
-        ...foodLikeMap,
-      ];
-      console.log('new food like', foodLike);
+      const newFoodLike = [];
+      foodLikeFilter.map((item) => (
+        newFoodLike.push(item.id)
+      ));
+      console.log('new food like', newFoodLike);
       const newCP = parseInt(cp, 10);
       const newSiret = parseInt(siret, 10);
       const data = {
@@ -125,7 +119,7 @@ const editUserMiddleware = (store) => (next) => (action) => {
         cp: newCP,
         city: city,
         adresse: adresse,
-        food_like: foodLike,
+        food_like: newFoodLike,
         siret: newSiret,
       };
       const config = {
