@@ -3,12 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // == Import
-import './time.scss';
+import './addSlot.scss';
 
 // == Composant
-const NotFound = ({
-  newTime,
-}) => (
+const AddSlot = () => (
   <section className="addslot-section">
     <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
     <p className="addslot-fields--legend">* Champ obligatoire</p>
@@ -18,7 +16,7 @@ const NotFound = ({
           <div>
             <select
               onChange={(e) => {
-                newTime(e.target.value, 'newDay');
+                //newTime(e.target.value, 'newDay');
               }}
               className="addslot-input"
               name="day"
@@ -41,7 +39,7 @@ const NotFound = ({
               className="addslot-input"
               name="arriving-time"
               onChange={(e) => {
-                newTime(e.target.value, 'newStartTime');
+                //newTime(e.target.value, 'newStartTime');
               }}
             >
               <option value="">Heure d'arrivée</option>
@@ -103,7 +101,7 @@ const NotFound = ({
               className="addslot-input"
               name="end-time"
               onChange={(e) => {
-                newTime(e.target.value, 'newEndTime');
+                //newTime(e.target.value, 'newEndTime');
               }}
             >
               <option value="">Heure de fin</option>
@@ -185,10 +183,10 @@ const NotFound = ({
         <Link
           to="/my-account/my-foodtruck/new"
         >
-          <button type="submit" className="addslot-button--submit" onClick={closeModal}>Valider le créneau/lieux</button>
+          <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
         </Link>
         <Link to="/my-account/my-foodtruck/new">
-          <button type="button" className="addslot-button--quit" onClick={closeModal}>Fermer</button>
+          <button type="button" className="addslot-button--quit">Fermer</button>
         </Link>
       </div>
     </form>
@@ -196,4 +194,4 @@ const NotFound = ({
 );
 
 // == Export
-export default NotFound;
+export default AddSlot;

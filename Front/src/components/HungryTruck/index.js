@@ -13,6 +13,7 @@ import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
+import AddSlot from '../MyAccount/MyFoodTruck/NewFoodTruck/AddSlot';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../../containers/ZoomFT';
@@ -38,6 +39,9 @@ const HungryTruck = () => {
       <Switch>
         <Route path="/" exact>
           <Main />
+        </Route>
+        <Route path="/my-account/my-foodtruck/new/add" exact>
+          <AddSlot />
         </Route>
         <Route path="/login" exact>
           <LogIn />
