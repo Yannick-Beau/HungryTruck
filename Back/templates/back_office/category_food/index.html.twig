@@ -5,7 +5,7 @@
 
 {% block body %}
 	<h1>Liste Categories de nourritures</h1>
-
+<div class="container">
 	<a href="{{ path('back_office_category_food_new') }}" class="btn btn-primary mx-3">Créer</a>
 
 	<table class="table">
@@ -45,6 +45,6 @@
 			{% endfor %}
 		</tbody>
 	</table>
-
+</div>
 
 {% endblock %}
