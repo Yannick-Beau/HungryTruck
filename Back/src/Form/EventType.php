@@ -14,15 +14,24 @@ class EventType extends AbstractType
     {
         $builder
             ->add('day', TextType::class, [
-                'required'   => true])
+                'required'   => true
+            ])
             ->add('hours', TextType::class, [
-                'required'   => true])
+                'required'   => true
+            ])
             ->add('hours_end', TextType::class, [
-                'required'   => true])
-            ->add('place', TextType::class, [
-                'required'   => true])
-            ->add('foodtruck')
-        ;
+                'required'   => true
+            ])
+            ->add('cp', TextType::class, [
+                'required'   => true
+            ])
+            ->add('city', TextType::class, [
+                'required'   => true
+            ])
+            ->add('adresse', TextType::class, [
+                'required'   => true
+            ])
+            ->add('foodtruck');
     }
 
     public function configureOptions(OptionsResolver $resolver)
