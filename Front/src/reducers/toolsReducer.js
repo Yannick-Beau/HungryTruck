@@ -1,7 +1,8 @@
-import { CHANGE_STATUS_ICON_USER } from '../actions/tools';
+import { CHANGE_STATUS_ICON_USER, LOADING_EDIT_USER } from '../actions/tools';
 
 const initialState = {
   iconUserIsOpen: false,
+  loadEditUser: false,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -10,6 +11,11 @@ function toolsReducer(state = initialState, action = {}) {
       return {
         ...state,
         iconUserIsOpen: !state.iconUserIsOpen,
+      };
+    case LOADING_EDIT_USER:
+      return {
+        ...state,
+        loadEditUser: !state.loadEditUser,
       };
     default:
       return state;

@@ -1,7 +1,5 @@
 // == Import npm
-
 import React, { useState } from 'react';
-
 import { Route, Switch } from 'react-router-dom';
 
 // == Import components which always display
@@ -16,7 +14,6 @@ import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
-import Loader from '../Loader';
 import ZoomFT from '../../containers/ZoomFT';
 import LogIn from '../../containers/MyAccount/LogIn';
 import MyAccount from '../../containers/MyAccount';
@@ -39,7 +36,6 @@ const HungryTruck = () => {
       <Nav />
       <Switch>
         <Route path="/" exact>
-          <Loader />
           <Main />
         </Route>
         <Route path="/login" exact>

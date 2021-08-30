@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { loadingEditUser } from '../actions/tools';
 import {
   FIND_FOOD,
   FIND_USER,
@@ -6,6 +7,7 @@ import {
   editUser,
   editPro,
   saveFood,
+  findUser,
 } from '../actions/editUser';
 import URL from '../data/ip';
 
@@ -46,6 +48,7 @@ const editUserMiddleware = (store) => (next) => (action) => {
                 store.dispatch(editPro(responsePro.data.siret, responsePro.data.truck_id));
               });
           }
+          store.dispatch(loadingEditUser());
         });
       break;
     }
@@ -78,6 +81,7 @@ const editUserMiddleware = (store) => (next) => (action) => {
           // console.log('on va save les food', newData);
           // on sauvegarde le nouveau tableau dans le state
           store.dispatch(saveFood(newData));
+          store.dispatch(findUser());
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
@@ -110,13 +114,6 @@ const editUserMiddleware = (store) => (next) => (action) => {
       console.log('new food like', foodLike);
       const newCP = parseInt(cp, 10);
       const newSiret = parseInt(siret, 10);
-      console.log(`
-        email : ${email},
-        pesudo : ${pseudo},
-        pictureUser : ${avatar},
-        cp : ${newCP},
-        city : ${city},
-        address : ${adresse},`);
       const data = {
         email: email,
         pseudo: pseudo,

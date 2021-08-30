@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -20,14 +21,16 @@ const EditAccount = ({
   foods,
   findFood,
   findUser,
+  loadEditUser,
   handleSubmit,
+  changeLoadingEditUser,
   changeField,
   changeToggle,
 }) => {
   useEffect(() => {
     console.log('useEffect');
+    changeLoadingEditUser();
     findFood();
-    findUser();
   }, []);
   if (!logged) {
     return <Redirect to="/" />;
@@ -41,6 +44,18 @@ const EditAccount = ({
   return (
     <main className="newaccount">
       <h1 className="newaccount-title">{title}</h1>
+      { loadEditUser
+      && (
+      <Loader
+        type="Puff"
+        color="#e69512"
+        height={100}
+        width={100}
+        className="loader"
+      />
+      )}
+      { !loadEditUser
+      && (
       <form
         className="newaccount-form"
         onSubmit={(evt) => {
@@ -205,6 +220,7 @@ const EditAccount = ({
           <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
         </div>
       </form>
+      )}
     </main>
   );
 };
@@ -222,6 +238,8 @@ EditAccount.propTypes = {
   findUser: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   findFood: PropTypes.func.isRequired,
+  changeLoadingEditUser: PropTypes.func.isRequired,
+  loadEditUser: PropTypes.bool.isRequired,
   changeField: PropTypes.func.isRequired,
   changeToggle: PropTypes.func.isRequired,
   foods: PropTypes.arrayOf(
