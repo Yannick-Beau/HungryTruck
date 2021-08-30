@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste Faq</h1>
 
-    <a href="{{ path('back_office_faq_new') }}" class="btn btn-primary mx-3">Crée</a>
+    <a href="{{ path('back_office_faq_new') }}" class="btn btn-primary mx-3">Créer</a>
     
     <table class="table">
         <thead>
@@ -34,11 +34,9 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Aucun enregistrement trouver</td>
+                <td colspan="6">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('back_office_faq_new') }}" class="btn btn-primary mx-3">Crée</a>
 {% endblock %}
