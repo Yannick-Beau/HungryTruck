@@ -17,6 +17,9 @@ const mapStateToProps = (state) => ({
   phone: state.newFT.phone,
   overview: state.newFT.overview,
   picture: state.newFT.picture,
+  type1: state.newFT.type1,
+  tyep2: state.newFT.tyep2,
+  type3: state.newFT.type3,
 
   newDay: state.newFT.newDay,
   newStartTime: state.newFT.newStartTime,

@@ -189,39 +189,45 @@ const NewFoodTruck = ({
               <h3>Nourriture(s) proposée(s)</h3>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <PlusCircle color="#e69512" size="30" />
-                <input
-                  type="url"
-                  name="Facebook-foodtruck"
-                  placeholder="select"
-                  value={phone}
+                <select
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'phone');
+                    newFoodTruck(e.target.value, 'type1');
                   }}
-                />
+                  className="addslot-input"
+                  name="day"
+                >
+                  <option value="">Type</option>
+                  <option value="Pizza">Pizza</option>
+                  <option value="Burger">Burger</option>
+                </select>
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <PlusCircle color="#e69512" size="30" />
-                <input
-                  type="url"
-                  name="Facebook-foodtruck"
-                  placeholder="select"
-                  value={phone}
+                <select
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'phone');
+                    newFoodTruck(e.target.value, 'type2');
                   }}
-                />
+                  className="addslot-input"
+                  name="day"
+                >
+                  <option value="">Type</option>
+                  <option value="Pizza">Pizza</option>
+                  <option value="Burger">Burger</option>
+                </select>
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
                 <PlusCircle color="#e69512" size="30" />
-                <input
-                  type="url"
-                  name="Facebook-foodtruck"
-                  placeholder="select"
-                  value={phone}
+                <select
                   onChange={(e) => {
-                    newFoodTruck(e.target.value, 'phone');
+                    newFoodTruck(e.target.value, 'type3');
                   }}
-                />
+                  className="addslot-input"
+                  name="day"
+                >
+                  <option value="">Type</option>
+                  <option value="Pizza">Pizza</option>
+                  <option value="Burger">Burger</option>
+                </select>
               </label>
             </div>
           </div>

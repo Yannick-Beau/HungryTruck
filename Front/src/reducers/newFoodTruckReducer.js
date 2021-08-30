@@ -11,6 +11,9 @@ const initialState = {
   phone: '',
   overview: '',
   picture: '',
+  type1: '',
+  type2: '',
+  type3: '',
 };
 
 function newFoodTruckReducer(state = initialState, action = {}) {
@@ -51,6 +54,21 @@ function newFoodTruckReducer(state = initialState, action = {}) {
           return {
             ...state,
             picture: action.newValue,
+          };
+        case 'type1':
+          return {
+            ...state,
+            type1: action.newValue,
+          };
+        case 'type2':
+          return {
+            ...state,
+            type2: action.newValue,
+          };
+        case 'type3':
+          return {
+            ...state,
+            type3: action.newValue,
           };
         default:
           return state;
