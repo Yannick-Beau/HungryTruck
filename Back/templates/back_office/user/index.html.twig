@@ -6,7 +6,7 @@
 {% block body %}
 	<h1>BackOffice - Liste Utilisateur</h1>
 
-	<a href="{{ path('back_office_user_new') }}" class="btn btn-primary mx-3">Crée</a>
+	<a href="{{ path('back_office_user_new') }}" class="btn btn-primary mx-3">Créer</a>
 
 	<table class="table">
 		<thead>
@@ -16,7 +16,7 @@
 				<th>Roles</th>
 				<th>Pseudo</th>
 				<th>Avatar</th>
-				<th>Code Postale</th>
+				<th>Code Postal</th>
 				<th>Ville</th>
 				<th>Adresse</th>
 				<th>Siret</th>
@@ -53,7 +53,7 @@
 				</tr>
 			{% else %}
 				<tr>
-					<td colspan="13">Aucun enregistrement trouver</td>
+					<td colspan="13">Aucun enregistrement trouvé</td>
 				</tr>
 			{% endfor %}
 		</tbody>
