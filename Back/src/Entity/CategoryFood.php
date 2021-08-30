@@ -19,6 +19,7 @@ class CategoryFood
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"user_get_by_id","pro_get_by_id","foodcategory_get"})
      */
     private $id;
 
@@ -26,7 +27,6 @@ class CategoryFood
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(max=255)
      * @Assert\NotBlank
-     * @Assert\Unique
      * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post","event_post","foodcategory_get","pro_get_by_id"})
      */
     private $name;

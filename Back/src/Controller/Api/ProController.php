@@ -50,6 +50,7 @@ class ProController extends AbstractController
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
     {
         $user = $this->getUser();
+    
         // Pro non trouvé
         if ($user === null) {
             return new JsonResponse(
@@ -60,7 +61,6 @@ class ProController extends AbstractController
 
 
         $data = $request->getContent();
-
         $user = $serializer->deserialize($data, User::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $user]);
 
         // On valide l'entité
