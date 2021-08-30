@@ -56,7 +56,7 @@ const MyFoodTruck = ({
                 <th>Nom du food truck</th>
                 <th>Type de plat</th>
                 <th>Horaires</th>
-                <th colSpan="2">Actions</th>
+                <th colSpan="1">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -136,7 +136,6 @@ const MyFoodTruck = ({
                     </Modal>
                   </Link>
                 </td>
-                <td><Edit2 color="#9fe855" /></td>
                 <td><Trash2 color="#e61212" /></td>
               </tr>
             </tbody>

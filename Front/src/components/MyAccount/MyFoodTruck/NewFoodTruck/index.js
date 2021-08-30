@@ -1,9 +1,9 @@
 // == Import npm
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
-  Edit2,
   Facebook,
   Instagram,
+  PhoneCall,
   Trash2,
   Twitter,
 } from 'react-feather';
@@ -35,6 +35,7 @@ const NewFoodTruck = ({
   newFoodTruckInsta,
   newFoodTruckTwitter,
   newTime,
+  phone,
 }) => {
   let subtitle;
   function openModal() {
@@ -49,10 +50,6 @@ const NewFoodTruck = ({
   function closeModal() {
     setAddFoodTruck(false);
   }
-
-  useEffect(() => {
-    newTime();
-  }, []);
 
   return (
     <section className="section-newFoodTruck">
@@ -83,7 +80,7 @@ const NewFoodTruck = ({
                 <th>Jours</th>
                 <th>Créneaux</th>
                 <th>Lieux</th>
-                <th colSpan="2">Actions</th>
+                <th colSpan="1">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -91,15 +88,26 @@ const NewFoodTruck = ({
                 <td>Lundi</td>
                 <td>09h00 / 12h00</td>
                 <td>Place des grands Hommes, Caen</td>
-                <td><Edit2 color="#9fe855" /></td>
                 <td><Trash2 color="#e61212" /></td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className="myFoodTruck-array">
-          <h3>Lien vers vos réseaux sociaux</h3>
+          <h3>Contacts</h3>
           <div>
+            <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+              <PhoneCall color="#e69512" size="30" />
+              <input
+                type="url"
+                name="Facebook-foodtruck"
+                placeholder="0606060606"
+                value={phone}
+                onChange={(e) => {
+                  newFoodTruck(e.target.value, 'phone');
+                }}
+              />
+            </label>
             <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
               <Facebook color="#e69512" size="30" />
               <input

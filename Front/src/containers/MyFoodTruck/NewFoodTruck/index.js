@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
   facebook: state.newFT.newFoodTruckFB,
   instagram: state.newFT.newFoodTruckInsta,
   twitter: state.newFT.newFoodTruckTwitter,
+  phone: state.newFT.phone,
 
   newDay: state.newFT.newDay,
   newStartTime: state.newFT.newStartTime,
