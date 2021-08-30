@@ -1,9 +1,12 @@
 // == Import npm
 import React from 'react';
 import {
+  AlignLeft,
   Facebook,
+  Image,
   Instagram,
   PhoneCall,
+  PlusCircle,
   Trash2,
   Twitter,
 } from 'react-feather';
@@ -36,6 +39,9 @@ const NewFoodTruck = ({
   newFoodTruckTwitter,
   newTime,
   phone,
+  loadNewFoodTruck,
+  picture,
+  overview,
 }) => {
   let subtitle;
   function openModal() {
@@ -59,7 +65,13 @@ const NewFoodTruck = ({
         src="http://placehold.it/250x350"
         alt="nouveau foodtruck hungrytruck"
       />
-      <div className="newFoodTruck">
+      <form
+        className="newFoodTruck"
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          loadNewFoodTruck();
+        }}
+      >
         <label htmlFor="foodtruck-name">
           Nom du nouveau foodtruck
           <input
@@ -94,56 +106,124 @@ const NewFoodTruck = ({
           </table>
         </div>
         <div className="myFoodTruck-array">
-          <h3>Contacts</h3>
-          <div>
-            <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
-              <PhoneCall color="#e69512" size="30" />
-              <input
-                type="url"
-                name="Facebook-foodtruck"
-                placeholder="0606060606"
-                value={phone}
-                onChange={(e) => {
-                  newFoodTruck(e.target.value, 'phone');
-                }}
-              />
-            </label>
-            <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
-              <Facebook color="#e69512" size="30" />
-              <input
-                type="url"
-                name="Facebook-foodtruck"
-                placeholder="https://facebook.com/mapizzatruck"
-                value={newFoodTruckFB}
-                onChange={(e) => {
-                  newFoodTruck(e.target.value, 'facebook');
-                }}
-              />
-            </label>
-            <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
-              <Instagram color="#e69512" size="30" />
-              <input
-                type="url"
-                name="Facebook-foodtruck"
-                placeholder="https://facebook.com/mapizzatruck"
-                value={newFoodTruckInsta}
-                onChange={(e) => {
-                  newFoodTruck(e.target.value, 'instagram');
-                }}
-              />
-            </label>
-            <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
-              <Twitter color="#e69512" size="30" />
-              <input
-                type="url"
-                name="Facebook-foodtruck"
-                placeholder="https://facebook.com/mapizzatruck"
-                value={newFoodTruckTwitter}
-                onChange={(e) => {
-                  newFoodTruck(e.target.value, 'twitter');
-                }}
-              />
-            </label>
+          <div className="myFT-details">
+            <div className="myFT-details--detail">
+              <h3>Informations</h3>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <PhoneCall color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="0606060606"
+                  value={phone}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'phone');
+                  }}
+                />
+              </label>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <AlignLeft color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="Phrase d'accroche de votre FoodTruck"
+                  value={overview}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'overview');
+                  }}
+                />
+              </label>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <Image color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="https://monimage.com"
+                  value={picture}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'picture');
+                  }}
+                />
+              </label>
+            </div>
+            <div className="myFT-details--detail">
+              <h3>Mes reseaux sociaux</h3>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <Facebook color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="https://facebook.com/mapizzatruck"
+                  value={newFoodTruckFB}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'facebook');
+                  }}
+                />
+              </label>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <Instagram color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="https://facebook.com/mapizzatruck"
+                  value={newFoodTruckInsta}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'instagram');
+                  }}
+                />
+              </label>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <Twitter color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="https://facebook.com/mapizzatruck"
+                  value={newFoodTruckTwitter}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'twitter');
+                  }}
+                />
+              </label>
+            </div>
+            <div className="myFT-details--detail">
+              <h3>Nourriture(s) proposée(s)</h3>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <PlusCircle color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="select"
+                  value={phone}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'phone');
+                  }}
+                />
+              </label>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <PlusCircle color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="select"
+                  value={phone}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'phone');
+                  }}
+                />
+              </label>
+              <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
+                <PlusCircle color="#e69512" size="30" />
+                <input
+                  type="url"
+                  name="Facebook-foodtruck"
+                  placeholder="select"
+                  value={phone}
+                  onChange={(e) => {
+                    newFoodTruck(e.target.value, 'phone');
+                  }}
+                />
+              </label>
+            </div>
           </div>
         </div>
 
@@ -360,7 +440,7 @@ const NewFoodTruck = ({
             </button>
           </Link>
         </div>
-      </div>
+      </form>
     </section>
   );
 };

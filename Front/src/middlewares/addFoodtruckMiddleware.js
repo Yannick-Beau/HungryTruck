@@ -15,13 +15,22 @@ const addFoodTruckMiddleware = (store) => (next) => (action) => {
         newDay,
         newStartTime,
         newEndTime,
+        phone,
       } = store.getState().newFT;
       // console.log(`
       //   nom : ${name},
       //   fb : ${facebook};
       //   insta : ${instagram};
       //   twitter : ${twitter};
+      //   phone : ${phone};
       // `);
+
+      /*
+      overview/
+      $sell_type_food/
+      picture
+      */
+
       axios.post(
         `${URL}/api/foodtruck/create`,
         {
@@ -29,9 +38,10 @@ const addFoodTruckMiddleware = (store) => (next) => (action) => {
           facebook: facebook,
           instagram: instagram,
           twitter: twitter,
-          newDay: newDay,
-          newStartTime: newStartTime,
-          newEndTime: newEndTime,
+          // newDay: newDay,
+          // newStartTime: newStartTime,
+          // newEndTime: newEndTime,
+          num_tel: phone,
         },
       )
         .then((response) => {

@@ -9,6 +9,8 @@ const initialState = {
   newStartTime: '',
   newEndTime: '',
   phone: '',
+  overview: '',
+  picture: '',
 };
 
 function newFoodTruckReducer(state = initialState, action = {}) {
@@ -39,6 +41,16 @@ function newFoodTruckReducer(state = initialState, action = {}) {
           return {
             ...state,
             phone: action.newValue,
+          };
+        case 'overview':
+          return {
+            ...state,
+            overview: action.newValue,
+          };
+        case 'picture':
+          return {
+            ...state,
+            picture: action.newValue,
           };
         default:
           return state;
