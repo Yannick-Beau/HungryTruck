@@ -132,7 +132,7 @@ const editUserMiddleware = (store) => (next) => (action) => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       };
-      axios.patch(`${URL}/api/pro/edit`, data, config)
+      axios.put(`${URL}/api/pro/edit`, data, config)
         .then((response) => {
           console.log(response);
         })
