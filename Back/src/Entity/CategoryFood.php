@@ -27,7 +27,7 @@ class CategoryFood
      * @Assert\Length(max=255)
      * @Assert\NotBlank
      * @Assert\Unique
-     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post","event_post","foodcategory_get"})
+     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post","event_post","foodcategory_get","pro_get_by_id"})
      */
     private $name;
 
