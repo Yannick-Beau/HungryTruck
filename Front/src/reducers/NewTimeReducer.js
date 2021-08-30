@@ -1,4 +1,4 @@
-import { NEW_TIME, SAVE_TRUCK } from '../actions/newTime';
+import { NEW_TIME } from '../actions/newTime';
 
 const initialState = {
   foodTruck: '',
@@ -8,7 +8,6 @@ const initialState = {
   address: '',
   cp: '',
   city: '',
-  trucks: [],
 };
 
 function newTimeReducer(state = initialState, action = {}) {
@@ -54,11 +53,6 @@ function newTimeReducer(state = initialState, action = {}) {
         default:
           return state;
       }
-    case SAVE_TRUCK:
-      return {
-        ...state,
-        trucks: action.newValue,
-      };
     default:
       return state;
   }

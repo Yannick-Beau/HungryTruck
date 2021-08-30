@@ -1,6 +1,6 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -13,17 +13,26 @@ const AddSlot = ({
   cp,
   city,
   trucks,
-  findTruck,
+  addEvent,
+  redirect,
+  changeRedirect,
 }) => {
-  useEffect(() => {
-    findTruck();
-  }, []);
-
+  if (redirect) {
+    changeRedirect();
+    return <Redirect to="/my-account/my-foodtruck" />;
+  }
   return (
     <section className="addslot-section">
       <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
       <p className="addslot-fields--legend">* Champ obligatoire</p>
-      <form className="addslot-form">
+      <form
+        className="addslot-form"
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          console.log('submit form');
+          addEvent();
+        }}
+      >
         <label className="addslot-label addslotFirst" htmlFor="day">Selectionner le FoodTruck
           <div>
             <select
@@ -237,11 +246,7 @@ const AddSlot = ({
           </label>
         </div>
         <div className="addslot-form--footer">
-          <Link
-            to="#"
-          >
-            <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
-          </Link>
+          <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
           <Link to="/my-account/my-foodtruck/">
             <button type="button" className="addslot-button--quit">Fermer</button>
           </Link>

@@ -1,13 +1,32 @@
 import axios from 'axios';
-import { FIND_TRUCK, saveTruck } from '../actions/newTime';
+import { ADD_EVENT } from '../actions/newTime';
+import { changeRedirect } from '../actions/tools';
 import URL from '../data/ip';
 
 const newTimeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case FIND_TRUCK: {
+    case ADD_EVENT: {
+      console.log('on va addEent');
       const token = localStorage.getItem('token');
-      axios.get(
-        `${URL}/api/pro`,
+      const {
+        foodTruck,
+        newDay,
+        newStartTime,
+        newEndTime,
+        address,
+        cp,
+        city,
+      } = store.getState().newTime;
+      axios.post(
+        `${URL}/api/foodtruck/${foodTruck}/event/create`,
+        {
+          day: newDay,
+          hours: newStartTime,
+          hours_end: newEndTime,
+          cp: cp,
+          city: city,
+          adresse: address,
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -15,7 +34,8 @@ const newTimeMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          store.dispatch(saveTruck(response.data.truck_id));
+          console.log(response);
+          store.dispatch(changeRedirect());
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
