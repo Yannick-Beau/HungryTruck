@@ -30,8 +30,6 @@ const MyAccount = ({
   email,
   adresse,
   avatar,
-  city,
-  cp,
   foodLike,
   pseudo,
   siret,
@@ -72,7 +70,6 @@ const MyAccount = ({
             <p>Mon pseudo : <span>{pseudo}</span></p>
             <p>Mon adresse :</p>
             <p><span>{adresse}</span></p>
-            <p><span>{cp}</span><span>{` ${city}`}</span></p>
             { isPro
             && <p>SIRET : <span>{siret}</span></p>}
           </div>
@@ -156,8 +153,6 @@ MyAccount.propTypes = {
   email: PropTypes.string.isRequired,
   adresse: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  cp: PropTypes.number.isRequired,
   pseudo: PropTypes.string.isRequired,
   siret: PropTypes.number.isRequired,
   isPro: PropTypes.bool.isRequired,

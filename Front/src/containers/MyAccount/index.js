@@ -12,8 +12,6 @@ const mapStateToProps = (state) => ({
   email: state.logIn.email,
   adresse: state.logIn.adresse,
   avatar: state.logIn.avatar,
-  city: state.logIn.city,
-  cp: state.logIn.cp,
   foodLike: state.logIn.foodLike,
   pseudo: state.logIn.pseudo,
   roles: state.logIn.roles,
