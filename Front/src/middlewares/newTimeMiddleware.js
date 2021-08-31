@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ADD_EVENT } from '../actions/newTime';
 import { changeRedirect } from '../actions/tools';
+import { saveUser } from '../actions/logIn';
 import URL from '../data/ip';
 
 const newTimeMiddleware = (store) => (next) => (action) => {
@@ -38,6 +39,7 @@ const newTimeMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
+          store.dispatch(saveUser());
           store.dispatch(changeRedirect());
         })
         .catch((error) => {

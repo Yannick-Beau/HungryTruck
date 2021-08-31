@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { SEND_DEL, sendDel } from '../actions/delUser';
 import URL from '../data/ip';
 import {
   SEND_DEL,
