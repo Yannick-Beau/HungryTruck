@@ -1,6 +1,15 @@
 // == Import npm
-import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+} from 'react';
+import MapGL from 'react-map-gl';
+import Geocoder from 'react-map-gl-geocoder';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -9,9 +18,8 @@ import './addSlot.scss';
 // == Composant
 const AddSlot = ({
   newTime,
-  address,
-  // cp,
-  // city,
+
+  updateAddressFT,
   trucks,
   addEvent,
   redirect,
@@ -21,6 +29,31 @@ const AddSlot = ({
     changeRedirect();
     return <Redirect to="/my-account/my-foodtruck" />;
   }
+  const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
+  const [viewport, setViewport] = useState({
+    latitude: 45.5,
+    longitude: 2,
+    zoom: 5.4,
+  });
+  const mapRef = useRef();
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    [],
+  );
+
+  // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
+  const handleGeocoderViewportChange = useCallback(
+    (newViewport) => {
+      const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+      return handleViewportChange({
+        ...newViewport,
+        ...geocoderDefaultOverrides,
+      });
+    },
+    [],
+  );
+
   return (
     <section className="addslot-section">
       <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
@@ -199,22 +232,35 @@ const AddSlot = ({
         </div>
 
         <div className="addslot-from--first addslot-from--address">
-          <label className="addslot-label addslot-input--address" htmlFor="adress">Adresse du lieu
+          <div className="addslot-label addslot-input--address" htmlFor="adress">Adresse du lieu
             <div>
-              <input
-                className="addslot-input addslot-input--address"
-                // id="addslot-input"
-                type="text"
-                name="adress"
-                placeholder="3 rue de Paris"
-                value={address}
-                onChange={(e) => {
-                  newTime(e.target.value, 'address');
-                }}
-              />
               <span>*</span>
+              <MapGL
+                ref={mapRef}
+                {...viewport}
+                width="600px"
+                height="300px"
+                onViewportChange={handleViewportChange}
+                mapboxApiAccessToken={MAPBOX_TOKEN}
+              >
+                <Geocoder
+                  mapRef={mapRef}
+                  onViewportChange={handleGeocoderViewportChange}
+                  mapboxApiAccessToken={MAPBOX_TOKEN}
+                  countries="fr"
+                  placeholder="Votre adresse"
+                  onResult={(e) => {
+                    console.log(e.result);
+                    updateAddressFT(
+                      e.result.place_name,
+                      e.result.center[0],
+                      e.result.center[1],
+                    );
+                  }}
+                />
+              </MapGL>
             </div>
-          </label>
+          </div>
         </div>
         <div className="addslot-form--footer">
           <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
@@ -229,9 +275,6 @@ const AddSlot = ({
 
 AddSlot.propTypes = {
   newTime: PropTypes.func.isRequired,
-  address: PropTypes.func.isRequired,
-  cp: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
 };
 
 // == Export

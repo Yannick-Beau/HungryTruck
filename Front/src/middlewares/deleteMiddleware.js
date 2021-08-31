@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SEND_DEL, sendDel } from '../actions/delUser';
 import URL from '../data/ip';
 import {
   SEND_DEL,
@@ -33,7 +34,6 @@ const deleteMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
-
     case TRUCK_DEL: {
       const token = localStorage.getItem('token');
       console.log('je vais supprimer le truck');
