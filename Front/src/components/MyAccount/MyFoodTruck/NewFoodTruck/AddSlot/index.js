@@ -10,8 +10,8 @@ import './addSlot.scss';
 const AddSlot = ({
   newTime,
   address,
-  cp,
-  city,
+  // cp,
+  // city,
   trucks,
   addEvent,
   redirect,

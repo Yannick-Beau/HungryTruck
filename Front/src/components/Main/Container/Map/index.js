@@ -15,12 +15,7 @@ import './map.scss';
 
 const Map = () => {
   // position coordinates
-  const position = [
-    ['1', 49.1749376, -0.33423359999999996],
-    ['2', 47, 1],
-    ['3', 48, 1],
-    ['4', 49.1749376, 1],
-  ];
+  const position = [49.1749376, -0.33423359999999996];
 
   const options = {
     enableHighAccuracy: true,
@@ -54,14 +49,13 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {/* User marker */}
-        {position.map((item) => (
-          <Marker position={item}>
-            {/* Popup user marker */}
-            <Popup>
-              Bienvenu chez Turpinou <br /> Petit apéro ce soir ?
-            </Popup>
-          </Marker>
-        ))}
+        
+        <Marker position={position}>
+          {/* Popup user marker */}
+          <Popup>
+            Bienvenu chez Turpinou <br /> Petit apéro ce soir ?
+          </Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
