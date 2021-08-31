@@ -274,9 +274,6 @@ const AddSlot = ({
 
 AddSlot.propTypes = {
   newTime: PropTypes.func.isRequired,
-  address: PropTypes.func.isRequired,
-  cp: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
 };
 
 // == Export
