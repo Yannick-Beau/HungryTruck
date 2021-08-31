@@ -25,7 +25,7 @@ class CategoryFood
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @Assert\Length(min=2,max=255)
      * @Assert\NotBlank
      * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post","event_post","foodcategory_get","pro_get_by_id"})
      */

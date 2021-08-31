@@ -28,7 +28,7 @@ class Foodtruck
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
-     * @Assert\Length(max=255,min=2)
+     * @Assert\Length(min=2,max=70)
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $name;
@@ -36,12 +36,14 @@ class Foodtruck
     /**
      * @ORM\Column(type="string",length=20)
      * @Assert\NotBlank
+     * @Assert\Length(min=2,max=14)
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $num_tel;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(max=800)
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $overview;
@@ -49,7 +51,7 @@ class Foodtruck
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Assert\Url
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $instagram;
@@ -57,7 +59,7 @@ class Foodtruck
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Assert\Url
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $twitter;
@@ -65,10 +67,18 @@ class Foodtruck
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Assert\Url
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $facebook;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
+     * @Assert\Length(max=255)
+     * @Groups({"foodtruck_get","pro_get_by_id"})
+     */
+    private $picture;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id", cascade={"persist"})
@@ -82,12 +92,6 @@ class Foodtruck
      * 
      */
     private $sell_type_food;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"foodtruck_get","pro_get_by_id"})
-     */
-    private $picture;
 
     /**
      * @ORM\Column(type="datetime")
