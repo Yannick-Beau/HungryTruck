@@ -7,7 +7,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.scss';
 
 // == Composant
-
 const Map = ({ trucks, sendTruck }) => {
   console.log(trucks);
   const Map = ReactMapboxGl({
@@ -22,6 +21,8 @@ const Map = ({ trucks, sendTruck }) => {
 
         </Layer>
       </Map>
+
+
     </div>
   );
 };

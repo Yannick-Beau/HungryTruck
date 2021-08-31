@@ -11,6 +11,7 @@ import contactUs from './ContactReducer';
 import newTimeReducer from './NewTimeReducer';
 import deleteReducer from './deleteReducer';
 import mapReducer from './mapReducer';
+
 // etc
 
 // le reducer principal, qui regroupe les autres
