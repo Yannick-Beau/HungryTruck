@@ -2,25 +2,12 @@
 import React from 'react';
 import { Trash2 } from 'react-feather';
 import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 // == Import
 import './myfoodtruck.scss';
-
-const customStyles = {
-  content: {
-    top: '15%',
-    left: '0',
-    bottom: '25%',
-    width: '100vw',
-    height: '100vh',
-    background: 'transparent',
-    border: 'none',
-  },
-};
 
 // == Composant
 const MyFoodTruck = ({
