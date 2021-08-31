@@ -29,6 +29,14 @@
 				<td>{{ event.adresse }}</td>
 			</tr>
 			<tr>
+				<th>Longitude</th>
+				<td>{{ event.longitude ? event.longitude : 'Null' }}</td>
+			</tr>
+			<tr>
+				<th>Latitude</th>
+				<td>{{ event.latitude ? event.latitude : 'Null' }}</td>
+			</tr>
+			<tr>
 				<th>CreatedAt</th>
 				<td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i') : '' }}</td>
 			</tr>

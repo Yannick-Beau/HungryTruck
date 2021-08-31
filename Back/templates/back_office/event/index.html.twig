@@ -13,6 +13,8 @@
                 <th>Heures début</th>
                 <th>Heures Fin</th>
                 <th>Adresse</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
                 <th>Crée le</th>
                 <th>Modifier le</th>
                 <th>Actions</th>
@@ -26,6 +28,8 @@
                 <td>{{ event.hours }}</td>
                 <td>{{ event.hoursend }}</td>
                 <td>{{ event.adresse }}</td>
+                <td>{{ event.longitude ? event.longitude : 'Null' }}</td>
+                <td>{{ event.latitude  ? event.latitude : 'Null'}}</td>
                 <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i') : '' }}</td>
                 <td>{{ event.updatedAt ? event.updatedAt|date('Y-m-d H:i') : '' }}</td>
                 <td>
