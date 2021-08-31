@@ -34,6 +34,9 @@ const MyAccount = ({
   pseudo,
   siret,
   isPro,
+  deleteUser,
+  delUser,
+  sendDel,
 }) => {
   let avatarUser;
   if (avatar !== '' && avatar !== null && avatar !== undefined) {
@@ -84,7 +87,7 @@ const MyAccount = ({
           </div>
         </div>
         <div className="account-button">
-          <Link to="#" className="button-Link">
+          <div className="button-Link">
             <button
               type="button"
               className="button-del"
@@ -106,14 +109,30 @@ const MyAccount = ({
                 </p>
                 <form
                   className="deleteaccount-form"
-                  onSubmit={(evt) => {
-                    console.log('submit');
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log('suppression du compte');
+                    sendDel();
                   }}
                 >
                   <label className="deleteaccount-label" htmlFor="password">
-                    <input className="deleteaccount-input" type="password" name="password" placeholder="Votre mot de passe" />
+                    <input
+                      className="deleteaccount-input"
+                      type="password"
+                      name="password"
+                      placeholder="Votre mot de passe"
+                      value={deleteUser}
+                      onChange={(e) => {
+                        delUser(e.target.value, 'deleteUser');
+                      }}
+                    />
                   </label>
-                  <button type="submit" className="deleteaccount-form--submit">Supprimer mon compte HungryTruck</button>
+                  <button
+                    type="submit"
+                    className="deleteaccount-form--submit"
+                  >
+                    Supprimer mon compte HungryTruck
+                  </button>
                 </form>
                 <Link
                   to="/my-account"
@@ -122,7 +141,7 @@ const MyAccount = ({
                 </Link>
               </section>
             </Modal>
-          </Link>
+          </div>
           <Link to="/my-account/edit" className="button-Link">
             <button type="button" className="button-linkto">
               Editer mes informations

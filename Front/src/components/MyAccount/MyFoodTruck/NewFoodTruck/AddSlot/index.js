@@ -19,6 +19,7 @@ import './addSlot.scss';
 const AddSlot = ({
   newTime,
   updateAddress,
+  address,
   trucks,
   addEvent,
   redirect,
