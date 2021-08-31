@@ -33,13 +33,20 @@ class Foodtruck
      */
     private $name;
 
-
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Assert\Length(max=800)
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
      */
     private $overview;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min=2,max=14)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     */
+    private $num_tel;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -102,14 +109,6 @@ class Foodtruck
      * @Groups({"foodtruck_get","pro_get_by_id"})
      */
     private $events;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\Length(min=2,max=14)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
-     */
-    private $num_tel;
 
 
     public function __construct()
