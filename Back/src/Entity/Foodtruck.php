@@ -141,12 +141,12 @@ class Foodtruck
         return $this;
     }
 
-    public function getNumTel(): ?int
+    public function getNumTel(): ?string
     {
         return $this->num_tel;
     }
 
-    public function setNumTel(int $num_tel): self
+    public function setNumTel(string $num_tel): self
     {
         $this->num_tel = $num_tel;
 
