@@ -25,6 +25,12 @@ class EventType extends AbstractType
             ->add('adresse', TextType::class, [
                 'required'   => true
             ])
+            ->add('longitude', TextType::class, [
+                'required'   => true
+            ])
+            ->add('latitude', TextType::class, [
+                'required'   => true
+            ])
             ->add('foodtruck');
     }
 
