@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import MyAccount from 'src/components/MyAccount';
-import { delUser } from '../../actions/delUser';
+import { delUser, sendDel } from '../../actions/delUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -31,7 +31,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = delUser(newValue, identifier);
     dispatch(action);
   },
-  
+
+  sendDel: () => {
+    dispatch(sendDel());
+  },
 });
 
 // === création de l'assistant
