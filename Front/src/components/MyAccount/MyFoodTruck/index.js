@@ -8,13 +8,13 @@ import 'reactjs-popup/dist/index.css';
 
 // == Import
 import './myfoodtruck.scss';
-import { truckDel } from '../../../actions/delUser';
 
 // == Composant
 const MyFoodTruck = ({
   myTrucks,
   avatar,
   truckdel,
+  timedel,
 }) => (
   <section className="section-myFoodTruck">
     <h2 className="myFoodTruck-title">Mes FoodTrucks</h2>
@@ -80,7 +80,9 @@ const MyFoodTruck = ({
                                     <Trash2
                                       color="#e61212"
                                       onClick={() => {
-                                        console.log('dans le composant');
+                                        console.log(`dans le composant pour supprimer un foodtruck : ${rdv.id}`);
+                                        console.log(timedel(rdv.id));
+                                        timedel(rdv.id);
                                       }}
                                     />
                                   </td>

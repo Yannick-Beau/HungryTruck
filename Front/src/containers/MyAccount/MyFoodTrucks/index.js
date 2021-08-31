@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { truckDel } from '../../../actions/delUser';
+import { timeDel, truckDel } from '../../../actions/delUser';
 import { displayModal } from '../../../actions/tools';
 
 // on importe le composant de présentation
@@ -26,6 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   truckdel: (id) => {
     dispatch(truckDel(id));
+  },
+  timedel: (id) => {
+    dispatch(timeDel(id));
   },
 });
 
