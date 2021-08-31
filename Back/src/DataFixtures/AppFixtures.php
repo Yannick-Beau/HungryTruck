@@ -50,7 +50,7 @@ class AppFixtures extends Fixture
         $user->setPassword('$2y$13$h.eZWrS5PJya7zNMNsKcXe8LUSVBtN2PBy8WHxmdHgAFjHG/rW.dG');
         $user->setPseudo("UserDiduche");
         $user->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
-        $user->setAdresse("8 rue ouaiouai");
+        $user->setAdresse("8 rue ouaiouai,38270 Beaurepaire");
         $user->setRoles(['ROLE_USER']);
     
         $manager->persist($user);
@@ -61,7 +61,7 @@ class AppFixtures extends Fixture
         $userPro->setPassword('$2y$13$Ww7ZU3RC1xfiSJeljDoxM.uUWaPCeSc7ljXdthMDwbCGXwoNM/od6');
         $userPro->setPseudo("ProDiduche");
         $userPro->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
-        $userPro->setAdresse("8 rue ouaiouai");
+        $userPro->setAdresse("8 rue ouaiouai,38270 Beaurepaire");
         $userPro->setSiret(45345344);
         $userPro->setRoles(['ROLE_PRO']);
 
@@ -73,7 +73,7 @@ class AppFixtures extends Fixture
         $userPro2->setPassword('$2y$13$Ww7ZU3RC1xfiSJeljDoxM.uUWaPCeSc7ljXdthMDwbCGXwoNM/od6');
         $userPro2->setPseudo("ProDiduche2");
         $userPro2->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
-        $userPro2->setAdresse("8 rue ouaiouai");
+        $userPro2->setAdresse("8 rue ouaiouai,38270 Beaurepaire");
         $userPro2->setSiret(511111);
         $userPro2->setRoles(['ROLE_PRO']);
 
@@ -85,7 +85,7 @@ class AppFixtures extends Fixture
         $admin->setPassword('$2y$13$L81zK/fTjQikyz3PtBmbL.WdDILXR.Ppn.whBAvLJsbaFu4Fu0zVe');
         $admin->setPseudo("AdminDiduche");
         $admin->setAvatar("https://cdn2.iconfinder.com/data/icons/avatars-99/62/avatar-370-456322-512.png");
-        $admin->setAdresse("8 rue ouaiouai");
+        $admin->setAdresse("8 rue ouaiouai,38270 Beaurepaire");
         $admin->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($admin);
