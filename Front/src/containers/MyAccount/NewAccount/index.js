@@ -8,6 +8,7 @@ import {
   createUser,
   findFood,
   updateErrorInscription,
+  updateAddress,
 } from '../../../actions/createUser';
 
 // === mapStateToProps
@@ -20,9 +21,6 @@ const mapStateToProps = (state) => ({
   password: state.createUser.password,
   passwordConfirm: state.createUser.passwordConfirm,
   nickname: state.createUser.nickname,
-  address: state.createUser.address,
-  cp: state.createUser.cp,
-  city: state.createUser.city,
   siret: state.createUser.siret,
   pictureUser: state.createUser.pictureUser,
   createPro: state.createUser.createPro,
@@ -54,6 +52,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleError: (identifier) => {
     const action = updateErrorInscription(identifier);
+    dispatch(action);
+  },
+  updateAddress: (address, long, lat) => {
+    const action = updateAddress(address, long, lat);
     dispatch(action);
   },
 });

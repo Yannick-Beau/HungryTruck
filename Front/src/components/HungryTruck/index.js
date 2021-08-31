@@ -43,7 +43,7 @@ const HungryTruck = ({ saveUser }) => {
       <Nav />
       <Switch>
         <Route path="/" exact>
-          <Map />
+          <Main />
         </Route>
         <Route path="/my-account/my-foodtruck/new/add" exact>
           <AddSlot />
