@@ -15,7 +15,7 @@ import './map.scss';
 
 const Map = () => {
   // position coordinates
-  const position = [49.1749376, -0.33423359999999996];
+  const position = ([49.1749376, -0.33423359999999996], [1, 47]);
 
   const options = {
     enableHighAccuracy: true,
@@ -41,7 +41,7 @@ const Map = () => {
     <div id="map">
       <MapContainer
         center={position}
-        zoom={13} // map zoom
+        zoom={2} // map zoom
         scrollWheelZoom={false}
       >
         <TileLayer
