@@ -8,6 +8,7 @@ import Nav from '../Nav';
 import Footer from '../Footer';
 
 // == Import others components
+import Map from '../Map';
 import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
 import EditAccount from '../../containers/MyAccount/EditAccount';
@@ -42,7 +43,7 @@ const HungryTruck = ({ saveUser }) => {
       <Nav />
       <Switch>
         <Route path="/" exact>
-          <Main />
+          <Map />
         </Route>
         <Route path="/my-account/my-foodtruck/new/add" exact>
           <AddSlot />

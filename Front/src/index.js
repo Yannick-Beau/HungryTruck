@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from 'src/store';

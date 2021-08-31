@@ -37,6 +37,18 @@ const NewAccount = ({
     title = 'Créer votre compte Pro';
     buttonCreateName = 'Créer mon compte Pro';
   }
+  // TO MAKE THE MAP APPEAR YOU MUST
+  // ADD YOUR ACCESS TOKEN FROM
+  mapboxgl.accessToken = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [
+      2, 47,
+    ],
+    zoom: 4.5,
+  });
+  const geocoder = new MapboxGeocoder({accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl, countries: 'fr'});
   useEffect(() => {
     findFood();
   }, []);
@@ -168,6 +180,7 @@ const NewAccount = ({
               </div>
               <div className="fields-right">
                 <div className="field">
+                  <div id="geocoder" className="geocoder" />
                   <label className="field-label" htmlFor="adresse">Saisissez votre adresse
                     <div>
                       <input
