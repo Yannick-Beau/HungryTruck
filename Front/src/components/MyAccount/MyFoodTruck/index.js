@@ -13,6 +13,8 @@ import './myfoodtruck.scss';
 const MyFoodTruck = ({
   myTrucks,
   avatar,
+  truckdel,
+  timedel,
 }) => (
   <section className="section-myFoodTruck">
     <h2 className="myFoodTruck-title">Mes FoodTrucks</h2>
@@ -74,7 +76,16 @@ const MyFoodTruck = ({
                                   <td>{rdv.day}</td>
                                   <td>{rdv.hours} - {rdv.hours_end}</td>
                                   <td>{rdv.adresse}, {rdv.cp} {rdv.city}</td>
-                                  <td><Trash2 color="#e61212" /></td>
+                                  <td>
+                                    <Trash2
+                                      color="#e61212"
+                                      onClick={() => {
+                                        console.log(`dans le composant pour supprimer un foodtruck : ${rdv.id}`);
+                                        console.log(timedel(rdv.id));
+                                        timedel(rdv.id);
+                                      }}
+                                    />
+                                  </td>
                                 </tr>
                               </tbody>
                             ))}
@@ -104,7 +115,16 @@ const MyFoodTruck = ({
                   </Popup>
                   {/* </Link> */}
                 </td>
-                <td><Trash2 color="#e61212" /></td>
+                <td>
+                  <Trash2
+                    color="#e61212"
+                    onClick={() => {
+                      console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
+                      console.log(truckdel(item.id));
+                      truckdel(item.id);
+                    }}
+                  />
+                </td>
               </tr>
             </tbody>
           ))}
