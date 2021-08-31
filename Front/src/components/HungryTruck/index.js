@@ -1,23 +1,26 @@
 // == Import npm
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import components which always display
 import Nav from '../Nav';
 import Footer from '../Footer';
 
 // == Import others components
+import Map from '../Map';
 import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
 import EditAccount from '../../containers/MyAccount/EditAccount';
 import LegalMentions from '../Footer/LegalMentions';
 import Search from '../../containers/Search';
+import AddSlot from '../../containers/MyFoodTruck/NewTime';
 import WhoAreWe from '../WhoAreWe';
 import NotFound from '../NotFound';
 import ZoomFT from '../../containers/ZoomFT';
 import LogIn from '../../containers/MyAccount/LogIn';
 import MyAccount from '../../containers/MyAccount';
-import MyFoodTruck from '../MyAccount/MyFoodTruck';
+import MyFoodTruck from '../../containers/MyAccount/MyFoodTrucks';
 import NewFoodTruck from '../../containers/MyFoodTruck/NewFoodTruck';
 import Faq from '../Footer/FAQ';
 import Contact from '../../containers/Contact';
@@ -26,10 +29,14 @@ import Contact from '../../containers/Contact';
 import './styles.scss';
 
 // == Composant
-const HungryTruck = () => {
+const HungryTruck = ({ saveUser }) => {
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
+  console.log(localStorage.getItem('token'));
+  if (localStorage.getItem('token') !== null) {
+    saveUser();
+  }
 
   return (
     <div className="hungrytruck">
@@ -37,6 +44,9 @@ const HungryTruck = () => {
       <Switch>
         <Route path="/" exact>
           <Main />
+        </Route>
+        <Route path="/my-account/my-foodtruck/new/add" exact>
+          <AddSlot />
         </Route>
         <Route path="/login" exact>
           <LogIn />
@@ -90,6 +100,10 @@ const HungryTruck = () => {
       <Footer />
     </div>
   );
+};
+
+HungryTruck.propTypes = {
+  saveUser: PropTypes.func.isRequired,
 };
 
 // == Export

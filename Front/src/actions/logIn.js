@@ -21,12 +21,23 @@ export const saveUser = () => ({
   type: SAVE_USER,
 });
 
-export const connectUser = (address, avatar, city, cp, foodLike, id, pseudo, roles) => ({
+export const connectUser = (
+  email,
+  address,
+  avatar,
+  longitude,
+  latitude,
+  foodLike,
+  id,
+  pseudo,
+  roles,
+) => ({
   type: CONNECT_USER,
+  email: email,
   adresse: address,
   avatar: avatar,
-  city: city,
-  cp: cp,
+  longitude: longitude,
+  latitude: latitude,
   foodLike: foodLike,
   id: id,
   pseudo: pseudo,

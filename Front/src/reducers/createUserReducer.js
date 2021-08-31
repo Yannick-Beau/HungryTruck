@@ -3,6 +3,7 @@ import {
   UPDATE_FIELD,
   UPDATE_TOGGLE,
   UPDATE_ERROR_INSCRIPTION,
+  UPDATE_ADDRESS,
 } from '../actions/createUser';
 
 const initialState = {
@@ -11,9 +12,9 @@ const initialState = {
   password: '',
   passwordConfirm: '',
   address: '',
-  cp: '',
-  city: '',
-  siret: '',
+  long: '',
+  lat: '',
+  siret: null,
   pictureUser: '',
   createPro: false,
   foods: [],
@@ -51,21 +52,6 @@ function createUserReducer(state = initialState, action = {}) {
           return {
             ...state,
             passwordConfirm: action.newValue,
-          };
-        case 'address':
-          return {
-            ...state,
-            address: action.newValue,
-          };
-        case 'cp':
-          return {
-            ...state,
-            cp: action.newValue,
-          };
-        case 'city':
-          return {
-            ...state,
-            city: action.newValue,
           };
         case 'siret':
           return {
@@ -127,6 +113,13 @@ function createUserReducer(state = initialState, action = {}) {
       return {
         ...state,
         foods: action.newValue,
+      };
+    case UPDATE_ADDRESS:
+      return {
+        ...state,
+        address: action.address,
+        long: action.long,
+        lat: action.lat,
       };
     default:
       return state;

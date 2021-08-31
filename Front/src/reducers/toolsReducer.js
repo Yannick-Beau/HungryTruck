@@ -1,8 +1,9 @@
-import { CHANGE_STATUS_ICON_USER, LOADING_EDIT_USER } from '../actions/tools';
+import { CHANGE_STATUS_ICON_USER, LOADING_EDIT_USER, CHANGE_REDIRECT } from '../actions/tools';
 
 const initialState = {
   iconUserIsOpen: false,
   loadEditUser: false,
+  redirect: false,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -16,6 +17,11 @@ function toolsReducer(state = initialState, action = {}) {
       return {
         ...state,
         loadEditUser: !state.loadEditUser,
+      };
+    case CHANGE_REDIRECT:
+      return {
+        ...state,
+        redirect: !state.redirect,
       };
     default:
       return state;
