@@ -23,7 +23,7 @@ class FoodtruckType extends AbstractType
     {
         $builder
             ->add('name',TextType::class)
-            ->add('num_tel',TextType::class)
+            ->add('num_tel',TelType::class)
             ->add('overview',TextareaType::class)
             ->add('picture', UrlType::class)
             ->add('instagram', UrlType::class)

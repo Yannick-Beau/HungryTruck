@@ -105,7 +105,7 @@ class AppFixtures extends Fixture
 
         $FoodTruckList = [];
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 3; $i++) {
 
             $FoodTruck = new Foodtruck();
             $FoodTruck->setName($data->foodtruckName());
@@ -125,7 +125,7 @@ class AppFixtures extends Fixture
 
         $FoodTruckList1 = [];
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 3; $i++) {
 
             $FoodTruck1 = new Foodtruck();
             $FoodTruck1->setName($data->foodtruckName2());
