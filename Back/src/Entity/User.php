@@ -33,7 +33,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
      * @Assert\NotBlank
      * @Assert\Email
-     * 
      */
     private $email;
 
@@ -48,14 +47,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * 
+     * TODO:
      * 
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100, min=4)
+     * @Assert\Length( min=4,max=70)
      * @Assert\NotBlank
      * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","event_post"})
      */
@@ -64,14 +63,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
+     * @Assert\Url
      * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $avatar;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Assert\Type("int") 
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=10)
      * @Assert\NotBlank
      * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
@@ -79,7 +78,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @Assert\Length(min=1,max=70)
      * @Assert\NotBlank
      * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
@@ -87,18 +86,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @Assert\Length(min=1,max=255)
      * @Assert\NotBlank
      * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Type("int")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=18)
      * @Groups({"foodtruck_get","pro_get_by_id","event_post"})
      */
     private $siret;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
+     */
+    private $latitude;
 
     /**
      * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user", cascade={"persist", "remove" })
@@ -122,17 +133,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $updatedAt;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
-     */
-    private $longitude;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
-     */
-    private $latitude;
 
     
     public function __construct()
