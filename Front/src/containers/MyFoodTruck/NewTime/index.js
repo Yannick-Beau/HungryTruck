@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import AddSlot from '../../../components/MyAccount/MyFoodTruck/NewFoodTruck/AddSlot';
-import { newTime, findTruck } from '../../../actions/newTime';
+import { newTime, addEvent } from '../../../actions/newTime';
+import { changeRedirect } from '../../../actions/tools';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => ({
   address: state.newTime.address,
   cp: state.newTime.cp,
   city: state.newTime.city,
-  trucks: state.newTime.trucks,
+  trucks: state.logIn.trucksPro,
+  redirect: state.tools.redirect,
 });
 
 // === mapDispatchToProps
@@ -28,8 +30,12 @@ const mapDispatchToProps = (dispatch) => ({
     const action = newTime(newValue, identifier);
     dispatch(action);
   },
-  findTruck: () => {
-    const action = findTruck();
+  addEvent: () => {
+    const action = addEvent();
+    dispatch(action);
+  },
+  changeRedirect: () => {
+    const action = changeRedirect();
     dispatch(action);
   },
 

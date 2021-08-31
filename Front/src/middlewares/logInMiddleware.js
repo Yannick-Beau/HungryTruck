@@ -43,6 +43,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
               },
             )
               .then((responsePro) => {
+                console.log(responsePro.data);
                 store.dispatch(connectPro(responsePro.data.siret, responsePro.data.truck_id));
               });
           }
