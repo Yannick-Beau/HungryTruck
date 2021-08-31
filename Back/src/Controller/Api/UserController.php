@@ -73,7 +73,7 @@ class UserController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return $this->json($user, Response::HTTP_CREATED,[],['groups'=> 'user_get_by_id']);
+        return $this->json($user, Response::HTTP_CREATED,[],['groups'=> 'created_user']);
     }
 
     /**
