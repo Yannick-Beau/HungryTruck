@@ -54,8 +54,7 @@ const NewFoodTruck = ({
       <h2 className="newFoodTruck-title">Créer mon FoodTruck</h2>
       <img
         className="newFoodTruck-picture"
-        src="http://placehold.it/250x350"
-        alt="nouveau foodtruck hungrytruck"
+        src={picture}
       />
       <form
         className="newFoodTruck"
