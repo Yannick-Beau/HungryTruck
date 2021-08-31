@@ -81,26 +81,4 @@ class ProController extends AbstractController
 
         return new JsonResponse(["message" => "User modifié"], Response::HTTP_OK);
     }
-    /**
-     * Delete a Pro
-     * 
-     * @Route("/api/pro/delete", name="api_pro_delete", methods="DELETE")
-     * @IsGranted("ROLE_PRO")
-     */
-    public function delete(User $user = null, EntityManagerInterface $em)
-    {
-
-        $user = $this->getUser();
-        if (null === $user) {
-
-            $error = 'Cette Utilisateur n\'existe pas';
-
-            return $this->json(['error' => $error], Response::HTTP_NOT_FOUND);
-        }
-
-        $em->remove($user);
-        $em->flush();
-
-        return $this->json(['message' => 'L\'Utilisateur a bien été supprimé.'], Response::HTTP_OK);
-    }
 }
