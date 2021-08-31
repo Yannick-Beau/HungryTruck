@@ -8,6 +8,7 @@ use App\Repository\EventRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
@@ -24,36 +25,48 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2,max=70)
+     * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=10)
+     * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=10)
+     * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $hours_end;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=10)
+     * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $cp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=70)
+     * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=255)
+     * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
      */
     private $adresse;
