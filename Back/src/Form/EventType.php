@@ -22,12 +22,6 @@ class EventType extends AbstractType
             ->add('hours_end', TextType::class, [
                 'required'   => true
             ])
-            ->add('cp', TextType::class, [
-                'required'   => true
-            ])
-            ->add('city', TextType::class, [
-                'required'   => true
-            ])
             ->add('adresse', TextType::class, [
                 'required'   => true
             ])
