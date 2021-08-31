@@ -15,33 +15,21 @@ class Adresse
         $this->client = $client;
     }
 
-    public function fetchLongitude(string $address): array
+    public function fetchLongitude(string $address,string $cp, string $city): array
     {
         $response = $this->client->request(
             'GET',
-            'http://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false'
+            'https://nominatim.openstreetmap.org/search.php?street='.$address.'&city='.$city.'&postalcode='.$cp.'&format=jsonv2'
         );
 
         $content = $response->toArray();
+
+        
 
 
 
         dd($content);
     }
 
-
-    public function fetchLatitude(string $address): array
-    {
-        $response = $this->client->request(
-            'GET',
-            'http://maps.google.com/maps/api/geocode/json?address='.$address.'&sensor=false'
-        );
-
-        $content = $response->toArray();
-
-
-
-        dd($content);
-    }
 
 }
