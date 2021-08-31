@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { truckDel } from '../../../actions/delUser';
 import { displayModal } from '../../../actions/tools';
 
 // on importe le composant de présentation
@@ -23,7 +24,9 @@ const mapDispatchToProps = (dispatch) => ({
   handleDisplayModal: () => {
     dispatch(displayModal());
   },
-  
+  truckdel: (id) => {
+    dispatch(truckDel(id));
+  },
 });
 
 // === création de l'assistant

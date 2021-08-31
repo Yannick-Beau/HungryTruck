@@ -1,4 +1,4 @@
-import { DEL_USER } from '../actions/delUser';
+import { DEL_USER, TRUCK_DEL } from '../actions/delUser';
 
 const initialState = {
   deleteUser: '',
