@@ -78,6 +78,7 @@ const MyFoodTruck = ({
                                 <th>Jours</th>
                                 <th>Créneaux</th>
                                 <th>Lieux</th>
+                                <th>Actions</th>
                               </tr>
                             </thead>
                             {item.events.map((rdv) => (
@@ -86,6 +87,7 @@ const MyFoodTruck = ({
                                   <td>{rdv.day}</td>
                                   <td>{rdv.hours} - {rdv.hours_end}</td>
                                   <td>{rdv.adresse}, {rdv.cp} {rdv.city}</td>
+                                  <td><Trash2 color="#e61212" /></td>
                                 </tr>
                               </tbody>
                             ))}
@@ -105,9 +107,9 @@ const MyFoodTruck = ({
                             </button>
                           </Link>
                           <Link
-                            to="/my-account/my-foodtruck/new"
+                            to="/my-account/my-foodtruck/new/add"
                           >
-                            <button type="button" className="modify">Modifier les horraires</button>
+                            <button type="button" className="modify">Ajouter un créneau</button>
                           </Link>
                         </div>
                       </section>

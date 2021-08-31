@@ -198,47 +198,18 @@ const AddSlot = ({
           </label>
         </div>
 
-        <div className="addslot-from--first">
-          <label className="addslot-label" htmlFor="adress">Adresse du lieu
+        <div className="addslot-from--first addslot-from--address">
+          <label className="addslot-label addslot-input--address" htmlFor="adress">Adresse du lieu
             <div>
               <input
-                className="addslot-input"
+                className="addslot-input addslot-input--address"
+                // id="addslot-input"
                 type="text"
                 name="adress"
                 placeholder="3 rue de Paris"
                 value={address}
                 onChange={(e) => {
                   newTime(e.target.value, 'address');
-                }}
-              />
-              <span>*</span>
-            </div>
-          </label>
-          <label className="addslot-label" htmlFor="postal-code">Code postal
-            <div>
-              <input
-                className="addslot-input"
-                type="text"
-                name="postal-code"
-                placeholder="69000"
-                value={cp}
-                onChange={(e) => {
-                  newTime(e.target.value, 'cp');
-                }}
-              />
-              <span>*</span>
-            </div>
-          </label>
-          <label className="addslot-label" htmlFor="city">Ville
-            <div>
-              <input
-                className="addslot-input"
-                type="text"
-                name="city"
-                placeholder="Lyon"
-                value={city}
-                onChange={(e) => {
-                  newTime(e.target.value, 'city');
                 }}
               />
               <span>*</span>

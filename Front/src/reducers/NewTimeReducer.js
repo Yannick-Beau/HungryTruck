@@ -6,8 +6,6 @@ const initialState = {
   newStartTime: '',
   newEndTime: '',
   address: '',
-  cp: '',
-  city: '',
 };
 
 function newTimeReducer(state = initialState, action = {}) {
@@ -24,16 +22,6 @@ function newTimeReducer(state = initialState, action = {}) {
           return {
             ...state,
             address: action.newValue,
-          };
-        case 'cp':
-          return {
-            ...state,
-            cp: action.newValue,
-          };
-        case 'city':
-          return {
-            ...state,
-            city: action.newValue,
           };
         case 'newDay':
           return {

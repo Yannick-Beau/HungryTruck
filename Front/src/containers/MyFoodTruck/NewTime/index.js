@@ -15,8 +15,6 @@ const mapStateToProps = (state) => ({
   newStartTime: state.newTime.newStartTime,
   newEndTime: state.newTime.newEndTime,
   address: state.newTime.address,
-  cp: state.newTime.cp,
-  city: state.newTime.city,
   trucks: state.logIn.trucksPro,
   redirect: state.tools.redirect,
 });
