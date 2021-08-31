@@ -18,8 +18,7 @@ import './addSlot.scss';
 // == Composant
 const AddSlot = ({
   newTime,
-  updateAddress,
-  address,
+  updateAddressFT,
   trucks,
   addEvent,
   redirect,
@@ -251,7 +250,7 @@ const AddSlot = ({
                   placeholder="Votre adresse"
                   onResult={(e) => {
                     console.log(e.result);
-                    updateAddress(
+                    updateAddressFT(
                       e.result.place_name,
                       e.result.center[0],
                       e.result.center[1],

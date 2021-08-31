@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import AddSlot from '../../../components/MyAccount/MyFoodTruck/NewFoodTruck/AddSlot';
-import { newTime, addEvent, updateAddress } from '../../../actions/newTime';
+import { newTime, addEvent, updateAddressFT } from '../../../actions/newTime';
 import { changeRedirect } from '../../../actions/tools';
 
 // === mapStateToProps
@@ -14,9 +14,6 @@ const mapStateToProps = (state) => ({
   newDay: state.newTime.newDay,
   newStartTime: state.newTime.newStartTime,
   newEndTime: state.newTime.newEndTime,
-  address: state.newTime.address,
-  long: state.newTime.long,
-  lat: state.newtime.lat,
   trucks: state.logIn.trucksPro,
   redirect: state.tools.redirect,
 });
@@ -38,8 +35,8 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeRedirect();
     dispatch(action);
   },
-  updateAddress: () => {
-    const action = updateAddress();
+  updateAddressFT: (adress, long, lat) => {
+    const action = updateAddressFT(adress, long, lat);
     dispatch(action);
   },
 

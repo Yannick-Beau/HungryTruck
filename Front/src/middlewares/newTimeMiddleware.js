@@ -14,6 +14,8 @@ const newTimeMiddleware = (store) => (next) => (action) => {
         newStartTime,
         newEndTime,
         address,
+        long,
+        lat,
       } = store.getState().newTime;
       axios.post(
         `${URL}/api/foodtruck/${foodTruck}/event/create`,
@@ -22,6 +24,8 @@ const newTimeMiddleware = (store) => (next) => (action) => {
           hours: newStartTime,
           hours_end: newEndTime,
           adresse: address,
+          longitude: long,
+          latitude: lat,
         },
         {
           headers: {

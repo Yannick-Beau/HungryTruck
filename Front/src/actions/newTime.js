@@ -15,7 +15,7 @@ export const addEvent = () => ({
   type: ADD_EVENT,
 });
 
-export const updateAddress = (address, long, lat) => ({
+export const updateAddressFT = (address, long, lat) => ({
   type: UPDATE_ADDRESS_FT,
   address: address,
   long: long,
