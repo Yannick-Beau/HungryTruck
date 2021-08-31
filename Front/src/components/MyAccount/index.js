@@ -36,6 +36,8 @@ const MyAccount = ({
   pseudo,
   siret,
   isPro,
+  deleteUser,
+  delUser,
 }) => {
   let avatarUser;
   if (avatar !== '' && avatar !== null && avatar !== undefined) {
@@ -87,45 +89,54 @@ const MyAccount = ({
           </div>
         </div>
         <div className="account-button">
-          <Link to="#" className="button-Link">
-            <button
-              type="button"
-              className="button-del"
-              onClick={openModal}
-            >
-              Supprimer mon compte
-            </button>
-            <Modal
-              isOpen={delAccount}
-              onAfterOpen={afterOpenModal}
-              onRequestClose={closeModal}
-              style={customStyles}
-              contentLabel="Example Modal"
-            >
-              <section className="deleteaccount-section">
-                <h2 className="deleteaccount-title">Suppression de compte</h2>
-                <p>Pour supprimer votre compte HungryTruck,<br />
-                  veuillez renseigner votre mot de passe.
-                </p>
-                <form
-                  className="deleteaccount-form"
-                  onSubmit={(evt) => {
-                    console.log('submit');
-                  }}
-                >
-                  <label className="deleteaccount-label" htmlFor="password">
-                    <input className="deleteaccount-input" type="password" name="password" placeholder="Votre mot de passe" />
-                  </label>
-                  <button type="submit" className="deleteaccount-form--submit">Supprimer mon compte HungryTruck</button>
-                </form>
-                <Link
-                  to="/my-account"
-                >
-                  <button type="button" className="deleteaccount-cancel" onClick={closeModal}>Retourner à mon compte</button>
-                </Link>
-              </section>
-            </Modal>
-          </Link>
+          {/* <Link to="#" className="button-Link"> */}
+          <button
+            type="button"
+            className="button-del"
+            onClick={openModal}
+          >
+            Supprimer mon compte
+          </button>
+          <Modal
+            isOpen={delAccount}
+            onAfterOpen={afterOpenModal}
+            onRequestClose={closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <section className="deleteaccount-section">
+              <h2 className="deleteaccount-title">Suppression de compte</h2>
+              <p>Pour supprimer votre compte HungryTruck,<br />
+                veuillez renseigner votre mot de passe.
+              </p>
+              <form
+                className="deleteaccount-form"
+                onSubmit={(evt) => {
+                  console.log('submit');
+                }}
+              >
+                <label className="deleteaccount-label" htmlFor="password">
+                  <input
+                    className="deleteaccount-input"
+                    type="password"
+                    name="password"
+                    placeholder="Votre mot de passe"
+                    value={deleteUser}
+                    onChange={(e) => {
+                      delUser(e.target.value, 'deleteUser');
+                    }}
+                  />
+                </label>
+                <button type="submit" className="deleteaccount-form--submit">Supprimer mon compte HungryTruck</button>
+              </form>
+              <Link
+                to="/my-account"
+              >
+                <button type="button" className="deleteaccount-cancel" onClick={closeModal}>Retourner à mon compte</button>
+              </Link>
+            </section>
+          </Modal>
+          {/* </Link> */}
           <Link to="/my-account/edit" className="button-Link">
             <button type="button" className="button-linkto">
               Editer mes informations

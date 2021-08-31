@@ -10,6 +10,7 @@ import toolsReducer from './toolsReducer';
 import contactUs from './ContactReducer';
 import newTimeReducer from './NewTimeReducer';
 import modalReducer from './ModalReducer';
+import deleteReducer from './deleteReducer';
 // etc
 
 // le reducer principal, qui regroupe les autres
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   newTime: newTimeReducer,
   editUser: editUserReducer,
   modal: modalReducer,
+  deleteReducer: deleteReducer,
   // etc
 });
 
