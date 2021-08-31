@@ -49,22 +49,6 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=1,max=10)
-     * @Assert\NotBlank
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
-     */
-    private $cp;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=1,max=70)
-     * @Assert\NotBlank
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
-     */
-    private $city;
-
-    /**
-     * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=255)
      * @Assert\NotBlank
      * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
@@ -205,30 +189,6 @@ class Event
     public function setLatitude(?string $latitude): self
     {
         $this->latitude = $latitude;
-
-        return $this;
-    }
-
-    public function getCp(): ?string
-    {
-        return $this->cp;
-    }
-
-    public function setCp(string $cp): self
-    {
-        $this->cp = $cp;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
 
         return $this;
     }

@@ -70,22 +70,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=1,max=10)
-     * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
-     */
-    private $cp;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=1,max=70)
-     * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
-     */
-    private $city;
-
-    /**
-     * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=255)
      * @Assert\NotBlank
      * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
@@ -252,30 +236,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
-
-        return $this;
-    }
-
-    public function getCp(): ?int
-    {
-        return $this->cp;
-    }
-
-    public function setCp(int $cp): self
-    {
-        $this->cp = $cp;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
 
         return $this;
     }
