@@ -17,6 +17,8 @@
 				<th>Pseudo</th>
 				<th>Avatar</th>
 				<th>Adresse</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
 				<th>Siret</th>
 				<th>Crée le</th>
 				<th>Modifier le</th>
@@ -32,6 +34,8 @@
 					<td>{{ user.pseudo }}</td>
 					<td>{{ user.avatar ? user.avatar : 'Null'}}</td>
 					<td>{{ user.adresse }}</td>
+                	<td>{{ event.longitude ? event.longitude : 'Null' }}</td>
+                	<td>{{ event.latitude  ? event.latitude : 'Null'}}</td>
 					<td>{{ user.siret ? user.siret : 'Null'}}</td>
 					<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i') : '' }}</td>
 					<td>{{ user.updatedAt ? user.updatedAt|date('Y-m-d H:i') : '' }}</td>
