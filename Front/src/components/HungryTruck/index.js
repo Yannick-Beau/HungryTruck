@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import components which always display
 import Nav from '../Nav';
@@ -27,10 +28,14 @@ import Contact from '../../containers/Contact';
 import './styles.scss';
 
 // == Composant
-const HungryTruck = () => {
+const HungryTruck = ({ saveUser }) => {
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
+  console.log(localStorage.getItem('token'));
+  if (localStorage.getItem('token') !== null) {
+    saveUser();
+  }
 
   return (
     <div className="hungrytruck">
@@ -94,6 +99,10 @@ const HungryTruck = () => {
       <Footer />
     </div>
   );
+};
+
+HungryTruck.propTypes = {
+  saveUser: PropTypes.func.isRequired,
 };
 
 // == Export
