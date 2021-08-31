@@ -35,8 +35,6 @@ class UserType extends AbstractType
             ->add('password')
             ->add('pseudo',TextType::class)
             ->add('avatar', UrlType::class)
-            ->add('cp')
-            ->add('city',TextType::class)
             ->add('adresse',TextType::class)
             ->add('siret')
             ->add('food_like',EntityType::class,['class' => CategoryFood::class,'multiple' => true,'choice_label' => 'name','expanded' => true,'query_builder' => function (CategoryFoodRepository $gr) {

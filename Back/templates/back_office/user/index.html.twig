@@ -16,8 +16,6 @@
 				<th>Roles</th>
 				<th>Pseudo</th>
 				<th>Avatar</th>
-				<th>Code Postal</th>
-				<th>Ville</th>
 				<th>Adresse</th>
 				<th>Siret</th>
 				<th>Crée le</th>
@@ -33,8 +31,6 @@
 					<td>{{ user.roles ? user.roles|json_encode : '' }}</td>
 					<td>{{ user.pseudo }}</td>
 					<td>{{ user.avatar ? user.avatar : 'Null'}}</td>
-					<td>{{ user.cp }}</td>
-					<td>{{ user.city }}</td>
 					<td>{{ user.adresse }}</td>
 					<td>{{ user.siret ? user.siret : 'Null'}}</td>
 					<td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i') : '' }}</td>
