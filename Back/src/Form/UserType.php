@@ -32,7 +32,7 @@ class UserType extends AbstractType
                 // checkboxes
                 'expanded' => true,
             ])
-            ->add('password')
+           // ->add('password')
             ->add('pseudo',TextType::class)
             ->add('avatar', UrlType::class)
             ->add('adresse',TextType::class)
