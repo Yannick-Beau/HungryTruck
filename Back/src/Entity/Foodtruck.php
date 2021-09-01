@@ -106,7 +106,7 @@ class Foodtruck
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="foodtruck",cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="foodtruck",cascade={"persist","delete"})
      * @Groups({"foodtruck_get","pro_get_by_id","delete_foodtruck"})
      */
     private $events;
