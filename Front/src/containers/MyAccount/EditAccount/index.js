@@ -9,6 +9,7 @@ import {
   updateToggle,
   saveEditUser,
   findUser,
+  editAddress,
 } from '../../../actions/editUser';
 
 // === mapStateToProps
@@ -18,15 +19,13 @@ const mapStateToProps = (state) => ({
 
   // Formualire de création d'un user
   email: state.editUser.email,
-  adresse: state.editUser.adresse,
   avatar: state.editUser.avatar,
-  city: state.editUser.city,
-  cp: state.editUser.cp,
+  adresse: state.editUser.adresse,
   pseudo: state.editUser.pseudo,
   siret: state.editUser.siret,
   isPro: state.editUser.isPro,
   logged: state.logIn.logged,
-  foods: state.editUser.foods,
+  foods: state.editUser.food,
   loadEditUser: state.tools.loadEditUser,
 });
 
@@ -56,6 +55,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeLoadingEditUser: () => {
     const action = loadingEditUser();
+    dispatch(action);
+  },
+  editAddress: (address, long, lat) => {
+    const action = editAddress(address, long, lat);
     dispatch(action);
   },
 });

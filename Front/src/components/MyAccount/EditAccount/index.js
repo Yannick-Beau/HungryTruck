@@ -1,7 +1,16 @@
 // == Import npm
-import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+} from 'react';
+import MapGL from 'react-map-gl';
+import Geocoder from 'react-map-gl-geocoder';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -10,23 +19,44 @@ import './editAccount.scss';
 // == Composant
 const EditAccount = ({
   email,
-  adresse,
   avatar,
-  // city,
-  // cp,
+  adresse,
   pseudo,
-  siret,
   isPro,
   logged,
   foods,
   findFood,
-  findUser,
   loadEditUser,
   handleSubmit,
   changeLoadingEditUser,
+  editAddress,
   changeField,
   changeToggle,
 }) => {
+  const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
+  const [viewport, setViewport] = useState({
+    latitude: 45.5,
+    longitude: 2,
+    zoom: 5.4,
+  });
+  const mapRef = useRef();
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    [],
+  );
+
+  // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
+  const handleGeocoderViewportChange = useCallback(
+    (newViewport) => {
+      const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+      return handleViewportChange({
+        ...newViewport,
+        ...geocoderDefaultOverrides,
+      });
+    },
+    [],
+  );
   useEffect(() => {
     changeLoadingEditUser();
     findFood();
@@ -122,77 +152,36 @@ const EditAccount = ({
               </div>
               <div className="fields-right">
                 <div className="field">
-                  <label className="field-label" htmlFor="adresse">Votre adresse
+                  <div className="field-label" htmlFor="adresse">Saisissez votre adresse
                     <div>
-                      <input
-                        className="field-input"
-                        type="text"
-                        name="adresse"
-                        id="field-input--adresse"
-                        placeholder="3 rue de paris"
-                        value={adresse}
-                        onChange={(evt) => {
-                          changeField(evt.target.value, 'address');
-                        }}
-                      />
                       <span>*</span>
+                      <MapGL
+                        ref={mapRef}
+                        {...viewport}
+                        width="430px"
+                        height="480px"
+                        onViewportChange={handleViewportChange}
+                        mapboxApiAccessToken={MAPBOX_TOKEN}
+                      >
+                        <Geocoder
+                          mapRef={mapRef}
+                          onViewportChange={handleGeocoderViewportChange}
+                          mapboxApiAccessToken={MAPBOX_TOKEN}
+                          countries="fr"
+                          placeholder="Votre adresse"
+                          onResult={(e) => {
+                            console.log(e.result);
+                            editAddress(
+                              e.result.place_name,
+                              e.result.center[0],
+                              e.result.center[1],
+                            );
+                          }}
+                        />
+                      </MapGL>
                     </div>
-                  </label>
+                  </div>
                 </div>
-                <div className="field">
-                  <label className="field-label" htmlFor="postal-code">Votre code postal
-                    <div>
-                      <input
-                        className="field-input"
-                        type="text"
-                        name="postal-code"
-                        placeholder="69000"
-                        value={cp}
-                        onChange={(evt) => {
-                          changeField(evt.target.value, 'cp');
-                        }}
-                      />
-                      <span>*</span>
-                    </div>
-                  </label>
-                </div>
-                <div className="field">
-                  <label className="field-label" htmlFor="city">Votre ville
-                    <div>
-                      <input
-                        className="field-input"
-                        type="text"
-                        name="city"
-                        placeholder="Lyon"
-                        value={city}
-                        onChange={(evt) => {
-                          changeField(evt.target.value, 'city');
-                        }}
-                      />
-                      <span>*</span>
-                    </div>
-                  </label>
-                </div>
-                { isPro
-                && (
-                <div className="field">
-                  <label className="field-label" htmlFor="siret">Votre n° de SIRET
-                    <div>
-                      <input
-                        className="field-input"
-                        type="text"
-                        name="siret"
-                        placeholder="12345678900012"
-                        value={siret}
-                        onChange={(evt) => {
-                          changeField(evt.target.value, 'siret');
-                        }}
-                      />
-                      <span>*</span>
-                    </div>
-                  </label>
-                </div>
-                )}
               </div>
               <div className="fields-food">
                 <h2>Vos nourritures favorites</h2>
@@ -226,15 +215,10 @@ const EditAccount = ({
 
 EditAccount.propTypes = {
   email: PropTypes.string.isRequired,
-  cp: PropTypes.number.isRequired,
-  city: PropTypes.string.isRequired,
-  siret: PropTypes.number.isRequired,
-  adresse: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
   isPro: PropTypes.bool.isRequired,
   logged: PropTypes.bool.isRequired,
-  findUser: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   findFood: PropTypes.func.isRequired,
   changeLoadingEditUser: PropTypes.func.isRequired,

@@ -21,8 +21,6 @@ const Map = ({ trucks, sendTruck }) => {
 
         </Layer>
       </Map>
-
-
     </div>
   );
 };

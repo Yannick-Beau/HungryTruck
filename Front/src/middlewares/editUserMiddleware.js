@@ -26,14 +26,11 @@ const editUserMiddleware = (store) => (next) => (action) => {
       )
         .then((responseUser) => {
           store.dispatch(editUser(
+            responseUser.data.email,
             responseUser.data.adresse,
             responseUser.data.avatar,
-            responseUser.data.city,
-            responseUser.data.cp,
             responseUser.data.food_like,
-            responseUser.data.id,
             responseUser.data.pseudo,
-            responseUser.data.roles,
           ));
           const isPro = responseUser.data.roles.find((item) => item === 'ROLE_PRO');
           if (isPro !== undefined) {
@@ -46,12 +43,10 @@ const editUserMiddleware = (store) => (next) => (action) => {
               },
             )
               .then((responsePro) => {
-                store.dispatch(editPro(responsePro.data.siret, responsePro.data.truck_id));
+                store.dispatch(editPro(responsePro.data.truck_id));
               });
           }
-          console.log('valeur de loadEditUser avant dispatch', store.getState().tools.loadEditUser);
           store.dispatch(loadingEditUser());
-          console.log('valeur de loadEditUser après dispatch', store.getState().tools.loadEditUser);
         });
       break;
     }
@@ -94,33 +89,32 @@ const editUserMiddleware = (store) => (next) => (action) => {
       break;
     }
     case SAVE_EDIT_USER: {
+      console.log('on va editer le user');
       const {
         email,
         pseudo,
         avatar,
-        cp,
-        city,
         adresse,
-        siret,
-        foods,
+        food,
+        long,
+        lat,
       } = store.getState().editUser;
-      const foodLikeFilter = foods.filter((item) => (item.isCheck));
+      const foodLikeFilter = food.filter((item) => (item.isCheck));
       const newFoodLike = [];
       foodLikeFilter.map((item) => (
         newFoodLike.push(item.id)
       ));
       console.log('new food like', newFoodLike);
-      const newCP = parseInt(cp, 10);
-      const newSiret = parseInt(siret, 10);
+      const newLong = long.toString();
+      const newLat = lat.toString();
       const data = {
         email: email,
         pseudo: pseudo,
         avatar: avatar,
-        cp: newCP,
-        city: city,
         adresse: adresse,
+        longitude: newLong,
+        latitude: newLat,
         food_like: newFoodLike,
-        siret: newSiret,
       };
       const config = {
         headers: {
