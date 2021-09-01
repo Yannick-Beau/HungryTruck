@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import EditAccount from 'src/components/MyAccount/EditAccount';
-import { loadingEditUser } from '../../../actions/tools';
+import { loadingEditUser, changeRedirect, changeRedirectLogIn } from '../../../actions/tools';
 import {
   findFood,
   updateField,
@@ -27,6 +27,8 @@ const mapStateToProps = (state) => ({
   logged: state.logIn.logged,
   foods: state.editUser.food,
   loadEditUser: state.tools.loadEditUser,
+  redirect: state.tools.loadEditUser,
+  redirectLogIn: state.tools.loadEditUser,
 });
 
 // === mapDispatchToProps
@@ -59,6 +61,14 @@ const mapDispatchToProps = (dispatch) => ({
   },
   editAddress: (address, long, lat) => {
     const action = editAddress(address, long, lat);
+    dispatch(action);
+  },
+  changeRedirect: () => {
+    const action = changeRedirect();
+    dispatch(action);
+  },
+  changeRedirectLogIn: () => {
+    const action = changeRedirectLogIn();
     dispatch(action);
   },
 });
