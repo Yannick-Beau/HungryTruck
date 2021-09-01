@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @Assert\Count(min=1, max=1)
+     * @Assert\Count(min=1, max=3)
      * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user","delete_user"})
      */
     private $roles = [];
@@ -128,6 +128,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->updatedAt = new DateTime();
     }
 
+    public function __toString()
+    {
+        return $this->getPseudo();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -170,7 +175,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        //$roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -253,12 +258,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getSiret(): ?int
+    public function getSiret(): ?string
     {
         return $this->siret;
     }
 
-    public function setSiret(?int $siret): self
+    public function setSiret(?string $siret): self
     {
         $this->siret = $siret;
 

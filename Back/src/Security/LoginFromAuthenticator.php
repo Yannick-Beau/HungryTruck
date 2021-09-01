@@ -51,7 +51,7 @@ class LoginFromAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         
-        return new RedirectResponse($this->urlGenerator->generate('back_office_home'));
+        return new RedirectResponse($this->urlGenerator->generate('admin'));
     }
 
     protected function getLoginUrl(Request $request): string
