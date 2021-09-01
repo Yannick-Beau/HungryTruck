@@ -33,7 +33,7 @@ class ProController extends AbstractController
             );
         }
 
-        if ($user->getRoles() == ["ROLE_PRO", "ROLE_USER"]) {
+        if ($user->getRoles() == ["ROLE_PRO"]) {
             // /!\ JSON Hijacking
             return $this->json($user, Response::HTTP_OK, [], ['groups' => 'pro_get_by_id']);
         }
