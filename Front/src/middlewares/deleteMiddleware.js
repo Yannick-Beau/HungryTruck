@@ -27,6 +27,7 @@ const deleteMiddleware = (store) => (next) => (action) => {
           console.log(response);
           // store.dispatch(sendDel());
           localStorage.removeItem('token');
+          window.location = '/';
         })
         .catch((error) => {
           console.log(error);
