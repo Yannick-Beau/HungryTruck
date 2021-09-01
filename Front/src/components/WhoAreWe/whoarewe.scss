@@ -2,108 +2,75 @@
 
 .team {
   width: 100vw;
-  .team-front {
+  display: flex;
+  justify-content: space-evenly;
+
+  .cards {
+    width: 20rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin: auto;
-    .team-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .team-card--john {
-        width: 40%;
-        box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-        -webkit-box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-        -moz-box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-      }
-      .team-card-yannick {
-        width: 50%;
-        box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-        -webkit-box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-        -moz-box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-      }
-      .team-card--details_john {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 2rem;
-        height: 10rem;
-        text-align: center;
-        border-radius: 100%;
-        margin: -5rem auto auto 14rem;
-        -moz-transform: rotate(331deg);
-        -webkit-transform: rotate(331deg);
-        -o-transform: rotate(331deg);
-        -ms-transform: rotate(331deg);
-        transform: rotate(331deg);
-        background: rgba( 255, 255, 255, 0.25 );
-        box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        backdrop-filter: blur( 6.5px );
-        -webkit-backdrop-filter: blur( 6.5px );
-        color: vars.$DarkOpacity;
-      }
-      .team-card--details_yannick {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 2rem;
-        height: 10rem;
-        text-align: center;
-        border-radius: 100%;
-        margin: -8rem 5rem auto auto;
-        -moz-transform: rotate(36deg);
-        -webkit-transform: rotate(36deg);
-        -o-transform: rotate(36deg);
-        -ms-transform: rotate(36deg);
-        transform: rotate(36deg);
-        background: rgba( 255, 255, 255, 0.25 );
-        box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        backdrop-filter: blur( 6.5px );
-        -webkit-backdrop-filter: blur( 6.5px );
-        color: vars.$DarkOpacity;
-      }
+    align-items: center;
+
+    .cards-picture {
+      z-index: 2;
+      width: 100%;
+      margin-top: -1rem;
+      border-radius: 20px 20px 35px 35px ;
+      box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
     }
-  }
-  .team-back {
-    display: flex;
-    justify-content: center;
-    .team-card {
+
+    .cards-details {
+      width: 80%;
+      background-color: vars.$Yellow;
+      border-radius: 0 0 15px 15px;
+      padding: 0.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: -35rem;
-      margin-left: 5rem;
-      .team-card--aodren {
-        width: 30%;
-        box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-        -webkit-box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
-        -moz-box-shadow: 10px 10px 19px 4px rgba(0,0,0,0.66);
+      justify-content: center;
+      box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      margin-top: -7rem;
+      transition-duration: 1s;
+
+      &:hover {
+        transform: translateY(7rem);
       }
-      .team-card--details_aodren {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 2rem;
-        height: 10rem;
+
+      .details-text {
         text-align: center;
-        border-radius: 100%;
-        margin: -40rem 18rem auto auto;
-        background: rgba( 255, 255, 255, 0.25 );
-        box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-        backdrop-filter: blur( 6.5px );
-        -webkit-backdrop-filter: blur( 6.5px );
-        color: vars.$DarkOpacity;
-        -moz-transform: rotate(36deg);
-        -webkit-transform: rotate(36deg);
-        -o-transform: rotate(36deg);
-        -ms-transform: rotate(36deg);
-        transform: rotate(36deg);
+
+        .name {
+          font-size: 2rem;
+          display: flex;
+          flex-direction: column;
+          
+          span {
+            color: white;
+            font-variant-caps: small-caps;
+            font-style: normal;
+          }
+        }
+
+        .job {
+          padding: 0.3rem;
+        }
+
+        .searching {
+          font-style: italic;
+          padding-bottom: 0.4rem;
+        }
+      }
+
+      .details-logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
       }
     }
   }
