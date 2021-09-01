@@ -21,7 +21,7 @@ class Foodtruck
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"foodtruck_get","pro_get_by_id","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $id;
 
@@ -29,14 +29,14 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      * @Assert\Length(min=2,max=70)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      * @Assert\Length(max=800)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $overview;
 
@@ -45,7 +45,7 @@ class Foodtruck
      * @Assert\NotBlank
      * @Assert\Length(min=2,max=14)
      * @Assert\Positive
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $num_tel;
 
@@ -53,7 +53,7 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $instagram;
 
@@ -61,7 +61,7 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $twitter;
 
@@ -69,7 +69,7 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $facebook;
 
@@ -77,7 +77,7 @@ class Foodtruck
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url
      * @Assert\Length(max=255)
-     * @Groups({"foodtruck_get","pro_get_by_id","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $picture;
 
@@ -89,7 +89,7 @@ class Foodtruck
 
     /**
      * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist"})
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      * 
      */
     private $sell_type_food;

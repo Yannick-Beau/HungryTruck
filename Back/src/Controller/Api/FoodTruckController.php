@@ -155,6 +155,6 @@ class FoodTruckController extends AbstractController
         $em->remove($foodtruck);
         $em->flush();
 
-        return $this->json(['message' => 'Le Foodtruck a bien été supprimé.'], Response::HTTP_OK);
+        return $this->json(['message' => 'Le Foodtruck a bien été supprimé.'], Response::HTTP_OK,[],['groups' => 'delete_foodtruck']);
     }
 }
