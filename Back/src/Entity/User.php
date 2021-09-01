@@ -98,7 +98,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user", cascade={"persist", "remove" })
-     * @Groups({"pro_get_by_id","delete_user"})
+     * @Groups({"pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $truck_id;
 
