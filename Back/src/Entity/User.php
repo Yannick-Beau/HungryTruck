@@ -24,13 +24,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","created_user"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","created_user","delete_user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user","delete_user"})
      * @Assert\NotBlank
      * @Assert\Email
      */
@@ -39,7 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="json")
      * @Assert\Count(min=1, max=1)
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user","delete_user"})
      */
     private $roles = [];
 
@@ -47,7 +47,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * @Groups({"created_user"})
+     * @Groups({"created_user","delete_user"})
      * TODO:
      * 
      */
@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=100)
      * @Assert\Length( min=4,max=70)
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","event_post","created_user"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","event_post","created_user","delete_user"})
      */
     private $pseudo;
 
@@ -65,7 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
      * @Assert\Url
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $avatar;
 
@@ -73,38 +73,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=255)
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=18)
-     * @Groups({"foodtruck_get","pro_get_by_id","event_post","created_user"})
+     * @Groups({"foodtruck_get","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $siret;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $latitude;
 
     /**
      * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user", cascade={"persist", "remove" })
-     * @Groups({"pro_get_by_id"})
+     * @Groups({"pro_get_by_id","delete_user"})
      */
     private $truck_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users",cascade={"persist","remove"})
-     * @Groups({"user_get_by_id","event_post","pro_get_by_id","created_user"})
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users",cascade={"persist"})
+     * @Groups({"user_get_by_id","event_post","pro_get_by_id","created_user","delete_user"})
      */
     private $food_like;
 
