@@ -88,7 +88,7 @@ class Foodtruck
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist", "remove" })
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist"})
      * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user"})
      * 
      */
