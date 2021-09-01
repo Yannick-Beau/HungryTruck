@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { SEND_TRUCK, saveTruck } from '../actions/map';
+import { loadingMap } from '../actions/tools';
 import URL from '../data/ip';
 
 const mapMiddleware = (store) => (next) => (action) => {
@@ -13,6 +14,7 @@ const mapMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(saveTruck(response.data));
+          store.dispatch(loadingMap());
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
