@@ -136,6 +136,6 @@ class UserController extends AbstractController
         $em->remove($user);
         $em->flush();
 
-        return $this->json(['message' => 'L\'Utilisateur a bien été supprimé.'], Response::HTTP_OK);
+        return $this->json(['message' => 'L\'Utilisateur a bien été supprimé.'], Response::HTTP_OK,[],['groups' => 'delete_user']);
     }
 }
