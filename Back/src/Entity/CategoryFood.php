@@ -19,7 +19,7 @@ class CategoryFood
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"user_get_by_id","pro_get_by_id","foodcategory_get","created_user"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodcategory_get","created_user","delete_user"})
      */
     private $id;
 

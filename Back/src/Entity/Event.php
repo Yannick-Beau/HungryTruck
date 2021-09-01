@@ -19,7 +19,7 @@ class Event
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $id;
 
@@ -27,7 +27,7 @@ class Event
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=2,max=70)
      * @Assert\NotBlank
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $day;
 
@@ -35,7 +35,7 @@ class Event
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=10)
      * @Assert\NotBlank
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $hours;
 
@@ -43,7 +43,7 @@ class Event
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=10)
      * @Assert\NotBlank
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $hours_end;
 
@@ -51,20 +51,20 @@ class Event
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min=1,max=255)
      * @Assert\NotBlank
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $adresse;
 
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $longitude;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"event_post","foodtruck_get","pro_get_by_id"})
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user"})
      */
     private $latitude;
 
