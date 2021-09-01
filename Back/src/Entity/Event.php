@@ -80,7 +80,7 @@ class Event
 
     /**
      * @ORM\ManyToOne(targetEntity=Foodtruck::class, inversedBy="events")
-     * @Groups({"event_post"})
+     * @Groups({"event_post","delete_foodtruck"})
      */
     private $foodtruck;
 
