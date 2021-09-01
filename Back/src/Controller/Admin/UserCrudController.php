@@ -31,9 +31,9 @@ class UserCrudController extends AbstractCrudController
             Field::new('pseudo'),
             UrlField::new('avatar'),
             TextField::new('adresse'),
-            NumberField::new('longitude'),
-            NumberField::new('latitude'),
-            NumberField::new('siret'),
+            TextField::new('longitude'),
+            TextField::new('latitude'),
+            TextField::new('siret'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm()
         ];
