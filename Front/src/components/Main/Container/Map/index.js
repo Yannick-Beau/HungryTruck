@@ -24,10 +24,29 @@ const Map = ({
     loadingMap();
     sendTruck();
   }, []);
-  console.log(trucks);
-  // const events[] = trucks.map((truck) => ({
-  //   ...truck.event,
-  // }));
+  // const today = new Date();
+  // const trucksFilter = trucks.map((truck) => {
+  //   // console.log(truck);
+  //   const eventsFilter = truck.events.filter((item) => {
+  //     const hoursEndRplace = item.hours_end.replace('h', '-');
+  //     const hoursEnd = hoursEndRplace.split('-');
+  //     console.log(parseInt(hoursEnd[0], 10), parseInt(hoursEnd[1], 10));
+  //     return item.day === 'mardi' && ((parseInt(hoursEnd[0], 10) >= 1 && parseInt(hoursEnd[1], 10) > 10) || parseInt(hoursEnd[0], 10) > 1);
+  //   });
+  //   // console.log('eventsFilter : ', eventsFilter);
+  //   if (eventsFilter.length > 0) {
+  //     return {
+  //       ...truck,
+  //       events: eventsFilter,
+  //     };
+  //   }
+  //   return {
+  //     ...truck,
+  //     events: [],
+  //   };
+  // });
+  // console.log('trucksFilter : ', trucksFilter);
+
   return (
     <div id="map">
       { loadMap
