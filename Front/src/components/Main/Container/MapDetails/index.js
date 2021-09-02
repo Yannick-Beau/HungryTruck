@@ -8,59 +8,37 @@ import './mapdetails.scss';
 import Logo from '../../../../assets/img/logo.png';
 
 // == Composant
-const MapDetails = () => (
+const MapDetails = ({ trucks, loadMap }) => (
   <article className="mapdetails">
-    <div className="mapdetails-text">
-      <h3 className="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
-      <ul className="mapdetails-text--ul">
-        <Link
-          to="/food-truck"
-        >
-          <article className="search-results--result">
-            <img src={Logo} className="result-logo" alt="logo" />
-            <div className="result-details">
-              <p className="result-title">
-                Nom du truck
-              </p>
-              <p className="result-time">
-                Lundi: 16h / 22h - Place des grands Hommes
-              </p>
-            </div>
-          </article>
-        </Link>
-        <Link
-          to="/food-truck"
-        >
-          <article className="search-results--result">
-            <img src={Logo} className="result-logo" alt="logo" />
-            <div className="result-details">
-              <p className="result-title">
-                Nom du truck
-              </p>
-              <p className="result-time">
-                Lundi: 16h / 22h - Place des grands Hommes
-              </p>
-            </div>
-          </article>
-        </Link>
-        <Link
-          to="/food-truck"
-        >
-          <article className="search-results--result">
-            <img src={Logo} className="result-logo" alt="logo" />
-            <div className="result-details">
-              <p className="result-title">
-                Nom du truck
-              </p>
-              <p className="result-time">
-                Lundi: 16h / 22h - Place des grands Hommes
-              </p>
-            </div>
-          </article>
-        </Link>
+    {!loadMap
+    && (
+      <div className="mapdetails-text">
+        <h3 className="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
+        <ul className="mapdetails-text--ul">
+          {trucks.map((truck) => (
+            <Link
+              to={`/food-truck/${truck.id}`}
+              key={truck.id}
+            >
+              <article className="search-results--result">
+                <img src={truck.picture} className="result-logo" alt="logo" />
+                <div className="result-details">
+                  <p className="result-title">
+                    {truck.name}
+                  </p>
+                  {truck.events.map((item) => (
+                    <p key={item.id} className="result-time">
+                      {`${item.day}: ${item.hours} / ${item.hours_end} - ${item.adresse}`}
+                    </p>
+                  ))}
+                </div>
+              </article>
+            </Link>
+          ))}
+        </ul>
+      </div>
+    )}
 
-      </ul>
-    </div>
   </article>
 );
 

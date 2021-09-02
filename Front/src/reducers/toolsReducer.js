@@ -3,11 +3,13 @@ import {
   LOADING_EDIT_USER,
   CHANGE_REDIRECT,
   CHANGE_REDIRECT_LOGIN,
+  LOADING_MAP,
 } from '../actions/tools';
 
 const initialState = {
   iconUserIsOpen: false,
   loadEditUser: false,
+  loadMap: false,
   redirect: false,
   redirectLogIn: false,
 };
@@ -37,6 +39,12 @@ function toolsReducer(state = initialState, action = {}) {
       return {
         ...state,
         loadEditUser: !state.loadEditUser,
+      };
+    }
+    case LOADING_MAP: {
+      return {
+        ...state,
+        loadMap: !state.loadMap,
       };
     }
     default:
