@@ -24,8 +24,9 @@ const Search = ({
     filterSearch = trucks.filter((item) => {
       const lowerSearch = search.toLowerCase();
       const lowerTrucks = item.name.toLowerCase();
+      const lowerOverView = item.overview.toLowerCase();
 
-      return lowerTrucks.includes(lowerSearch);
+      return lowerTrucks.includes(lowerSearch) || lowerOverView.includes(lowerSearch);
     });
   }
 
