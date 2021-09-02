@@ -1,6 +1,7 @@
 @use 'src/styles/vars';
 
 #contact {
+  z-index: 1;
   #contact-title {
     font-weight: bold;
     font-size: 4rem;
@@ -15,6 +16,7 @@
     margin: auto;
     padding: 2.5rem;
     background-color: vars.$DarkOpacity;
+    z-index: 1;
 
     form {
       label {

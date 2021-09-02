@@ -57,6 +57,7 @@
 @media (max-width: 1050px) {
   .footer {
     font-size: 0.9rem;
+    z-index: 0;
 
     .footer-copyright {
       font-size: 0.3rem;
@@ -67,13 +68,17 @@
 
 @media (min-width: 559px) and (max-width: 750px) {
 
+  .footer {
+    z-index: 0;
     .footer-copyright {
       font-size: 0.3rem;
     }
+  }
 }
 
 @media (min-width: 410px) and (max-width: 558px) {
   .footer {
+    z-index: 0;
     .footer-left{
       text-align: left;
     }
@@ -88,6 +93,7 @@
 
 @media (min-width: 50px) and (max-width: 409px) {
   .footer {
+    z-index: 0;
     font-size: 0.6rem;
     .footer-left{
       text-align: left;
