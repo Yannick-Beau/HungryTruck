@@ -14,6 +14,24 @@ const mapMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
+          const {
+            longitude,
+            latitude,
+          } = store.getState().logIn;
+          let centerLong;
+          let centerLat;
+          if (longitude === 0) {
+            centerLong = '2.35183';
+          }
+          else {
+            centerLong = longitude;
+          }
+          if (latitude === 0) {
+            centerLat = '48.85658';
+          }
+          else {
+            centerLat = latitude;
+          }
           const trucksFilter = [];
           response.data.map((truck) => {
             // console.log(truck);

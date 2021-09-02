@@ -21,9 +21,26 @@ const Map = ({
   });
   const style = 'mapbox://styles/mapbox/streets-v8';
   useEffect(() => {
-    loadingMap();
-    sendTruck();
+    console.log(trucks);
+    if (trucks.length === 0) {
+      loadingMap();
+      sendTruck();
+    }
   }, []);
+  let centerLong;
+  let centerLat;
+  if (long === 0) {
+    centerLong = '2.35183';
+  }
+  else {
+    centerLong = long;
+  }
+  if (lat === 0) {
+    centerLat = '48.85658';
+  }
+  else {
+    centerLat = lat;
+  }
   // const today = new Date();
   // const trucksFilter = trucks.map((truck) => {
   //   // console.log(truck);
@@ -61,7 +78,7 @@ const Map = ({
       )}
       { !loadMap
       && (
-      <Map style={style} center={[long, lat]} className="map-main">
+      <Map style={style} center={[centerLong, centerLat]} className="map-main">
         <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
           {trucks.map((truck) => (
             truck.events.map((item) => <Feature coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]} />)
