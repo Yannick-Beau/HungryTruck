@@ -1,6 +1,7 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
+import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -41,28 +42,6 @@ const Map = ({
   else {
     centerLat = lat;
   }
-  // const today = new Date();
-  // const trucksFilter = trucks.map((truck) => {
-  //   // console.log(truck);
-  //   const eventsFilter = truck.events.filter((item) => {
-  //     const hoursEndRplace = item.hours_end.replace('h', '-');
-  //     const hoursEnd = hoursEndRplace.split('-');
-  //     console.log(parseInt(hoursEnd[0], 10), parseInt(hoursEnd[1], 10));
-  //     return item.day === 'mardi' && ((parseInt(hoursEnd[0], 10) >= 1 && parseInt(hoursEnd[1], 10) > 10) || parseInt(hoursEnd[0], 10) > 1);
-  //   });
-  //   // console.log('eventsFilter : ', eventsFilter);
-  //   if (eventsFilter.length > 0) {
-  //     return {
-  //       ...truck,
-  //       events: eventsFilter,
-  //     };
-  //   }
-  //   return {
-  //     ...truck,
-  //     events: [],
-  //   };
-  // });
-  // console.log('trucksFilter : ', trucksFilter);
 
   return (
     <div id="map">
@@ -84,6 +63,24 @@ const Map = ({
             truck.events.map((item) => <Feature coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]} />)
           ))}
         </Layer>
+        {trucks.map((truck) => (
+          truck.events.map((item) => (
+            <Link
+              to={`/food-truck/${truck.id}`}
+              key={truck.id}
+            >
+              <Popup
+                coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]}
+                offset={{
+                  'bottom-left': [12, -38], bottom: [0, -10], 'bottom-right': [-12, -38],
+                }}
+                className="map-popup"
+              >
+                <h1>{truck.name}</h1>
+              </Popup>
+            </Link>
+          ))
+        ))}
 
       </Map>
       )}
