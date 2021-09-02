@@ -6,7 +6,7 @@ import './container.scss';
 
 // == Import components
 import Map from '../../../containers/Main/Container/Map';
-import MapDetails from './MapDetails';
+import MapDetails from '../../../containers/Main/Container/MapDetails';
 
 // == Composant
 const Container = () => (

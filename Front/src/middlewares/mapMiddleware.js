@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { SEND_TRUCK, saveTruck } from '../actions/map';
+import { loadSearch } from '../actions/search';
 import { loadingMap } from '../actions/tools';
 import URL from '../data/ip';
 
@@ -13,7 +14,8 @@ const mapMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          const trucksFilter = response.data.map((truck) => {
+          const trucksFilter = [];
+          response.data.map((truck) => {
             // console.log(truck);
             const eventsFilter = truck.events.filter((item) => {
               const hoursEndRplace = item.hours_end.replace('h', '-');
@@ -23,18 +25,16 @@ const mapMiddleware = (store) => (next) => (action) => {
             });
             // console.log('eventsFilter : ', eventsFilter);
             if (eventsFilter.length > 0) {
-              return {
+              trucksFilter.push({
                 ...truck,
                 events: eventsFilter,
-              };
+              });
             }
-            return {
-              ...truck,
-              events: [],
-            };
+            return {};
           });
           console.log('trucksFilter : ', trucksFilter);
           store.dispatch(saveTruck(trucksFilter));
+          store.dispatch(loadSearch(response.data));
           store.dispatch(loadingMap());
         })
         .catch((error) => {
