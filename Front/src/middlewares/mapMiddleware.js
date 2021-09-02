@@ -14,6 +14,7 @@ const mapMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
+          const date = new Date();
           const {
             longitude,
             latitude,
@@ -32,14 +33,67 @@ const mapMiddleware = (store) => (next) => (action) => {
           else {
             centerLat = latitude;
           }
+          console.log(centerLong, centerLat);
+          const signLongitude = Math.sign(parseFloat(longitude));
+          const signLatitude = Math.sign(parseFloat(latitude));
+          let longMax;
+          let longMin;
+          let latMax;
+          let latMin;
+          if (signLongitude === 0 || signLongitude === 1) {
+            longMax = parseFloat(centerLong) + 0.10;
+            longMin = parseFloat(centerLong) - 0.10;
+          }
+          if (signLongitude === -1) {
+            const convertLong = -parseFloat(centerLong);
+            longMax = convertLong + 0.10;
+            longMin = convertLong - 0.10;
+          }
+          if (signLatitude === 0 || signLatitude === 1) {
+            latMax = parseFloat(centerLat) + 0.10;
+            latMin = parseFloat(centerLat) - 0.10;
+          }
+          if (signLatitude === -1) {
+            const convertLat = -parseFloat(centerLat);
+            latMax = convertLat + 0.10;
+            latMin = convertLat - 0.10;
+          }
+          console.log(longMin, longMax);
+          console.log(latMin, latMax);
           const trucksFilter = [];
           response.data.map((truck) => {
             // console.log(truck);
             const eventsFilter = truck.events.filter((item) => {
               const hoursEndRplace = item.hours_end.replace('h', '-');
               const hoursEnd = hoursEndRplace.split('-');
-              console.log(parseInt(hoursEnd[0], 10), parseInt(hoursEnd[1], 10));
-              return item.day === 'mardi' && ((parseInt(hoursEnd[0], 10) >= 1 && parseInt(hoursEnd[1], 10) > 10) || parseInt(hoursEnd[0], 10) > 1);
+              // const signItemLongitude = Math.sign(parseFloat(item.longitude));
+              // const signItemLatitude = Math.sign(parseFloat(item.latitude));
+              let longConvert;
+              let latConvert;
+              if (signLongitude === 0 || signLongitude === 1) {
+                longConvert = item.longitude;
+              }
+              if (signLongitude === -1) {
+                longConvert = -item.longitude;
+              }
+              if (signLatitude === 0 || signLatitude === 1) {
+                latConvert = item.latitude;
+              }
+              if (signLatitude === -1) {
+                latConvert = -item.latitude;
+              }
+              console.log(latConvert, '>=', latMin, '&&', latConvert, '<=', latMax);
+              console.log(longConvert, '>=', longMin, '&&', longConvert, '<=', longMax);
+              return item.day === date.toLocaleDateString('fr-FR', { weekday: 'long' }) // jour
+              && (
+                (parseInt(hoursEnd[0], 10) >= date.getHours() // hours
+              && parseInt(hoursEnd[1], 10) > date.getMinutes()) // min
+              || parseInt(hoursEnd[0], 10) > date.getHours() // hours
+              )
+              && (
+                (longConvert >= longMin && longConvert <= longMax)
+              && (latConvert >= latMin && latConvert <= latMax)
+              );
             });
             // console.log('eventsFilter : ', eventsFilter);
             if (eventsFilter.length > 0) {
