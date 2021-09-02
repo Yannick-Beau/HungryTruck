@@ -4,6 +4,7 @@ import React from 'react';
 // == Import
 import './whoarewe.scss';
 import { GitHub, Linkedin, Mail } from 'react-feather';
+import { Link } from 'react-router-dom';
 import Yannick from '../../assets/img/yannick.png';
 import John from '../../assets/img/john.png';
 import Aodren from '../../assets/img/aodren.png';
@@ -24,9 +25,29 @@ const WhoAreWe = () => (
           <p className="searching">En recherche d'alternance</p>
         </div>
         <div className="details-logo">
-          <Linkedin />
-          <GitHub />
-          <Mail />
+          <a
+            href="https://www.linkedin.com/in/yannick-beau/"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/Yannick-Beau"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <GitHub />
+          </a>
+          <a
+            href="mailto:beauyannick@gmail.com"
+            exact
+            rel="noreferrer"
+          >
+            <Mail />
+          </a>
         </div>
       </div>
     </div>
@@ -43,9 +64,29 @@ const WhoAreWe = () => (
           <p className="searching">En recherche d'alternance</p>
         </div>
         <div className="details-logo">
-          <Linkedin />
-          <GitHub />
-          <Mail mailTo="turpin.j@hotmail.fr" />
+          <a
+            href="https://www.linkedin.com/in/turpin-jonathan"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/TURPINJonathan"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <GitHub />
+          </a>
+          <a
+            href="mailto:turpin.j@hotmail.fr"
+            exact
+            rel="noreferrer"
+          >
+            <Mail />
+          </a>
         </div>
       </div>
     </div>
@@ -57,14 +98,34 @@ const WhoAreWe = () => (
       />
       <div className="cards-details">
         <div className="details-text">
-          <p className="name"><span>Lacot LC</span> Aodrën</p>
+          <p className="name"><span>L. Le Clanche</span> Aodrën</p>
           <p className="job">Lead Dev Back | Git Master</p>
           <p className="searching">En recherche d'alternance</p>
         </div>
         <div className="details-logo">
-          <Linkedin />
-          <GitHub />
-          <Mail />
+          <a
+            href="https://www.linkedin.com/in/aodren-lacotleclanche/"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/ExoCinki"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <GitHub />
+          </a>
+          <a
+            href="mailto:aolacot@gmail.com"
+            exact
+            rel="noreferrer"
+          >
+            <Mail />
+          </a>
         </div>
       </div>
     </div>

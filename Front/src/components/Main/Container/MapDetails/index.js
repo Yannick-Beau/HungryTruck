@@ -9,10 +9,10 @@ import Logo from '../../../../assets/img/logo.png';
 
 // == Composant
 const MapDetails = () => (
-  <article className="mapdetails">
-    <div className="mapdetails-text">
-      <h3 className="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
-      <ul className="mapdetails-text--ul">
+  <article id="mapdetails">
+    <div id="mapdetails-text">
+      <h3 id="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
+      <ul id="mapdetails-text--ul">
         <Link
           to="/food-truck"
         >
