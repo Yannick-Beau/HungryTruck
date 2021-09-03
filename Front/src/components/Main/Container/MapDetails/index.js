@@ -1,4 +1,3 @@
-
 // == Import npm
 import React from 'react';
 
@@ -6,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 // == Import
 import './mapdetails.scss';
+import Logo from '../../../../assets/img/logo.png';
 
 // == Composant
 const MapDetails = ({ trucks, loadMap }) => (

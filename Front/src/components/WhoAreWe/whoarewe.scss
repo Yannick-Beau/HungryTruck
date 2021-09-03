@@ -1,0 +1,77 @@
+@use 'src/styles/vars';
+
+.team {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+
+  .cards {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .cards-picture {
+      z-index: 2;
+      width: 100%;
+      margin-top: -1rem;
+      border-radius: 20px 20px 35px 35px ;
+      box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+    }
+
+    .cards-details {
+      width: 80%;
+      background-color: vars.$Yellow;
+      border-radius: 0 0 15px 15px;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 29px 1px rgba(0,0,0,0.75);
+      margin-top: -7rem;
+      transition-duration: 1s;
+
+      &:hover {
+        transform: translateY(7rem);
+      }
+
+      .details-text {
+        text-align: center;
+
+        .name {
+          font-size: 2rem;
+          display: flex;
+          flex-direction: column;
+          
+          span {
+            color: white;
+            font-variant-caps: small-caps;
+            font-style: normal;
+          }
+        }
+
+        .job {
+          padding: 0.3rem;
+        }
+
+        .searching {
+          font-style: italic;
+          padding-bottom: 0.4rem;
+        }
+      }
+
+      .details-logo {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+
+      }
+    }
+  }
+}
