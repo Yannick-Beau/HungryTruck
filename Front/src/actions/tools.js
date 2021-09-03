@@ -5,6 +5,7 @@ export const LOADING_MAP = 'LOADING_MAP';
 export const CHANGE_REDIRECT = 'CHANGE_REDIRECT';
 export const CHANGE_REDIRECT_LOGIN = 'CHANGE_REDIRECT_LOGIN';
 export const LOADING_FAQ = 'LOADING_FAQ';
+export const LOADING_LOGIN = 'LOADING_LOGIN';
 
 // === action creators
 export const changeStatusIconUser = () => ({
@@ -21,6 +22,10 @@ export const loadingMap = () => ({
 
 export const loadingFaq = () => ({
   type: LOADING_FAQ,
+});
+
+export const loadingLogIn = () => ({
+  type: LOADING_LOGIN,
 });
 
 export const changeRedirect = () => ({
