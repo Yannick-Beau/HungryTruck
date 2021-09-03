@@ -32,6 +32,7 @@ class FoodtruckCrudController extends AbstractCrudController
             UrlField::new('twitter'),
             UrlField::new('facebook'),
             AssociationField::new('user'),
+            AssociationField::new('sell_type_food'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm()
         ];
