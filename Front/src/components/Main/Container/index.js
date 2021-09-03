@@ -5,12 +5,12 @@ import React from 'react';
 import './container.scss';
 
 // == Import components
-import Map from './Map';
-import MapDetails from './MapDetails';
+import Map from '../../../containers/Main/Container/Map';
+import MapDetails from '../../../containers/Main/Container/MapDetails';
 
 // == Composant
 const Container = () => (
-  <section className="container">
+  <section id="container">
     <Map />
     <MapDetails />
   </section>

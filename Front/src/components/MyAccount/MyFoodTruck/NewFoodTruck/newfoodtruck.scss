@@ -2,6 +2,7 @@
 
 .section-newFoodTruck {
   margin: 2rem;
+  margin-top: 0;
 
   .newFoodTruck-title {
     font-weight: bold;
@@ -13,6 +14,12 @@
   .newFoodTruck-picture {
     margin-left: 9rem;
     margin-top: -4rem;
+    border-radius: 25px;
+    min-width: 15rem;
+    max-width: 16rem;
+    min-height: 20rem;
+    max-height: 21rem;
+    background-color: rgba(150, 150, 150, 0.7);
   }
 
   .newFoodTruck {
@@ -53,28 +60,39 @@
       margin: 0.5rem;
     }
 
-    .foodtruck-social {
+    .myFT-details {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      width: auto;
 
-      input {
-        width: 20rem;
-        height: 1.8rem;
-        border-radius: 0 25px 25px 0;
-        border: none;
-        padding-left: 1rem;
-        margin-left: 1rem;
+      .myFT-details--detail {
+        width: auto;
+        margin: auto;
+        .foodtruck-social {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
 
-        &:focus {
-          box-shadow: inset 0 0 25px rgba(0, 0, 0, .5);
-        }
+          input, .addslot-input {
+            width: 15rem;
+            height: 1.8rem;
+            border-radius: 0 25px 25px 0;
+            border: none;
+            padding-left: 1rem;
+            margin-left: 1rem;
 
-        &::placeholder {
-          font-style: italic;
-        }
+            &:focus {
+              box-shadow: inset 0 0 25px rgba(0, 0, 0, .5);
+            }
+
+            &::placeholder {
+              font-style: italic;
+            }
+          }
+        }         
       }
+     
     }
+
 
     .account-button {
       display: flex;

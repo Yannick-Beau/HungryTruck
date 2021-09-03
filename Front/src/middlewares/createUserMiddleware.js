@@ -12,40 +12,35 @@ const createUserMiddleware = (store) => (next) => (action) => {
         createPro,
         nickname,
         pictureUser,
-        cp,
-        city,
         address,
+        long,
+        lat,
         siret,
         foods,
       } = store.getState().createUser;
       const foodLikeFilter = foods.filter((item) => (item.isCheck));
-      const foodLikeMap = foodLikeFilter.map((item) => {
-        const newFood = {
-          name: item.name,
-        };
-        return newFood;
-      });
-      const foodLike = [
-        ...foodLikeMap,
-      ];
-      console.log('new food like', foodLike);
-      const newCP = parseInt(cp, 10);
-      const newSiret = parseInt(siret, 10);
+      const foodLike = [];
+      foodLikeFilter.map((item) => (
+        foodLike.push(item.id)
+      ));
       let proUser = ['ROLE_USER'];
       if (createPro === true) {
         proUser = ['ROLE_PRO'];
       }
+      const newLong = long.toString();
+      const newLat = lat.toString();
+      console.log('new food like', foodLike);
       console.log(`
         email : ${email},
         password : ${password},
         user : ${proUser},
         pesudo : ${nickname},
         pictureUser : ${pictureUser},
-        cp : ${newCP},
-        city : ${city},
+        long : ${long},
+        lat : ${lat},
         address : ${address},
-        siret : ${newSiret},`);
-      console.log(`On va s'inscrire avec email: ${email} et mdp: ${password}`);
+        siret : ${siret},
+        foodLike: ${foodLike}`);
       axios.post(`${URL}/api/user/create`,
         {
           email: email,
@@ -53,10 +48,10 @@ const createUserMiddleware = (store) => (next) => (action) => {
           password: password,
           pseudo: nickname,
           avatar: pictureUser,
-          cp: newCP,
-          city: city,
+          longitude: newLong,
+          latitude: newLat,
           adresse: address,
-          siret: newSiret,
+          siret: siret,
           food_like: foodLike,
         })
         .then((response) => {

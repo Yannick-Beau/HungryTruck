@@ -1,7 +1,7 @@
 @use 'src/styles/vars';
 
 .hungrytruck {
-  width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   background-color: vars.$DarkOpacity;
   background-image: url(../../assets/img/background.jpg);
@@ -12,6 +12,7 @@
   font-family: Quicksand;
 
   // overflow: visible;
+
 
   .input-yellow {
     margin-top: 0.5rem;
@@ -60,4 +61,31 @@
     }
   }
 
+}
+
+.popup-content {
+  margin: auto;
+  background: none;
+  border: none;
+  width: auto;
+  padding: 5px;
+}
+.popup-arrow {
+  background: rgba(0, 0, 0, 0.9);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 0px 3px;
+  background-color: rgba(0, 0, 0, 0.9);
+
+  .viewslots-section {
+    background-color: red;
+  }
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }

@@ -3,47 +3,133 @@ import React from 'react';
 
 // == Import
 import './whoarewe.scss';
-import Yannick from '../../assets/img/yannick.jpg';
-import John from '../../assets/img/john.jpg';
-import Aodren from '../../assets/img/aodren.jpg';
+import { GitHub, Linkedin, Mail } from 'react-feather';
+import { Link } from 'react-router-dom';
+import Yannick from '../../assets/img/yannick.png';
+import John from '../../assets/img/john.png';
+import Aodren from '../../assets/img/aodren.png';
 
 // == Composant
 const WhoAreWe = () => (
   <section className="team">
-    <div className="team-front">
-      <article className="team-card">
-        {/* <div className="team-card--complete"> */}
-        <img src={John} alt="john" className="team-card--john" />
-        <div className="team-card--details_john">
-          <p>TURPIN Jonathan</p>
-          <p>Product Owner</p>
-          <p>Développeur Front</p>
+    <div className="cards">
+      <img
+        className="cards-picture"
+        src={Yannick}
+        alt="Yannick Beau"
+      />
+      <div className="cards-details">
+        <div className="details-text">
+          <p className="name"><span>Beau</span> Yannick</p>
+          <p className="job">Lead Dev Front | Scrum Master</p>
+          <p className="searching">En recherche d'alternance</p>
         </div>
-        {/* </div> */}
-      </article>
-      <article className="team-card">
-        {/* <div className="team-card--complete"> */}
-        <img src={Yannick} alt="yannick" className="team-card-yannick" />
-        <div className="team-card--details_yannick">
-          <p>BEAU Yannick</p>
-          <p>Lead Dev Front / Scrum Master</p>
-          <p>Développeur Front</p>
+        <div className="details-logo">
+          <a
+            href="https://www.linkedin.com/in/yannick-beau/"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/Yannick-Beau"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <GitHub />
+          </a>
+          <a
+            href="mailto:beauyannick@gmail.com"
+            exact
+            rel="noreferrer"
+          >
+            <Mail />
+          </a>
         </div>
-        {/* </div> */}
-      </article>
+      </div>
     </div>
-    <div className="team-back">
-      <article className="team-card">
-        {/* <div className="team-card--complete"> */}
-        <img src={Aodren} alt="aodren" className="team-card--aodren" />
-        <div className="team-card--details_aodren">
-          <p>LLC Aodrën</p>
-          <p>Lead Dev Back / Git Master</p>
-          <p>Développeur Back</p>
+    <div className="cards">
+      <img
+        className="cards-picture"
+        src={John}
+        alt="Turpin Jonathan"
+      />
+      <div className="cards-details">
+        <div className="details-text">
+          <p className="name"><span>Turpin</span> Jonathan</p>
+          <p className="job">Dev Front | Product Owner</p>
+          <p className="searching">En recherche d'alternance</p>
         </div>
-        {/* </div> */}
-      </article>
+        <div className="details-logo">
+          <a
+            href="https://www.linkedin.com/in/turpin-jonathan"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/TURPINJonathan"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <GitHub />
+          </a>
+          <a
+            href="mailto:turpin.j@hotmail.fr"
+            exact
+            rel="noreferrer"
+          >
+            <Mail />
+          </a>
+        </div>
+      </div>
     </div>
+    <div className="cards">
+      <img
+        className="cards-picture"
+        src={Aodren}
+        alt="Aodren LACOT LE CLANCHE"
+      />
+      <div className="cards-details">
+        <div className="details-text">
+          <p className="name"><span>L. Le Clanche</span> Aodrën</p>
+          <p className="job">Lead Dev Back | Git Master</p>
+          <p className="searching">En recherche d'alternance</p>
+        </div>
+        <div className="details-logo">
+          <a
+            href="https://www.linkedin.com/in/aodren-lacotleclanche/"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://github.com/ExoCinki"
+            target="_blank"
+            exact
+            rel="noreferrer"
+          >
+            <GitHub />
+          </a>
+          <a
+            href="mailto:aolacot@gmail.com"
+            exact
+            rel="noreferrer"
+          >
+            <Mail />
+          </a>
+        </div>
+      </div>
+    </div>
+
   </section>
 );
 

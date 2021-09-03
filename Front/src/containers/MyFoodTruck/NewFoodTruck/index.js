@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import NewFoodTruck from '../../../components/MyAccount/MyFoodTruck/NewFoodTruck';
-import { newFoodTruck, newTime } from '../../../actions/newFoodTruck';
+import { changeField, loadNewFoodTruck } from '../../../actions/newFoodTruck';
+import { findFood } from '../../../actions/createUser';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -14,23 +15,31 @@ const mapStateToProps = (state) => ({
   facebook: state.newFT.newFoodTruckFB,
   instagram: state.newFT.newFoodTruckInsta,
   twitter: state.newFT.newFoodTruckTwitter,
+  phone: state.newFT.phone,
+  overview: state.newFT.overview,
+  picture: state.newFT.picture,
+  type1: state.newFT.type1,
+  tyep2: state.newFT.tyep2,
+  type3: state.newFT.type3,
 
-  newDay: state.newFT.newDay,
-  newStartTime: state.newFT.newStartTime,
-  newEndTime: state.newFT.newEndTime,
+  foods: state.createUser.foods,
 });
 
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  newFoodTruck: (newValue, identifier) => {
-    const action = newFoodTruck(newValue, identifier);
+  changeField: (newValue, identifier) => {
+    const action = changeField(newValue, identifier);
     dispatch(action);
   },
 
-  newTime: (newValue, identifier) => {
-    const action = newTime(newValue, identifier);
+  loadNewFoodTruck: () => {
+    const action = loadNewFoodTruck();
+    dispatch(action);
+  },
+  findFood: () => {
+    const action = findFood();
     dispatch(action);
   },
 });

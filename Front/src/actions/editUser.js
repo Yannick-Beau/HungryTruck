@@ -7,6 +7,7 @@ export const FIND_USER = 'FIND_USER';
 export const UPDATE_FIELD = 'UPDATE_FIELD';
 export const UPDATE_TOGGLE = 'UPDATE_TOGGLE';
 export const SAVE_EDIT_USER = 'SAVE_EDIT_USER';
+export const EDIT_ADDRESS = 'EDIT_ADDRESS';
 
 // === action creators
 export const saveFood = (newValue) => ({
@@ -22,21 +23,17 @@ export const findUser = () => ({
   type: FIND_USER,
 });
 
-export const editUser = (address, avatar, city, cp, foodLike, id, pseudo, roles) => ({
+export const editUser = (email, address, avatar, foodLike, pseudo) => ({
   type: EDIT_USER,
+  email: email,
   adresse: address,
   avatar: avatar,
-  city: city,
-  cp: cp,
   foodLike: foodLike,
-  id: id,
   pseudo: pseudo,
-  roles: roles,
 });
 
-export const editPro = (siret, trucksPro) => ({
+export const editPro = (trucksPro) => ({
   type: EDIT_PRO,
-  siret: siret,
   trucksPro: trucksPro,
 });
 
@@ -54,4 +51,11 @@ export const updateToggle = (newValue, identifier) => ({
 
 export const saveEditUser = () => ({
   type: SAVE_EDIT_USER,
+});
+
+export const editAddress = (address, long, lat) => ({
+  type: EDIT_ADDRESS,
+  address: address,
+  long: long,
+  lat: lat,
 });

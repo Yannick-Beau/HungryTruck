@@ -22,11 +22,13 @@ const createUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseUser) => {
+          console.log(responseUser.data);
           store.dispatch(connectUser(
+            responseUser.data.email,
             responseUser.data.adresse,
             responseUser.data.avatar,
-            responseUser.data.city,
-            responseUser.data.cp,
+            responseUser.data.longitude,
+            responseUser.data.latitude,
             responseUser.data.food_like,
             responseUser.data.id,
             responseUser.data.pseudo,
@@ -43,6 +45,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
               },
             )
               .then((responsePro) => {
+                console.log(responsePro.data);
                 store.dispatch(connectPro(responsePro.data.siret, responsePro.data.truck_id));
               });
           }
