@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import LogIn from 'src/components/MyAccount/LogIn';
-import { updateField, authentification } from '../../../actions/logIn';
+import { updateField, authentification, changeIsSuccessLogin } from '../../../actions/logIn';
 import { loadingLogIn } from '../../../actions/tools';
 
 // === mapStateToProps
@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
   password: state.logIn.password,
   tokenIsOk: state.logIn.logged,
   loadLogIn: state.tools.loadLogIn,
+  isSuccessLogIn: state.logIn.isSuccessLogIn,
 });
 
 // === mapDispatchToProps
@@ -31,6 +32,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   loadingLogIn: () => {
     const action = loadingLogIn();
+    dispatch(action);
+  },
+  changeIsSuccessLogin: (newValue) => {
+    const action = changeIsSuccessLogin(newValue);
     dispatch(action);
   },
 });
