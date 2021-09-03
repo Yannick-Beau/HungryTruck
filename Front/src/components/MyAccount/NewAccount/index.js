@@ -179,7 +179,7 @@ const NewAccount = ({
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="password-confirmation">Confirmer votre mot de passe *
+                  <label className="field-label" htmlFor="password-confirmation">Confirmez votre mot de passe *
                     <div>
                       <input
                         className="field-input"
@@ -248,7 +248,7 @@ const NewAccount = ({
                 <div />
               </div>
               <div className="fields-food">
-                <h2>Choissier vos nourritures favorites</h2>
+                <h2>Choissez vos nourritures favorites</h2>
                 <fieldset className="field-check">
                   {foods.map((item) => (
                     <label key={item.name} className="field-label" htmlFor={item.name}>{item.name}

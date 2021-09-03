@@ -2,11 +2,10 @@
 
 .newaccount {
   width: 70vw;
-  min-height: 100vh;
+  max-height: 100vh;
 
   margin: auto;
-  padding-bottom: 7rem;
-  margin-top: -4rem;
+  margin-top: -5rem;
 
   .newaccount-title {
     font-weight: bold;
@@ -170,6 +169,9 @@
           .fields-left {
             padding: vars.$gutter;
             border-right: 2px solid vars.$DMidDark;
+            padding-left: 0;
+            padding-right: 2rem;
+            width: max-content;
           }
 
           .fields-right {
@@ -186,7 +188,7 @@
             flex-direction: column;
             margin: vars.$gutter;
             font-style: italic;
-            font-size: 0.9rem;
+            // font-size: 0.9rem;
           
             span {
               color: #e69512;
@@ -206,7 +208,7 @@
         }
 
         .fields-food {
-          width: 30rem;
+          width: 25rem;
           .field-check {
             display: flex;
             flex-wrap: wrap;
