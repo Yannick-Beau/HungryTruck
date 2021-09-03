@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="json")
-     * @Assert\Count(min=1, max=3)
+     * @Assert\Count(min=1, max=1)
      * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user","delete_user"})
      */
     private $roles = [];
