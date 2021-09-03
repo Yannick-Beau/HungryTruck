@@ -6,6 +6,8 @@ import {
   connectPro,
   saveUser,
 } from '../actions/logIn';
+import { sendTruck } from '../actions/map';
+import { loadingMap } from '../actions/tools';
 import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
@@ -47,6 +49,8 @@ const createUserMiddleware = (store) => (next) => (action) => {
               .then((responsePro) => {
                 console.log(responsePro.data);
                 store.dispatch(connectPro(responsePro.data.siret, responsePro.data.truck_id));
+                store.dispatch(loadingMap());
+                store.dispatch(sendTruck());
               });
           }
         });
