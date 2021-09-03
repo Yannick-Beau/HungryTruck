@@ -3,7 +3,6 @@ import {
   UPDATE_FIELD,
   LOG_OUT,
   CONNECT_PRO,
-  IS_SUCCESS_LOGIN,
 } from '../actions/logIn';
 
 const initialState = {
@@ -21,18 +20,11 @@ const initialState = {
   trucksPro: [],
   isPro: false,
   logged: false,
-  isSuccessLogIn: null,
 };
 
 function logInReducer(state = initialState, action = {}) {
   switch (action.type) {
     // Gestion des input du formulaire de connexion
-    case IS_SUCCESS_LOGIN: {
-      return {
-        ...state,
-        isSuccessLogIn: action.newValue,
-      };
-    }
     case UPDATE_FIELD:
       // Formulaire de connection
       switch (action.identifier) {

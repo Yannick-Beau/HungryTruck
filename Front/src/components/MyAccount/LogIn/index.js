@@ -1,8 +1,6 @@
 // == Import npm
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
-import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -15,56 +13,10 @@ const LogIn = ({
   changeField,
   handleSubmit,
   tokenIsOk,
-  loadingLogIn,
-  loadLogIn,
-  isSuccessLogIn,
-  changeIsSuccessLogin,
 }) => {
-  function showError() {
-    toast.error('Adresse email ou mot de passe incorrects, veuillez réessayer', {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'colored',
-    });
-  }
-  function showSuccess() {
-    toast.success('Connexion réussi', {
-      position: 'top-center',
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'colored',
-    });
-  }
   if (tokenIsOk) {
     return <Redirect to="/" />;
   }
-  if (isSuccessLogIn) {
-    showSuccess();
-    changeIsSuccessLogin(null);
-  }
-  if (isSuccessLogIn === false) {
-    showError();
-    changeIsSuccessLogin(null);
-  }
-
-  // const notify = () => toast.success(messageLogIn, {
-  //   position: 'top-center',
-  //   autoClose: 5000,
-  //   hideProgressBar: true,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: 1,
-  // });
   return (
     <section className="login-section">
       <h2 className="login-title">Connexion à HungryTruck</h2>
@@ -73,7 +25,6 @@ const LogIn = ({
         className="login-form"
         onSubmit={(evt) => {
           evt.preventDefault();
-          loadingLogIn();
           handleSubmit();
         }}
       >
@@ -101,31 +52,7 @@ const LogIn = ({
             }}
           />
         </label>
-        {loadLogIn
-        && (
-          <Loader
-            type="Puff"
-            color="#e69512"
-            height={100}
-            width={100}
-            id="loaderLogIn"
-          />
-        )}
-        {!loadLogIn
-        && (
-          <button type="submit" className="login-form--submit">Connexion</button>
-        )}
-        <ToastContainer
-          position="top-center"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+        <button type="submit" className="login-form--submit">Connexion</button>
       </form>
       <Link to="/new-account" className="button-Link">
         <button type="button" className="login-createaccount">Créer un compte</button>
