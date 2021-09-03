@@ -58,7 +58,7 @@
     position: fixed;
     display: flex;
     flex-direction: column;
-    animation: loadMenu 1s;
+    animation: loadMenu 0.5s;
     width: 10%;
 
     top: vars.$gutter * 9;
