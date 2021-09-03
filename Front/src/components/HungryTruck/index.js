@@ -59,6 +59,9 @@ const HungryTruck = ({ saveUser }) => {
         <Route path="/search" exact>
           <Search />
         </Route>
+        <Route path="/:previous/food-truck/:slug" exact>
+          <ZoomFT />
+        </Route>
         <Route path="/food-truck/:slug" exact>
           <ZoomFT />
         </Route>
