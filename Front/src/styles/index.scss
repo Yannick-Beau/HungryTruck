@@ -1,0 +1,37 @@
+@use 'reset';
+@use 'vars';
+
+html {
+  //   width: 100vw;
+  // height: 100vh;
+  // background-color: vars.$DarkOpacity;
+  // background-image: url(../../assets/img/background.jpg);
+  // background-repeat: no-repeat, repeat-y;
+  // background-size: cover;
+  // background-attachment: fixed, scroll;
+  // overflow: visible;
+  body {
+  font-family: sans-serif;
+  // width: 100vw;
+  // height: 100vh;
+  // background-color: vars.$DarkOpacity;
+  // background-image: url(../../assets/img/background.jpg);
+  // background-repeat: no-repeat, repeat-y;
+  // background-size: cover;
+  // background-attachment: fixed, scroll;
+  // overflow: visible;
+}
+}
+
+
+/* 
+  // or you can import your own font
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf');
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+*/
