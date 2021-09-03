@@ -54,7 +54,7 @@ const ZoomFT = ({ trucks }) => {
                 <tr>
                   <td>{item.day}</td>
                   <td>{item.hours} - {item.hours_end}</td>
-                  <td>{item.place}</td>
+                  <td>{item.adresse}</td>
                 </tr>
               </tbody>
             ))}
