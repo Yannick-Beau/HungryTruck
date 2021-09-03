@@ -8,6 +8,7 @@ import {
   changeIsSuccessLogin,
 } from '../actions/logIn';
 import { sendTruck } from '../actions/map';
+
 import { loadingMap, loadingLogIn } from '../actions/tools';
 import URL from '../data/ip';
 
