@@ -57,7 +57,7 @@ class UserController extends AbstractController
         // On valide l'entité avec le service Validator
         $errors = $validator->validate($user);
 
-
+        
         if (count($errors) > 0) {
             $newErrors = [];
 
@@ -73,7 +73,7 @@ class UserController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return $this->json($user, Response::HTTP_CREATED);
+        return $this->json($user, Response::HTTP_CREATED,[],['groups'=> 'created_user']);
     }
 
     /**
@@ -136,6 +136,6 @@ class UserController extends AbstractController
         $em->remove($user);
         $em->flush();
 
-        return $this->json(['message' => 'L\'Utilisateur a bien été supprimé.'], Response::HTTP_OK);
+        return $this->json(['message' => 'L\'Utilisateur a bien été supprimé.'], Response::HTTP_OK,[],['groups' => 'delete_user']);
     }
 }

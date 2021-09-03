@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
 {
@@ -32,12 +33,13 @@ class UserType extends AbstractType
                 // checkboxes
                 'expanded' => true,
             ])
-            ->add('password')
+           // ->add('password')
             ->add('pseudo',TextType::class)
+            ->add('password', PasswordType::class)
             ->add('avatar', UrlType::class)
-            ->add('cp')
-            ->add('city',TextType::class)
             ->add('adresse',TextType::class)
+            ->add('longitude',TextType::class)
+            ->add('latitude',TextType::class)
             ->add('siret')
             ->add('food_like',EntityType::class,['class' => CategoryFood::class,'multiple' => true,'choice_label' => 'name','expanded' => true,'query_builder' => function (CategoryFoodRepository $gr) {
                 return $gr->createQueryBuilder('g')

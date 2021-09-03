@@ -12,6 +12,7 @@ use App\Repository\CategoryFoodRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -23,7 +24,7 @@ class FoodtruckType extends AbstractType
     {
         $builder
             ->add('name',TextType::class)
-            ->add('num_tel',TextType::class)
+            ->add('num_tel',TelType::class)
             ->add('overview',TextareaType::class)
             ->add('picture', UrlType::class)
             ->add('instagram', UrlType::class)

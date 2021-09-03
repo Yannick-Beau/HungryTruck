@@ -24,23 +24,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","created_user","delete_user"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user","delete_user"})
      * @Assert\NotBlank
      * @Assert\Email
-     * 
      */
     private $email;
 
     /**
      * @ORM\Column(type="json")
      * @Assert\Count(min=1, max=1)
-     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","foodtruck_post","foodtruckevent_post","created_user","delete_user"})
      */
     private $roles = [];
 
@@ -48,67 +47,64 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank
-     * 
+     * @Groups({"created_user","delete_user"})
+     * TODO:
      * 
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\Length(max=100, min=4)
+     * @Assert\Length( min=4,max=70)
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","event_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","pro_get_by_id","foodtruck_post","event_post","created_user","delete_user"})
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
+     * @Assert\Url
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $avatar;
 
     /**
-     * @ORM\Column(type="integer")
-     * @Assert\Type("int") 
-     * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
-     */
-    private $cp;
-
-    /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @Assert\Length(min=1,max=255)
      * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
-     */
-    private $city;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
-     * @Assert\NotBlank
-     * @Groups({"user_get_by_id","pro_get_by_id","event_post"})
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Type("int")
-     * @Groups({"foodtruck_get","pro_get_by_id","event_post"})
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=18)
+     * @Groups({"foodtruck_get","pro_get_by_id","event_post","created_user","delete_user"})
      */
     private $siret;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"user_get_by_id","pro_get_by_id","event_post","created_user","delete_user"})
+     */
+    private $latitude;
+
+    /**
      * @ORM\OneToMany(targetEntity=Foodtruck::class, mappedBy="user", cascade={"persist", "remove" })
-     * @Groups({"pro_get_by_id"})
+     * @Groups({"pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $truck_id;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users")
-     * @Groups("user_get_by_id","event_post")
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="users",cascade={"persist"})
+     * @Groups({"user_get_by_id","event_post","pro_get_by_id","created_user","delete_user"})
      */
     private $food_like;
 
@@ -122,15 +118,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $updatedAt;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $longitude;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $latitude;
 
     
     public function __construct()
@@ -139,6 +126,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->truck_id = new ArrayCollection();
         $this->food_like = new ArrayCollection();
         $this->updatedAt = new DateTime();
+    }
+
+    public function __toString()
+    {
+        return $this->getPseudo();
     }
 
     public function getId(): ?int
@@ -183,7 +175,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        //$roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -254,30 +246,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getCp(): ?int
-    {
-        return $this->cp;
-    }
-
-    public function setCp(int $cp): self
-    {
-        $this->cp = $cp;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
     public function getAdresse(): ?string
     {
         return $this->adresse;
@@ -290,12 +258,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getSiret(): ?int
+    public function getSiret(): ?string
     {
         return $this->siret;
     }
 
-    public function setSiret(?int $siret): self
+    public function setSiret(?string $siret): self
     {
         $this->siret = $siret;
 

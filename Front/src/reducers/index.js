@@ -11,7 +11,7 @@ import contactUs from './ContactReducer';
 import newTimeReducer from './NewTimeReducer';
 import deleteReducer from './deleteReducer';
 import mapReducer from './mapReducer';
-
+import faqReducer from './faqReducer';
 // etc
 
 // le reducer principal, qui regroupe les autres
@@ -28,6 +28,7 @@ const rootReducer = combineReducers({
   editUser: editUserReducer,
   deleteReducer: deleteReducer,
   map: mapReducer,
+  faq: faqReducer,
   // etc
 });
 

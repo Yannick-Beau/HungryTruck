@@ -19,14 +19,15 @@ class CategoryFood
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"user_get_by_id","pro_get_by_id","foodcategory_get","created_user","delete_user","delete_foodtruck"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(max=255)
+     * @Assert\Length(min=2,max=255)
      * @Assert\NotBlank
-     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post","event_post"})
+     * @Groups({"foodtruck_get","user_get_by_id","foodtruck_post","event_post","foodcategory_get","pro_get_by_id","created_user"})
      */
     private $name;
 
@@ -57,6 +58,11 @@ class CategoryFood
         $this->createdAt = new DateTime();
         $this->updatedAt = new DateTime();
 
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     public function getId(): ?int

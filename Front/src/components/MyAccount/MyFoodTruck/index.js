@@ -44,7 +44,6 @@ const MyFoodTruck = ({
                   ))}
                 </td>
                 <td>
-                  {/* <Link to="/my-account/my-foodtruck/" className="button-Link--details"> */}
                   <Popup
                     trigger={(
                       <button
@@ -113,7 +112,6 @@ const MyFoodTruck = ({
                       </section>
                     )}
                   </Popup>
-                  {/* </Link> */}
                 </td>
                 <td>
                   <Trash2

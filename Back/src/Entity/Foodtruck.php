@@ -21,54 +21,65 @@ class Foodtruck
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"foodtruck_get","pro_get_by_id"})
+     * @Groups({"foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
-     * @Assert\Length(max=255,min=2)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     * @Assert\Length(min=2,max=70)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string",length=20)
-     * @Assert\NotBlank
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
-     */
-    private $num_tel;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     * @Assert\Length(max=800)
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $overview;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Length(min=2,max=14)
+     * @Assert\Positive
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
+     */
+    private $num_tel;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     * @Assert\Url
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $instagram;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     * @Assert\Url
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $twitter;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max=255)
-     * @Assert\Url(message = "The url '{{ value }}' is not a valid url")
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     * @Assert\Url
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      */
     private $facebook;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url
+     * @Assert\Length(max=255)
+     * @Groups({"foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
+     */
+    private $picture;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="truck_id", cascade={"persist"})
@@ -77,8 +88,8 @@ class Foodtruck
     private $user;
 
     /**
-     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist", "remove" })
-     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post"})
+     * @ORM\ManyToMany(targetEntity=CategoryFood::class, inversedBy="foodtrucks", cascade={"persist"})
+     * @Groups({"foodtruck_get","pro_get_by_id","foodtruck_post","event_post","delete_user","delete_foodtruck"})
      * 
      */
     private $sell_type_food;
@@ -95,16 +106,11 @@ class Foodtruck
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="foodtruck")
-     * @Groups("foodtruck_get")
+     * @ORM\OneToMany(targetEntity=Event::class, mappedBy="foodtruck",cascade={"persist","remove"})
+     * @Groups({"foodtruck_get","pro_get_by_id","delete_foodtruck"})
      */
     private $events;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups("foodtruck_get")
-     */
-    private $picture;
 
     public function __construct()
     {
@@ -136,12 +142,12 @@ class Foodtruck
         return $this;
     }
 
-    public function getNumTel(): ?int
+    public function getNumTel(): ?string
     {
         return $this->num_tel;
     }
 
-    public function setNumTel(int $num_tel): self
+    public function setNumTel(string $num_tel): self
     {
         $this->num_tel = $num_tel;
 
