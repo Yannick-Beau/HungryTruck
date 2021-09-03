@@ -118,6 +118,10 @@
 
           &:hover {
             background-color: #e69512;
+            box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            border: vars.$DarkOpacity 2px solid;
             color: vars.$DarkOpacity;
           }
         }

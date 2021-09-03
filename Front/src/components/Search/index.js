@@ -34,7 +34,7 @@ const Search = ({
   console.log(filterSearch);
 
   return (
-    <>
+    <section id="search">
       <h3 className="search-title">
         Recherche
       </h3>
@@ -90,7 +90,7 @@ const Search = ({
 
         </section>
       </div>
-    </>
+    </section>
   );
 };
 

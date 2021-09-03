@@ -11,6 +11,10 @@
   padding: vars.$gutter;
   margin: auto;
   color: vars.$LLight;
+  margin: auto auto;
+  position: relative;
+  max-width: auto;
+  min-height: 110vh;
 
   .addslot-title {
     font-weight: bold;
