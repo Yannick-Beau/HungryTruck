@@ -1,6 +1,7 @@
 @use 'src/styles/vars';
 
 .header {
+  min-height: 15rem;
   .burger
   {
       display: none;

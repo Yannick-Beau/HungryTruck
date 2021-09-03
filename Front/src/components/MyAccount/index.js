@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import 'reactjs-popup/dist/index.css';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // == Import
 import './myaccount.scss';
@@ -59,26 +61,36 @@ const MyAccount = ({
   function closeModal() {
     setDelAccount(false);
   }
+
+  const notify = () => toast.success('Votre compte a bien été supprimé', {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: 1,
+  });
+
   return (
-    <section className="sectionAccount">
-      <h2 className="myAccount">Mon compte</h2>
+    <section id="sectionAccount">
+      <h2 id="myAccount">Mon compte</h2>
       <img
-        className="myaccount-picture"
+        id="myaccount-picture"
         src={avatarUser}
         alt="mon compte hungrytruck"
       />
-      <article className="account">
+      <article id="account">
         <div className="account-informations">
           <div className="informations-left">
             <p>Mon pseudo : <span>{pseudo}</span></p>
-            <p>Mon adresse :</p>
-            <p><span>{adresse}</span></p>
+            <p>Mon adresse :<span>{adresse}</span></p>
             { isPro
             && <p>SIRET : <span>{siret}</span></p>}
           </div>
           <div className="informations-right">
             <p>Mon adresse mail: <span>{email}</span></p>
-            <p>Mes plats favoris :</p>
+            <p id="info-right--foodlist">Mes plats favoris :</p>
             <ul>
               {foodLike.map((item) => (
                 <li key={item.name}><span>{item.name}</span></li>
@@ -104,14 +116,13 @@ const MyAccount = ({
             >
               <section className="deleteaccount-section">
                 <h2 className="deleteaccount-title">Suppression de compte</h2>
-                <p>Pour supprimer votre compte HungryTruck,<br />
+                <p id="delAccount-text">Pour supprimer votre compte HungryTruck,<br />
                   veuillez renseigner votre mot de passe.
                 </p>
                 <form
                   className="deleteaccount-form"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    console.log('suppression du compte');
                     sendDel();
                   }}
                 >
@@ -130,9 +141,21 @@ const MyAccount = ({
                   <button
                     type="submit"
                     className="deleteaccount-form--submit"
+                    onClick={notify}
                   >
                     Supprimer mon compte HungryTruck
                   </button>
+                  <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
                 </form>
                 <Link
                   to="/my-account"

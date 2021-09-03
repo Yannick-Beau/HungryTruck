@@ -57,6 +57,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@invisionag/iris-react-flash-message": "^4.5.2",
     "axios": "^0.21.1",
     "emailjs-com": "^3.2.0",
     "leaflet": "^1.7.1",
@@ -73,6 +74,7 @@
     "react-modal": "^3.14.3",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
+    "react-toastify": "^8.0.2",
     "reactjs-popup": "^2.0.5",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",

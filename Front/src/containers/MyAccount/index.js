@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 // on importe le composant de présentation
 import MyAccount from 'src/components/MyAccount';
 import { delUser, sendDel } from '../../actions/delUser';
+import { incrementAction, decreaseAction } from '../../actions/flash';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
