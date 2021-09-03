@@ -28,11 +28,11 @@ class FoodtruckCrudController extends AbstractCrudController
             TelephoneField::new('num_tel'),
             TextEditorField::new('overview'),
             UrlField::new('picture'),
+            AssociationField::new('user'),
+            AssociationField::new('sell_type_food'),
             UrlField::new('instagram'),
             UrlField::new('twitter'),
             UrlField::new('facebook'),
-            AssociationField::new('user'),
-            AssociationField::new('sell_type_food'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm()
         ];
