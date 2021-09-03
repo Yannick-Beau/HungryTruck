@@ -10,7 +10,7 @@ import MapDetails from '../../../containers/Main/Container/MapDetails';
 
 // == Composant
 const Container = () => (
-  <section className="container">
+  <section id="container">
     <Map />
     <MapDetails />
   </section>

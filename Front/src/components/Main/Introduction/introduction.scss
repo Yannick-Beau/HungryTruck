@@ -1,22 +1,28 @@
 @use 'src/styles/vars';
 
-.introduction {
-  // border: vars.$LLight solid 1px;
+#introduction {
+
   background-color: #e69512cc;
   color: vars.$LDark;
   border-radius: 50px;
-  margin: auto (vars.$gutter * 10);
+  margin: auto;
+  max-width: 85vw;
   padding: vars.$gutter (vars.$gutter * 2);
   text-align: center;
-  margin-top: -2rem;
+  margin-top: -1rem;
   margin-bottom: 1.3rem;
-  .introduction-title {
+
+  #introduction-title {
     font-family: vars.$Krub;
-    font-size: 1.5rem;
+    font-variant-caps: small-caps;
+    font-size: 2rem;
     font-weight: bold;
+    margin-bottom: 0.5rem;
   }
 
   .introduction-text {
     font-size: 1.3rem;
+    margin-top: 0.3rem;
   }
+
 }

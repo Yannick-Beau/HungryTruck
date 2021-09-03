@@ -19,18 +19,20 @@ const Contact = ({ mail, message, contactUs }) => {
   }
 
   return (
-    <section className="contact">
-      <h2 className="contact-title">Contactez-nous</h2>
+    <section id="contact">
+      <h2 id="contact-title">Contactez-nous</h2>
       <article>
-        <form onSubmit={(e) => {
-          e.preventDefault();
-          sendEmail(e);
-        }}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            sendEmail(e);
+          }}
         >
           <p>Vous souhaitez nous adresser un message ?</p>
           <label htmlFor="mail">
             Veuillez renseigner votre adresse mail :
             <input
+              id="contact-mail--input"
               type="text"
               name="mail"
               placeholder="exemple : john@deuf.fr"
@@ -43,6 +45,7 @@ const Contact = ({ mail, message, contactUs }) => {
           <label htmlFor="message">
             Quel message souhaitez vous nous adresser ?
             <textarea
+              id="contact-textarea"
               name="message"
               type="text"
               placeholder="Ecrivez votre message ici"
@@ -53,7 +56,11 @@ const Contact = ({ mail, message, contactUs }) => {
               }}
             />
           </label>
-          <button className="form-button" type="submit">Envoyer mon message</button>
+          <div id="contact-form-submit">
+            <button id="contact-form--button" type="submit">
+              Envoyer mon message
+            </button>
+          </div>
         </form>
       </article>
     </section>
