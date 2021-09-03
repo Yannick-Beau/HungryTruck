@@ -12,9 +12,6 @@ import newTimeReducer from './NewTimeReducer';
 import deleteReducer from './deleteReducer';
 import mapReducer from './mapReducer';
 import faqReducer from './faqReducer';
-
-
-
 // etc
 
 // le reducer principal, qui regroupe les autres

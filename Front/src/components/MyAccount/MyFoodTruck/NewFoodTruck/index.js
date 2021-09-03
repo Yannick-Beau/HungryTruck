@@ -78,6 +78,26 @@ const NewFoodTruck = ({
           />
         </label>
         <div className="myFoodTruck-array">
+          <table>
+            <thead>
+              <tr>
+                <th>Jours</th>
+                <th>Créneaux</th>
+                <th>Lieux</th>
+                <th colSpan="1">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lundi</td>
+                <td>09h00 / 12h00</td>
+                <td>Place des grands Hommes, Caen</td>
+                <td><Trash2 color="#e61212" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="myFoodTruck-array">
           <div className="myFT-details">
             <div className="myFT-details--detail">
               <h3>Informations</h3>
@@ -213,14 +233,6 @@ const NewFoodTruck = ({
               Annuler
             </button>
           </Link>
-          {/* <Link to="/my-account/my-foodtruck/new/add" className="button-Link">
-            <button
-              type="button"
-              className="button-linkto"
-            >
-              Ajouter un créneau
-            </button>
-          </Link> */}
           <div  className="button-Link" >
             <button type="submit" className="button-linktosave">
               Enregistrer

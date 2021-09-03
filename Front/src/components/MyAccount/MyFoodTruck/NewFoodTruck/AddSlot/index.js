@@ -18,7 +18,6 @@ import './addSlot.scss';
 // == Composant
 const AddSlot = ({
   newTime,
-
   updateAddressFT,
   trucks,
   addEvent,
@@ -53,7 +52,6 @@ const AddSlot = ({
     },
     [],
   );
-
   return (
     <section className="addslot-section">
       <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
@@ -230,7 +228,6 @@ const AddSlot = ({
             </div>
           </label>
         </div>
-
         <div className="addslot-from--first addslot-from--address">
           <div className="addslot-label addslot-input--address" htmlFor="adress">Adresse du lieu
             <div>

@@ -12,7 +12,6 @@ const mapStateToProps = (state) => ({
   // Formualire de création d'un user
   myTrucks: state.logIn.trucksPro,
   avatar: state.logIn.avatar,
-
 });
 
 // === mapDispatchToProps
