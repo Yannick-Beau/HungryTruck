@@ -57,7 +57,6 @@ class FoodTruckController extends AbstractController
             );
         }
         // /!\ JSON Hijacking
-        // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
         return $this->json($Foodtruck, Response::HTTP_OK, [], ['groups' => 'foodtruck_get']);
     }
 
@@ -156,6 +155,6 @@ class FoodTruckController extends AbstractController
         $em->remove($foodtruck);
         $em->flush();
 
-        return $this->json(['message' => 'Le Foodtruck a bien été supprimé.'], Response::HTTP_OK);
+        return $this->json(['message' => 'Le Foodtruck a bien été supprimé.'], Response::HTTP_OK,[],['groups' => 'delete_foodtruck']);
     }
 }

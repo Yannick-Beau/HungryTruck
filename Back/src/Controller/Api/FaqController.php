@@ -38,7 +38,6 @@ class FaqController extends AbstractController
         }
 
         // /!\ JSON Hijacking
-        // @see https://symfony.com/doc/current/components/http_foundation.html#creating-a-json-response
         return $this->json($Faq, Response::HTTP_OK, []);
     }
 }

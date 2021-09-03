@@ -43,12 +43,14 @@ security:
                 # target: app_any_route
 
     access_control:
+        - { path: ^/backoffice, roles: ROLE_ADMIN }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/create, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/faq, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/faq/id<\d+>, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/foodtruck, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/foodtruck/id<\d+>, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/categoryfood, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/user,       roles: ROLE_USER }
         - { path: ^/api/pro,       roles: ROLE_PRO }

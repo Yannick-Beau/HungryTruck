@@ -1114,7 +1114,6 @@
     "@invisionag/injixo-tokens" "^1.2.7"
     "@invisionag/iris-settings" "^6.4.2"
     polished "^4.1.1"
-
 "@mapbox/fusspot@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@mapbox/fusspot/-/fusspot-0.4.0.tgz#5ac625b5ed31695fda465fb0413ee0379bdf553c"

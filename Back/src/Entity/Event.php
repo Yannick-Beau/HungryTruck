@@ -8,6 +8,7 @@ use App\Repository\EventRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
@@ -18,26 +19,54 @@ class Event
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Assert\Length(min=2,max=70)
+     * @Assert\NotBlank
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $day;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Assert\Length(min=1,max=10)
+     * @Assert\NotBlank
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
     private $hours;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"event_post","foodtruck_get"})
+     * @Assert\Length(min=1,max=10)
+     * @Assert\NotBlank
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
      */
-    private $place;
+    private $hours_end;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=1,max=255)
+     * @Assert\NotBlank
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
+     */
+    private $adresse;
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
+     */
+    private $longitude;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"event_post","foodtruck_get","pro_get_by_id","delete_user","delete_foodtruck"})
+     */
+    private $latitude;
 
     /**
      * @ORM\Column(type="datetime")
@@ -54,21 +83,6 @@ class Event
      * @Groups({"event_post"})
      */
     private $foodtruck;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $hours_end;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $longitude;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $latitude;
 
     public function __construct()
     {
@@ -103,18 +117,6 @@ class Event
     public function setHours(string $hours): self
     {
         $this->hours = $hours;
-
-        return $this;
-    }
-
-    public function getPlace(): ?string
-    {
-        return $this->place;
-    }
-
-    public function setPlace(string $place): self
-    {
-        $this->place = $place;
 
         return $this;
     }
@@ -187,6 +189,18 @@ class Event
     public function setLatitude(?string $latitude): self
     {
         $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }

@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class EventController extends AbstractController
 {
-/**
+    /**
      * @Route("/api/foodtruck/{id}/event/create", name="api_event_create", methods="POST")
      * @IsGranted("ROLE_PRO")
      */
