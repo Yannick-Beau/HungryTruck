@@ -25,8 +25,9 @@ const Search = ({
       const lowerSearch = search.toLowerCase();
       const lowerTrucks = item.name.toLowerCase();
       const lowerOverView = item.overview.toLowerCase();
-
-      return lowerTrucks.includes(lowerSearch) || lowerOverView.includes(lowerSearch);
+      const eventsFilter = item.events.filter((itemEvent) => itemEvent.adresse.toLowerCase().includes(lowerSearch))
+      // console.log('eventsFilter : ', eventsFilter);
+      return lowerTrucks.includes(lowerSearch) || lowerOverView.includes(lowerSearch) || eventsFilter.length > 0;
     });
   }
 
@@ -68,7 +69,7 @@ const Search = ({
 
           {filterSearch.map((item) => (
             <Link
-              to={`/food-truck/${item.id}`}
+              to={`search/food-truck/${item.id}`}
               key={item.id}
             >
               <article className="search-results--result">
