@@ -11,7 +11,9 @@ import contactUs from './ContactReducer';
 import newTimeReducer from './NewTimeReducer';
 import deleteReducer from './deleteReducer';
 import mapReducer from './mapReducer';
-import flashReducer from './flashReducer';
+import faqReducer from './faqReducer';
+
+
 
 // etc
 
@@ -29,7 +31,7 @@ const rootReducer = combineReducers({
   editUser: editUserReducer,
   deleteReducer: deleteReducer,
   map: mapReducer,
-  flash: flashReducer,
+  faq: faqReducer,
   // etc
 });
 
