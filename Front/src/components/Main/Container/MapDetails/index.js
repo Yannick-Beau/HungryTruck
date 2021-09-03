@@ -28,33 +28,36 @@ const MapDetails = ({ trucks, loadMap }) => {
         <h3 className="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
         {eventsIsNull
           && (
-            <>
-              <p>Aucun food truck à proximité n'est ouvert pour le moment.</p>
-              <p>Repasse plus tard gourmand.</p>
-            </>
+            <aside id="mapdetails-text--noentry">
+              <p className="text-noentry">Aucun food truck à proximité n'est ouvert pour le moment.</p>
+              <p className="text-noentry">Repasse plus tard petit(e) gourmand(e).</p>
+            </aside>
           )}
-        <ul className="mapdetails-text--ul">
-          {trucks.map((truck) => (
-            <Link
-              to={`/food-truck/${truck.id}`}
-              key={truck.id}
-            >
-              <article className="search-results--result">
-                <img src={truck.picture} className="result-logo" alt="logo" />
-                <div className="result-details">
-                  <p className="result-title">
-                    {truck.name}
-                  </p>
-                  {truck.events.map((item) => (
-                    <p key={item.id} className="result-time">
-                      {`${item.day}: ${item.hours} / ${item.hours_end} - ${item.adresse}`}
+        <article id="mapdetails-list">
+          <ul className="mapdetails-text--ul">
+            {trucks.map((truck) => (
+              <Link
+                to={`/food-truck/${truck.id}`}
+                key={truck.id}
+              >
+                <article className="search-results--result">
+                  <img src={truck.picture} className="result-logo" alt="logo" />
+                  <div className="result-details">
+                    <p className="result-title">
+                      {truck.name}
                     </p>
-                  ))}
-                </div>
-              </article>
-            </Link>
-          ))}
-        </ul>
+                    {truck.events.map((item) => (
+                      <p key={item.id} className="result-time">
+                        {`${item.day}: ${item.hours} - ${item.hours_end} - ${item.adresse}`}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </ul>
+        </article>
+
       </div>
     )}
 

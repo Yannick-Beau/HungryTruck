@@ -129,7 +129,7 @@ const NewAccount = ({
             <div className="fields">
               <div className="fields-left">
                 <div className="field">
-                  <label className="field-label" htmlFor="email">Saisissez votre Email
+                  <label className="field-label" htmlFor="email">Saisissez votre Email *
                     <div>
                       <input
                         className="field-input"
@@ -142,12 +142,11 @@ const NewAccount = ({
                           changeField(evt.target.value, 'email');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="pseudo">Saisissez votre Pseudo
+                  <label className="field-label" htmlFor="pseudo">Saisissez votre Pseudo *
                     <div>
                       <input
                         className="field-input"
@@ -160,12 +159,11 @@ const NewAccount = ({
                           changeField(evt.target.value, 'nickname');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="password">Saisissez votre mot de passe
+                  <label className="field-label" htmlFor="password">Saisissez votre mot de passe *
                     <div>
                       <input
                         className="field-input"
@@ -177,12 +175,11 @@ const NewAccount = ({
                           changeField(evt.target.value, 'password');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="password-confirmation">Confirmer votre mot de passe
+                  <label className="field-label" htmlFor="password-confirmation">Confirmez votre mot de passe *
                     <div>
                       <input
                         className="field-input"
@@ -193,14 +190,13 @@ const NewAccount = ({
                           changeField(evt.target.value, 'passwordConfirm');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
                 { createPro
                 && (
                 <div className="field">
-                  <label className="field-label" htmlFor="siret">Saisissez votre n° de SIRET
+                  <label className="field-label" htmlFor="siret">Saisissez votre n° de SIRET *
                     <div>
                       <input
                         className="field-input"
@@ -212,7 +208,6 @@ const NewAccount = ({
                           changeField(evt.target.value, 'siret');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
@@ -220,14 +215,14 @@ const NewAccount = ({
               </div>
               <div className="fields-right">
                 <div className="field">
-                  <div className="field-label" htmlFor="adresse">Saisissez votre adresse
-                    <div>
-                      <span>*</span>
+                  <div className="field-label map-label" htmlFor="adresse">
+                    <p className="map-label">Saisissez votre adresse *</p>
+                    <div className="display-map">
                       <MapGL
                         ref={mapRef}
                         {...viewport}
-                        width="430px"
-                        height="480px"
+                        width="400px"
+                        height="350px"
                         onViewportChange={handleViewportChange}
                         mapboxApiAccessToken={MAPBOX_TOKEN}
                       >
@@ -253,7 +248,7 @@ const NewAccount = ({
                 <div />
               </div>
               <div className="fields-food">
-                <h2>Choissier vos nourritures favorites</h2>
+                <h2>Choissez vos nourritures favorites</h2>
                 <fieldset className="field-check">
                   {foods.map((item) => (
                     <label key={item.name} className="field-label" htmlFor={item.name}>{item.name}

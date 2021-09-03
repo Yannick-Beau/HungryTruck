@@ -68,7 +68,7 @@ const LogIn = ({
   return (
     <section className="login-section">
       <h2 className="login-title">Connexion à HungryTruck</h2>
-      <p>Bienvenu sur HungryTruck</p>
+      <p>Bienvenue sur HungryTruck</p>
       <form
         className="login-form"
         onSubmit={(evt) => {

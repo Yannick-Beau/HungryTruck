@@ -7,6 +7,11 @@
     padding: 1rem;
     text-align: justify;
     margin-bottom: 4rem;
+    margin: auto auto;
+    position: relative;
+    max-width: auto;
+    min-height: 110vh;
+    padding-bottom: 12rem;
   .lm-title {
     font-size: vars.$mainTitle;
     font-weight: bold;
