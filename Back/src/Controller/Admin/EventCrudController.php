@@ -23,7 +23,14 @@ class EventCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('day'),
+            ChoiceField::new('day')->setChoices([
+                'Lundi' => 'Lundi', 
+                'Mardi' => 'Mardi', 
+                'Mercredi' => 'Mercredi',
+                'Jeudi' => 'Jeudi',
+                'Vendredi' => 'Vendredi',
+                'Samedi' => 'Samedi',
+                'Dimanche' => 'Dimanche']),
             ChoiceField::new('hours')->setChoices([
                 '00h00' => '00h00', 
                 '00h30' => '00h30', 
