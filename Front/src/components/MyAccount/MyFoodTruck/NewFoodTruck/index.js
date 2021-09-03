@@ -54,8 +54,7 @@ const NewFoodTruck = ({
       <h2 className="newFoodTruck-title">Créer mon FoodTruck</h2>
       <img
         className="newFoodTruck-picture"
-        src="http://placehold.it/250x350"
-        alt="nouveau foodtruck hungrytruck"
+        src={picture}
       />
       <form
         className="newFoodTruck"
@@ -234,14 +233,6 @@ const NewFoodTruck = ({
               Annuler
             </button>
           </Link>
-          {/* <Link to="/my-account/my-foodtruck/new/add" className="button-Link">
-            <button
-              type="button"
-              className="button-linkto"
-            >
-              Ajouter un créneau
-            </button>
-          </Link> */}
           <div  className="button-Link" >
             <button type="submit" className="button-linktosave">
               Enregistrer

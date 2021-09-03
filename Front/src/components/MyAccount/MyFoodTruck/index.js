@@ -2,7 +2,6 @@
 import React from 'react';
 import { Trash2 } from 'react-feather';
 import { Link } from 'react-router-dom';
-import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -10,22 +9,12 @@ import 'reactjs-popup/dist/index.css';
 // == Import
 import './myfoodtruck.scss';
 
-const customStyles = {
-  content: {
-    top: '15%',
-    left: '0',
-    bottom: '25%',
-    width: '100vw',
-    height: '100vh',
-    background: 'transparent',
-    border: 'none',
-  },
-};
-
 // == Composant
 const MyFoodTruck = ({
   myTrucks,
   avatar,
+  truckdel,
+  timedel,
 }) => (
   <section className="section-myFoodTruck">
     <h2 className="myFoodTruck-title">Mes FoodTrucks</h2>
@@ -55,7 +44,6 @@ const MyFoodTruck = ({
                   ))}
                 </td>
                 <td>
-                  {/* <Link to="/my-account/my-foodtruck/" className="button-Link--details"> */}
                   <Popup
                     trigger={(
                       <button
@@ -78,6 +66,7 @@ const MyFoodTruck = ({
                                 <th>Jours</th>
                                 <th>Créneaux</th>
                                 <th>Lieux</th>
+                                <th>Actions</th>
                               </tr>
                             </thead>
                             {item.events.map((rdv) => (
@@ -86,6 +75,16 @@ const MyFoodTruck = ({
                                   <td>{rdv.day}</td>
                                   <td>{rdv.hours} - {rdv.hours_end}</td>
                                   <td>{rdv.adresse}, {rdv.cp} {rdv.city}</td>
+                                  <td>
+                                    <Trash2
+                                      color="#e61212"
+                                      onClick={() => {
+                                        console.log(`dans le composant pour supprimer un foodtruck : ${rdv.id}`);
+                                        console.log(timedel(rdv.id));
+                                        timedel(rdv.id);
+                                      }}
+                                    />
+                                  </td>
                                 </tr>
                               </tbody>
                             ))}
@@ -105,17 +104,25 @@ const MyFoodTruck = ({
                             </button>
                           </Link>
                           <Link
-                            to="/my-account/my-foodtruck/new"
+                            to="/my-account/my-foodtruck/new/add"
                           >
-                            <button type="button" className="modify">Modifier les horraires</button>
+                            <button type="button" className="modify">Ajouter un créneau</button>
                           </Link>
                         </div>
                       </section>
                     )}
                   </Popup>
-                  {/* </Link> */}
                 </td>
-                <td><Trash2 color="#e61212" /></td>
+                <td>
+                  <Trash2
+                    color="#e61212"
+                    onClick={() => {
+                      console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
+                      console.log(truckdel(item.id));
+                      truckdel(item.id);
+                    }}
+                  />
+                </td>
               </tr>
             </tbody>
           ))}
@@ -152,8 +159,7 @@ const MyFoodTruck = ({
 );
 
 MyFoodTruck.propTypes = {
-  foodTruckDetails: PropTypes.bool.isRequired,
-  setAddFoodTruckDetails: PropTypes.func.isRequired,
+  
 };
 
 // == Export

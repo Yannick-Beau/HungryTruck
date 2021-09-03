@@ -4,20 +4,19 @@ import {
   EDIT_PRO,
   UPDATE_FIELD,
   UPDATE_TOGGLE,
+  EDIT_ADDRESS,
 } from '../actions/editUser';
 
 const initialState = {
   email: '',
+  emailBeforeEdit: '',
   password: '',
   adresse: '',
   avatar: '',
-  city: '',
-  cp: null,
   food: [],
-  id: null,
+  long: '',
+  lat: '',
   pseudo: '',
-  roles: [],
-  siret: 0,
   trucksPro: [],
   isPro: false,
 };
@@ -27,27 +26,33 @@ function editUserReducer(state = initialState, action = {}) {
     case SAVE_FOOD:
       return {
         ...state,
-        foods: action.newValue,
+        food: action.newValue,
       };
 
     case EDIT_USER:
       return {
         ...state,
         logged: true,
+        email: action.email,
+        emailBeforeEdit: action.email,
         adresse: action.adresse,
         avatar: action.avatar,
-        city: action.city,
-        cp: action.cp,
         foodLike: action.foodLike,
         id: action.id,
         pseudo: action.pseudo,
         roles: action.roles,
         password: '',
       };
+    case EDIT_ADDRESS:
+      return {
+        ...state,
+        adresse: action.address,
+        long: action.long,
+        lat: action.lat,
+      };
     case EDIT_PRO:
       return {
         ...state,
-        siret: action.siret,
         trucksPro: action.trucksPro,
         isPro: true,
       };
@@ -59,6 +64,11 @@ function editUserReducer(state = initialState, action = {}) {
             ...state,
             email: action.newValue,
           };
+        case 'address':
+          return {
+            ...state,
+            adresse: action.newValue,
+          };
         case 'pictureUser':
           return {
             ...state,
@@ -68,26 +78,6 @@ function editUserReducer(state = initialState, action = {}) {
           return {
             ...state,
             pseudo: action.newValue,
-          };
-        case 'address':
-          return {
-            ...state,
-            adresse: action.newValue,
-          };
-        case 'cp':
-          return {
-            ...state,
-            cp: action.newValue,
-          };
-        case 'city':
-          return {
-            ...state,
-            city: action.newValue,
-          };
-        case 'siret':
-          return {
-            ...state,
-            siret: action.newValue,
           };
         default:
           return state;
@@ -106,7 +96,7 @@ function editUserReducer(state = initialState, action = {}) {
         default: {
           // On clone le tableau foods pour tavailler dessus
           const updateFood = [
-            ...state.foods,
+            ...state.food,
           ];
           // Création d'un nouveau tableau
           // avec la clé isCheck modifier celon l'identifier du toggle
@@ -124,7 +114,7 @@ function editUserReducer(state = initialState, action = {}) {
           });
           return {
             ...state,
-            foods: newFood,
+            food: newFood,
           };
         }
       }

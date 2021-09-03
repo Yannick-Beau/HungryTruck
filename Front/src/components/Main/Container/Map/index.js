@@ -1,61 +1,89 @@
 // == Import npm
-import React from 'react';
-
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-} from 'react-leaflet';
+import React, { useEffect } from 'react';
+import ReactMapboxGl, { Layer, Feature, Popup } from 'react-mapbox-gl';
+import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // == Import
 import './map.scss';
 
 // == Composant
-
-const Map = () => {
-  // position coordinates
-  const position = [49.1749376, -0.33423359999999996];
-
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
-
-  function success(pos) {
-    const crd = pos.coords;
-    console.log('Votre position actuelle est :');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude : ${crd.longitude}`);
-    console.log(`La précision est de ${crd.accuracy} mètres.`);
+const Map = ({
+  trucks,
+  sendTruck,
+  long,
+  lat,
+  loadMap,
+  loadingMap,
+}) => {
+  const Map = ReactMapboxGl({
+    accessToken: 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ',
+  });
+  const style = 'mapbox://styles/mapbox/streets-v8';
+  useEffect(() => {
+    console.log(trucks);
+    if (trucks.length === 0) {
+      loadingMap();
+      sendTruck();
+    }
+  }, []);
+  let centerLong;
+  let centerLat;
+  if (long === 0) {
+    centerLong = '2.35183';
   }
-
-  function error(err) {
-    console.warn(`ERREUR (${err.code}): ${err.message}`);
+  else {
+    centerLong = long;
   }
-
-  navigator.geolocation.getCurrentPosition(success, error, options);
+  if (lat === 0) {
+    centerLat = '48.85658';
+  }
+  else {
+    centerLat = lat;
+  }
 
   return (
     <div id="map">
-      <MapContainer
-        center={position}
-        zoom={13} // map zoom
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      { loadMap
+      && (
+        <Loader
+          type="Puff"
+          color="#e69512"
+          height={100}
+          width={100}
+          className="loader"
         />
-        {/* User marker */}
-        <Marker position={position}>
-          {/* Popup user marker */}
-          <Popup>
-            Bienvenu chez Turpinou <br /> Petit apéro ce soir ?
-          </Popup>
-        </Marker>
-      </MapContainer>
+      )}
+      { !loadMap
+      && (
+      <Map style={style} center={[centerLong, centerLat]} className="map-main">
+        <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+          {trucks.map((truck) => (
+            truck.events.map((item) => <Feature coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]} />)
+          ))}
+        </Layer>
+        {trucks.map((truck) => (
+          truck.events.map((item) => (
+            <Link
+              to={`/food-truck/${truck.id}`}
+              key={truck.id}
+            >
+              <Popup
+                coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]}
+                offset={{
+                  'bottom-left': [12, -38], bottom: [0, -10], 'bottom-right': [-12, -38],
+                }}
+                className="map-popup"
+              >
+                <h1>{truck.name}</h1>
+              </Popup>
+            </Link>
+          ))
+        ))}
+
+      </Map>
+      )}
     </div>
   );
 };

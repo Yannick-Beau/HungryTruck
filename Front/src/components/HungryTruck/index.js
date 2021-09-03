@@ -22,7 +22,7 @@ import LogIn from '../../containers/MyAccount/LogIn';
 import MyAccount from '../../containers/MyAccount';
 import MyFoodTruck from '../../containers/MyAccount/MyFoodTrucks';
 import NewFoodTruck from '../../containers/MyFoodTruck/NewFoodTruck';
-import Faq from '../Footer/FAQ';
+import Faq from '../../containers/Footer/FAQ';
 import Contact from '../../containers/Contact';
 
 // == Import
@@ -59,6 +59,9 @@ const HungryTruck = ({ saveUser }) => {
         </Route>
         <Route path="/search" exact>
           <Search />
+        </Route>
+        <Route path="/:previous/food-truck/:slug" exact>
+          <ZoomFT />
         </Route>
         <Route path="/food-truck/:slug" exact>
           <ZoomFT />

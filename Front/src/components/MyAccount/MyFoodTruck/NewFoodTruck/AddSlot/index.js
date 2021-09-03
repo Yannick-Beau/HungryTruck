@@ -1,6 +1,15 @@
 // == Import npm
-import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+} from 'react';
+import MapGL from 'react-map-gl';
+import Geocoder from 'react-map-gl-geocoder';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -9,9 +18,7 @@ import './addSlot.scss';
 // == Composant
 const AddSlot = ({
   newTime,
-  address,
-  cp,
-  city,
+  updateAddressFT,
   trucks,
   addEvent,
   redirect,
@@ -21,6 +28,30 @@ const AddSlot = ({
     changeRedirect();
     return <Redirect to="/my-account/my-foodtruck" />;
   }
+  const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
+  const [viewport, setViewport] = useState({
+    latitude: 45.5,
+    longitude: 2,
+    zoom: 5.4,
+  });
+  const mapRef = useRef();
+  const handleViewportChange = useCallback(
+    (newViewport) => setViewport(newViewport),
+    [],
+  );
+
+  // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
+  const handleGeocoderViewportChange = useCallback(
+    (newViewport) => {
+      const geocoderDefaultOverrides = { transitionDuration: 1000 };
+
+      return handleViewportChange({
+        ...newViewport,
+        ...geocoderDefaultOverrides,
+      });
+    },
+    [],
+  );
   return (
     <section className="addslot-section">
       <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
@@ -197,53 +228,36 @@ const AddSlot = ({
             </div>
           </label>
         </div>
-
-        <div className="addslot-from--first">
-          <label className="addslot-label" htmlFor="adress">Adresse du lieu
+        <div className="addslot-from--first addslot-from--address">
+          <div className="addslot-label addslot-input--address" htmlFor="adress">Adresse du lieu
             <div>
-              <input
-                className="addslot-input"
-                type="text"
-                name="adress"
-                placeholder="3 rue de Paris"
-                value={address}
-                onChange={(e) => {
-                  newTime(e.target.value, 'address');
-                }}
-              />
               <span>*</span>
+              <MapGL
+                ref={mapRef}
+                {...viewport}
+                width="600px"
+                height="300px"
+                onViewportChange={handleViewportChange}
+                mapboxApiAccessToken={MAPBOX_TOKEN}
+              >
+                <Geocoder
+                  mapRef={mapRef}
+                  onViewportChange={handleGeocoderViewportChange}
+                  mapboxApiAccessToken={MAPBOX_TOKEN}
+                  countries="fr"
+                  placeholder="Votre adresse"
+                  onResult={(e) => {
+                    console.log(e.result);
+                    updateAddressFT(
+                      e.result.place_name,
+                      e.result.center[0],
+                      e.result.center[1],
+                    );
+                  }}
+                />
+              </MapGL>
             </div>
-          </label>
-          <label className="addslot-label" htmlFor="postal-code">Code postal
-            <div>
-              <input
-                className="addslot-input"
-                type="text"
-                name="postal-code"
-                placeholder="69000"
-                value={cp}
-                onChange={(e) => {
-                  newTime(e.target.value, 'cp');
-                }}
-              />
-              <span>*</span>
-            </div>
-          </label>
-          <label className="addslot-label" htmlFor="city">Ville
-            <div>
-              <input
-                className="addslot-input"
-                type="text"
-                name="city"
-                placeholder="Lyon"
-                value={city}
-                onChange={(e) => {
-                  newTime(e.target.value, 'city');
-                }}
-              />
-              <span>*</span>
-            </div>
-          </label>
+          </div>
         </div>
         <div className="addslot-form--footer">
           <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
@@ -258,9 +272,6 @@ const AddSlot = ({
 
 AddSlot.propTypes = {
   newTime: PropTypes.func.isRequired,
-  address: PropTypes.func.isRequired,
-  cp: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
 };
 
 // == Export

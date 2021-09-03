@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { displayModal } from '../../../actions/tools';
+import { timeDel, truckDel } from '../../../actions/delUser';
 
 // on importe le composant de présentation
 import MyFoodTruck from '../../../components/MyAccount/MyFoodTruck';
@@ -12,18 +12,18 @@ const mapStateToProps = (state) => ({
   // Formualire de création d'un user
   myTrucks: state.logIn.trucksPro,
   avatar: state.logIn.avatar,
-  displayModal: state.modal.displayModal,
-
 });
 
 // === mapDispatchToProps
 // si j'ai besoin de dispatcher des actions vers le store (mettre à jour le state)
 const mapDispatchToProps = (dispatch) => ({
   // nom de la prop à remplir: fonction qui dispatch l'action
-  handleDisplayModal: () => {
-    dispatch(displayModal());
+  truckdel: (id) => {
+    dispatch(truckDel(id));
   },
-  
+  timedel: (id) => {
+    dispatch(timeDel(id));
+  },
 });
 
 // === création de l'assistant

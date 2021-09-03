@@ -294,6 +294,7 @@ NewAccount.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   tokenIsOk: PropTypes.bool.isRequired,
   findFood: PropTypes.func.isRequired,
+  updateAddress: PropTypes.func.isRequired,
   errorInscription: PropTypes.bool.isRequired,
   errorInscriptionText: PropTypes.string.isRequired,
   handleError: PropTypes.func.isRequired,

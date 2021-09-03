@@ -1,4 +1,4 @@
-import { NEW_TIME } from '../actions/newTime';
+import { NEW_TIME, UPDATE_ADDRESS_FT } from '../actions/newTime';
 
 const initialState = {
   foodTruck: '',
@@ -6,8 +6,8 @@ const initialState = {
   newStartTime: '',
   newEndTime: '',
   address: '',
-  cp: '',
-  city: '',
+  long: '',
+  lat: '',
 };
 
 function newTimeReducer(state = initialState, action = {}) {
@@ -24,16 +24,6 @@ function newTimeReducer(state = initialState, action = {}) {
           return {
             ...state,
             address: action.newValue,
-          };
-        case 'cp':
-          return {
-            ...state,
-            cp: action.newValue,
-          };
-        case 'city':
-          return {
-            ...state,
-            city: action.newValue,
           };
         case 'newDay':
           return {
@@ -53,6 +43,13 @@ function newTimeReducer(state = initialState, action = {}) {
         default:
           return state;
       }
+    case UPDATE_ADDRESS_FT:
+      return {
+        ...state,
+        address: action.address,
+        long: action.long,
+        lat: action.lat,
+      };
     default:
       return state;
   }

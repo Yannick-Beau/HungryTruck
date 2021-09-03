@@ -27,8 +27,8 @@ const createUserMiddleware = (store) => (next) => (action) => {
       if (createPro === true) {
         proUser = ['ROLE_PRO'];
       }
-      const newLong = toString(long);
-      const newLat = toString(lat);
+      const newLong = long.toString();
+      const newLat = lat.toString();
       console.log('new food like', foodLike);
       console.log(`
         email : ${email},

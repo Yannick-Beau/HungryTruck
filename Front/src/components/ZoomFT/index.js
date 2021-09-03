@@ -14,7 +14,12 @@ import './zoomFT.scss';
 
 // == Composant
 const ZoomFT = ({ trucks }) => {
-  const { slug } = useParams();
+  const { slug, previous } = useParams();
+  console.log(useParams());
+  let back = '/';
+  if (previous === 'search') {
+    back = '/search';
+  }
   const idInt = parseInt(slug, 10);
   const truck = trucks.find((item) => item.id === idInt);
   console.log(truck.name);
@@ -54,7 +59,7 @@ const ZoomFT = ({ trucks }) => {
                 <tr>
                   <td>{item.day}</td>
                   <td>{item.hours} - {item.hours_end}</td>
-                  <td>{item.place}</td>
+                  <td>{item.adresse}</td>
                 </tr>
               </tbody>
             ))}
@@ -70,7 +75,7 @@ const ZoomFT = ({ trucks }) => {
           </ul>
         </div>
         <Link
-          to="/"
+          to={back}
         >
           <button type="button" className="back-home">Retour</button>
         </Link>

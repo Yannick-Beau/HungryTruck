@@ -9,7 +9,9 @@ import searchReducer from './searchReducer';
 import toolsReducer from './toolsReducer';
 import contactUs from './ContactReducer';
 import newTimeReducer from './NewTimeReducer';
-import modalReducer from './ModalReducer';
+import deleteReducer from './deleteReducer';
+import mapReducer from './mapReducer';
+import faqReducer from './faqReducer';
 // etc
 
 // le reducer principal, qui regroupe les autres
@@ -24,7 +26,9 @@ const rootReducer = combineReducers({
   contactUs: contactUs,
   newTime: newTimeReducer,
   editUser: editUserReducer,
-  modal: modalReducer,
+  deleteReducer: deleteReducer,
+  map: mapReducer,
+  faq: faqReducer,
   // etc
 });
 
