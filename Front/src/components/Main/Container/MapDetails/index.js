@@ -8,12 +8,28 @@ import './mapdetails.scss';
 import Logo from '../../../../assets/img/logo.png';
 
 // == Composant
-const MapDetails = ({ trucks, loadMap }) => (
-  <article className="mapdetails">
-    {!loadMap
+const MapDetails = ({ trucks, loadMap }) => {
+  let eventsIsNull = false;
+  const events = trucks.map((truck) => {
+    const truckEvents = truck.events.find((item) => item.length > 0);
+    return {
+      ...truckEvents,
+    };
+  });
+  if (events.length === 0) {
+    eventsIsNull = true;
+  }
+  console.log(events);
+  return (
+    <article className="mapdetails">
+      {!loadMap
     && (
       <div className="mapdetails-text">
         <h3 className="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
+        {eventsIsNull
+          && (
+            <p>Aucun evenement n'est à proximité pour le moment.</p>
+          )}
         <ul className="mapdetails-text--ul">
           {trucks.map((truck) => (
             <Link
@@ -39,8 +55,9 @@ const MapDetails = ({ trucks, loadMap }) => (
       </div>
     )}
 
-  </article>
-);
+    </article>
+  );
+};
 
 // == Export
 export default MapDetails;
