@@ -28,7 +28,10 @@ const MapDetails = ({ trucks, loadMap }) => {
         <h3 className="mapdetails-text--title">Vos Food Trucks à proximité :</h3>
         {eventsIsNull
           && (
-            <p>Aucun evenement n'est à proximité pour le moment.</p>
+            <>
+              <p>Aucun food truck à proximité n'est ouvert pour le moment.</p>
+              <p>Repasse plus tard gourmand.</p>
+            </>
           )}
         <ul className="mapdetails-text--ul">
           {trucks.map((truck) => (

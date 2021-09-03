@@ -16,4 +16,13 @@
     color: black;
     font-weight: bold;
   }
+
+  .loader {
+    background-color: blue;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+  }
 }
