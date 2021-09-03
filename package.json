@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "react-toastify": "^8.0.2",
     "surge": "^0.23.0"
   }
 }

@@ -1,0 +1,214 @@
+@use 'src/styles/vars';
+
+#sectionAccount {
+  margin: auto auto;
+  position: relative;
+  max-width: auto;
+  min-height: auto;
+
+  #myAccount {
+    font-weight: bold;
+    font-size: 4rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: -4.4rem auto -1.5rem 30rem;
+    position: absolute;
+    font-family: vars.$Krub;
+    font-variant-caps: small-caps;
+  }
+    #myaccount-picture {
+      max-width: 15rem;
+      min-height: 20rem;
+      max-height: 20rem;
+      margin-left: 9rem;
+      margin-top: -4rem;
+      border-radius: 25px;
+    }
+    #account {
+      background-color: vars.$DarkOpacity;
+      padding: 2rem;
+      width: 70vw;
+      height: 60vh;
+      margin: -18rem auto auto;
+
+      .account-informations {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 80%;
+        margin: auto auto 2rem 10rem;
+        font-size: 1.8rem;
+
+        .informations-left {
+          border-right: vars.$Yellow solid 1px;
+          padding-right: 2rem;
+
+          p {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+          }
+        }
+        .informations-right {
+          p {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+          }
+
+          #info-right--foodlist {
+            margin-bottom: 0;
+          }
+          // .social {
+          //   display: flex;
+          //   justify-content: space-around;
+
+            // .facebook {
+            //   display: flex;
+            //   flex-direction: column;
+            //   align-items: center;
+
+            //   p {
+            //     font-size: 1.2rem;
+            //   }
+            // }
+            // .instagram {
+            //   display: flex;
+            //   flex-direction: column;
+            //   align-items: center;
+
+            //   p {
+            //     font-size: 1.2rem;
+            //   }
+            // }
+          // }
+          ul {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+          }
+        }
+      }
+
+      .account-button {
+        display: flex;
+        justify-content: space-around;
+
+        .button-Link {
+
+          .button-linkto {
+            width: 15rem;
+            height: 3rem;
+            border: #e69512 solid 4px;
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: transparent;
+            color: vars.$LLight;
+
+            &:hover {
+              background-color: vars.$Yellow;
+              color: vars.$DarkOpacity;
+            }
+          }
+          .button-del {
+            width: 15rem;
+            height: 3rem;
+            border: #e61212 solid 4px;
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: transparent;
+            color: vars.$LLight;
+
+            &:hover {
+              background-color: #e61212;
+              // color: vars.$DarkOpacity;
+            }
+          }
+        }
+      }
+    }
+}
+.deleteaccount-section {
+  background-color: vars.$DarkOpacity;
+  padding: vars.$gutter;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50px;
+  p {
+    font-size: 1.3rem;
+    margin: vars.$gutter;
+    color: vars.$LLight;
+  }
+  .deleteaccount-title {
+    display: inline;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: 2rem auto 2rem auto;
+    font-family: vars.$Krub;
+    color: vars.$LLight;
+
+  }
+
+  #delAccount-text {
+    text-align: center;
+  }
+  
+  .deleteaccount-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .deleteaccount-label {
+      .deleteaccount-input {
+        width: 20rem;
+        margin: 0.33rem;
+        padding: 0.5rem;
+        padding-left: 2rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 25px;
+        border: 4px solid #e69512;
+      }
+    }
+    .deleteaccount-form--submit {
+      width: 20rem;
+      margin: vars.$gutter;
+      padding: 0.5rem;
+      border: #e61212 solid 4px;
+      border-radius: 25px;
+      background-color: transparent;
+      color: vars.$LLight;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #e61212;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+  .deleteaccount-cancel {
+    width: 20rem;
+    margin: vars.$gutter;
+    padding: 0.5rem;
+    border: #e69512 solid 4px;
+    border-radius: 25px;
+    background-color: transparent;
+    color: vars.$LLight;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: #e69512;
+      color:  vars.$DarkOpacity;
+    }
+  }
+}
+span{
+  color: #e69512;
+  font-style: italic;
+  font-weight: bold;
+}
