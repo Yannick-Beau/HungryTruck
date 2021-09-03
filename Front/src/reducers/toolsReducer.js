@@ -5,7 +5,6 @@ import {
   CHANGE_REDIRECT_LOGIN,
   LOADING_MAP,
   LOADING_FAQ,
-  LOADING_LOGIN,
 } from '../actions/tools';
 
 const initialState = {
@@ -15,7 +14,6 @@ const initialState = {
   loadFaq: false,
   redirect: false,
   redirectLogIn: false,
-  loadLogIn: false,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -25,12 +23,6 @@ function toolsReducer(state = initialState, action = {}) {
       return {
         ...state,
         iconUserIsOpen: !state.iconUserIsOpen,
-      };
-    }
-    case LOADING_LOGIN: {
-      return {
-        ...state,
-        loadLogIn: !state.loadLogIn,
       };
     }
     case CHANGE_REDIRECT: {
