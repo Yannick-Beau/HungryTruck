@@ -18,7 +18,6 @@ import './addSlot.scss';
 // == Composant
 const AddSlot = ({
   newTime,
-
   updateAddressFT,
   trucks,
   addEvent,
