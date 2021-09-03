@@ -22,6 +22,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseUser) => {
+          console.log(responseUser.data);
           store.dispatch(connectUser(
             responseUser.data.email,
             responseUser.data.adresse,

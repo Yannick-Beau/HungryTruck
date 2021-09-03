@@ -8,6 +8,7 @@ import logInMiddleware from '../middlewares/logInMiddleware';
 import searchMiddleware from '../middlewares/searchMiddleware';
 import newTimeMiddleware from '../middlewares/newTimeMiddleware';
 import deleteMiddleware from '../middlewares/deleteMiddleware';
+import mapMiddleware from '../middlewares/mapMiddleware';
 
 // on combine devTools avec les middlewares
 const enhancers = composeWithDevTools(
@@ -19,6 +20,7 @@ const enhancers = composeWithDevTools(
     editUserMiddleware,
     newTimeMiddleware,
     deleteMiddleware,
+    mapMiddleware,
     // ... d'autres middlewares
   ),
 );
