@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -13,6 +14,8 @@ const LogIn = ({
   changeField,
   handleSubmit,
   tokenIsOk,
+  loadingLogIn,
+  loadLogIn,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -25,6 +28,7 @@ const LogIn = ({
         className="login-form"
         onSubmit={(evt) => {
           evt.preventDefault();
+          loadingLogIn();
           handleSubmit();
         }}
       >
@@ -52,7 +56,20 @@ const LogIn = ({
             }}
           />
         </label>
-        <button type="submit" className="login-form--submit">Connexion</button>
+        {loadLogIn
+        && (
+          <Loader
+            type="Puff"
+            color="#e69512"
+            height={100}
+            width={100}
+            id="loaderLogIn"
+          />
+        )}
+        {!loadLogIn
+        && (
+          <button type="submit" className="login-form--submit">Connexion</button>
+        )}
       </form>
       <Link to="/new-account" className="button-Link">
         <button type="button" className="login-createaccount">Créer un compte</button>
