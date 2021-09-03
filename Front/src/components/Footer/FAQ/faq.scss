@@ -2,6 +2,12 @@
 
 .faqSection {
   margin: 0 2rem;
+  margin-top: -6rem;
+  position: relative;
+  max-width: auto;
+  min-height: max-content;
+  padding-bottom: 10rem;
+
   .faq-title {
     font-weight: bold;
     font-size: 4rem;
@@ -10,7 +16,7 @@
   }
   .faq-main {
     width: 90%;
-    height: 65vh;
+    max-height: max-content;
     background-color: vars.$DarkOpacity;
     padding: 3rem;
     margin: auto;
