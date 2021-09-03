@@ -4,12 +4,14 @@ import {
   CHANGE_REDIRECT,
   CHANGE_REDIRECT_LOGIN,
   LOADING_MAP,
+  LOADING_FAQ,
 } from '../actions/tools';
 
 const initialState = {
   iconUserIsOpen: false,
   loadEditUser: false,
   loadMap: false,
+  loadFaq: false,
   redirect: false,
   redirectLogIn: false,
 };
@@ -45,6 +47,12 @@ function toolsReducer(state = initialState, action = {}) {
       return {
         ...state,
         loadMap: !state.loadMap,
+      };
+    }
+    case LOADING_FAQ: {
+      return {
+        ...state,
+        loadFaq: !state.loadFaq,
       };
     }
     default:
