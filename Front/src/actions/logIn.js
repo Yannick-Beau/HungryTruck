@@ -5,12 +5,18 @@ export const CONNECT_USER = 'CONNECT_USER';
 export const CONNECT_PRO = 'CONNECT_PRO';
 export const LOG_OUT = 'LOG_OUT';
 export const SAVE_USER = 'SAVE_USER';
+export const IS_SUCCESS_LOGIN = 'IS_SUCCESS_LOGIN';
 
 // === action creators
 export const updateField = (newValue, identifier) => ({
   type: UPDATE_FIELD,
   newValue: newValue,
   identifier: identifier,
+});
+
+export const changeIsSuccessLogin = (newValue) => ({
+  type: IS_SUCCESS_LOGIN,
+  newValue: newValue,
 });
 
 export const authentification = () => ({
