@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import 'reactjs-popup/dist/index.css';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // == Import
 import './myaccount.scss';
@@ -59,6 +61,17 @@ const MyAccount = ({
   function closeModal() {
     setDelAccount(false);
   }
+
+  const notify = () => toast.success('Votre compte a bien été supprimé', {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: 1,
+  });
+
   return (
     <section id="sectionAccount">
       <h2 id="myAccount">Mon compte</h2>
@@ -128,9 +141,21 @@ const MyAccount = ({
                   <button
                     type="submit"
                     className="deleteaccount-form--submit"
+                    onClick={notify}
                   >
                     Supprimer mon compte HungryTruck
                   </button>
+                  <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
                 </form>
                 <Link
                   to="/my-account"
