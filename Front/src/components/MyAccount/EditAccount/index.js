@@ -36,6 +36,8 @@ const EditAccount = ({
   editAddress,
   changeField,
   changeToggle,
+  loadSaveEditUser,
+  changeIsLoading,
 }) => {
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
@@ -95,6 +97,7 @@ const EditAccount = ({
         className="newaccount-form"
         onSubmit={(evt) => {
           evt.preventDefault();
+          changeIsLoading(true, 'editUser');
           handleSubmit();
         }}
       >
@@ -214,7 +217,20 @@ const EditAccount = ({
                 Retour au menu principal
               </button>
             </Link>
-            <button id="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+             {loadSaveEditUser
+          && (
+            <Loader
+              type="Puff"
+              color="#e69512"
+              height={50}
+              width={50}
+              className="loaderEdit"
+            />
+          )}
+          {!loadSaveEditUser
+          && (
+            <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+          )}
             <Link to="/my-account" className="button-Link">
               <button type="button" className="button-linkto">
                 Retourner vers mon compte
