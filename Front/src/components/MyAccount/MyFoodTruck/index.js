@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import Loader from 'react-loader-spinner';
 
 // == Import
 import './myfoodtruck.scss';
@@ -15,6 +16,8 @@ const MyFoodTruck = ({
   avatar,
   truckdel,
   timedel,
+  loadDelEvent,
+  changeIsLoading,
 }) => (
   <section className="section-myFoodTruck">
     <h2 className="myFoodTruck-title">Mes FoodTrucks</h2>
@@ -76,14 +79,29 @@ const MyFoodTruck = ({
                                   <td>{rdv.hours} - {rdv.hours_end}</td>
                                   <td>{rdv.adresse}, {rdv.cp} {rdv.city}</td>
                                   <td>
-                                    <Trash2
-                                      color="#e61212"
-                                      onClick={() => {
-                                        console.log(`dans le composant pour supprimer un foodtruck : ${rdv.id}`);
-                                        console.log(timedel(rdv.id));
-                                        timedel(rdv.id);
-                                      }}
-                                    />
+                                    {loadDelEvent
+                                    && (
+                                      <Loader
+                                        type="Puff"
+                                        color="#e69512"
+                                        height={50}
+                                        width={50}
+                                        id="loaderLogIn"
+                                      />
+                                    )}
+                                    {!loadDelEvent
+                                    && (
+                                      <Trash2
+                                        color="#e61212"
+                                        onClick={() => {
+                                          console.log(`dans le composant pour supprimer un foodtruck : ${rdv.id}`);
+                                          console.log(timedel(rdv.id));
+                                          changeIsLoading(true, 'delEvent');
+                                          timedel(rdv.id);
+                                        }}
+                                      />
+                                    )}
+
                                   </td>
                                 </tr>
                               </tbody>
@@ -159,7 +177,7 @@ const MyFoodTruck = ({
 );
 
 MyFoodTruck.propTypes = {
-  
+
 };
 
 // == Export
