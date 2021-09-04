@@ -18,6 +18,7 @@ const initialState = {
   redirect: false,
   redirectLogIn: false,
   loadLogIn: false,
+  loadAddTruck: false,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -25,10 +26,10 @@ function toolsReducer(state = initialState, action = {}) {
   switch (action.type) {
     case CHANGE_IS_LOADING:
       switch (action.identifier) {
-        case 'mail':
+        case 'addTruck':
           return {
             ...state,
-            mail: action.newValue,
+            loadAddTruck: action.newValue,
           };
         default:
           return state;
