@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_EVENT } from '../actions/newTime';
+import { ADD_EVENT, newTime } from '../actions/newTime';
 import { changeRedirect, changeIsLoading, changeShowFlash } from '../actions/tools';
 import { saveUser } from '../actions/logIn';
 import URL from '../data/ip';
@@ -43,6 +43,13 @@ const newTimeMiddleware = (store) => (next) => (action) => {
           store.dispatch(changeRedirect());
           store.dispatch(changeIsLoading(false, 'addEvent'));
           store.dispatch(changeShowFlash('redirect', 'addEvent'));
+          store.dispatch(newTime('', 'longitude'));
+          store.dispatch(newTime('', 'latitude'));
+          store.dispatch(newTime('', 'foodTruck'));
+          store.dispatch(newTime('', 'address'));
+          store.dispatch(newTime('', 'newDay'));
+          store.dispatch(newTime('', 'newStartTime'));
+          store.dispatch(newTime('', 'newEndTime'));
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info

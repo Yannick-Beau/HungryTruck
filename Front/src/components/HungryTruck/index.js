@@ -31,8 +31,10 @@ import './styles.scss';
 // == Composant
 const HungryTruck = ({
   saveUser,
+  trucksPro,
   flashAddTruck,
   flashAddEvent,
+  flashDelEvent,
   changeShowFlash,
 }) => {
   function showError(message) {
@@ -75,6 +77,10 @@ const HungryTruck = ({
     showError('Tous les champs sont obligatoire.');
     changeShowFlash(null, 'addEvent');
   }
+  if (flashDelEvent === 'error') {
+    showError('Une erreur c\'est produite, veuillez réessayer.');
+    changeShowFlash(null, 'delEvent');
+  }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
@@ -91,6 +97,13 @@ const HungryTruck = ({
       changeShowFlash(null, 'addEvent');
     }
   });
+  useEffect(() => {
+    if (flashDelEvent === 'success') {
+      changeShowFlash(null, 'delEvent');
+      showSuccess('L\'événement a bien été supprimé au food truck.');
+    }
+  }, [flashDelEvent]);
+
   return (
     <div className="hungrytruck">
       <ToastContainer

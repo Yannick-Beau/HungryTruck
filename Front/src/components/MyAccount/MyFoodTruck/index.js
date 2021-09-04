@@ -84,8 +84,8 @@ const MyFoodTruck = ({
                                       <Loader
                                         type="Puff"
                                         color="#e69512"
-                                        height={50}
-                                        width={50}
+                                        height={30}
+                                        width={30}
                                         id="loaderLogIn"
                                       />
                                     )}
