@@ -146,15 +146,15 @@ const MyFoodTruck = ({
                   {!loadDelTruck
                   && (
                     <Trash2
-                    color="#e61212"
-                    onClick={() => {
-                      console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
-                      console.log(truckdel(item.id));
-                      truckdel(item.id);
-                    }}
-                  />
+                      color="#e61212"
+                      onClick={() => {
+                        console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
+                        console.log(truckdel(item.id));
+                        truckdel(item.id);
+                      }}
+                    />
                   )}
-                  
+
                 </td>
               </tr>
             </tbody>

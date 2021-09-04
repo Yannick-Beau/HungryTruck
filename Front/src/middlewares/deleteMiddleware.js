@@ -51,9 +51,13 @@ const deleteMiddleware = (store) => (next) => (action) => {
           console.log(response);
           // store.dispatch(truckDel(action.id));
           store.dispatch(saveUser());
+          store.dispatch(changeIsLoading(false, 'delTruck'));
+          store.dispatch(changeShowFlash('success', 'delTruck'));
         })
         .catch((error) => {
           console.log(error.response.data);
+          store.dispatch(changeIsLoading(false, 'delTruck'));
+          store.dispatch(changeShowFlash('error', 'delTruck'));
         });
       break;
     }
