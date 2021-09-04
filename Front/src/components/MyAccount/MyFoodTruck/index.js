@@ -138,8 +138,8 @@ const MyFoodTruck = ({
                     <Loader
                       type="Puff"
                       color="#e69512"
-                      height={30}
-                      width={30}
+                      height={25}
+                      width={25}
                       id="loaderLogIn"
                     />
                   )}
@@ -150,6 +150,7 @@ const MyFoodTruck = ({
                       onClick={() => {
                         console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
                         console.log(truckdel(item.id));
+                        changeIsLoading(true, 'delTruck');
                         truckdel(item.id);
                       }}
                     />

@@ -35,6 +35,7 @@ const HungryTruck = ({
   flashAddTruck,
   flashAddEvent,
   flashDelEvent,
+  flashDelTruck,
   changeShowFlash,
 }) => {
   function showError(message) {
@@ -81,6 +82,10 @@ const HungryTruck = ({
     showError('Une erreur c\'est produite, veuillez réessayer.');
     changeShowFlash(null, 'delEvent');
   }
+  if (flashDelTruck === 'error') {
+    showError('Une erreur c\'est produite, veuillez réessayer.');
+    changeShowFlash(null, 'delTruck');
+  }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
@@ -102,7 +107,11 @@ const HungryTruck = ({
       changeShowFlash(null, 'delEvent');
       showSuccess('L\'événement a bien été supprimé au food truck.');
     }
-  }, [flashDelEvent]);
+    if (flashDelTruck === 'success') {
+      changeShowFlash(null, 'delTruck');
+      showSuccess('Le food truck a bien été supprimé.');
+    }
+  }, [flashDelEvent, flashDelTruck]);
 
   return (
     <div className="hungrytruck">
