@@ -17,6 +17,7 @@ const MyFoodTruck = ({
   truckdel,
   timedel,
   loadDelEvent,
+  loadDelTruck,
   changeIsLoading,
 }) => (
   <section className="section-myFoodTruck">
@@ -132,7 +133,19 @@ const MyFoodTruck = ({
                   </Popup>
                 </td>
                 <td>
-                  <Trash2
+                  {loadDelTruck
+                  && (
+                    <Loader
+                      type="Puff"
+                      color="#e69512"
+                      height={30}
+                      width={30}
+                      id="loaderLogIn"
+                    />
+                  )}
+                  {!loadDelTruck
+                  && (
+                    <Trash2
                     color="#e61212"
                     onClick={() => {
                       console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
@@ -140,6 +153,8 @@ const MyFoodTruck = ({
                       truckdel(item.id);
                     }}
                   />
+                  )}
+                  
                 </td>
               </tr>
             </tbody>
