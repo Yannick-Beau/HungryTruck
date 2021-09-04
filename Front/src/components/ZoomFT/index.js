@@ -45,7 +45,7 @@ const ZoomFT = ({ trucks }) => {
       </div>
       <div className="details">
         <p className="overview">{truck.overview}</p>
-        <div className="myFoodTruck-array">
+        <div className="myFoodTruck-array" id="foodtruck-array">
           <table>
             <thead>
               <tr>

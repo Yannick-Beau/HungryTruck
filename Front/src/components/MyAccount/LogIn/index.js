@@ -14,13 +14,37 @@ const LogIn = ({
   handleSubmit,
   tokenIsOk,
 }) => {
+  function showError() {
+    toast.error('Adresse email ou mot de passe incorrects, veuillez réessayer', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }
+  function showSuccess() {
+    toast.success('Connexion réussie. A table ! 🍔', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }
   if (tokenIsOk) {
     return <Redirect to="/" />;
   }
   return (
     <section className="login-section">
       <h2 className="login-title">Connexion à HungryTruck</h2>
-      <p>Bienvenu sur HungryTruck</p>
+      <p>Bienvenue sur HungryTruck</p>
       <form
         className="login-form"
         onSubmit={(evt) => {
@@ -52,7 +76,31 @@ const LogIn = ({
             }}
           />
         </label>
-        <button type="submit" className="login-form--submit">Connexion</button>
+        {loadLogIn
+        && (
+          <Loader
+            type="Puff"
+            color="#e69512"
+            height={100}
+            width={100}
+            id="loaderLogIn"
+          />
+        )}
+        {!loadLogIn
+        && (
+          <button type="submit" className="login-form--submit">Connexion</button>
+        )}
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </form>
       <Link to="/new-account" className="button-Link">
         <button type="button" className="login-createaccount">Créer un compte</button>

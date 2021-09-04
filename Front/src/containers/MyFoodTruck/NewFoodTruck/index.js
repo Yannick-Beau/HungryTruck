@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import NewFoodTruck from '../../../components/MyAccount/MyFoodTruck/NewFoodTruck';
 import { changeField, loadNewFoodTruck } from '../../../actions/newFoodTruck';
 import { findFood } from '../../../actions/createUser';
+import { changeIsLoading } from '../../../actions/tools';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -21,8 +22,8 @@ const mapStateToProps = (state) => ({
   type1: state.newFT.type1,
   tyep2: state.newFT.tyep2,
   type3: state.newFT.type3,
-
   foods: state.createUser.foods,
+  loadAddTruck: state.tools.loadAddTruck,
 });
 
 // === mapDispatchToProps
@@ -33,7 +34,10 @@ const mapDispatchToProps = (dispatch) => ({
     const action = changeField(newValue, identifier);
     dispatch(action);
   },
-
+  changeIsLoading: (newValue, identifier) => {
+    const action = changeIsLoading(newValue, identifier);
+    dispatch(action);
+  },
   loadNewFoodTruck: () => {
     const action = loadNewFoodTruck();
     dispatch(action);
