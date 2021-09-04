@@ -84,7 +84,7 @@ const EditAccount = ({
         color="#e69512"
         height={100}
         width={100}
-        className="loader"
+        id="loaderFood"
       />
       )}
       { !loadEditUser
