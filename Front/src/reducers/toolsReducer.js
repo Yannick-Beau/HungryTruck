@@ -19,6 +19,7 @@ const initialState = {
   redirectLogIn: false,
   loadLogIn: false,
   loadAddTruck: false,
+  flashAddTruck: false,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -37,10 +38,10 @@ function toolsReducer(state = initialState, action = {}) {
 
     case CHANGE_SHOW_FLASH:
       switch (action.identifier) {
-        case 'mail':
+        case 'addTruck':
           return {
             ...state,
-            mail: action.newValue,
+            flashAddTruck: action.newValue,
           };
         default:
           return state;
