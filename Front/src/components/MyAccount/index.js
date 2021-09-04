@@ -64,12 +64,13 @@ const MyAccount = ({
 
   const notify = () => toast.success('Votre compte a bien été supprimé', {
     position: 'top-center',
-    autoClose: 5000,
-    hideProgressBar: true,
+    autoClose: 3000,
+    hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
-    progress: 1,
+    progress: undefined,
+    theme: 'colored',
   });
 
   return (
@@ -149,7 +150,7 @@ const MyAccount = ({
                   <ToastContainer
                     position="top-center"
                     autoClose={5000}
-                    hideProgressBar
+                    hideProgressBar={false}
                     newestOnTop={false}
                     closeOnClick
                     rtl={false}
