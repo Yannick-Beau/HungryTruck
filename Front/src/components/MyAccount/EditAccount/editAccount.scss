@@ -1,5 +1,51 @@
-.loader {
+@use 'src/styles/vars';
+
+#loader-edit {
   position: absolute;
-  top: 50vh;
-  left: 50vw;
+  top: 50%;
+  left: 50%;
+}
+
+#edit-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -5rem;
+
+  .button-linkto {
+    width: 15rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: vars.$Yellow solid 4px;
+    border-radius: 25px;
+    background-color: transparent;
+    color: vars.$LLight;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: vars.$Yellow;
+      color: rgba(255, 255, 255, 0.8);
+
+    }
+
+  }
+  
+  #submit-form {
+    width: 17rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: #095228 solid 4px;
+    border-radius: 25px;
+    background-color: transparent;
+    color: vars.$LLight;
+    font-size: 1rem;
+
+    &:hover {
+
+      background-color: #095228;
+      color: rgba(255, 255, 255, 0.8);
+      border: #095228 4px solid;
+
+    }
+
+  }
 }
