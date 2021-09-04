@@ -20,6 +20,8 @@ const initialState = {
   loadLogIn: false,
   loadAddTruck: false,
   flashAddTruck: null,
+  loadAddEvent: false,
+  flashAddEvent: null,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -32,6 +34,11 @@ function toolsReducer(state = initialState, action = {}) {
             ...state,
             loadAddTruck: action.newValue,
           };
+        case 'addEvent':
+          return {
+            ...state,
+            loadAddEvent: action.newValue,
+          };
         default:
           return state;
       }
@@ -42,6 +49,11 @@ function toolsReducer(state = initialState, action = {}) {
           return {
             ...state,
             flashAddTruck: action.newValue,
+          };
+        case 'addEvent':
+          return {
+            ...state,
+            flashAddEvent: action.newValue,
           };
         default:
           return state;
