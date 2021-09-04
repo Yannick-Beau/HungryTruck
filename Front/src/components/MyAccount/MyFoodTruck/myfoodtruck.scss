@@ -1,9 +1,10 @@
 @use 'src/styles/vars';
 
 .section-myFoodTruck {
-  margin: 2rem;
-  margin-bottom: 10rem;
-  height: auto;
+  margin: -3rem auto auto;
+  position: relative;
+  max-width: auto;
+  min-height: 100vh;
 
   .myFoodTruck-title {
     font-weight: bold;
