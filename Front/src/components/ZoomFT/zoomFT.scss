@@ -1,23 +1,30 @@
 @use 'src/styles/vars';
 
 .zoom-section {
-  height: auto;
-  margin: 2rem;
+  margin: auto auto;
+  position: relative;
+  max-width: auto;
+  min-height: 110vh;
+
   .zoom-title {
     font-weight: bold;
     font-size: 4rem;
     text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
     margin: -1rem auto -1.5rem 40rem;
   }
+
   .image-reseaux {
     margin-left: 13rem;
-    margin-top: -9.3rem;
+    margin-top: -5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: absolute;
     width: 20rem;
     img {
-      height: 20rem;
+      // height: 20rem;
+      width: 20rem;
+      border-radius: 25px 25px 0 0;
     }
     .reseaux {
       background-color: #e69512;
@@ -45,17 +52,19 @@
     background-color: vars.$DarkOpacity;
     padding: 2rem;
     width: 70vw;
-    height: auto;
-    margin: -17.6rem auto auto 25rem;
+    margin: auto auto 10rem 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 3;
 
     .overview {
       margin: 0.5rem auto ;
       font-style: italic;
       font-size: 1.2rem;
     }
+
+
     h3 {
       font-weight: bold;
       font-size: 2rem;

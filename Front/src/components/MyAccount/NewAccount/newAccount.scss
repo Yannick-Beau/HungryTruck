@@ -2,11 +2,10 @@
 
 .newaccount {
   width: 70vw;
-  min-height: 100vh;
+  max-height: 100vh;
 
   margin: auto;
-  padding-bottom: 7rem;
-  // bottom: 0;
+  margin-top: -5rem;
 
   .newaccount-title {
     font-weight: bold;
@@ -58,6 +57,9 @@
           -webkit-box-shadow: 0px 1px 100px -4px rgba(0, 0, 0, 0.75) encart;
           -moz-box-shadow: 0px 1px 100px -4px rgba(0, 0, 0, 0.75) encart;
 
+          &:focus {
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, .5);
+          }
         }
       }
     }
@@ -65,6 +67,7 @@
     .form-right {
       display: flex;
       flex-direction: column;
+      padding-top: 0;
 
       h2 {
         margin: vars.$gutter;
@@ -162,13 +165,25 @@
         .fields {
           display: flex;
 
+          .map-label {
+            margin-bottom: 1rem;
+          }
+
           .fields-left {
             padding: vars.$gutter;
             border-right: 2px solid vars.$DMidDark;
+            padding-left: 0;
+            padding-right: 2rem;
+            width: max-content;
           }
 
           .fields-right {
             padding: vars.$gutter;
+
+            .field {
+              margin-top: -3rem;
+              
+            }
           }
 
           .field-label {
@@ -176,6 +191,7 @@
             flex-direction: column;
             margin: vars.$gutter;
             font-style: italic;
+            // font-size: 0.9rem;
           
             span {
               color: #e69512;
@@ -190,12 +206,16 @@
               background-color: rgba(255, 255, 255, 0.8);
               border-radius: 25px;
               border: 4px solid #e69512;
+
+              &:focus {
+                box-shadow: inset 0 0 25px rgba(0, 0, 0, .5);
+              }
             }
           }
         }
 
         .fields-food {
-          width: 30rem;
+          width: 25rem;
           .field-check {
             display: flex;
             flex-wrap: wrap;
@@ -227,6 +247,10 @@
 
   &:hover {
     background-color: #e69512;
+    box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+    -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+    -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+    border: vars.$DarkOpacity 2px solid;
     color: vars.$DarkOpacity;
   }
 }

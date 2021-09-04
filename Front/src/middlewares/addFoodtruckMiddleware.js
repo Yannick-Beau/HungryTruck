@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { ADD_FOODTRUCK, loadNewFoodTruck } from '../actions/newFoodTruck';
+import { ADD_FOODTRUCK } from '../actions/newFoodTruck';
+import { changeIsLoading, changeShowFlash } from '../actions/tools';
 import URL from '../data/ip';
 
 const addFoodTruckMiddleware = (store) => (next) => (action) => {
@@ -47,13 +48,13 @@ const addFoodTruckMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          //store.dispatch(loadNewFoodTruck());
+          store.dispatch(changeIsLoading(false, 'addTruck'));
+          store.dispatch(changeShowFlash('redirect', 'addTruck'));
         })
         .catch((error) => {
           console.log(error);
-        })
-        .finally(() => {
-          console.log('envoyé');
+          store.dispatch(changeIsLoading(false, 'addTruck'));
+          store.dispatch(changeShowFlash('error', 'addTruck'));
         });
       break;
     }
