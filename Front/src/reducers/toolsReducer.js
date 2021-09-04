@@ -28,6 +28,8 @@ const initialState = {
   flashDelTruck: null,
   loadSaveEditUser: false,
   flashSaveEditUser: null,
+  loadCreateUser: false,
+  flashCreateUser: null,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -60,6 +62,11 @@ function toolsReducer(state = initialState, action = {}) {
             ...state,
             loadSaveEditUser: action.newValue,
           };
+        case 'createUser':
+          return {
+            ...state,
+            loadCreateUser: action.newValue,
+          };
         default:
           return state;
       }
@@ -90,6 +97,11 @@ function toolsReducer(state = initialState, action = {}) {
           return {
             ...state,
             flashSaveEditUser: action.newValue,
+          };
+        case 'createUser':
+          return {
+            ...state,
+            flashCreateUser: action.newValue,
           };
         default:
           return state;

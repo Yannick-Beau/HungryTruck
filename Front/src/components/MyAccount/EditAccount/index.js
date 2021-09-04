@@ -217,9 +217,9 @@ const EditAccount = ({
             <Loader
               type="Puff"
               color="#e69512"
-              height={100}
-              width={100}
-              id="loaderEdit"
+              height={50}
+              width={50}
+              className="loaderEdit"
             />
           )}
           {!loadSaveEditUser
