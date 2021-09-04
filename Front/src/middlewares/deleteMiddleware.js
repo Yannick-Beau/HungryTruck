@@ -8,6 +8,7 @@ import {
   TIME_DEL,
 } from '../actions/delUser';
 import { saveUser } from '../actions/logIn';
+import { changeIsLoading, changeShowFlash } from '../actions/tools';
 
 const deleteMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -50,9 +51,13 @@ const deleteMiddleware = (store) => (next) => (action) => {
           console.log(response);
           // store.dispatch(truckDel(action.id));
           store.dispatch(saveUser());
+          store.dispatch(changeIsLoading(false, 'delTruck'));
+          store.dispatch(changeShowFlash('success', 'delTruck'));
         })
         .catch((error) => {
           console.log(error.response.data);
+          store.dispatch(changeIsLoading(false, 'delTruck'));
+          store.dispatch(changeShowFlash('error', 'delTruck'));
         });
       break;
     }
@@ -73,9 +78,13 @@ const deleteMiddleware = (store) => (next) => (action) => {
           console.log(response);
           // store.dispatch(truckDel(action.id));
           store.dispatch(saveUser());
+          store.dispatch(changeIsLoading(false, 'delEvent'));
+          store.dispatch(changeShowFlash('success', 'delEvent'));
         })
         .catch((error) => {
           console.log(error.response.data);
+          store.dispatch(changeIsLoading(false, 'delEvent'));
+          store.dispatch(changeShowFlash('error', 'delEvent'));
         });
       break;
     }
