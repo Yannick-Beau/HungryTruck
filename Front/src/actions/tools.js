@@ -15,6 +15,7 @@ export const changeIsLoading = (newValue, identifier) => ({
   newValue: newValue,
   identifier: identifier,
 });
+
 export const changeShowFlash = (newValue, identifier) => ({
   type: CHANGE_SHOW_FLASH,
   newValue: newValue,

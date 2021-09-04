@@ -4,7 +4,6 @@ export const ADD_EVENT = 'ADD_EVENT';
 export const UPDATE_ADDRESS_FT = 'UPDATE_ADDRESS_FT';
 
 // === action creators
-
 export const newTime = (newValue, identifier) => ({
   type: NEW_TIME,
   newValue: newValue,
