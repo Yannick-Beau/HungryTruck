@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import emailjs from 'emailjs-com';
+import { Link } from 'react-router-dom';
 
 // == Import
 import './contact.scss';
@@ -60,6 +61,11 @@ const Contact = ({ mail, message, contactUs }) => {
             <button id="contact-form--button" type="submit">
               Envoyer mon message
             </button>
+            <Link to="/" className="button-Link">
+              <button type="button" className="button-linkto">
+                Retour au menu principal
+              </button>
+            </Link>
           </div>
         </form>
       </article>

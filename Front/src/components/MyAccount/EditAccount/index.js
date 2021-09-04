@@ -1,5 +1,5 @@
 // == Import npm
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
@@ -79,13 +79,15 @@ const EditAccount = ({
       <h1 className="newaccount-title">{title}</h1>
       { loadEditUser
       && (
-      <Loader
-        type="Puff"
-        color="#e69512"
-        height={100}
-        width={100}
-        className="loader"
-      />
+        <div id="loader-edit">
+          <Loader
+            type="Puff"
+            color="#e69512"
+            height={100}
+            width={100}
+            className="loader"
+          />
+        </div>
       )}
       { !loadEditUser
       && (
@@ -118,7 +120,7 @@ const EditAccount = ({
             <div className="fields">
               <div className="fields-left">
                 <div className="field">
-                  <label className="field-label" htmlFor="email">Votre Email
+                  <label className="field-label" htmlFor="email">Votre Email *
                     <div>
                       <input
                         className="field-input"
@@ -131,12 +133,11 @@ const EditAccount = ({
                           changeField(evt.target.value, 'email');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
                 <div className="field">
-                  <label className="field-label" htmlFor="pseudo">Votre Pseudo
+                  <label className="field-label" htmlFor="pseudo">Votre Pseudo *
                     <div>
                       <input
                         className="field-input"
@@ -149,16 +150,14 @@ const EditAccount = ({
                           changeField(evt.target.value, 'nickname');
                         }}
                       />
-                      <span>*</span>
                     </div>
                   </label>
                 </div>
               </div>
               <div className="fields-right">
                 <div className="field">
-                  <div className="field-label" htmlFor="adresse">Saisissez votre adresse
+                  <div className="field-label" htmlFor="adresse">Saisissez votre adresse *
                     <div>
-                      <span>*</span>
                       <MapGL
                         ref={mapRef}
                         {...viewport}
@@ -209,7 +208,19 @@ const EditAccount = ({
               </div>
             </div>
           </div>
-          <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+          <div id="edit-buttons">
+            <Link to="/" className="button-Link">
+              <button type="button" className="button-linkto">
+                Retour au menu principal
+              </button>
+            </Link>
+            <button id="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+            <Link to="/my-account" className="button-Link">
+              <button type="button" className="button-linkto">
+                Retourner vers mon compte
+              </button>
+            </Link>
+          </div>
         </div>
       </form>
       )}
