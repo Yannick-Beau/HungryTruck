@@ -117,7 +117,7 @@ const MyAccount = ({
               <section className="deleteaccount-section">
                 <h2 className="deleteaccount-title">Suppression de compte</h2>
                 <p id="delAccount-text">Pour supprimer votre compte HungryTruck,<br />
-                  veuillez renseigner votre mot de passe.
+                  veuillez cocher la case si dessous puis valider votre demande.
                 </p>
                 <form
                   className="deleteaccount-form"
@@ -129,7 +129,7 @@ const MyAccount = ({
                   <label className="deleteaccount-label" htmlFor="password">
                     <input
                       className="deleteaccount-input"
-                      type="password"
+                      type="checkbox"
                       name="password"
                       placeholder="Votre mot de passe"
                       value={deleteUser}
@@ -137,6 +137,7 @@ const MyAccount = ({
                         delUser(e.target.value, 'deleteUser');
                       }}
                     />
+                    <p>Je confirme la suppression de mon compte</p>
                   </label>
                   <button
                     type="submit"
