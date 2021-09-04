@@ -48,11 +48,11 @@ const addFoodTruckMiddleware = (store) => (next) => (action) => {
       )
         .then((response) => {
           console.log(response);
-          store.dispatch(changeIsLoading());
+          store.dispatch(changeIsLoading(false, 'addTruck'));
         })
         .catch((error) => {
           console.log(error);
-          store.dispatch(changeIsLoading());
+          store.dispatch(changeIsLoading(false, 'addTruck'));
         });
       break;
     }

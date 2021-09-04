@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
   // nom de la prop à remplir: élément à récupérer dans le state
 
   // Formualire de création d'un user
-
+  
 });
 
 // === mapDispatchToProps
