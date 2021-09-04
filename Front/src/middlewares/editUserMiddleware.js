@@ -25,12 +25,15 @@ const editUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseUser) => {
+          console.log('responseUser', responseUser);
           store.dispatch(editUser(
             responseUser.data.email,
             responseUser.data.adresse,
             responseUser.data.avatar,
             responseUser.data.food_like,
             responseUser.data.pseudo,
+            responseUser.data.longitude,
+            responseUser.data.latitude,
           ));
           const isPro = responseUser.data.roles.find((item) => item === 'ROLE_PRO');
           if (isPro !== undefined) {
@@ -97,8 +100,8 @@ const editUserMiddleware = (store) => (next) => (action) => {
         avatar,
         adresse,
         food,
-        long,
-        lat,
+        longEdit,
+        latEdit,
       } = store.getState().editUser;
       const { isPro } = store.getState().logIn;
       let endPoint = '/api/user/edit';
@@ -115,8 +118,8 @@ const editUserMiddleware = (store) => (next) => (action) => {
         newFoodLike.push(item.id)
       ));
       console.log('new food like', newFoodLike);
-      const newLong = long.toString();
-      const newLat = lat.toString();
+      const newLong = longEdit.toString();
+      const newLat = latEdit.toString();
       console.log(
         'email : ',
         email,
