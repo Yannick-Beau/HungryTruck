@@ -67,9 +67,6 @@ const EditAccount = ({
     changeLoadingEditUser();
     findFood();
   }, []);
-  if (!logged) {
-    return <Redirect to="/" />;
-  }
   let title = 'Modifier votre compte Utilisateur';
   let buttonCreateName = 'Modifier mon compte Utilisateur';
   if (isPro) {
@@ -87,7 +84,7 @@ const EditAccount = ({
             color="#e69512"
             height={100}
             width={100}
-            className="loader"
+            id="loader-food-user"
           />
         </div>
       )}
@@ -217,19 +214,20 @@ const EditAccount = ({
                 Retour au menu principal
               </button>
             </Link>
-             {loadSaveEditUser
+            {loadSaveEditUser
           && (
-            <Loader
-              type="Puff"
-              color="#e69512"
-              height={50}
-              width={50}
-              className="loaderEdit"
-            />
+            <div>
+              <Loader
+                type="Puff"
+                color="#e69512"
+                height={50}
+                width={50}
+              />
+            </div>
           )}
-          {!loadSaveEditUser
+            {!loadSaveEditUser
           && (
-            <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+            <button id="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
           )}
             <Link to="/my-account" className="button-Link">
               <button type="button" className="button-linkto">
