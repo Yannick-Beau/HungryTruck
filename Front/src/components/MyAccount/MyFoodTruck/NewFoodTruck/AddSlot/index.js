@@ -53,7 +53,7 @@ const AddSlot = ({
     [],
   );
   return (
-    <section className="addslot-section">
+    <section className="addslot-section newrdv">
       <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
       <p className="addslot-fields--legend">* Champ obligatoire</p>
       <form

@@ -1,20 +1,18 @@
 @use 'src/styles/vars';
 
-.addslot-section {
+.addslot-section, .newrdv {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   border-radius: 50px;
-  width: 50%;
   height: auto;
   background-color: vars.$DarkOpacity;
   padding: vars.$gutter;
-  margin: auto;
   color: vars.$LLight;
-  margin: auto auto;
+  // margin: auto auto 20rem;
   position: relative;
-  max-width: auto;
-  min-height: 110vh;
+  max-width: 80%;
+  max-height: 80vh;
 
   .addslot-title {
     font-weight: bold;
