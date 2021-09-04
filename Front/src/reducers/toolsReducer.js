@@ -6,6 +6,8 @@ import {
   LOADING_MAP,
   LOADING_FAQ,
   LOADING_LOGIN,
+  CHANGE_SHOW_FLASH,
+  CHANGE_IS_LOADING,
 } from '../actions/tools';
 
 const initialState = {
@@ -21,6 +23,28 @@ const initialState = {
 function toolsReducer(state = initialState, action = {}) {
   console.log(action.type);
   switch (action.type) {
+    case CHANGE_IS_LOADING:
+      switch (action.identifier) {
+        case 'mail':
+          return {
+            ...state,
+            mail: action.newValue,
+          };
+        default:
+          return state;
+      }
+
+    case CHANGE_SHOW_FLASH:
+      switch (action.identifier) {
+        case 'mail':
+          return {
+            ...state,
+            mail: action.newValue,
+          };
+        default:
+          return state;
+      }
+
     case CHANGE_STATUS_ICON_USER: {
       return {
         ...state,
