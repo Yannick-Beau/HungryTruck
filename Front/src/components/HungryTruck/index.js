@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { ToastContainer, toast } from 'react-toastify';
 
 // == Import components which always display
 import Nav from '../Nav';
@@ -28,17 +29,63 @@ import Contact from '../../containers/Contact';
 import './styles.scss';
 
 // == Composant
-const HungryTruck = ({ saveUser }) => {
+const HungryTruck = ({
+  saveUser,
+  flashAddTruck,
+  changeShowFlash,
+}) => {
+  function showError(message) {
+    toast.error(message, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }
+  function showSuccess(message) {
+    toast.success(message, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
+  }
+  if (flashAddTruck) {
+    showSuccess();
+    changeShowFlash(null);
+  }
+  if (flashAddTruck === false) {
+    showError();
+    changeShowFlash(null);
+  }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
-  console.log(localStorage.getItem('token'));
   if (localStorage.getItem('token') !== null) {
     saveUser();
   }
 
   return (
     <div className="hungrytruck">
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Nav />
       <Switch>
         <Route path="/" exact>
