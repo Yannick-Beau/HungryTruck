@@ -77,7 +77,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/api/user/edit", name="api_user_edit", methods={"PUT", "PATCH"})
+     * @Route("/api/user/edit", name="api_user_edit", methods={"PUT"})
      * @IsGranted("ROLE_USER")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
