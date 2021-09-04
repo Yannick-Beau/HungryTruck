@@ -43,7 +43,7 @@ class ProController extends AbstractController
     }
 
     /**
-     * @Route("/api/pro/edit", name="api_pro_edit", methods={"PUT", "PATCH"})
+     * @Route("/api/pro/edit", name="api_pro_edit", methods={"PUT"})
      * @IsGranted("ROLE_PRO")
      */
     public function itemEdit(User $user = null, SerializerInterface $serializer, ValidatorInterface $validator, EntityManagerInterface $entityManager, Request $request): Response
