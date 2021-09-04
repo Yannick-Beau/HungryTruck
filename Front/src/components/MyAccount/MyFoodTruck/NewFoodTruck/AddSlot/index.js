@@ -27,10 +27,10 @@ const AddSlot = ({
   loadAddEvent,
   changeIsLoading,
 }) => {
-  if (redirect) {
-    changeRedirect();
-    return <Redirect to="/my-account/my-foodtruck" />;
-  }
+  // if (redirect) {
+  //   changeRedirect();
+  //   return <Redirect to="/my-account/my-foodtruck" />;
+  // }
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
     latitude: 45.5,

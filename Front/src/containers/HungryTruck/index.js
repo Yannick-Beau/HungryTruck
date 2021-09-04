@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
   // Formualire de création d'un user
   flashAddTruck: state.tools.flashAddTruck,
+  flashAddEvent: state.tools.flashAddEvent,
 });
 
 // === mapDispatchToProps
