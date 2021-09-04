@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   flashAddTruck: state.tools.flashAddTruck,
   flashAddEvent: state.tools.flashAddEvent,
   flashDelEvent: state.tools.flashDelEvent,
+  flashDelTruck: state.tools.flashDelTruck,
 });
 
 // === mapDispatchToProps
