@@ -10,6 +10,7 @@ import {
   updateErrorInscription,
   updateAddress,
 } from '../../../actions/createUser';
+import { changeIsLoading } from '../../../actions/tools';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -28,6 +29,7 @@ const mapStateToProps = (state) => ({
   foods: state.createUser.foods,
   errorInscription: state.createUser.errorInscription,
   errorInscriptionText: state.createUser.errorInscriptionText,
+  loadCreateUser: state.tools.loadCreateUser,
 });
 
 // === mapDispatchToProps
@@ -56,6 +58,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   updateAddress: (address, long, lat) => {
     const action = updateAddress(address, long, lat);
+    dispatch(action);
+  },
+  changeIsLoading: (newValue, identifier) => {
+    const action = changeIsLoading(newValue, identifier);
     dispatch(action);
   },
 });

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { CREATE_USER, FIND_FOOD, saveFood } from '../actions/createUser';
 import { authentification } from '../actions/logIn';
+import { changeIsLoading, changeShowFlash } from '../actions/tools';
 import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
@@ -57,11 +58,15 @@ const createUserMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(authentification());
+          store.dispatch(changeIsLoading(false, 'createUser'));
+          store.dispatch(changeShowFlash('redirect', 'createUser'));
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
           // dans le state, et dispatcher ici une nouvelle action
           console.log(error);
+          store.dispatch(changeIsLoading(false, 'createUser'));
+          store.dispatch(changeShowFlash('error', 'createUser'));
         });
       break;
     }
