@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 
 // on importe le composant de présentation
 import LogIn from 'src/components/MyAccount/LogIn';
-import { updateField, authentification, changeIsSuccessLogin } from '../../../actions/logIn';
-import { loadingLogIn } from '../../../actions/tools';
+import { updateField, authentification } from '../../../actions/logIn';
 
 // === mapStateToProps
 // si j'ai besoin de lire des informations dans le state
@@ -14,8 +13,6 @@ const mapStateToProps = (state) => ({
   email: state.logIn.email,
   password: state.logIn.password,
   tokenIsOk: state.logIn.logged,
-  loadLogIn: state.tools.loadLogIn,
-  isSuccessLogIn: state.logIn.isSuccessLogIn,
 });
 
 // === mapDispatchToProps
@@ -28,14 +25,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleSubmit: () => {
     const action = authentification();
-    dispatch(action);
-  },
-  loadingLogIn: () => {
-    const action = loadingLogIn();
-    dispatch(action);
-  },
-  changeIsSuccessLogin: (newValue) => {
-    const action = changeIsSuccessLogin(newValue);
     dispatch(action);
   },
 });

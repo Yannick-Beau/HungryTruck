@@ -37,10 +37,6 @@ export const loadingFaq = () => ({
   type: LOADING_FAQ,
 });
 
-export const loadingLogIn = () => ({
-  type: LOADING_LOGIN,
-});
-
 export const changeRedirect = () => ({
   type: CHANGE_REDIRECT,
 });
