@@ -63,7 +63,7 @@ const NewFoodTruck = ({
         className="newFoodTruck"
         onSubmit={(evt) => {
           evt.preventDefault();
-          changeIsLoading();
+          changeIsLoading('addTruck');
           loadNewFoodTruck();
         }}
       >

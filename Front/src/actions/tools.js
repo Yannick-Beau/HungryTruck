@@ -10,12 +10,14 @@ export const CHANGE_IS_LOADING = 'CHANGE_IS_LOADING';
 export const CHANGE_SHOW_FLASH = 'CHANGE_SHOW_FLASH';
 
 // === action creators
-export const changeIsLoading = (identifier) => ({
+export const changeIsLoading = (newValue, identifier) => ({
   type: CHANGE_IS_LOADING,
+  newValue: newValue,
   identifier: identifier,
 });
-export const changeShowFlash = (identifier) => ({
+export const changeShowFlash = (newValue, identifier) => ({
   type: CHANGE_SHOW_FLASH,
+  newValue: newValue,
   identifier: identifier,
 });
 
