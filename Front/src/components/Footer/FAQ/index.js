@@ -6,7 +6,12 @@ import Loader from 'react-loader-spinner';
 import './faq.scss';
 
 // == Composant
-const Faq = ({ faq, findFaq, loadFaq, loadingFaq }) => {
+const Faq = ({
+  faq,
+  findFaq,
+  loadFaq,
+  loadingFaq,
+}) => {
   useEffect(() => {
     loadingFaq();
     findFaq();
@@ -16,7 +21,7 @@ const Faq = ({ faq, findFaq, loadFaq, loadingFaq }) => {
     <section className="faqSection">
       <h2 className="faq-title">FAQ</h2>
       <div className="faq-main">
-      {loadFaq
+        {loadFaq
       && (
         <Loader
           type="Puff"
@@ -26,7 +31,7 @@ const Faq = ({ faq, findFaq, loadFaq, loadingFaq }) => {
           className="loader"
         />
       )}
-      {!loadFaq
+        {!loadFaq
       && (faq.map((item) => (
         <article className="faq">
           <p className="faq-question">{item.question}</p>
@@ -36,7 +41,7 @@ const Faq = ({ faq, findFaq, loadFaq, loadingFaq }) => {
       </div>
     </section>
   );
-}
+};
 
 // == Export
 export default Faq;
