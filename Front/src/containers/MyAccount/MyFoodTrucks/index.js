@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { timeDel, truckDel } from '../../../actions/delUser';
+import { changeIsLoading } from '../../../actions/tools';
 
 // on importe le composant de présentation
 import MyFoodTruck from '../../../components/MyAccount/MyFoodTruck';
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => ({
   // Formualire de création d'un user
   myTrucks: state.logIn.trucksPro,
   avatar: state.logIn.avatar,
+  loadDelEvent: state.tools.loadDelEvent,
 });
 
 // === mapDispatchToProps
@@ -23,6 +25,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   timedel: (id) => {
     dispatch(timeDel(id));
+  },
+  changeIsLoading: (newValue, identifier) => {
+    const action = changeIsLoading(newValue, identifier);
+    dispatch(action);
   },
 });
 
