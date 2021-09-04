@@ -19,7 +19,7 @@ const initialState = {
   redirectLogIn: false,
   loadLogIn: false,
   loadAddTruck: false,
-  flashAddTruck: false,
+  flashAddTruck: null,
 };
 
 function toolsReducer(state = initialState, action = {}) {

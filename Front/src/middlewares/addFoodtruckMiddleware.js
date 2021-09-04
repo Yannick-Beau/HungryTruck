@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ADD_FOODTRUCK } from '../actions/newFoodTruck';
-import { changeIsLoading } from '../actions/tools';
+import { changeIsLoading, changeShowFlash } from '../actions/tools';
 import URL from '../data/ip';
 
 const addFoodTruckMiddleware = (store) => (next) => (action) => {
@@ -49,10 +49,12 @@ const addFoodTruckMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(changeIsLoading(false, 'addTruck'));
+          store.dispatch(changeShowFlash('redirect', 'addTruck'));
         })
         .catch((error) => {
           console.log(error);
           store.dispatch(changeIsLoading(false, 'addTruck'));
+          store.dispatch(changeShowFlash('error', 'addTruck'));
         });
       break;
     }

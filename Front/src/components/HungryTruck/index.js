@@ -1,6 +1,6 @@
 // == Import npm
-import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -58,13 +58,13 @@ const HungryTruck = ({
       theme: 'colored',
     });
   }
-  if (flashAddTruck) {
-    showSuccess('Le food truck a bien été ajouté.');
-    changeShowFlash(null);
+  if (flashAddTruck === 'redirect') {
+    changeShowFlash('success', 'addTruck');
+    return <Redirect to="/my-account/my-foodtruck" />;
   }
-  if (flashAddTruck === false) {
+  if (flashAddTruck === 'error') {
     showError('Tous les champs sont obligatoire.');
-    changeShowFlash(null);
+    changeShowFlash(null, 'addTruck');
   }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
@@ -72,7 +72,12 @@ const HungryTruck = ({
   if (localStorage.getItem('token') !== null) {
     saveUser();
   }
-
+  useEffect(() => {
+    if (flashAddTruck === 'success') {
+      showSuccess('Le food truck a bien été ajouté.');
+      changeShowFlash(null, 'addTruck');
+    }
+  });
   return (
     <div className="hungrytruck">
       <ToastContainer
