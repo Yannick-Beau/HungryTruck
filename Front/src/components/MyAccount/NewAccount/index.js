@@ -38,9 +38,6 @@ const NewAccount = ({
   loadCreateUser,
   changeIsLoading,
 }) => {
-  if (tokenIsOk) {
-    return <Redirect to="/" />;
-  }
   let title = 'Créer votre compte Utilisateur';
   let buttonCreateName = 'Créer mon compte Utilisateur';
   if (createPro) {
