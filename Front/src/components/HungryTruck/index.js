@@ -37,6 +37,8 @@ const HungryTruck = ({
   flashAddEvent,
   flashDelEvent,
   flashDelTruck,
+  flashSaveEditUser,
+  flashCreateUser,
   changeShowFlash,
 }) => {
   function showError(message) {
@@ -87,6 +89,22 @@ const HungryTruck = ({
     showError('Une erreur c\'est produite, veuillez réessayer.');
     changeShowFlash(null, 'delTruck');
   }
+  if (flashSaveEditUser === 'redirect') {
+    changeShowFlash('success', 'editUser');
+    return <Redirect to="/my-account" />;
+  }
+  if (flashSaveEditUser === 'error') {
+    showError('Une erreur c\'est produite, veuillez réessayer.');
+    changeShowFlash(null, 'editUser');
+  }
+  if (flashCreateUser === 'redirect') {
+    changeShowFlash('success', 'createUser');
+    return <Redirect to="/" />;
+  }
+  if (flashCreateUser === 'error') {
+    showError('Tous les champs sont obligatoire.');
+    changeShowFlash(null, 'createUser');
+  }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
@@ -101,6 +119,14 @@ const HungryTruck = ({
     if (flashAddEvent === 'success') {
       showSuccess('L\'événement a bien été ajouté au food truck.');
       changeShowFlash(null, 'addEvent');
+    }
+    if (flashSaveEditUser === 'success') {
+      showSuccess('Les informations on bien été mise à jour.');
+      changeShowFlash(null, 'editUser');
+    }
+    if (flashCreateUser === 'success') {
+      showSuccess('Le compte a bien été créé.');
+      changeShowFlash(null, 'editUser');
     }
   });
   useEffect(() => {
