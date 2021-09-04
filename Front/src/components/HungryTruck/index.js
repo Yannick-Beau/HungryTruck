@@ -59,11 +59,11 @@ const HungryTruck = ({
     });
   }
   if (flashAddTruck) {
-    showSuccess();
+    showSuccess('Le food truck a bien été ajouté.');
     changeShowFlash(null);
   }
   if (flashAddTruck === false) {
-    showError();
+    showError('Tous les champs sont obligatoire.');
     changeShowFlash(null);
   }
   const [delAccount, setDelAccount] = useState(false);
