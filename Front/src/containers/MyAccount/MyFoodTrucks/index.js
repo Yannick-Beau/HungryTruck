@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
   myTrucks: state.logIn.trucksPro,
   avatar: state.logIn.avatar,
   loadDelEvent: state.tools.loadDelEvent,
+  loadDelTruck: state.tools.loadDelTruck,
 });
 
 // === mapDispatchToProps
