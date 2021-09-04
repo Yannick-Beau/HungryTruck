@@ -32,6 +32,7 @@ import './styles.scss';
 const HungryTruck = ({
   saveUser,
   flashAddTruck,
+  flashAddEvent,
   changeShowFlash,
 }) => {
   function showError(message) {
@@ -66,6 +67,14 @@ const HungryTruck = ({
     showError('Tous les champs sont obligatoire.');
     changeShowFlash(null, 'addTruck');
   }
+  if (flashAddEvent === 'redirect') {
+    changeShowFlash('success', 'addEvent');
+    return <Redirect to="/my-account/my-foodtruck" />;
+  }
+  if (flashAddEvent === 'error') {
+    showError('Tous les champs sont obligatoire.');
+    changeShowFlash(null, 'addEvent');
+  }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
   const [foodtruckDetails, setFoodtruckDetails] = useState(false);
@@ -76,6 +85,10 @@ const HungryTruck = ({
     if (flashAddTruck === 'success') {
       showSuccess('Le food truck a bien été ajouté.');
       changeShowFlash(null, 'addTruck');
+    }
+    if (flashAddEvent === 'success') {
+      showSuccess('L\'événement a bien été ajouté au food truck.');
+      changeShowFlash(null, 'addEvent');
     }
   });
   return (
