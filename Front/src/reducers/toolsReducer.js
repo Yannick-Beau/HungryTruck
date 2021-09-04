@@ -22,6 +22,8 @@ const initialState = {
   flashAddTruck: null,
   loadAddEvent: false,
   flashAddEvent: null,
+  loadDelEvent: false,
+  flashDelEvent: null,
 };
 
 function toolsReducer(state = initialState, action = {}) {
@@ -39,6 +41,11 @@ function toolsReducer(state = initialState, action = {}) {
             ...state,
             loadAddEvent: action.newValue,
           };
+        case 'delEvent':
+          return {
+            ...state,
+            loadDelEvent: action.newValue,
+          };
         default:
           return state;
       }
@@ -54,6 +61,11 @@ function toolsReducer(state = initialState, action = {}) {
           return {
             ...state,
             flashAddEvent: action.newValue,
+          };
+        case 'delEvent':
+          return {
+            ...state,
+            flashDelEvent: action.newValue,
           };
         default:
           return state;
