@@ -1,6 +1,7 @@
 // == Import npm
 import { Link, Redirect } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Loader from 'react-loader-spinner';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import React, {
   useState,
@@ -23,11 +24,13 @@ const AddSlot = ({
   addEvent,
   redirect,
   changeRedirect,
+  loadAddEvent,
+  changeIsLoading,
 }) => {
-  if (redirect) {
-    changeRedirect();
-    return <Redirect to="/my-account/my-foodtruck" />;
-  }
+  // if (redirect) {
+  //   changeRedirect();
+  //   return <Redirect to="/my-account/my-foodtruck" />;
+  // }
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
     latitude: 45.5,
@@ -60,7 +63,7 @@ const AddSlot = ({
         className="addslot-form"
         onSubmit={(evt) => {
           evt.preventDefault();
-          console.log('submit form');
+          changeIsLoading(true, 'addEvent');
           addEvent();
         }}
       >
@@ -260,7 +263,20 @@ const AddSlot = ({
           </div>
         </div>
         <div className="addslot-form--footer">
-          <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
+          {loadAddEvent
+          && (
+            <Loader
+              type="Puff"
+              color="#e69512"
+              height={100}
+              width={100}
+              id="loaderLogIn"
+            />
+          )}
+          {!loadAddEvent
+          && (
+            <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
+          )}
           <Link to="/my-account/my-foodtruck/">
             <button type="button" className="addslot-button--quit">Fermer</button>
           </Link>

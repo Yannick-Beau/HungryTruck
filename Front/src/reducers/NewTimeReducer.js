@@ -14,6 +14,16 @@ function newTimeReducer(state = initialState, action = {}) {
   switch (action.type) {
     case NEW_TIME:
       switch (action.identifier) {
+        case 'longitude':
+          return {
+            ...state,
+            long: action.newValue,
+          };
+        case 'latitude':
+          return {
+            ...state,
+            lat: action.newValue,
+          };
         case 'foodTruck':
           console.log('je suis la');
           return {

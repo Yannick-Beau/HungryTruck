@@ -33,7 +33,7 @@ const LogIn = ({
     });
   }
   function showSuccess() {
-    toast.success('Connexion réussi', {
+    toast.success('Connexion réussie. A table ! 🍔', {
       position: 'top-center',
       autoClose: 3000,
       hideProgressBar: false,
@@ -117,7 +117,7 @@ const LogIn = ({
         )}
         <ToastContainer
           position="top-center"
-          autoClose={5000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

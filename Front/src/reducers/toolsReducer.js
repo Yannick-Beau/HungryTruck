@@ -6,6 +6,8 @@ import {
   LOADING_MAP,
   LOADING_FAQ,
   LOADING_LOGIN,
+  CHANGE_SHOW_FLASH,
+  CHANGE_IS_LOADING,
 } from '../actions/tools';
 
 const initialState = {
@@ -16,11 +18,71 @@ const initialState = {
   redirect: false,
   redirectLogIn: false,
   loadLogIn: false,
+  loadAddTruck: false,
+  flashAddTruck: null,
+  loadAddEvent: false,
+  flashAddEvent: null,
+  loadDelEvent: false,
+  flashDelEvent: null,
+  loadDelTruck: false,
+  flashDelTruck: null,
 };
 
 function toolsReducer(state = initialState, action = {}) {
   console.log(action.type);
   switch (action.type) {
+    case CHANGE_IS_LOADING:
+      switch (action.identifier) {
+        case 'addTruck':
+          return {
+            ...state,
+            loadAddTruck: action.newValue,
+          };
+        case 'addEvent':
+          return {
+            ...state,
+            loadAddEvent: action.newValue,
+          };
+        case 'delEvent':
+          return {
+            ...state,
+            loadDelEvent: action.newValue,
+          };
+        case 'delTruck':
+          return {
+            ...state,
+            loadDelTruck: action.newValue,
+          };
+        default:
+          return state;
+      }
+
+    case CHANGE_SHOW_FLASH:
+      switch (action.identifier) {
+        case 'addTruck':
+          return {
+            ...state,
+            flashAddTruck: action.newValue,
+          };
+        case 'addEvent':
+          return {
+            ...state,
+            flashAddEvent: action.newValue,
+          };
+        case 'delEvent':
+          return {
+            ...state,
+            flashDelEvent: action.newValue,
+          };
+        case 'delTruck':
+          return {
+            ...state,
+            flashDelTruck: action.newValue,
+          };
+        default:
+          return state;
+      }
+
     case CHANGE_STATUS_ICON_USER: {
       return {
         ...state,

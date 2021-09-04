@@ -10,6 +10,7 @@ import {
   Trash2,
   Twitter,
 } from 'react-feather';
+import Loader from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -43,6 +44,8 @@ const NewFoodTruck = ({
   overview,
   foods,
   findFood,
+  loadAddTruck,
+  changeIsLoading,
 }) => {
   let subtitle;
   useEffect(() => {
@@ -60,7 +63,7 @@ const NewFoodTruck = ({
         className="newFoodTruck"
         onSubmit={(evt) => {
           evt.preventDefault();
-          console.log('submition du form');
+          changeIsLoading(true, 'addTruck');
           loadNewFoodTruck();
         }}
       >
@@ -233,10 +236,23 @@ const NewFoodTruck = ({
               Annuler
             </button>
           </Link>
-          <div  className="button-Link" >
-            <button type="submit" className="button-linktosave">
-              Enregistrer
-            </button>
+          <div className="button-Link">
+            {loadAddTruck
+        && (
+          <Loader
+            type="Puff"
+            color="#e69512"
+            height={100}
+            width={100}
+            id="loaderLogIn"
+          />
+        )}
+            {!loadAddTruck
+        && (
+          <button type="submit" className="button-linktosave">
+            Enregistrer
+          </button>
+        )}
           </div>
         </div>
       </form>
