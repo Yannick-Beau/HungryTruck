@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import { logOut, saveUser } from '../actions/logIn';
-import { loadingEditUser, changeRedirectLogIn, changeRedirect } from '../actions/tools';
+import { loadingEditUser, changeIsLoading, changeShowFlash } from '../actions/tools';
 import {
   FIND_FOOD_EDIT,
   FIND_USER,
@@ -157,13 +156,16 @@ const editUserMiddleware = (store) => (next) => (action) => {
           }
           else {
             store.dispatch(saveUser());
-            window.location = '/my-account';
+            store.dispatch(changeIsLoading(false, 'editUser'));
+            store.dispatch(changeShowFlash('redirect', 'editUser'));
           }
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
           // dans le state, et dispatcher ici une nouvelle action
           console.log(error);
+          store.dispatch(changeIsLoading(false, 'delTruck'));
+          store.dispatch(changeShowFlash('error', 'delTruck'));
         });
       break;
     }
