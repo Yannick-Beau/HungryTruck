@@ -75,7 +75,7 @@ const deleteMiddleware = (store) => (next) => (action) => {
           // store.dispatch(truckDel(action.id));
           store.dispatch(saveUser());
           store.dispatch(changeIsLoading(false, 'delEvent'));
-          store.dispatch(changeShowFlash('redirect', 'delEvent'));
+          store.dispatch(changeShowFlash('success', 'delEvent'));
         })
         .catch((error) => {
           console.log(error.response.data);
