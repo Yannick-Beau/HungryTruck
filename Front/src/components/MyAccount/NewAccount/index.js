@@ -11,6 +11,7 @@ import React, {
 import MapGL from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 
 // == Import
 import './newAccount.scss';
@@ -34,6 +35,8 @@ const NewAccount = ({
   errorInscription,
   errorInscriptionText,
   handleError,
+  loadCreateUser,
+  changeIsLoading,
 }) => {
   if (tokenIsOk) {
     return <Redirect to="/" />;
@@ -81,6 +84,7 @@ const NewAccount = ({
           evt.preventDefault();
           if (password === passwordConfirm) {
             handleSubmit();
+            changeIsLoading(true, 'createUser');
           }
           else {
             console.log('on va executer le handle password');
@@ -269,7 +273,21 @@ const NewAccount = ({
               </div>
             </div>
           </div>
-          <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+          {loadCreateUser
+          && (
+            <Loader
+              type="Puff"
+              color="#e69512"
+              height={50}
+              width={50}
+              className="loaderEdit"
+            />
+          )}
+          {!loadCreateUser
+          && (
+            <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+          )}
+
         </div>
       </form>
     </main>
