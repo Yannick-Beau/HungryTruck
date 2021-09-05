@@ -24,4 +24,3 @@ export const timeDel = (id) => ({
   type: TIME_DEL,
   id: id,
 });
-
