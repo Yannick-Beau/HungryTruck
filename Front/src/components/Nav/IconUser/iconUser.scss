@@ -60,9 +60,10 @@
     z-index: 5;
     position: fixed;
     display: flex;
+    margin-right: 1rem;
     flex-direction: column;
     animation: loadMenu 0.5s;
-    width: 10%;
+    width: 10rem;
 
     top: vars.$gutter * 9;
     right: vars.$gutter;

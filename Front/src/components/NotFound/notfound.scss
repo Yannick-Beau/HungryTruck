@@ -41,7 +41,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  min-height: 65vh;
+  min-height: 82vh;
+  max-height: 82vh;
+  overflow: hidden;
+  margin-top: -11rem;
 
   .rotate-center {
     -webkit-animation: rotate-center 10s linear infinite forwards;
