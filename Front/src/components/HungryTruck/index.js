@@ -69,7 +69,7 @@ const HungryTruck = ({
     return <Redirect to="/my-account/my-foodtruck" />;
   }
   if (flashAddTruck === 'error') {
-    showError('Tous les champs sont obligatoire.');
+    showError('Tous les champs sont obligatoires.');
     changeShowFlash(null, 'addTruck');
   }
   if (flashAddEvent === 'redirect') {
@@ -77,7 +77,7 @@ const HungryTruck = ({
     return <Redirect to="/my-account/my-foodtruck" />;
   }
   if (flashAddEvent === 'error') {
-    showError('Tous les champs sont obligatoire.');
+    showError('Tous les champs sont obligatoires.');
     changeShowFlash(null, 'addEvent');
   }
   if (flashDelEvent === 'error') {
@@ -101,7 +101,7 @@ const HungryTruck = ({
     return <Redirect to="/" />;
   }
   if (flashCreateUser === 'error') {
-    showError('Tous les champs sont obligatoire.');
+    showError('Tous les champs sont obligatoires.');
     changeShowFlash(null, 'createUser');
   }
   const [delAccount, setDelAccount] = useState(false);
