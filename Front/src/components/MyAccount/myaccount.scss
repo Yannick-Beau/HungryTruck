@@ -58,29 +58,7 @@
           #info-right--foodlist {
             margin-bottom: 0;
           }
-          // .social {
-          //   display: flex;
-          //   justify-content: space-around;
 
-            // .facebook {
-            //   display: flex;
-            //   flex-direction: column;
-            //   align-items: center;
-
-            //   p {
-            //     font-size: 1.2rem;
-            //   }
-            // }
-            // .instagram {
-            //   display: flex;
-            //   flex-direction: column;
-            //   align-items: center;
-
-            //   p {
-            //     font-size: 1.2rem;
-            //   }
-            // }
-          // }
           ul {
             display: flex;
             justify-content: space-around;
@@ -96,31 +74,43 @@
         .button-Link {
 
           .button-linkto {
-            width: 15rem;
-            height: 3rem;
+            margin: 1rem vars.$gutter 0.5rem;
+            padding: 0.5rem;
             border: #e69512 solid 4px;
             border-radius: 25px;
-            font-size: 1rem;
             background-color: transparent;
             color: vars.$LLight;
-
+            font-size: 1rem;
+            width: 15rem;
+            box-sizing: border-box;
+      
             &:hover {
-              background-color: vars.$Yellow;
-              color: vars.$DarkOpacity;
+              background-color: #e69512;
+              color: rgba(255, 255, 255, 0.8);
+              box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+              -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+              -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+              border: #e69512 4px solid;
             }
           }
           .button-del {
-            width: 15rem;
-            height: 3rem;
+            margin: 1rem vars.$gutter 0.5rem;
+            padding: 0.5rem;
             border: #e61212 solid 4px;
             border-radius: 25px;
-            font-size: 1rem;
             background-color: transparent;
             color: vars.$LLight;
+            font-size: 1rem;
+            width: 15rem;
+            box-sizing: border-box;
 
             &:hover {
               background-color: #e61212;
-              // color: vars.$DarkOpacity;
+              color: rgba(255, 255, 255, 0.8);
+              box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+              -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+              -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+              border: #e61212 4px solid;
             }
           }
         }
@@ -178,34 +168,44 @@
       }
     }
     .deleteaccount-form--submit {
-      width: 20rem;
-      margin: vars.$gutter;
+      margin: 1rem vars.$gutter 0.5rem;
       padding: 0.5rem;
       border: #e61212 solid 4px;
       border-radius: 25px;
       background-color: transparent;
       color: vars.$LLight;
       font-size: 1rem;
+      width: 20rem;
+      box-sizing: border-box;
 
       &:hover {
         background-color: #e61212;
         color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+        -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+        -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+        border: #e61212 4px solid;
       }
     }
   }
   .deleteaccount-cancel {
-    width: 20rem;
-    margin: vars.$gutter;
+    margin: 1rem vars.$gutter 0.5rem;
     padding: 0.5rem;
     border: #e69512 solid 4px;
     border-radius: 25px;
     background-color: transparent;
     color: vars.$LLight;
     font-size: 1rem;
+    width: 20rem;
+    box-sizing: border-box;
 
     &:hover {
       background-color: #e69512;
-      color:  vars.$DarkOpacity;
+      color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+      -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+      -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+      border: #e69512 4px solid;
     }
   }
 }
