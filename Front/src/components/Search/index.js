@@ -25,9 +25,17 @@ const Search = ({
       const lowerSearch = search.toLowerCase();
       const lowerTrucks = item.name.toLowerCase();
       const lowerOverView = item.overview.toLowerCase();
-      const eventsFilter = item.events.filter((itemEvent) => itemEvent.adresse.toLowerCase().includes(lowerSearch))
+      const eventsFilter = item.events.filter((itemEvent) => (
+        itemEvent.adresse.toLowerCase().includes(lowerSearch)
+      ));
+      const foodFilter = item.sell_type_food.filter((itemFood) => (
+        itemFood.name.toLowerCase().includes(lowerSearch)
+      ));
       // console.log('eventsFilter : ', eventsFilter);
-      return lowerTrucks.includes(lowerSearch) || lowerOverView.includes(lowerSearch) || eventsFilter.length > 0;
+      return lowerTrucks.includes(lowerSearch)
+      || lowerOverView.includes(lowerSearch)
+      || eventsFilter.length > 0
+      || foodFilter.length > 0;
     });
   }
 

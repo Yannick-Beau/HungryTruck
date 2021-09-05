@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 
 // == Import components which always display
-import Nav from '../Nav';
+import Nav from '../../containers/Nav';
 import Footer from '../Footer';
 
 // == Import others components
@@ -125,7 +125,7 @@ const HungryTruck = ({
     }
     if (flashCreateUser === 'success') {
       showSuccess('Le compte a bien été créé.');
-      changeShowFlash(null, 'editUser');
+      changeShowFlash(null, 'createUser');
     }
   });
   useEffect(() => {

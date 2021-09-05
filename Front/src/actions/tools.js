@@ -8,12 +8,17 @@ export const LOADING_FAQ = 'LOADING_FAQ';
 export const LOADING_LOGIN = 'LOADING_LOGIN';
 export const CHANGE_IS_LOADING = 'CHANGE_IS_LOADING';
 export const CHANGE_SHOW_FLASH = 'CHANGE_SHOW_FLASH';
+export const HIDDEN_NAV_BAR = 'HIDDEN_NAV_BAR';
 
 // === action creators
 export const changeIsLoading = (newValue, identifier) => ({
   type: CHANGE_IS_LOADING,
   newValue: newValue,
   identifier: identifier,
+});
+
+export const changeHiddenNavBar = () => ({
+  type: HIDDEN_NAV_BAR,
 });
 
 export const changeShowFlash = (newValue, identifier) => ({
