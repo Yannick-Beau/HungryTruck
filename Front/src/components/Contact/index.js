@@ -2,6 +2,7 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // == Import
 import './contact.scss';
@@ -71,6 +72,12 @@ const Contact = ({ mail, message, contactUs }) => {
       </article>
     </section>
   );
+};
+
+Contact.propTypes = {
+  contactUs: PropTypes.func.isRequired,
+  mail: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
 
 // == Export

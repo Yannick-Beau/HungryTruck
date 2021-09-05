@@ -71,10 +71,14 @@
           color: vars.$LLight;
           font-size: 1rem;
           width: 20rem;
+          box-sizing: border-box;
 
           &:hover {
             background-color: #095228;
             color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
             border: #095228 4px solid;
 
           }
@@ -89,10 +93,15 @@
           color: vars.$LLight;
           font-size: 1rem;
           width: 20rem;
-
+          box-sizing: border-box;
+      
           &:hover {
-            background-color: vars.$Yellow;
-            color: vars.$DarkOpacity;
+            background-color: #e69512;
+            color:  vars.$DarkOpacity;
+            box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            -webkit-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
+            border: vars.$Yellow 4px solid;
           }
         }
       }

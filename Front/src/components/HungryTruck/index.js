@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 
 // == Import components which always display
-import Nav from '../Nav';
+import Nav from '../../containers/Nav';
 import Footer from '../Footer';
 
 // == Import others components
@@ -70,7 +70,7 @@ const HungryTruck = ({
     return <Redirect to="/my-account/my-foodtruck" />;
   }
   if (flashAddTruck === 'error') {
-    showError('Tous les champs sont obligatoire.');
+    showError('Tous les champs sont obligatoires.');
     changeShowFlash(null, 'addTruck');
   }
   if (flashAddEvent === 'redirect') {
@@ -78,7 +78,7 @@ const HungryTruck = ({
     return <Redirect to="/my-account/my-foodtruck" />;
   }
   if (flashAddEvent === 'error') {
-    showError('Tous les champs sont obligatoire.');
+    showError('Tous les champs sont obligatoires.');
     changeShowFlash(null, 'addEvent');
   }
   if (flashDelEvent === 'error') {
@@ -102,7 +102,7 @@ const HungryTruck = ({
     return <Redirect to="/" />;
   }
   if (flashCreateUser === 'error') {
-    showError('Tous les champs sont obligatoire.');
+    showError('Tous les champs sont obligatoires.');
     changeShowFlash(null, 'createUser');
   }
   const [delAccount, setDelAccount] = useState(false);
@@ -126,7 +126,7 @@ const HungryTruck = ({
     }
     if (flashCreateUser === 'success') {
       showSuccess('Le compte a bien été créé.');
-      changeShowFlash(null, 'editUser');
+      changeShowFlash(null, 'createUser');
     }
   });
   useEffect(() => {
