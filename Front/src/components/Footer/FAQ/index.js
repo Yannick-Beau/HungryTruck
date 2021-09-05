@@ -17,7 +17,6 @@ const Faq = ({
     loadingFaq();
     findFaq();
   }, []);
-  console.log('faq : ', faq);
   return (
     <section className="faqSection">
       <h2 className="faq-title">FAQ</h2>

@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
   flashDelTruck: state.tools.flashDelTruck,
   flashSaveEditUser: state.tools.flashSaveEditUser,
   flashCreateUser: state.tools.flashCreateUser,
+  flashContact: state.tools.flashContact,
 });
 
 // === mapDispatchToProps

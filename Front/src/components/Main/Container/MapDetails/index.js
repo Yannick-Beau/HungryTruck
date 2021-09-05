@@ -19,7 +19,6 @@ const MapDetails = ({ trucks, loadMap }) => {
   if (events.length === 0) {
     eventsIsNull = true;
   }
-  console.log(events);
   return (
     <article className="mapdetails">
       {!loadMap

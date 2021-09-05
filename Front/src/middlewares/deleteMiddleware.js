@@ -14,7 +14,6 @@ const deleteMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SEND_DEL: {
       const token = localStorage.getItem('token');
-      console.log(`mon token : ${token}`);
       axios.delete(
         `${URL}/api/user/delete`,
 
@@ -25,20 +24,15 @@ const deleteMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
-          // store.dispatch(sendDel());
           localStorage.removeItem('token');
           window.location = '/';
         })
         .catch((error) => {
-          console.log(error);
         });
       break;
     }
     case TRUCK_DEL: {
       const token = localStorage.getItem('token');
-      console.log('je vais supprimer le truck');
-      console.log(action.id);
       axios.delete(
         `${URL}/api/foodtruck/delete/${action.id}`,
         {
@@ -48,14 +42,12 @@ const deleteMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
           // store.dispatch(truckDel(action.id));
           store.dispatch(saveUser());
           store.dispatch(changeIsLoading(false, 'delTruck'));
           store.dispatch(changeShowFlash('success', 'delTruck'));
         })
         .catch((error) => {
-          console.log(error.response.data);
           store.dispatch(changeIsLoading(false, 'delTruck'));
           store.dispatch(changeShowFlash('error', 'delTruck'));
         });
@@ -64,8 +56,6 @@ const deleteMiddleware = (store) => (next) => (action) => {
 
     case TIME_DEL: {
       const token = localStorage.getItem('token');
-      console.log('je vais supprimer un rdv');
-      console.log(action.id);
       axios.delete(
         `${URL}/api/event/delete/${action.id}`,
         {
@@ -75,14 +65,11 @@ const deleteMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
-          // store.dispatch(truckDel(action.id));
           store.dispatch(saveUser());
           store.dispatch(changeIsLoading(false, 'delEvent'));
           store.dispatch(changeShowFlash('success', 'delEvent'));
         })
         .catch((error) => {
-          console.log(error.response.data);
           store.dispatch(changeIsLoading(false, 'delEvent'));
           store.dispatch(changeShowFlash('error', 'delEvent'));
         });

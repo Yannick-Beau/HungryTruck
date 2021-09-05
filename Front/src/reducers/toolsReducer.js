@@ -21,21 +21,22 @@ const initialState = {
   loadLogIn: false,
   hiddenNavBar: false,
   loadAddTruck: false,
-  flashAddTruck: null,
+  flashAddTruck: 'null',
   loadAddEvent: false,
-  flashAddEvent: null,
+  flashAddEvent: 'null',
   loadDelEvent: false,
-  flashDelEvent: null,
+  flashDelEvent: 'null',
   loadDelTruck: false,
-  flashDelTruck: null,
+  flashDelTruck: 'null',
   loadSaveEditUser: false,
-  flashSaveEditUser: null,
+  flashSaveEditUser: 'null',
   loadCreateUser: false,
-  flashCreateUser: null,
+  flashCreateUser: 'null',
+  loadContact: false,
+  flashContact: 'null',
 };
 
 function toolsReducer(state = initialState, action = {}) {
-  console.log(action.type);
   switch (action.type) {
     case HIDDEN_NAV_BAR: {
       return {
@@ -75,6 +76,11 @@ function toolsReducer(state = initialState, action = {}) {
             ...state,
             loadCreateUser: action.newValue,
           };
+        case 'contact':
+          return {
+            ...state,
+            loadContact: action.newValue,
+          };
         default:
           return state;
       }
@@ -110,6 +116,11 @@ function toolsReducer(state = initialState, action = {}) {
           return {
             ...state,
             flashCreateUser: action.newValue,
+          };
+        case 'contact':
+          return {
+            ...state,
+            flashContact: action.newValue,
           };
         default:
           return state;

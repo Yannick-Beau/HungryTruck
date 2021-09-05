@@ -3,19 +3,29 @@ import React from 'react';
 import emailjs from 'emailjs-com';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 
 // == Import
 import './contact.scss';
 
 // == Composant
-const Contact = ({ mail, message, contactUs }) => {
+const Contact = ({
+  mail,
+  message,
+  contactUs,
+  loadContact,
+  changeIsLoading,
+  changeShowFlash,
+}) => {
   function sendEmail(e) {
     e.preventDefault();
     emailjs.sendForm('hungrytruckfood', 'template_06ginqm', e.target, 'user_jkTO4yOQ5IAOMyH6GqmOM')
       .then((response) => {
-        console.log(response.text);
+        changeIsLoading(false, 'contact');
+        changeShowFlash('redirect', 'contact');
       }, (error) => {
-        console.log(error.text);
+        changeIsLoading(false, 'contact');
+        changeShowFlash('error', 'contact');
       });
     e.target.reset();
   }
@@ -27,6 +37,7 @@ const Contact = ({ mail, message, contactUs }) => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            changeIsLoading(true, 'contact');
             sendEmail(e);
           }}
         >
@@ -59,12 +70,24 @@ const Contact = ({ mail, message, contactUs }) => {
             />
           </label>
           <div id="contact-form-submit">
-            <button id="contact-form--button" type="submit">
-              Envoyer mon message
-            </button>
+            {loadContact
+            && (
+              <Loader
+                type="Puff"
+                color="#e69512"
+                height={50}
+                width={50}
+              />
+            )}
+            {!loadContact
+            && (
+              <button id="contact-form--button" type="submit">
+                Envoyer mon message
+              </button>
+            )}
             <Link to="/" className="button-Link">
               <button type="button" className="button-linkto">
-                Retour au menu principal
+                Retourner au menu principal
               </button>
             </Link>
           </div>
@@ -78,6 +101,9 @@ Contact.propTypes = {
   contactUs: PropTypes.func.isRequired,
   mail: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
+  loadContact: PropTypes.bool.isRequired,
+  changeIsLoading: PropTypes.func.isRequired,
+  changeShowFlash: PropTypes.func.isRequired,
 };
 
 // == Export
