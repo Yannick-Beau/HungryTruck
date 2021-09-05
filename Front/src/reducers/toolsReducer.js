@@ -8,6 +8,7 @@ import {
   LOADING_LOGIN,
   CHANGE_SHOW_FLASH,
   CHANGE_IS_LOADING,
+  HIDDEN_NAV_BAR,
 } from '../actions/tools';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   redirect: false,
   redirectLogIn: false,
   loadLogIn: false,
+  hiddenNavBar: false,
   loadAddTruck: false,
   flashAddTruck: null,
   loadAddEvent: false,
@@ -35,6 +37,12 @@ const initialState = {
 function toolsReducer(state = initialState, action = {}) {
   console.log(action.type);
   switch (action.type) {
+    case HIDDEN_NAV_BAR: {
+      return {
+        ...state,
+        hiddenNavBar: !state.hiddenNavBar,
+      };
+    }
     case CHANGE_IS_LOADING:
       switch (action.identifier) {
         case 'addTruck':
