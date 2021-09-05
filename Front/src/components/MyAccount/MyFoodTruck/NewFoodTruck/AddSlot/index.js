@@ -60,7 +60,6 @@ const AddSlot = ({
           className="addslot-form"
           onSubmit={(evt) => {
             evt.preventDefault();
-            console.log('submit form');
             changeIsLoading(true, 'addEvent');
             addEvent();
           }}
@@ -243,7 +242,6 @@ const AddSlot = ({
                     countries="fr"
                     placeholder="Votre adresse"
                     onResult={(e) => {
-                      console.log(e.result);
                       updateAddressFT(
                         e.result.place_name,
                         e.result.center[0],
@@ -261,8 +259,8 @@ const AddSlot = ({
             <Loader
               type="Puff"
               color="#e69512"
-              height={100}
-              width={100}
+              height={50}
+              width={50}
               id="loaderLogIn"
             />
           )}

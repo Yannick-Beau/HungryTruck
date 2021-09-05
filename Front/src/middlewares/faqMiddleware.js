@@ -12,14 +12,10 @@ const faqMiddleware = (store) => (next) => (action) => {
         // paramètres
       )
         .then((response) => {
-          console.log(response);
           store.dispatch(saveFaq(response.data));
           store.dispatch(loadingFaq());
         })
         .catch((error) => {
-          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-          // dans le state, et dispatcher ici une nouvelle action
-          console.log(error);
         });
       break;
     }

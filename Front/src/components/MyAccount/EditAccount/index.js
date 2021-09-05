@@ -173,7 +173,6 @@ const EditAccount = ({
                           countries="fr"
                           placeholder="Votre adresse"
                           onResult={(e) => {
-                            console.log(e.result);
                             editAddress(
                               e.result.place_name,
                               e.result.center[0],

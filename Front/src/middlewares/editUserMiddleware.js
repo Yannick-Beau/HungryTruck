@@ -25,7 +25,6 @@ const editUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseUser) => {
-          console.log('responseUser', responseUser);
           store.dispatch(editUser(
             responseUser.data.email,
             responseUser.data.adresse,
@@ -65,21 +64,17 @@ const editUserMiddleware = (store) => (next) => (action) => {
             const foodIsLike = store.getState().logIn.foodLike.find((itemLike) => (
               item.name === itemLike.name
             ));
-            console.log('foodIsLike est :', foodIsLike);
             if (foodIsLike !== undefined) {
-              // console.log('la food aimer est egale a la food');
               return {
                 ...item,
                 isCheck: true,
               };
             }
-            // console.log('la food aimer est egale a la food');
             return {
               ...item,
               isCheck: false,
             };
           });
-          // console.log('on va save les food', newData);
           // on sauvegarde le nouveau tableau dans le state
           store.dispatch(saveFood(newData));
           store.dispatch(findUser());
@@ -87,12 +82,10 @@ const editUserMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
           // dans le state, et dispatcher ici une nouvelle action
-          console.log(error);
         });
       break;
     }
     case SAVE_EDIT_USER: {
-      console.log('on va editer le user');
       const {
         email,
         emailBeforeEdit,
@@ -117,25 +110,8 @@ const editUserMiddleware = (store) => (next) => (action) => {
       foodLikeFilter.map((item) => (
         newFoodLike.push(item.id)
       ));
-      console.log('new food like', newFoodLike);
       const newLong = longEdit.toString();
       const newLat = latEdit.toString();
-      console.log(
-        'email : ',
-        email,
-        'pseudo : ',
-        pseudo,
-        'avatar : ',
-        avatar,
-        'adresse : ',
-        adresse,
-        'longitude : ',
-        newLong,
-        'latitude : ',
-        newLat,
-        'foodlike : ',
-        newFoodLike,
-      );
       const data = {
         email: email,
         pseudo: pseudo,
@@ -152,7 +128,6 @@ const editUserMiddleware = (store) => (next) => (action) => {
       };
       axios.put(`${URL}${endPoint}`, data, config)
         .then((response) => {
-          console.log(response);
           if (editEmail) {
             store.dispatch(logOut());
             window.location = '/login';
@@ -164,9 +139,6 @@ const editUserMiddleware = (store) => (next) => (action) => {
           }
         })
         .catch((error) => {
-          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-          // dans le state, et dispatcher ici une nouvelle action
-          console.log(error);
           store.dispatch(changeIsLoading(false, 'delTruck'));
           store.dispatch(changeShowFlash('error', 'delTruck'));
         });
