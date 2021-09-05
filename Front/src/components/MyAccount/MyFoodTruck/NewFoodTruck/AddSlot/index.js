@@ -1,7 +1,6 @@
 // == Import npm
 import { Link, Redirect } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import Loader from 'react-loader-spinner';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import React, {
   useState,
@@ -12,6 +11,7 @@ import React, {
 import MapGL from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
 
 // == Import
 import './addSlot.scss';
@@ -27,10 +27,6 @@ const AddSlot = ({
   loadAddEvent,
   changeIsLoading,
 }) => {
-  // if (redirect) {
-  //   changeRedirect();
-  //   return <Redirect to="/my-account/my-foodtruck" />;
-  // }
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
     latitude: 45.5,
@@ -57,36 +53,19 @@ const AddSlot = ({
   );
   return (
     <div id="section-newaddSlot">
-    <section className="addslot-section">
-      <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
-      <p className="addslot-fields--legend">* Champ obligatoire</p>
-      <form
-        className="addslot-form"
-        onSubmit={(evt) => {
-          evt.preventDefault();
-          changeIsLoading(true, 'addEvent');
-          addEvent();
-        }}
-      >
-        <label className="addslot-label addslotFirst" htmlFor="day">Selectionner le FoodTruck
-          <div>
-            <select
-              onChange={(e) => {
-                newTime(e.target.value, 'foodTruck');
-              }}
-              id="addslot-input"
-              name="day"
-            >
-              <option value="">Mes Food Truck</option>
-              { trucks.map((item) => (
-                <option key={item.id} value={item.id}>{item.name}</option>
-              ))}
-            </select>
-            <span>*</span>
-          </div>
-        </label>
-        <div className="addslot-from--first">
-          <label className="addslot-label" htmlFor="day">Sélectionner le jour
+      <section className="addslot-section newrdv">
+        <h2 className="addslot-title">Ajouter un créneau/lieux</h2>
+        <p className="addslot-fields--legend">* Champ obligatoire</p>
+        <form
+          className="addslot-form"
+          onSubmit={(evt) => {
+            evt.preventDefault();
+            console.log('submit form');
+            changeIsLoading(true, 'addEvent');
+            addEvent();
+          }}
+        >
+          <label className="addslot-label addslotFirst" htmlFor="day">Selectionner le FoodTruck *
             <div>
               <select
                 onChange={(e) => {
@@ -276,9 +255,8 @@ const AddSlot = ({
               </div>
             </div>
           </div>
-        </div>
-        <div className="addslot-form--footer">
-          {loadAddEvent
+          <div className="addslot-form--footer">
+            {loadAddEvent
           && (
             <Loader
               type="Puff"
@@ -288,17 +266,17 @@ const AddSlot = ({
               id="loaderLogIn"
             />
           )}
-          {!loadAddEvent
+            {!loadAddEvent
           && (
             <button type="submit" className="addslot-button--submit">Valider le créneau/lieux</button>
           )}
-          <Link to="/my-account/my-foodtruck/">
-            <button type="button" className="addslot-button--quit">Fermer</button>
-          </Link>
-        </div>
-      </form>
-    </section>
-   </div>
+            <Link to="/my-account/my-foodtruck/">
+              <button type="button" className="addslot-button--quit">Revenir sur mes food trucks</button>
+            </Link>
+          </div>
+        </form>
+      </section>
+    </div>
   );
 };
 

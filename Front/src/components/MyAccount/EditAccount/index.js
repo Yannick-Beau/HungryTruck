@@ -36,6 +36,8 @@ const EditAccount = ({
   editAddress,
   changeField,
   changeToggle,
+  loadSaveEditUser,
+  changeIsLoading,
 }) => {
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
@@ -65,9 +67,6 @@ const EditAccount = ({
     changeLoadingEditUser();
     findFood();
   }, []);
-  if (!logged) {
-    return <Redirect to="/" />;
-  }
   let title = 'Modifier votre compte Utilisateur';
   let buttonCreateName = 'Modifier mon compte Utilisateur';
   if (isPro) {
@@ -85,7 +84,7 @@ const EditAccount = ({
             color="#e69512"
             height={100}
             width={100}
-            className="loader"
+            id="loader-food-user"
           />
         </div>
       )}
@@ -95,6 +94,7 @@ const EditAccount = ({
         className="newaccount-form"
         onSubmit={(evt) => {
           evt.preventDefault();
+          changeIsLoading(true, 'editUser');
           handleSubmit();
         }}
       >
@@ -214,7 +214,21 @@ const EditAccount = ({
                 Retour au menu principal
               </button>
             </Link>
+            {loadSaveEditUser
+          && (
+            <div>
+              <Loader
+                type="Puff"
+                color="#e69512"
+                height={50}
+                width={50}
+              />
+            </div>
+          )}
+            {!loadSaveEditUser
+          && (
             <button id="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+          )}
             <Link to="/my-account" className="button-Link">
               <button type="button" className="button-linkto">
                 Retourner vers mon compte

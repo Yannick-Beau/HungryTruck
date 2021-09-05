@@ -17,12 +17,9 @@
     font-weight: bold;
   }
 
-  .loader {
-    background-color: blue;
-    position: absolute;
-    z-index: 10;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-  }
+}
+.loader {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
 }

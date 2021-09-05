@@ -23,13 +23,15 @@ export const findUser = () => ({
   type: FIND_USER,
 });
 
-export const editUser = (email, address, avatar, foodLike, pseudo) => ({
+export const editUser = (email, address, avatar, foodLike, pseudo, longitude, latitude) => ({
   type: EDIT_USER,
   email: email,
   adresse: address,
   avatar: avatar,
   foodLike: foodLike,
   pseudo: pseudo,
+  longitude: longitude,
+  latitude: latitude,
 });
 
 export const editPro = (trucksPro) => ({

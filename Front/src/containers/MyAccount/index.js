@@ -29,7 +29,6 @@ const mapDispatchToProps = (dispatch) => ({
     const action = delUser(newValue, identifier);
     dispatch(action);
   },
-
   sendDel: () => {
     dispatch(sendDel());
   },

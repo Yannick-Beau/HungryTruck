@@ -14,8 +14,8 @@ const initialState = {
   adresse: '',
   avatar: '',
   food: [],
-  long: '',
-  lat: '',
+  longEdit: '',
+  latEdit: '',
   pseudo: '',
   trucksPro: [],
   isPro: false,
@@ -39,6 +39,8 @@ function editUserReducer(state = initialState, action = {}) {
         avatar: action.avatar,
         foodLike: action.foodLike,
         id: action.id,
+        longEdit: action.longitude,
+        latEdit: action.latitude,
         pseudo: action.pseudo,
         roles: action.roles,
         password: '',
@@ -47,8 +49,8 @@ function editUserReducer(state = initialState, action = {}) {
       return {
         ...state,
         adresse: action.address,
-        long: action.long,
-        lat: action.lat,
+        longEdit: action.long,
+        latEdit: action.lat,
       };
     case EDIT_PRO:
       return {

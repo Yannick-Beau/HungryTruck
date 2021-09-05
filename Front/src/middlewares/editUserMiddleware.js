@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 import { logOut, saveUser } from '../actions/logIn';
-import { loadingEditUser, changeRedirectLogIn, changeRedirect } from '../actions/tools';
+import { loadingEditUser, changeIsLoading, changeShowFlash } from '../actions/tools';
 import {
   FIND_FOOD_EDIT,
   FIND_USER,
@@ -26,12 +25,15 @@ const editUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseUser) => {
+          console.log('responseUser', responseUser);
           store.dispatch(editUser(
             responseUser.data.email,
             responseUser.data.adresse,
             responseUser.data.avatar,
             responseUser.data.food_like,
             responseUser.data.pseudo,
+            responseUser.data.longitude,
+            responseUser.data.latitude,
           ));
           const isPro = responseUser.data.roles.find((item) => item === 'ROLE_PRO');
           if (isPro !== undefined) {
@@ -98,8 +100,8 @@ const editUserMiddleware = (store) => (next) => (action) => {
         avatar,
         adresse,
         food,
-        long,
-        lat,
+        longEdit,
+        latEdit,
       } = store.getState().editUser;
       const { isPro } = store.getState().logIn;
       let endPoint = '/api/user/edit';
@@ -116,8 +118,8 @@ const editUserMiddleware = (store) => (next) => (action) => {
         newFoodLike.push(item.id)
       ));
       console.log('new food like', newFoodLike);
-      const newLong = long.toString();
-      const newLat = lat.toString();
+      const newLong = longEdit.toString();
+      const newLat = latEdit.toString();
       console.log(
         'email : ',
         email,
@@ -157,13 +159,16 @@ const editUserMiddleware = (store) => (next) => (action) => {
           }
           else {
             store.dispatch(saveUser());
-            window.location = '/my-account';
+            store.dispatch(changeIsLoading(false, 'editUser'));
+            store.dispatch(changeShowFlash('redirect', 'editUser'));
           }
         })
         .catch((error) => {
           // TODO pour afficher un message d'erreur, il faudrait ajouter une info
           // dans le state, et dispatcher ici une nouvelle action
           console.log(error);
+          store.dispatch(changeIsLoading(false, 'delTruck'));
+          store.dispatch(changeShowFlash('error', 'delTruck'));
         });
       break;
     }
