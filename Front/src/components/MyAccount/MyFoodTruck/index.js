@@ -95,8 +95,6 @@ const MyFoodTruck = ({
                                       <Trash2
                                         color="#e61212"
                                         onClick={() => {
-                                          console.log(`dans le composant pour supprimer un foodtruck : ${rdv.id}`);
-                                          console.log(timedel(rdv.id));
                                           changeIsLoading(true, 'delEvent');
                                           timedel(rdv.id);
                                         }}
@@ -148,8 +146,6 @@ const MyFoodTruck = ({
                     <Trash2
                       color="#e61212"
                       onClick={() => {
-                        console.log(`dans le composant pour supprimer un foodtruck : ${item.id}`);
-                        console.log(truckdel(item.id));
                         changeIsLoading(true, 'delTruck');
                         truckdel(item.id);
                       }}

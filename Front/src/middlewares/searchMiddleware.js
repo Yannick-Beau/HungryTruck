@@ -6,7 +6,6 @@ const searchMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_SEARCH: {
       const { search } = store.getState().search;
-      console.log(`On va faire une recherche ${search}`);
       axios.get(
         // URL
         `${URL}/api/foodtruck/search`,
@@ -24,18 +23,9 @@ const searchMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
-
           store.dispatch(loadSearch(response.data));
-          // console.log(response.data.token);
-          // localStorage.setItem('token', response.data.token);
-          // console.log(localStorage.getItem('token'));
-          // window.location = '/';
         })
         .catch((error) => {
-          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-          // dans le state, et dispatcher ici une nouvelle action
-          console.log(error);
         });
       break;
     }

@@ -15,14 +15,12 @@ import './zoomFT.scss';
 // == Composant
 const ZoomFT = ({ trucks }) => {
   const { slug, previous } = useParams();
-  console.log(useParams());
   let back = '/';
   if (previous === 'search') {
     back = '/search';
   }
   const idInt = parseInt(slug, 10);
   const truck = trucks.find((item) => item.id === idInt);
-  console.log(truck.name);
   return (
     <section className="zoom-section">
       <h2 className="zoom-title">{truck.name}</h2>
@@ -89,7 +87,7 @@ ZoomFT.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      num_tel: PropTypes.number.isRequired,
+      num_tel: PropTypes.string.isRequired,
       overview: PropTypes.string.isRequired,
       instagram: PropTypes.string.isRequired,
       twitter: PropTypes.string.isRequired,
@@ -105,7 +103,7 @@ ZoomFT.propTypes = {
           id: PropTypes.number.isRequired,
           day: PropTypes.string.isRequired,
           hours: PropTypes.string.isRequired,
-          place: PropTypes.string.isRequired,
+          adresse: PropTypes.string.isRequired,
           hours_end: PropTypes.string.isRequired,
           longitude: PropTypes.string.isRequired,
           latitude: PropTypes.string.isRequired,

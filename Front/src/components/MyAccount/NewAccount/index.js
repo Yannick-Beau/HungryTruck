@@ -84,7 +84,6 @@ const NewAccount = ({
             changeIsLoading(true, 'createUser');
           }
           else {
-            console.log('on va executer le handle password');
             handleError('password');
           }
         }}
@@ -234,7 +233,6 @@ const NewAccount = ({
                           countries="fr"
                           placeholder="Votre adresse"
                           onResult={(e) => {
-                            console.log(e.result);
                             updateAddress(
                               e.result.place_name,
                               e.result.center[0],

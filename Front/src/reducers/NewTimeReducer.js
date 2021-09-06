@@ -25,7 +25,6 @@ function newTimeReducer(state = initialState, action = {}) {
             lat: action.newValue,
           };
         case 'foodTruck':
-          console.log('je suis la');
           return {
             ...state,
             foodTruck: action.newValue,

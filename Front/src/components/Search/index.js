@@ -15,8 +15,6 @@ const Search = ({
   trucks,
 }) => {
   let filterSearch;
-
-  console.log(search);
   if (search.lenght === 0) {
     filterSearch = trucks;
   }
@@ -31,16 +29,12 @@ const Search = ({
       const foodFilter = item.sell_type_food.filter((itemFood) => (
         itemFood.name.toLowerCase().includes(lowerSearch)
       ));
-      // console.log('eventsFilter : ', eventsFilter);
       return lowerTrucks.includes(lowerSearch)
       || lowerOverView.includes(lowerSearch)
       || eventsFilter.length > 0
       || foodFilter.length > 0;
     });
   }
-
-  console.log(filterSearch);
-
   return (
     <section id="search">
       <h3 className="search-title">
@@ -110,7 +104,7 @@ Search.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      num_tel: PropTypes.number.isRequired,
+      num_tel: PropTypes.string.isRequired,
       overview: PropTypes.string.isRequired,
       instagram: PropTypes.string.isRequired,
       twitter: PropTypes.string.isRequired,
@@ -119,7 +113,7 @@ Search.propTypes = {
         id: PropTypes.number.isRequired,
         email: PropTypes.string.isRequired,
         pseudo: PropTypes.string.isRequired,
-        siret: PropTypes.number.isRequired,
+        siret: PropTypes.string.isRequired,
       }).isRequired,
       sell_type_food: PropTypes.arrayOf(
         PropTypes.shape({
@@ -132,7 +126,7 @@ Search.propTypes = {
           id: PropTypes.number.isRequired,
           day: PropTypes.string.isRequired,
           hours: PropTypes.string.isRequired,
-          place: PropTypes.string.isRequired,
+          adresse: PropTypes.string.isRequired,
           hours_end: PropTypes.string.isRequired,
           longitude: PropTypes.string.isRequired,
           latitude: PropTypes.string.isRequired,

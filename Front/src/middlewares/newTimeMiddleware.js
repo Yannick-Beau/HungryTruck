@@ -7,7 +7,6 @@ import URL from '../data/ip';
 const newTimeMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case ADD_EVENT: {
-      console.log('on va addEent');
       const token = localStorage.getItem('token');
       const {
         foodTruck,
@@ -20,7 +19,6 @@ const newTimeMiddleware = (store) => (next) => (action) => {
       } = store.getState().newTime;
       const newLong = long.toString();
       const newLat = lat.toString();
-      console.log('longitude', newLong, 'latitude', newLat);
       axios.post(
         `${URL}/api/foodtruck/${foodTruck}/event/create`,
         {
@@ -38,7 +36,6 @@ const newTimeMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
           store.dispatch(saveUser());
           store.dispatch(changeRedirect());
           store.dispatch(changeIsLoading(false, 'addEvent'));
@@ -52,9 +49,6 @@ const newTimeMiddleware = (store) => (next) => (action) => {
           store.dispatch(newTime('', 'newEndTime'));
         })
         .catch((error) => {
-          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-          // dans le state, et dispatcher ici une nouvelle action
-          console.log(error);
           store.dispatch(changeIsLoading(false, 'addEvent'));
           store.dispatch(changeShowFlash('error', 'addEvent'));
         });

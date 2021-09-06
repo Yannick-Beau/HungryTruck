@@ -22,6 +22,7 @@
       margin-left: 9rem;
       margin-top: -4rem;
       border-radius: 25px;
+      background-color: rgba(150, 150, 150, 0.7);
     }
     #account {
       background-color: vars.$DarkOpacity;
@@ -40,7 +41,8 @@
 
         .informations-left {
           border-right: vars.$Yellow solid 1px;
-          padding-right: 2rem;
+          padding-right: 1rem;
+          width: 60%;
 
           p {
             display: flex;
@@ -49,6 +51,7 @@
           }
         }
         .informations-right {
+          margin-left: 1rem;
           p {
             display: flex;
             flex-direction: column;

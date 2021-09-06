@@ -13,7 +13,6 @@ const mapMiddleware = (store) => (next) => (action) => {
         // paramètres
       )
         .then((response) => {
-          console.log(response);
           const date = new Date();
           const {
             longitude,
@@ -33,7 +32,6 @@ const mapMiddleware = (store) => (next) => (action) => {
           else {
             centerLat = latitude;
           }
-          console.log(centerLong, centerLat);
           const signLongitude = Math.sign(parseFloat(longitude));
           const signLatitude = Math.sign(parseFloat(latitude));
           let longMax;
@@ -58,16 +56,11 @@ const mapMiddleware = (store) => (next) => (action) => {
             latMax = convertLat + 0.10;
             latMin = convertLat - 0.10;
           }
-          console.log(longMin, longMax);
-          console.log(latMin, latMax);
           const trucksFilter = [];
           response.data.map((truck) => {
-            // console.log(truck);
             const eventsFilter = truck.events.filter((item) => {
               const hoursEndRplace = item.hours_end.replace('h', '-');
               const hoursEnd = hoursEndRplace.split('-');
-              // const signItemLongitude = Math.sign(parseFloat(item.longitude));
-              // const signItemLatitude = Math.sign(parseFloat(item.latitude));
               let longConvert;
               let latConvert;
               if (signLongitude === 0 || signLongitude === 1) {
@@ -82,8 +75,6 @@ const mapMiddleware = (store) => (next) => (action) => {
               if (signLatitude === -1) {
                 latConvert = -item.latitude;
               }
-              console.log(latConvert, '>=', latMin, '&&', latConvert, '<=', latMax);
-              console.log(longConvert, '>=', longMin, '&&', longConvert, '<=', longMax);
               return item.day === date.toLocaleDateString('fr-FR', { weekday: 'long' }) // jour
               && (
                 (parseInt(hoursEnd[0], 10) >= date.getHours() // hours
@@ -95,7 +86,6 @@ const mapMiddleware = (store) => (next) => (action) => {
               && (latConvert >= latMin && latConvert <= latMax)
               );
             });
-            // console.log('eventsFilter : ', eventsFilter);
             if (eventsFilter.length > 0) {
               trucksFilter.push({
                 ...truck,
@@ -104,15 +94,11 @@ const mapMiddleware = (store) => (next) => (action) => {
             }
             return {};
           });
-          console.log('trucksFilter : ', trucksFilter);
           store.dispatch(saveTruck(trucksFilter));
           store.dispatch(loadSearch(response.data));
           store.dispatch(loadingMap());
         })
         .catch((error) => {
-          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
-          // dans le state, et dispatcher ici une nouvelle action
-          console.log(error);
         });
       break;
     }
