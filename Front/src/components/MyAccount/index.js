@@ -116,8 +116,8 @@ const MyAccount = ({
             >
               <section className="deleteaccount-section">
                 <h2 className="deleteaccount-title">Suppression de compte</h2>
-                <p id="delAccount-text">Pour supprimer votre compte HungryTruck,<br />
-                  veuillez cocher la case si dessous puis valider votre demande.
+                <p id="delAccount-text">Vous êtes sur le point de supprimer votre compte,<br /> la suppression est irréversible et entraîneras la perte de vos données.<br /> Pour confirmer la suppression,<br />
+                  vous devez cliquer sur le bouton "Je veux supprimer mon compte HungryTruck".
                 </p>
                 <form
                   className="deleteaccount-form"
@@ -126,25 +126,12 @@ const MyAccount = ({
                     sendDel();
                   }}
                 >
-                  <label className="deleteaccount-label" htmlFor="password">
-                    <input
-                      className="deleteaccount-input"
-                      type="checkbox"
-                      name="password"
-                      placeholder="Votre mot de passe"
-                      value={deleteUser}
-                      onChange={(e) => {
-                        delUser(e.target.value, 'deleteUser');
-                      }}
-                    />
-                    <p>Je confirme la suppression de mon compte</p>
-                  </label>
                   <button
                     type="submit"
                     className="deleteaccount-form--submit"
                     onClick={notify}
                   >
-                    Supprimer mon compte HungryTruck
+                    Je veux supprimer mon compte HungryTruck
                   </button>
                   <ToastContainer
                     position="top-center"
