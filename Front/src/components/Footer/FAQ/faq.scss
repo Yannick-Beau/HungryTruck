@@ -1,0 +1,47 @@
+@use 'src/styles/vars';
+
+.faqSection {
+  margin: 0 2rem;
+  margin-top: -6rem;
+  position: relative;
+  max-width: auto;
+  min-height: max-content;
+  padding-bottom: 10rem;
+
+  .faq-title {
+    font-weight: bold;
+    font-size: 4rem;
+    text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
+    margin: 0 auto -1.5rem 15rem;
+  }
+  .faq-main {
+    width: 90%;
+    max-height: max-content;
+    background-color: vars.$DarkOpacity;
+    padding: 3rem;
+    margin: auto;
+
+    .faq {
+      border: vars.$Yellow solid 4px;
+      border-radius: 25px;
+      width: 85%;
+      padding: 1rem;
+      margin: 1rem auto;
+      .faq-question {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.7rem;
+      }
+      .faq-answer {
+        font-size: 1.2rem;
+        text-align: justify;
+        font-style: italic;
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        background-color: vars.$DarkOpacity;
+      }
+    }
+  }
+}
