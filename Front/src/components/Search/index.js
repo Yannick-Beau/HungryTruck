@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { PhoneCall } from 'react-feather';
 import { Link } from 'react-router-dom';
 
 // == Import
@@ -77,8 +77,14 @@ const Search = ({
               <article className="search-results--result">
                 <img src={item.picture} className="result-logo" alt={`logo de ${item.name}`} />
                 <div className="result-details">
-                  <p className="result-title">
-                    {item.name}
+                  <div id="result-head">
+                    <p className="result-title">
+                      {item.name}
+                    </p>
+                    <p><PhoneCall />  :  {item.num_tel}</p>
+                  </div>
+                  <p className="result-overview">
+                    {item.overview}
                   </p>
                   <div className="result-type">
                     {item.sell_type_food.map((type) => (
