@@ -18,6 +18,7 @@
       .header-nav--item {
         //background-color: rgba(0,0,0,0.7);
         font-weight: bold;
+        font-family: vars.$Krub;
         color: vars.$LLight;
         padding: vars.$gutter vars.$gutter * 4;
         &:first-child:hover {
