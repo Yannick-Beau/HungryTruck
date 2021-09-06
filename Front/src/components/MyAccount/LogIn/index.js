@@ -1,8 +1,6 @@
 // == Import npm
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
-import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -15,10 +13,6 @@ const LogIn = ({
   changeField,
   handleSubmit,
   tokenIsOk,
-  loadingLogIn,
-  loadLogIn,
-  isSuccessLogIn,
-  changeIsSuccessLogin,
 }) => {
   function showError() {
     toast.error('Adresse email ou mot de passe incorrects, veuillez réessayer', {
@@ -47,24 +41,6 @@ const LogIn = ({
   if (tokenIsOk) {
     return <Redirect to="/" />;
   }
-  if (isSuccessLogIn) {
-    showSuccess();
-    changeIsSuccessLogin(null);
-  }
-  if (isSuccessLogIn === false) {
-    showError();
-    changeIsSuccessLogin(null);
-  }
-
-  // const notify = () => toast.success(messageLogIn, {
-  //   position: 'top-center',
-  //   autoClose: 5000,
-  //   hideProgressBar: true,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: 1,
-  // });
   return (
     <section className="login-section">
       <h2 className="login-title">Connexion à HungryTruck</h2>
@@ -73,7 +49,6 @@ const LogIn = ({
         className="login-form"
         onSubmit={(evt) => {
           evt.preventDefault();
-          loadingLogIn();
           handleSubmit();
         }}
       >
