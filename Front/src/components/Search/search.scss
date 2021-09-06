@@ -106,14 +106,23 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
+          width: 85%;
           margin-left: 2rem;
-          
-          .result-title {
-            font-weight: bold;
-            font-size: 1.5rem;
-            margin-left: -1rem;
-          }
 
+          #result-head {
+            display: flex;
+            justify-content: space-between;
+            .result-title {
+              font-weight: bold;
+              font-size: 1.5rem;
+              margin-left: -1rem;
+            }
+            .result-overview {
+              font-size: 1.2rem;
+              margin-left: -1rem;
+            }
+          }
+          
           .result-type {
             font-style: italic;
             margin: 0.5rem 0;
