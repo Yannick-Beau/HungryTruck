@@ -47,10 +47,6 @@ const NewFoodTruck = ({
     console.log(picture.length);
     goodPicture = picture;
   }
-  // else {
-  //   const goodPicture = { picture };
-  //   return goodPicture;
-  // }
   return (
     <section className="section-newFoodTruck">
       <h2 className="newFoodTruck-title">Créer mon FoodTruck</h2>
