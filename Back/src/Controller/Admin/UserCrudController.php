@@ -27,15 +27,15 @@ class UserCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             EmailField::new('email'),
-            ChoiceField::new('roles')->setChoices(['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_PRO' => 'ROLE_PRO', 'ROLE_USER' => 'ROLE_USER' ])->allowMultipleChoices(),
+            ChoiceField::new('roles')->setChoices(['Administrateur' => 'ROLE_ADMIN', 'Professionnel' => 'ROLE_PRO', 'Utilisateur' => 'ROLE_USER' ])->allowMultipleChoices(),
             Field::new('password')->hideOnIndex(),
             Field::new('pseudo'),
             UrlField::new('avatar'),
             TextField::new('adresse'),
+            AssociationField::new('food_like'),
             TextField::new('longitude'),
             TextField::new('latitude'),
             TextField::new('siret'),
-            AssociationField::new('food_like'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm()
         ];
