@@ -5,9 +5,10 @@ import {
   connectUser,
   connectPro,
   saveUser,
+  changeIsSuccessLogin,
 } from '../actions/logIn';
 import { sendTruck } from '../actions/map';
-import { loadingMap } from '../actions/tools';
+import { loadingMap, loadingLogIn } from '../actions/tools';
 import URL from '../data/ip';
 
 const createUserMiddleware = (store) => (next) => (action) => {
@@ -24,6 +25,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((responseUser) => {
+          console.log(responseUser.data);
           store.dispatch(connectUser(
             responseUser.data.email,
             responseUser.data.adresse,
@@ -46,6 +48,7 @@ const createUserMiddleware = (store) => (next) => (action) => {
               },
             )
               .then((responsePro) => {
+                console.log(responsePro.data);
                 store.dispatch(connectPro(responsePro.data.siret, responsePro.data.truck_id));
                 store.dispatch(loadingMap());
                 store.dispatch(sendTruck());
@@ -68,10 +71,15 @@ const createUserMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           localStorage.setItem('token', response.data.token);
           store.dispatch(saveUser());
+          store.dispatch(changeIsSuccessLogin(true));
+          store.dispatch(loadingLogIn());
         })
         .catch((error) => {
+          // TODO pour afficher un message d'erreur, il faudrait ajouter une info
+          // dans le state, et dispatcher ici une nouvelle action
           store.dispatch(changeIsSuccessLogin(false));
           store.dispatch(loadingLogIn());
+          console.log(error);
         });
       break;
     }
