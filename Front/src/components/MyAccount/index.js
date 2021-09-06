@@ -45,7 +45,7 @@ const MyAccount = ({
     avatarUser = avatar;
   }
   else {
-    avatarUser = 'http://placehold.it/250x350';
+    avatarUser = 'https://cdn.shopify.com/s/files/1/0563/4061/1245/files/4451366_meme-man-harold-thumbs-up-png-download_png_647a504f-091e-452f-aaad-20f6591c2821_600x600@2x.jpg?v=1619114473';
   }
   let subtitle;
 
