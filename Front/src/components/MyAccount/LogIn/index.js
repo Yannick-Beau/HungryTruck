@@ -42,6 +42,17 @@ const LogIn = ({
   if (tokenIsOk) {
     return <Redirect to="/" />;
   }
+
+  if (isSuccessLogIn) {
+    showSuccess();
+    changeIsSuccessLogin(null);
+  }
+  if (isSuccessLogIn === false) {
+    showError();
+    changeIsSuccessLogin(null);
+  }
+
+
   return (
     <section className="login-section">
       <h2 className="login-title">Connexion à HungryTruck</h2>
