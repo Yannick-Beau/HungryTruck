@@ -147,7 +147,7 @@ const HungryTruck = ({
     }
     if (flashContact === 'success') {
       showSuccess('Votre message à bien été envoyé');
-      changeShowFlash('null', 'createUser');
+      changeShowFlash('null', 'contact');
     }
     if (flashLogIn === 'success') {
       showSuccess('Connexion réussie. A table ! 🍔');
