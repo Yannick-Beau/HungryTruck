@@ -56,15 +56,6 @@ const LogIn = ({
     changeIsSuccessLogin(null);
   }
 
-  // const notify = () => toast.success(messageLogIn, {
-  //   position: 'top-center',
-  //   autoClose: 5000,
-  //   hideProgressBar: true,
-  //   closeOnClick: true,
-  //   pauseOnHover: true,
-  //   draggable: true,
-  //   progress: 1,
-  // });
   return (
     <section className="login-section">
       <h2 className="login-title">Connexion à HungryTruck</h2>
