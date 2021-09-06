@@ -119,7 +119,7 @@ const HungryTruck = ({
     return <Redirect to="/" />;
   }
   if (flashLogIn === 'error') {
-    showError('Adresse email ou mot de passe incorrects, veuillez réessayer');
+    showError('Adresse email ou mot de passe incorrect, veuillez réessayer');
     changeShowFlash('null', 'login');
   }
   const [delAccount, setDelAccount] = useState(false);
@@ -138,7 +138,7 @@ const HungryTruck = ({
       changeShowFlash('null', 'addEvent');
     }
     if (flashSaveEditUser === 'success') {
-      showSuccess('Les informations on bien été mise à jour');
+      showSuccess('Les informations on bien été mises à jour');
       changeShowFlash('null', 'editUser');
     }
     if (flashCreateUser === 'success') {
@@ -146,7 +146,7 @@ const HungryTruck = ({
       changeShowFlash('null', 'createUser');
     }
     if (flashContact === 'success') {
-      showSuccess('Votre message à bien été envoyé');
+      showSuccess('Votre message a bien été envoyé');
       changeShowFlash('null', 'contact');
     }
     if (flashLogIn === 'success') {
