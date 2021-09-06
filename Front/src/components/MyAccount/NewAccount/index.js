@@ -1,5 +1,5 @@
 // == Import npm
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import React, {
@@ -276,7 +276,8 @@ const NewAccount = ({
               </div>
             </div>
           </div>
-          {loadCreateUser
+          <div className="newAccount-button">
+            {loadCreateUser
           && (
             <Loader
               type="Puff"
@@ -286,11 +287,14 @@ const NewAccount = ({
               className="loaderEdit"
             />
           )}
-          {!loadCreateUser
+            {!loadCreateUser
           && (
-            <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+            <button className="submit-form--account" type="submit" value="Submit">{buttonCreateName}</button>
           )}
-
+            <Link to="/" className="button-Link">
+              <button type="button" className="login-backToHome">Retourner à l'acceuil</button>
+            </Link>
+          </div>
         </div>
       </form>
     </main>
