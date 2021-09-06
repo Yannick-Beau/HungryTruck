@@ -31,7 +31,7 @@ const Nav = ({ hiddenNavBar, changeHiddenNavBar }) => (
       >
         <img className="logo" src={hungryTruckLogo} alt="logo hungry truck" />
       </NavLink>
-      <div className={`header-nav--items ${hiddenNavBar ? 'hidden-nav--items' : 'show-nav--items'}`}>
+      <div className={`header-nav--items ${hiddenNavBar ? 'show-nav--items' : 'hidden-nav--items'}`}>
         <NavLink
           to="/"
           className="header-nav--item"

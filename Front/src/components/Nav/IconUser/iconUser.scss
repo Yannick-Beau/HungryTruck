@@ -36,7 +36,7 @@
   }
 
   to {
-    width: 10%;
+    width: 8rem;
     font-size: 1rem;
   }
 }
@@ -64,12 +64,13 @@
     margin-right: 1rem;
     flex-direction: column;
     animation: loadMenu 0.5s;
-    width: 10%;
-
+    width: 8rem;
+    font-weight: bold;
     top: vars.$gutter * 9;
     right: vars.$gutter;
     .li-user {
       background-color: vars.$DarkOpacity;
+      font-family: vars.$Krub;
       color: vars.$LLight;
       padding: vars.$gutter;
       text-align: center;

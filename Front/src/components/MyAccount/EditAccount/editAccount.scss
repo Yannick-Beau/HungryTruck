@@ -55,3 +55,16 @@
   }
 }
 
+@media (min-width: 300px) and (max-width: 1900px) {
+  #edit-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px) {
+}
