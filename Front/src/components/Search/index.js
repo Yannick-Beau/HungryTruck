@@ -55,7 +55,7 @@ const Search = ({
                 type="text"
                 name="search"
                 className="search-form--input"
-                placeholder="Veuillez saisir votre rechercher"
+                placeholder="Veuillez saisir votre recherche"
                 value={search}
                 onChange={(evt) => {
                   searchField(evt.target.value, 'search');
