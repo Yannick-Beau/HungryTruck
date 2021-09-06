@@ -22,7 +22,6 @@ const Map = ({
   });
   const style = 'mapbox://styles/mapbox/streets-v8';
   useEffect(() => {
-    console.log(trucks);
     if (trucks.length === 0) {
       loadingMap();
       sendTruck();
@@ -60,14 +59,14 @@ const Map = ({
       <Map style={style} center={[centerLong, centerLat]} className="map-main">
         <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
           {trucks.map((truck) => (
-            truck.events.map((item) => <Feature coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]} />)
+            truck.events.map((item) => <Feature key={item.id} coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]} />)
           ))}
         </Layer>
         {trucks.map((truck) => (
           truck.events.map((item) => (
             <Link
               to={`/food-truck/${truck.id}`}
-              key={truck.id}
+              key={item.id}
             >
               <Popup
                 coordinates={[item.longitude.replace(',', '.'), item.latitude.replace(',', '.')]}

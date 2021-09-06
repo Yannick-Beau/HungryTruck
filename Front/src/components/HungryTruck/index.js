@@ -32,13 +32,13 @@ import './styles.scss';
 // == Composant
 const HungryTruck = ({
   saveUser,
-  trucksPro,
   flashAddTruck,
   flashAddEvent,
   flashDelEvent,
   flashDelTruck,
   flashSaveEditUser,
   flashCreateUser,
+  flashContact,
   changeShowFlash,
 }) => {
   function showError(message) {
@@ -70,40 +70,48 @@ const HungryTruck = ({
     return <Redirect to="/my-account/my-foodtruck" />;
   }
   if (flashAddTruck === 'error') {
-    showError('Tous les champs sont obligatoires.');
-    changeShowFlash(null, 'addTruck');
+    showError('Tous les champs sont obligatoires');
+    changeShowFlash('null', 'addTruck');
   }
   if (flashAddEvent === 'redirect') {
     changeShowFlash('success', 'addEvent');
     return <Redirect to="/my-account/my-foodtruck" />;
   }
   if (flashAddEvent === 'error') {
-    showError('Tous les champs sont obligatoires.');
-    changeShowFlash(null, 'addEvent');
+    showError('Tous les champs sont obligatoires');
+    changeShowFlash('null', 'addEvent');
   }
   if (flashDelEvent === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer.');
-    changeShowFlash(null, 'delEvent');
+    showError('Une erreur c\'est produite, veuillez réessayer');
+    changeShowFlash('null', 'delEvent');
   }
   if (flashDelTruck === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer.');
-    changeShowFlash(null, 'delTruck');
+    showError('Une erreur c\'est produite, veuillez réessayer');
+    changeShowFlash('null', 'delTruck');
   }
   if (flashSaveEditUser === 'redirect') {
     changeShowFlash('success', 'editUser');
     return <Redirect to="/my-account" />;
   }
   if (flashSaveEditUser === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer.');
-    changeShowFlash(null, 'editUser');
+    showError('Une erreur c\'est produite, veuillez réessayer');
+    changeShowFlash('null', 'editUser');
   }
   if (flashCreateUser === 'redirect') {
     changeShowFlash('success', 'createUser');
     return <Redirect to="/" />;
   }
   if (flashCreateUser === 'error') {
-    showError('Tous les champs sont obligatoires.');
-    changeShowFlash(null, 'createUser');
+    showError('Tous les champs sont obligatoires');
+    changeShowFlash('null', 'createUser');
+  }
+  if (flashContact === 'redirect') {
+    changeShowFlash('success', 'contact');
+    return <Redirect to="/" />;
+  }
+  if (flashContact === 'error') {
+    showError('Une erreur c\'est produite, veuillez réessayer');
+    changeShowFlash('null', 'contact');
   }
   const [delAccount, setDelAccount] = useState(false);
   const [addFoodTruck, setAddFoodTruck] = useState(false);
@@ -113,30 +121,34 @@ const HungryTruck = ({
   }
   useEffect(() => {
     if (flashAddTruck === 'success') {
-      showSuccess('Le food truck a bien été ajouté.');
-      changeShowFlash(null, 'addTruck');
+      showSuccess('Le food truck a bien été ajouté');
+      changeShowFlash('null', 'addTruck');
     }
     if (flashAddEvent === 'success') {
-      showSuccess('L\'événement a bien été ajouté au food truck.');
-      changeShowFlash(null, 'addEvent');
+      showSuccess('L\'événement a bien été ajouté au food truck');
+      changeShowFlash('null', 'addEvent');
     }
     if (flashSaveEditUser === 'success') {
-      showSuccess('Les informations on bien été mise à jour.');
-      changeShowFlash(null, 'editUser');
+      showSuccess('Les informations on bien été mise à jour');
+      changeShowFlash('null', 'editUser');
     }
     if (flashCreateUser === 'success') {
       showSuccess('Le compte a bien été créé.');
-      changeShowFlash(null, 'createUser');
+      changeShowFlash('null', 'createUser');
+    }
+    if (flashContact === 'success') {
+      showSuccess('Votre message à bien été envoyé');
+      changeShowFlash('null', 'createUser');
     }
   });
   useEffect(() => {
     if (flashDelEvent === 'success') {
-      changeShowFlash(null, 'delEvent');
-      showSuccess('L\'événement a bien été supprimé au food truck.');
+      changeShowFlash('null', 'delEvent');
+      showSuccess('L\'événement a bien été supprimé au food truck');
     }
     if (flashDelTruck === 'success') {
-      changeShowFlash(null, 'delTruck');
-      showSuccess('Le food truck a bien été supprimé.');
+      changeShowFlash('null', 'delTruck');
+      showSuccess('Le food truck a bien été supprimé');
     }
   }, [flashDelEvent, flashDelTruck]);
 
@@ -220,6 +232,14 @@ const HungryTruck = ({
 
 HungryTruck.propTypes = {
   saveUser: PropTypes.func.isRequired,
+  flashAddTruck: PropTypes.string.isRequired,
+  flashAddEvent: PropTypes.string.isRequired,
+  flashDelEvent: PropTypes.string.isRequired,
+  flashDelTruck: PropTypes.string.isRequired,
+  flashSaveEditUser: PropTypes.string.isRequired,
+  flashCreateUser: PropTypes.string.isRequired,
+  flashContact: PropTypes.string.isRequired,
+  changeShowFlash: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -4,11 +4,8 @@ import { changeIsLoading, changeShowFlash } from '../actions/tools';
 import URL from '../data/ip';
 
 const addFoodTruckMiddleware = (store) => (next) => (action) => {
-  // console.log('on a intercepté une action dans le middleware: ', action);
-
   switch (action.type) {
     case ADD_FOODTRUCK: {
-      console.log('je vais envoyé le foodtruck en bdd');
       const {
         name,
         facebook,
@@ -47,12 +44,10 @@ const addFoodTruckMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
           store.dispatch(changeIsLoading(false, 'addTruck'));
           store.dispatch(changeShowFlash('redirect', 'addTruck'));
         })
         .catch((error) => {
-          console.log(error);
           store.dispatch(changeIsLoading(false, 'addTruck'));
           store.dispatch(changeShowFlash('error', 'addTruck'));
         });
