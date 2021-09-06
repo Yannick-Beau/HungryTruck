@@ -22,10 +22,13 @@
     align-items: flex-start;
     position: absolute;
     width: 20rem;
+    background-color: rgba(150, 150, 150, 0.7);
+    border-radius: 25px;
     img {
       // height: 20rem;
       width: 20rem;
       border-radius: 25px 25px 0 0;
+      padding: 1rem;
     }
     .reseaux {
       background-color: #e69512;

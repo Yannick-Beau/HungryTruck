@@ -132,12 +132,6 @@ function toolsReducer(state = initialState, action = {}) {
         iconUserIsOpen: !state.iconUserIsOpen,
       };
     }
-    case LOADING_LOGIN: {
-      return {
-        ...state,
-        loadLogIn: !state.loadLogIn,
-      };
-    }
     case CHANGE_REDIRECT: {
       return {
         ...state,
