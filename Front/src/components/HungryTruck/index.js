@@ -83,11 +83,11 @@ const HungryTruck = ({
     changeShowFlash('null', 'addEvent');
   }
   if (flashDelEvent === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer');
+    showError('Une erreur s\'est produite, veuillez réessayer');
     changeShowFlash('null', 'delEvent');
   }
   if (flashDelTruck === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer');
+    showError('Une erreur s\'est produite, veuillez réessayer');
     changeShowFlash('null', 'delTruck');
   }
   if (flashSaveEditUser === 'redirect') {
@@ -95,7 +95,7 @@ const HungryTruck = ({
     return <Redirect to="/my-account" />;
   }
   if (flashSaveEditUser === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer');
+    showError('Une erreur s\'est produite, veuillez réessayer');
     changeShowFlash('null', 'editUser');
   }
   if (flashCreateUser === 'redirect') {
@@ -111,7 +111,7 @@ const HungryTruck = ({
     return <Redirect to="/" />;
   }
   if (flashContact === 'error') {
-    showError('Une erreur c\'est produite, veuillez réessayer');
+    showError('Une erreur s\'est produite, veuillez réessayer');
     changeShowFlash('null', 'contact');
   }
   if (flashLogIn === 'redirect') {
