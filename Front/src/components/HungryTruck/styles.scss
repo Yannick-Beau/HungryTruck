@@ -130,6 +130,12 @@ html {
   top:0;
 }
 
+input {
+  &::placeholder {
+    font-style: italic;
+  }
+}
+
 
 @keyframes toggleTurnOff {
   from {
