@@ -62,7 +62,7 @@ const MyFoodTruck = ({
                   >
                     {(close) => (
                       <section className="viewslots-section">
-                        <h2 className="viewslots-title">Horaire du food truck</h2>
+                        <h2 className="viewslots-title">Horaires du food truck : {item.name}</h2>
                         <div className="myFoodTruck-array">
                           <table>
                             <thead>
