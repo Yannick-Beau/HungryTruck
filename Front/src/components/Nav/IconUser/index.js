@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // == Import
 import './iconUser.scss';
 import imgUser from '../../../assets/img/icon-user.png';
-
+// comment
 // == Composant
 const IconUser = ({
   logged,
@@ -84,7 +84,7 @@ const IconUser = ({
               handleStatusIconUser();
             }}
           >
-            connexion
+            Connexion
           </Link>
         )}
       </ul>
