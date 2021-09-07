@@ -39,10 +39,10 @@ const NewAccount = ({
   changeIsLoading,
 }) => {
   let title = 'Créez votre compte utilisateur';
-  let buttonCreateName = 'Créez votre compte utilisateur';
+  let buttonCreateName = 'Créer votre compte utilisateur';
   if (createPro) {
     title = 'Créez votre compte pro';
-    buttonCreateName = 'Créez votre compte pro';
+    buttonCreateName = 'Créer votre compte pro';
   }
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
@@ -292,7 +292,7 @@ const NewAccount = ({
             <button className="submit-form--account" type="submit" value="Submit">{buttonCreateName}</button>
           )}
             <Link to="/" className="button-Link">
-              <button type="button" className="login-backToHome">Retourner à l'acceuil</button>
+              <button type="button" className="login-backToHome">Retourner à l'accueil</button>
             </Link>
           </div>
         </div>
