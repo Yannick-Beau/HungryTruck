@@ -382,6 +382,18 @@
         justify-content: center;
         margin: 1rem;
         width: 100%;
+        
+        .newAccount-button {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+
+          .button-Link {
+            margin-top: 1rem;
+          }
+        }
 
         .all-fields {
           display: flex;
@@ -469,6 +481,17 @@
       }
 
       .form-right {
+        .newAccount-button {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+
+          .button-Link {
+            margin-top: 1rem;
+          }
+        }
         .all-fields {
           .fields {
 
