@@ -6,7 +6,8 @@
   position: relative;
   max-width: auto;
   min-height: 80vh;
-  max-height: 100vh;
+  // max-height: 100vh;
+  padding-bottom: 7rem;
 
   .addslot-section,
   .newrdv {
@@ -17,6 +18,7 @@
     background-color: vars.$DarkOpacity;
     padding: vars.$gutter;
     color: vars.$LLight;
+    width: 85vw;
     // margin: auto auto 20rem;
     // position: relative;
     // max-width: 80%;
@@ -143,6 +145,73 @@
           // }
         }
       }
+    }
+  }
+}
+@media (min-width: 100px) and (max-width: 1050px) {
+  #section-newaddSlot {
+    .addslot-section,
+    .newrdv {
+      width: 90%;
+      .addslot-title {
+      }
+      .addslot-fields--legend {
+      }
+      .addslot-form {
+        .addslotFirst {
+          #addslot-input {
+          }
+        }
+  
+  
+        .addslot-from--first {
+          display: flex;
+          // flex-direction: column;
+          // align-items: center;
+          flex-wrap: wrap;
+          .addslot-label {
+            .addslot-input {
+              
+              option {
+              }
+            }
+            .addslot-input--address {
+            }
+            span {
+            }
+          }
+        }
+        .addslot-form--footer {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin:0;
+          .addslot-button--quit {
+          }
+          .addslot-button--submit {
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 100px) and (max-width: 590px) {
+  .addslot-title {
+    text-align: center !important;
+    margin: -1.5rem auto 1.5rem auto !important;
+    font-size: 1.5rem !important;
+  }
+}
+@media (min-width: 100px) and (max-width: 430px) {
+  .addslot-title {
+    font-size: 1rem !important;
+  }
+  .addslot-form--footer {
+    .addslot-button--quit {
+      width: 12rem !important;
+    }
+    .addslot-button--submit {
+      width: 12rem !important;
     }
   }
 }
