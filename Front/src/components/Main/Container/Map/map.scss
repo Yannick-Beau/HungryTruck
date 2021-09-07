@@ -39,10 +39,27 @@
     margin-left: -6rem;
     height: 25rem;
     position: relative;
+    width: 100vh;
 
     .mapboxgl-canvas {
       width: 200vw;
       max-height: max-content;
+    }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+  #map {
+    max-width: 100%;
+    // padding: 0;
+    left: 0;
+
+    .map-main {
+      margin: auto;
+      width: 95vw;
+    }
+    .mapboxgl-canvas {
+      width: 100%;
     }
   }
 }
