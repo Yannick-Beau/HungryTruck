@@ -3,6 +3,7 @@
 #contact {
   z-index: 1;
   margin-top: -4rem;
+  padding-bottom: 3.5rem;
 
   #contact-title {
     font-weight: bold;
@@ -116,21 +117,52 @@
 }
 
 @media (max-width: 800px) {
-
-  #contact-title {
-    font-size: 1rem;
-    color: blue;
-  }
-
-  #contact-mail--input {
-    min-width: 100%;
-  }
-
-  #contact-textarea {
-    min-width: 100%;
-  }
-
-  #contact-form--button {
-    min-width: 50%;
+  
+  #contact {
+    #contact-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: auto 0 -0.9rem 0rem;
+    }
+  
+    article {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      form {
+        label {
+  
+          input {
+            
+          }
+          #contact-mail--input {
+            min-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+          #contact-textarea {
+            min-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+        }
+  
+        #contact-form-submit {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          margin: auto;
+  
+          #contact-form--button {
+            width: 14rem;
+            margin: 0 0 1rem;
+          }
+          .button-linkto {
+            width: 14rem;
+            margin: 0;
+          }
+        }
+      }
+    }
   }
 }
