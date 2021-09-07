@@ -4,6 +4,7 @@ import React from 'react';
 
 // == Import
 import './legalMentions.scss';
+import hungryTruckLogo from '../../../assets/img/logo.png';
 
 // == Composant
 const LegalMentions = () => (
@@ -12,9 +13,10 @@ const LegalMentions = () => (
       <h3 className="lm-title--title">
         Mentions Légales
       </h3>
-      <a href="http://www.hungrytruck.fr" alt="HungryTruck" className="lm-title--link">
-        www.hungrytruck.fr
+      <a href="" alt="HungryTruck" className="lm-title--link">
+        HungryTruck
       </a>
+      <img className="lm-title--logo" src={hungryTruckLogo} alt="logo hungry truck" />
     </div>
 
     <article className="lm-text">
@@ -35,13 +37,13 @@ const LegalMentions = () => (
         Mentions légales
       </p>
       <p className="lm-text--subtitle">
-        Site (ci-après « le site ») :
+        Site (ci-après «le site») :
       </p>
       <p className="lm-text--parahraph">
         HungryTruck
       </p>
       <p className="lm-text--subtitle">
-        Éditeur (ci-après « L’éditeur ») :
+        Éditeur (ci-après «l’éditeur») :
       </p>
       <p className="lm-text--parahraph">
         <ul>

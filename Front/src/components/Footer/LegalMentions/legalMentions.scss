@@ -14,6 +14,8 @@
     padding-bottom: 12rem;
   .lm-title {
     font-size: vars.$mainTitle;
+    display: flex;
+    flex-direction: column;
     font-family: vars.$Krub;
     font-weight: bold;
     text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
@@ -23,6 +25,11 @@
     }
     .lm-title--link {
       font-size: 3rem;
+    }
+    .lm-title--logo {
+      width: 15rem;
+      height: 15rem;
+      margin: 1rem auto;
     }
   }
   .lm-text {
@@ -49,4 +56,37 @@
 
     }
   }
+}
+@media (min-width: 100px) and (max-width: 590px) {
+  .lm {
+    background-color: vars.$DarkOpacity;
+  .lm-title {
+    font-size: 1.5rem;
+    .lm-title--title {
+    }
+    .lm-title--link {
+      font-size: 1.3rem;
+    }
+    .lm-title--logo {
+      width: 7rem;
+      height: 7rem;
+    }
+  }
+  .lm-text {
+    .lm-text--title {
+      font-size: 1.3rem;
+    }
+    .lm-text--subtitle {
+      font-size: 1.2rem;
+    }
+    .lm-text--parahraph {
+      font-size: 0.8rem;
+      ul {
+        li{
+        }
+      }
+
+    }
+  }
+}
 }
