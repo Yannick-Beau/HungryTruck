@@ -116,8 +116,8 @@ const MyAccount = ({
             >
               <section className="deleteaccount-section">
                 <h2 className="deleteaccount-title">Suppression de compte</h2>
-                <p id="delAccount-text">Vous êtes sur le point de supprimer votre compte,<br /> la suppression est irréversible et entraîneras la perte de vos données.<br /> Pour confirmer la suppression,<br />
-                  vous devez cliquer sur le bouton "Je veux supprimer mon compte HungryTruck".
+                <p id="delAccount-text">Vous êtes sur le point de supprimer votre compte.<br />La suppression est irréversible et entraînera la perte de vos données.<br />Pour confirmer la suppression,<br />
+                  veuillez cliquer sur le bouton "Je veux supprimer mon compte HungryTruck".
                 </p>
                 <form
                   className="deleteaccount-form"
