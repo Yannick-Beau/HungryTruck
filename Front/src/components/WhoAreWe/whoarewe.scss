@@ -85,10 +85,18 @@
     align-items: center;
     z-index: 0;
     min-height: max-content;
+    padding-bottom: 2rem;
 
     .cards {
       margin-bottom: 10rem;
       z-index: 0;
     }
   }
+}
+@media (min-width: 100px) and (max-width: 1500px) {
+  
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+  
 }
