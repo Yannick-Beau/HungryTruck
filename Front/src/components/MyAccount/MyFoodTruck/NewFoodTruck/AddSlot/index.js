@@ -226,12 +226,13 @@ const AddSlot = ({
           </div>
           <div className="addslot-from--first addslot-from--address">
             <div className="addslot-label addslot-input--address" htmlFor="adress">Adresse du lieu *
-              <div>
+              <div className="mapboxgl">
                 <MapGL
                   ref={mapRef}
                   {...viewport}
-                  width="850px"
-                  height="250px"
+                  width="80vw"
+                  height="350px"
+                  id="map"
                   onViewportChange={handleViewportChange}
                   mapboxApiAccessToken={MAPBOX_TOKEN}
                 >
