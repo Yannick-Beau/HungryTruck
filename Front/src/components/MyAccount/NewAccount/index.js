@@ -38,11 +38,11 @@ const NewAccount = ({
   loadCreateUser,
   changeIsLoading,
 }) => {
-  let title = 'Créer votre compte Utilisateur';
-  let buttonCreateName = 'Créer mon compte Utilisateur';
+  let title = 'Créez votre compte utilisateur';
+  let buttonCreateName = 'Créez votre compte utilisateur';
   if (createPro) {
-    title = 'Créer votre compte Pro';
-    buttonCreateName = 'Créer mon compte Pro';
+    title = 'Créez votre compte pro';
+    buttonCreateName = 'Créez votre compte pro';
   }
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
