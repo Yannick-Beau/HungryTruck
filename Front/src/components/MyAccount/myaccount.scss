@@ -217,3 +217,93 @@ span{
   font-style: italic;
   font-weight: bold;
 }
+
+
+@media (min-width: 100px) and (max-width: 1521px) {
+  #sectionAccount {
+    background-color: vars.$DarkOpacity;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 120vh;
+    max-height: 350vh;
+    padding-bottom: 22rem;
+
+    #myAccount {
+      position: relative;
+      margin: auto;
+      margin-top: -2.3rem;
+    }
+
+    #myaccount-picture {
+      position: relative;
+      margin: 1rem auto;
+    }
+
+    #account {
+      background-color: transparent;
+      position: relative;
+      margin: 1rem auto;
+      min-height: 60vh;
+      text-align: center;
+
+      .account-informations {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin: 0;
+        text-align: center;
+
+        .informations-left {
+          border: none;
+          width: 100%;
+          position: relative;
+        }
+
+        .informations-right {
+          width: 100%;
+          position: relative;
+
+          ul>li {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            span {
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      .account-button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        bottom: 0;
+        margin-top: 8rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 400px) {
+  #sectionAccount {
+    min-height: 160vh;
+    
+    #account {
+      min-height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: auto 1rem;
+    }
+    .account-button {
+      margin-top: 14rem;
+    }
+  }
+}
