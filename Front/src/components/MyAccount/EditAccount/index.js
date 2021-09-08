@@ -73,11 +73,11 @@ const EditAccount = ({
     changeLoadingEditUser();
     findFood();
   }, []);
-  let title = 'Modifier votre compte Utilisateur';
-  let buttonCreateName = 'Modifier mon compte Utilisateur';
+  let title = 'Modifiez votre compte utilisateur';
+  let buttonCreateName = 'Modifiez votre compte utilisateur';
   if (isPro) {
-    title = 'Modifier votre compte Pro';
-    buttonCreateName = 'Modifier mon compte Pro';
+    title = 'Modifiez votre compte pro';
+    buttonCreateName = 'Modifiez votre compte pro';
   }
   return (
     <main className="newaccount">
