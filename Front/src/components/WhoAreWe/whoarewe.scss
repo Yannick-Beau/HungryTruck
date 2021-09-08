@@ -5,6 +5,7 @@
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 15rem;
 
   .cards {
     width: 20rem;
@@ -77,7 +78,7 @@
   }
 }
 
-@media (max-width: 1900px) {
+@media (max-width: 1100px) {
   .team {
     display: flex;
     flex-direction: column;
@@ -85,6 +86,7 @@
     align-items: center;
     z-index: 0;
     min-height: max-content;
+    padding-bottom: 2rem;
 
     .cards {
       margin-bottom: 10rem;
@@ -92,3 +94,4 @@
     }
   }
 }
+

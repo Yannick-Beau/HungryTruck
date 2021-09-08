@@ -197,3 +197,112 @@
   }
   
 }
+
+@media (min-width: 100px) and (max-width: 1520px) {
+  .section-myFoodTruck {
+    padding-bottom: 5rem;
+
+    .myFoodTruck-buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 0;
+      
+      .button-Link {
+        margin: auto;
+      }
+    }    
+  }
+
+}
+
+@media (min-width: 100px) and (max-width: 1200px) {
+  .section-myFoodTruck {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background-color: vars.$DarkOpacity;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5rem;
+
+    .myFoodTruck-title {
+      position: relative;
+      margin: 1rem auto;
+    }
+
+    .myFoodTruck-picture {
+      position: relative;
+      margin: auto;
+    }
+
+    .myFoodTruck-array {
+
+      .button-linkto--details {
+        width: auto;
+        margin: 0.3rem 0.3rem;
+      }
+    }
+
+    .myFoodTruck {
+      position: relative;
+      background-color: transparent;
+      margin: auto;
+      width: 100%;
+
+      .myFoodTruck-buttons {
+        margin-bottom: 5rem;
+      }
+    }
+
+  }
+
+}
+
+@media (min-width: 100px) and (max-width: 530px) {
+  .myFoodTruck {
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem !important;
+  
+    .myFoodTruck-array {
+      margin: 0 !important;
+      width: 100% !important;
+
+      #type_food {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        
+        p {
+          margin: 0.4rem auto;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+  .viewslots-section {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    .myFoodTruck-array {
+      margin-right: 0.2rem;
+      margin-left: 0.2rem;
+      width: 100%;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}

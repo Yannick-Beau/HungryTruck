@@ -1,7 +1,11 @@
 @use 'src/styles/vars';
 
 html {
+<<<<<<< HEAD
   overflow-y: hidden;
+=======
+  overflow-x: hidden;
+>>>>>>> 8807dcb65c1c547abfd5e700068c9d104087f882
   overflow-y: auto;
   &::-webkit-scrollbar {
     width: 13px;
@@ -128,6 +132,12 @@ html {
   z-index: 10;
   margin: auto;
   top:0;
+}
+
+input {
+  &::placeholder {
+    font-style: italic;
+  }
 }
 
 

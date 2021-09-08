@@ -3,6 +3,7 @@
 .section-newFoodTruck {
   margin: 2rem;
   margin-top: 0;
+  padding-bottom: 6rem;
 
   .newFoodTruck-title {
     font-weight: bold;
@@ -289,6 +290,97 @@
           -moz-box-shadow: 0px 0px 15px 4px rgba(0,0,0,0.85) inset;
           border: #e69512 4px solid;
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 1820px) {
+  .section-newFoodTruck {
+    padding-bottom: 5rem;
+    min-height: 120vh;
+    .myFT-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      .myFT-details--detail {
+        margin: auto;
+        width: 100% !important;
+
+        .foodtruck-social {
+          width: 100% !important;
+
+          input, .addslot-input {
+            width: 30rem !important;
+          }
+        }
+      }
+    }    
+  }
+}
+
+@media (min-width: 100px) and (max-width: 1210px) {
+  .section-newFoodTruck {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background-color: vars.$DarkOpacity;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5rem;
+
+    .newFoodTruck-title {
+      margin: -2.2rem auto 1rem;
+    }
+
+    .newFoodTruck-picture {
+      margin: auto;
+    }
+
+    .newFoodTruck {
+      margin: auto;
+      background-color: transparent;
+      width: 100%;
+
+      .account-button {
+        // margin-bottom: 10rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 700px) {
+  .section-newFoodTruck {
+
+    .newFoodTruck-title {
+      font-size: 2rem;
+      margin: 1rem auto 1rem;
+      text-align: center;
+    }
+
+    .newFoodTruck {
+
+      label {
+        width: 100%;
+        input {
+          width: 90% !important;
+        }
+      }
+
+      .myFT--array {
+        margin: 0;
+        width: 98%;
+      }
+      .account-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
       }
     }
   }

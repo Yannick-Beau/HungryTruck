@@ -44,7 +44,6 @@ const NewFoodTruck = ({
 
   let goodPicture = Logo;
   if (picture.length > 0) {
-    console.log(picture.length);
     goodPicture = picture;
   }
   return (
@@ -124,7 +123,7 @@ const NewFoodTruck = ({
                 <input
                   type="url"
                   name="Facebook-foodtruck"
-                  placeholder="https://facebook.com/mapizzatruck"
+                  placeholder="https://facebook.com/monfoodtruck"
                   value={newFoodTruckFB}
                   onChange={(e) => {
                     changeField(e.target.value, 'facebook');
@@ -136,7 +135,7 @@ const NewFoodTruck = ({
                 <input
                   type="url"
                   name="Facebook-foodtruck"
-                  placeholder="https://facebook.com/mapizzatruck"
+                  placeholder="https://instagram.com/monfoodtruck"
                   value={newFoodTruckInsta}
                   onChange={(e) => {
                     changeField(e.target.value, 'instagram');
@@ -148,7 +147,7 @@ const NewFoodTruck = ({
                 <input
                   type="url"
                   name="Facebook-foodtruck"
-                  placeholder="https://facebook.com/mapizzatruck"
+                  placeholder="https://twitter.com/monfoodtruck"
                   value={newFoodTruckTwitter}
                   onChange={(e) => {
                     changeField(e.target.value, 'twitter');

@@ -139,8 +139,8 @@ const editUserMiddleware = (store) => (next) => (action) => {
           }
         })
         .catch((error) => {
-          store.dispatch(changeIsLoading(false, 'delTruck'));
-          store.dispatch(changeShowFlash('error', 'delTruck'));
+          store.dispatch(changeIsLoading(false, 'editUser'));
+          store.dispatch(changeShowFlash('error', 'editUser'));
         });
       break;
     }

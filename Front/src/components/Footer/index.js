@@ -36,7 +36,7 @@ const Footer = () => (
     <div className="footer-right">
       <Link
         className="footer-right--CGU"
-        to="#"
+        to="cgu"
       >
         CGU
       </Link>

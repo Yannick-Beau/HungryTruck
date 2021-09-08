@@ -6,7 +6,7 @@
   position: relative;
   max-width: auto;
   min-height: max-content;
-  padding-bottom: 10rem;
+  padding-bottom: 6rem;
 
   .faq-title {
     font-weight: bold;
@@ -42,6 +42,29 @@
 
       &:hover {
         background-color: vars.$DarkOpacity;
+      }
+    }
+  }
+}
+@media (min-width: 100px) and (max-width: 600px) {
+  .faqSection {
+  
+    .faq-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: auto 0 -0.9rem 0rem;
+    }
+    .faq-main {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      .faq {
+        .faq-question {
+          font-size: 1rem;
+        }
+        .faq-answer {
+          margin: 0;
+          font-size: 0.8rem;
+        }
       }
     }
   }

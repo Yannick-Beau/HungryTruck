@@ -1,5 +1,5 @@
 // == Import npm
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import React, {
@@ -38,11 +38,11 @@ const NewAccount = ({
   loadCreateUser,
   changeIsLoading,
 }) => {
-  let title = 'Créer votre compte Utilisateur';
-  let buttonCreateName = 'Créer mon compte Utilisateur';
+  let title = 'Créez votre compte utilisateur';
+  let buttonCreateName = 'Créer votre compte utilisateur';
   if (createPro) {
-    title = 'Créer votre compte Pro';
-    buttonCreateName = 'Créer mon compte Pro';
+    title = 'Créez votre compte pro';
+    buttonCreateName = 'Créer votre compte pro';
   }
   const MAPBOX_TOKEN = 'pk.eyJ1Ijoia2V5Z2VuOSIsImEiOiJja3NrNWh6MGQwczZnMnBsNHhqYnRtMDUxIn0.dq2MMs1vSwGk8nMIj9NTxQ';
   const [viewport, setViewport] = useState({
@@ -76,7 +76,6 @@ const NewAccount = ({
   // Default picture
   let goodPictureUser = 'https://cdn.shopify.com/s/files/1/0563/4061/1245/files/4451366_meme-man-harold-thumbs-up-png-download_png_647a504f-091e-452f-aaad-20f6591c2821_600x600@2x.jpg?v=1619114473';
   if (pictureUser.length > 0) {
-    console.log(pictureUser.length);
     goodPictureUser = pictureUser;
   }
 
@@ -184,6 +183,11 @@ const NewAccount = ({
                         }}
                       />
                     </div>
+                    <p id="regex">
+                      Votre mot de passe doit avoir entre 8 et 20 caractères <br />
+                      avec au moins une minuscle, une majuscule, un chiffre, <br />
+                      et un caractère spécial @#-_$%^&+=§ !?
+                    </p>
                   </label>
                 </div>
                 <div className="field">
@@ -229,7 +233,7 @@ const NewAccount = ({
                       <MapGL
                         ref={mapRef}
                         {...viewport}
-                        width="400px"
+                        width="260px"
                         height="350px"
                         onViewportChange={handleViewportChange}
                         mapboxApiAccessToken={MAPBOX_TOKEN}
@@ -276,7 +280,8 @@ const NewAccount = ({
               </div>
             </div>
           </div>
-          {loadCreateUser
+          <div className="newAccount-button">
+            {loadCreateUser
           && (
             <Loader
               type="Puff"
@@ -286,11 +291,14 @@ const NewAccount = ({
               className="loaderEdit"
             />
           )}
-          {!loadCreateUser
+            {!loadCreateUser
           && (
-            <button className="submit-form" type="submit" value="Submit">{buttonCreateName}</button>
+            <button className="submit-form--account" type="submit" value="Submit">{buttonCreateName}</button>
           )}
-
+            <Link to="/" className="button-Link">
+              <button type="button" className="login-backToHome">Retourner à l'accueil</button>
+            </Link>
+          </div>
         </div>
       </form>
     </main>

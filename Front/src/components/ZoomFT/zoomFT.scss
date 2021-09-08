@@ -4,12 +4,14 @@
   margin: auto auto;
   position: relative;
   max-width: auto;
-  min-height: 120vh;
+  min-height: 70vh;
+  max-height: 250vh;
   margin-bottom: 5rem;
 
   .zoom-title {
     font-weight: bold;
     font-size: 4rem;
+    font-family: vars.$Krub;
     text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
     margin: -1rem auto -1.5rem 40rem;
   }
@@ -64,6 +66,7 @@
 
     .overview {
       margin: 0.5rem auto ;
+      margin-left: 8rem;
       font-style: italic;
       font-size: 1.2rem;
     }
@@ -72,6 +75,7 @@
     h3 {
       font-weight: bold;
       font-size: 2rem;
+      font-family: vars.$Krub;
       text-shadow: 4px 4px 3px rgba(150, 150, 150, 0.7);
       margin: vars.$gutter;
     }
@@ -110,3 +114,54 @@
     }
   }
 }
+
+@media (min-width: 100px) and (max-width: 1500px) {
+  .zoom-section {
+   background-color: turquoise;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+   z-index: 2;
+   background-color: vars.$DarkOpacity;
+
+   .zoom-title {
+     margin: -2.5rem auto auto;
+     width: 100%;
+     text-align: center;
+     z-index: 2;
+   }
+
+   .image-reseaux {
+     position: relative;
+     margin: 1rem;
+     z-index: 2;
+   }
+   .details {
+     margin: auto;
+     padding: 0;
+     z-index: 1;
+     background-color: transparent;
+     width: 95%;
+
+    .overview {
+      margin: 0;
+      text-align: center;
+      margin: 2rem;
+      margin-top: 1rem;
+    }
+
+    #foodtruck-array {
+      margin: auto;
+      width: 100%;
+    }
+   }
+  }
+}
+
+@media (min-width: 100px) and (max-width: 800px) {
+  h3 {
+    text-align: center;
+  }
+}
+
