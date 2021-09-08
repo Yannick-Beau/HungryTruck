@@ -5,6 +5,7 @@
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 15rem;
 
   .cards {
     width: 20rem;
@@ -93,10 +94,4 @@
     }
   }
 }
-@media (min-width: 100px) and (max-width: 1500px) {
-  
-}
 
-@media (min-width: 100px) and (max-width: 800px) {
-  
-}

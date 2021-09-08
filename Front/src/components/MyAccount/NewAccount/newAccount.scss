@@ -3,7 +3,7 @@
 .newaccount {
   width: 70vw;
   max-height: 100vh;
-  min-height: 80vh;
+  min-height: 90vh;
   margin: auto;
   margin-top: -6rem;
 
@@ -353,8 +353,9 @@
 
 @media (min-width: 300px) and (max-width: 1900px) {
   .newaccount {
-    max-height: 150vh;
-    min-height: 170vh;
+    min-height: 230vh;
+    max-height: 290vh;
+    
 
     .newaccount-title {
       margin: auto auto 1rem;
