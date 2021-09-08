@@ -21,7 +21,7 @@
     padding: vars.$gutter * 2 vars.$gutter * 2 vars.$gutter * 2 0;
     display: flex;
     flex-direction: row;
-    width: 80vw;
+    width: 66vw;
 
     .form-left {
       display: flex;
@@ -480,7 +480,7 @@
     .newaccount-form {
       padding-right: 0;
       margin-bottom: 5rem;
-
+      width: 100vw;
       .form-left {
         display: flex;
         justify-content: center;
