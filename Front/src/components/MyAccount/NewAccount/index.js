@@ -76,7 +76,6 @@ const NewAccount = ({
   // Default picture
   let goodPictureUser = 'https://cdn.shopify.com/s/files/1/0563/4061/1245/files/4451366_meme-man-harold-thumbs-up-png-download_png_647a504f-091e-452f-aaad-20f6591c2821_600x600@2x.jpg?v=1619114473';
   if (pictureUser.length > 0) {
-    console.log(pictureUser.length);
     goodPictureUser = pictureUser;
   }
 
