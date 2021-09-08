@@ -1,12 +1,8 @@
 @use 'src/styles/vars';
 
 html {
-<<<<<<< HEAD
   overflow-y: hidden;
-=======
-  overflow-x: hidden;
->>>>>>> 8807dcb65c1c547abfd5e700068c9d104087f882
-  overflow-y: auto;
+  overflow-x: auto;
   &::-webkit-scrollbar {
     width: 13px;
     height: 13px;
