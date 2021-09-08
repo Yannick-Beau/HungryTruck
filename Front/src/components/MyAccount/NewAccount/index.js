@@ -184,6 +184,11 @@ const NewAccount = ({
                         }}
                       />
                     </div>
+                    <p id="regex">
+                      Votre mot de passe doit avoir entre 8 et 20 caractères <br />
+                      avec au moins une minuscle, une majuscule, un chiffre, <br />
+                      et un caractère spécial @#-_$%^&+=§ !?
+                    </p>
                   </label>
                 </div>
                 <div className="field">
@@ -229,7 +234,7 @@ const NewAccount = ({
                       <MapGL
                         ref={mapRef}
                         {...viewport}
-                        width="400px"
+                        width="260px"
                         height="350px"
                         onViewportChange={handleViewportChange}
                         mapboxApiAccessToken={MAPBOX_TOKEN}
