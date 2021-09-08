@@ -44,7 +44,6 @@ const NewFoodTruck = ({
 
   let goodPicture = Logo;
   if (picture.length > 0) {
-    console.log(picture.length);
     goodPicture = picture;
   }
   return (
