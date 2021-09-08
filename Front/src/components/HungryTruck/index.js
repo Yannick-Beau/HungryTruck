@@ -14,6 +14,7 @@ import Main from '../Main';
 import NewAccount from '../../containers/MyAccount/NewAccount';
 import EditAccount from '../../containers/MyAccount/EditAccount';
 import LegalMentions from '../Footer/LegalMentions';
+import CGU from '../Footer/CGU';
 import Search from '../../containers/Search';
 import AddSlot from '../../containers/MyFoodTruck/NewTime';
 import WhoAreWe from '../WhoAreWe';
@@ -194,6 +195,9 @@ const HungryTruck = ({
         </Route>
         <Route path="/legal" exact>
           <LegalMentions />
+        </Route>
+        <Route path="/cgu" exact>
+          <CGU />
         </Route>
         <Route path="/search" exact>
           <Search />
