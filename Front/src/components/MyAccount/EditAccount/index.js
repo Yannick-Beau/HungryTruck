@@ -167,7 +167,7 @@ const EditAccount = ({
                       <MapGL
                         ref={mapRef}
                         {...viewport}
-                        width="400px"
+                        width="250px"
                         height="350px"
                         onViewportChange={handleViewportChange}
                         mapboxApiAccessToken={MAPBOX_TOKEN}
