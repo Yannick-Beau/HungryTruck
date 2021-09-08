@@ -66,10 +66,10 @@ class ProController extends AbstractController
 
             $user = $serializer->deserialize($data, User::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $user]);
 
-            $user->setPassword($hasher->hashPassword($user, $user->getPassword()));
-
             // On valide l'entité
             $errors = $validator->validate($user);
+
+            $user->setPassword($hasher->hashPassword($user, $user->getPassword()));
 
             // Affichage des erreurs
             if (count($errors) > 0) {
