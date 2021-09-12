@@ -2,7 +2,6 @@
 
 namespace App\Controller\Api;
 
-use App\Entity\User;
 use App\Entity\Foodtruck;
 use App\Repository\FoodtruckRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -15,7 +14,6 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class FoodTruckController extends AbstractController
 {
