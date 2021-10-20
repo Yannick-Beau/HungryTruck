@@ -32,4 +32,37 @@ export default [
       },
     ],
   },
+  {
+    id: 21,
+    name: 'Le Gras',
+    overview: "C'est la vie !",
+    num_tel: '015640564049',
+    instagram: 'https:\/\/www.insta2.com',
+    twitter: 'https:\/\/www.twiter2.com',
+    facebook: 'https:\/\/www.facebook2.com',
+    picture: 'https:\/\/gras.fr\/wp-content\/uploads\/2020\/10\/logo-chibus.svg',
+    user: {
+      id: 18,
+      email: 'john.promot@gmail.com',
+      pseudo: 'John',
+      siret: '1213456789',
+    },
+    sell_type_food: [
+      {
+        name: 'frite',
+      },
+    ],
+    createdAt: '2021-09-08T14:13:59+00:00',
+    events: [
+      {
+        id: 23,
+        day: 'jeudi',
+        hours: '01h30',
+        hours_end: '06h00',
+        adresse: '100 Rue De Ménilmontant, 75020 Paris, France',
+        longitude: '2.392',
+        latitude: '48.869',
+      },
+    ],
+  },
 ];
