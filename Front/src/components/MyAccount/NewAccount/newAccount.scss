@@ -359,7 +359,8 @@
 @media (min-width: 300px) and (max-width: 1900px) {
   .newaccount {
     min-height: 230vh;
-    max-height: 290vh;
+    max-height: 450vh;
+    box-sizing: border-box;
     
 
     .newaccount-title {
