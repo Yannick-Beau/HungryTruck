@@ -11,8 +11,8 @@ function faqReducer(state = initialState, action = {}) {
     case SAVE_FAQ:
       return {
         ...state,
-        faq: action.newValue
-      }
+        faq: action.newValue,
+      };
     default:
       return state;
   }

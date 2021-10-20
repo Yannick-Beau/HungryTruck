@@ -24,16 +24,16 @@ const createUserMiddleware = (store) => (next) => (action) => {
       foodLikeFilter.map((item) => (
         foodLike.push(item.id)
       ));
-      let proUser = ['ROLE_USER'];
+      let roleUser = ['ROLE_USER'];
       if (createPro === true) {
-        proUser = ['ROLE_PRO'];
+        roleUser = ['ROLE_PRO'];
       }
       const newLong = long.toString();
       const newLat = lat.toString();
       axios.post(`${URL}/api/user/create`,
         {
           email: email,
-          roles: proUser,
+          roles: roleUser,
           password: password,
           pseudo: nickname,
           avatar: pictureUser,

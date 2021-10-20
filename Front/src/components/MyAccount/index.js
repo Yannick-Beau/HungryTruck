@@ -36,8 +36,6 @@ const MyAccount = ({
   pseudo,
   siret,
   isPro,
-  deleteUser,
-  delUser,
   sendDel,
 }) => {
   let avatarUser;
