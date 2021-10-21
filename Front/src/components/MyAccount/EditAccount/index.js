@@ -116,6 +116,7 @@ const EditAccount = ({
               onChange={(evt) => {
                 changeField(evt.target.value, 'pictureUser');
               }}
+              required="required"
             />
           </label>
         </div>
@@ -138,6 +139,7 @@ const EditAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'email');
                         }}
+                        required="required"
                       />
                     </div>
                   </label>
@@ -155,6 +157,7 @@ const EditAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'nickname');
                         }}
+                        required="required"
                       />
                     </div>
                   </label>

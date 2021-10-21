@@ -73,6 +73,7 @@ const NewFoodTruck = ({
             onChange={(e) => {
               changeField(e.target.value, 'name');
             }}
+            required="required"
           />
         </label>
         <div className="myFoodTruck-array myFT--array">
@@ -89,6 +90,7 @@ const NewFoodTruck = ({
                   onChange={(e) => {
                     changeField(e.target.value, 'phone');
                   }}
+                  required="required"
                 />
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">
@@ -101,6 +103,7 @@ const NewFoodTruck = ({
                   onChange={(e) => {
                     changeField(e.target.value, 'overview');
                   }}
+                  required="required"
                 />
               </label>
               <label className="foodtruck-social" htmlFor="Facebook-foodtruck">

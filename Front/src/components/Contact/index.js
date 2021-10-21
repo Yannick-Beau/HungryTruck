@@ -53,6 +53,7 @@ const Contact = ({
               onChange={(e) => {
                 contactUs(e.target.value, 'mail');
               }}
+              required="required"
             />
           </label>
           <label htmlFor="message">
@@ -67,6 +68,7 @@ const Contact = ({
               onChange={(e) => {
                 contactUs(e.target.value, 'message');
               }}
+              required="required"
             />
           </label>
           <div id="contact-form-submit">
