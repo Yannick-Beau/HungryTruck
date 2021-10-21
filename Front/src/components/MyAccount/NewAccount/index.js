@@ -141,7 +141,7 @@ const NewAccount = ({
                     <div>
                       <input
                         className="field-input"
-                        type="text"
+                        type="email"
                         name="email"
                         id="field-input--email"
                         placeholder="john.doeuf@gmail.com"
