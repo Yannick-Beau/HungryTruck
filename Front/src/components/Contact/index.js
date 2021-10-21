@@ -46,7 +46,7 @@ const Contact = ({
             Veuillez renseigner votre adresse mail :
             <input
               id="contact-mail--input"
-              type="text"
+              type="email"
               name="mail"
               placeholder="exemple : john@deuf.fr"
               value={mail}
