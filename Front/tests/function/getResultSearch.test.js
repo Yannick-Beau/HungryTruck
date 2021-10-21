@@ -11,7 +11,6 @@ import foodTruck from '../data/foodTruck';
 should();
 describe('getResultSearch', () => {
   it('is a function', () => {
-    // on veut vérifier que slugifyTitle est bien une fonction
     getResultSearch.should.be.a('function');
   });
   it('filter test result (length)', () => {

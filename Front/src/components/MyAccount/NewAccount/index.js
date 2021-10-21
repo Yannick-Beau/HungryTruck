@@ -107,6 +107,7 @@ const NewAccount = ({
               onChange={(evt) => {
                 changeField(evt.target.value, 'pictureUser');
               }}
+              required="required"
             />
           </label>
         </div>
@@ -148,6 +149,7 @@ const NewAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'email');
                         }}
+                        required="required"
                       />
                     </div>
                   </label>
@@ -165,6 +167,7 @@ const NewAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'nickname');
                         }}
+                        required="required"
                       />
                     </div>
                   </label>
@@ -181,6 +184,7 @@ const NewAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'password');
                         }}
+                        required="required"
                       />
                     </div>
                     <p id="regex">
@@ -201,6 +205,7 @@ const NewAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'passwordConfirm');
                         }}
+                        required="required"
                       />
                     </div>
                   </label>
@@ -219,6 +224,7 @@ const NewAccount = ({
                         onChange={(evt) => {
                           changeField(evt.target.value, 'siret');
                         }}
+                        required="required"
                       />
                     </div>
                   </label>

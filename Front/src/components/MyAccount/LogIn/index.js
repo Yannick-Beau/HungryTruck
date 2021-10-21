@@ -42,6 +42,7 @@ const LogIn = ({
           onChange={(evt) => {
             changeField(evt.target.value, 'email');
           }}
+          required="required"
         />
       </label>
       <label className="login-label" htmlFor="password">Votre mot de passe
@@ -54,6 +55,7 @@ const LogIn = ({
           onChange={(evt) => {
             changeField(evt.target.value, 'password');
           }}
+          required="required"
         />
       </label>
       {loadLogIn

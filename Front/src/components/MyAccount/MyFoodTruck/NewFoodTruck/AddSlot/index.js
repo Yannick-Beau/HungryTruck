@@ -72,6 +72,7 @@ const AddSlot = ({
                 }}
                 id="addslot-input"
                 name="day"
+                required="required"
               >
                 <option value="">Mes Food Truck</option>
                 { trucks.map((item) => (
@@ -89,6 +90,7 @@ const AddSlot = ({
                   }}
                   className="addslot-input"
                   name="day"
+                  required="required"
                 >
                   <option value="">Jour</option>
                   <option value="lundi">lundi</option>
@@ -109,6 +111,7 @@ const AddSlot = ({
                   onChange={(e) => {
                     newTime(e.target.value, 'newStartTime');
                   }}
+                  required="required"
                 >
                   <option value="">Heure d'arrivée</option>
                   <option value="00h00">00h00</option>
@@ -170,6 +173,7 @@ const AddSlot = ({
                   onChange={(e) => {
                     newTime(e.target.value, 'newEndTime');
                   }}
+                  required="required"
                 >
                   <option value="">Heure de fin</option>
                   <option value="00h00">00h00</option>
